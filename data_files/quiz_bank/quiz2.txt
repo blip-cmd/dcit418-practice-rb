@@ -1,0 +1,212 @@
+[
+  {
+    "stem": "Which action is the best step toward protecting Internet of Things (IoT) devices from becoming the entry point for security vulnerabilities into a network while still meeting business requirements?",
+    "options": ["Applying security updates promptly", "Using encryption for communications", "Removing IoT devices from the network", "Turning IoT devices off when not in use"],
+    "correct": 0,
+    "explanation": "Patching closes known vulnerabilities while keeping devices operational, unlike removing or disabling them.",
+    "topic": "IoT Security"
+  },
+  {
+    "stem": "In Mobile IP, what term describes a device that would like to communicate with a mobile node (MN)?",
+    "options": ["Home agent (HA)", "Foreign agent (FA)", "Care of address (COA)", "Correspondent node (CN)"],
+    "correct": 3,
+    "explanation": "The correspondent node is any host that communicates with the mobile node, unaware of its mobility.",
+    "topic": "Mobile IP"
+  },
+  {
+    "stem": "Which of the following is an example of a business-to-consumer (B2C) application of the Internet of Things (IoT)?",
+    "options": ["Video conferencing", "Infrastructure monitoring", "Health monitoring", "Traffic monitoring"],
+    "correct": 2,
+    "explanation": "Wearables and connected health devices are sold directly to individual consumers.",
+    "topic": "IoT Business Models"
+  },
+  {
+    "stem": "What term describes data that has been stripped of personally identifiable information for privacy reasons?",
+    "options": ["Encrypted", "Proprietary", "De-identified", "Compliant"],
+    "correct": 2,
+    "explanation": "De-identification removes identifiers so individuals cannot be readily identified.",
+    "topic": "Data Privacy"
+  },
+  {
+    "stem": "A challenge created by the Internet of Things (IoT) is how to protect personal identity and private data from theft or unauthorized access.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "The expanded attack surface and weak default security of IoT devices make identity and data protection a core challenge.",
+    "topic": "IoT Security"
+  },
+  {
+    "stem": "Bring Your Own Device (BYOD) often replaces the need for the organization to procure limited mobile device model options and issue them to employees for individual use.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "BYOD shifts hardware procurement to employees, removing the need for the organization to standardize on a narrow device list.",
+    "topic": "BYOD"
+  },
+  {
+    "stem": "Smart cities can monitor and report on real-time traffic conditions using Internet of Things (IoT) technology.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Road sensors, cameras, and connected vehicle data feed real-time traffic systems in smart cities.",
+    "topic": "IoT Applications"
+  },
+  {
+    "stem": "E-commerce systems and applications demand strict confidentiality, integrity, and availability (C-I-A) security controls.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Confidentiality, integrity, and availability are all essential given the sensitive financial data e-commerce systems handle.",
+    "topic": "E-commerce"
+  },
+  {
+    "stem": "What is key to implementing a consistent Internet of Things (IoT) device, connectivity, and communications environment?",
+    "options": ["Interoperability and standards", "Privacy laws", "Proprietary solutions", "Broadband capacity"],
+    "correct": 0,
+    "explanation": "Common protocols and standards let devices from different vendors work together consistently.",
+    "topic": "IoT Standards"
+  },
+  {
+    "stem": "Posting a comment on social media is an example of real-time communication.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "Social media posting is asynchronous; there's no expectation of immediate viewing or response.",
+    "topic": "Communication Types"
+  },
+  {
+    "stem": "Internet of Things (IoT) devices cannot share and communicate your IoT device data to other systems and applications without your authorization or knowledge.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "Many IoT devices share data with third parties via default settings and buried terms of service, often without full user awareness.",
+    "topic": "IoT Data Privacy"
+  },
+  {
+    "stem": "In e-business, secure web applications are one of the critical security controls that each organization must implement to reduce risk.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Web applications are the primary internet-facing attack surface for e-business and require dedicated security controls.",
+    "topic": "E-business Security"
+  },
+  {
+    "stem": "Internet of Things (IoT) upgrades can be difficult to distribute and deploy, leaving gaps in the remediation of IoT devices or endpoints.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Device fragmentation, limited resources, and manufacturer abandonment make consistent patch deployment difficult across IoT fleets.",
+    "topic": "IoT Security"
+  },
+  {
+    "stem": "Bring Your Own Device (BYOD) opens the door to considerable security issues.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Loss of device control, mixed personal/corporate data, and inconsistent security postures all increase risk under BYOD.",
+    "topic": "BYOD"
+  },
+  {
+    "stem": "Using Mobile IP, users can move between segments on a local area network (LAN) and stay connected without interruption.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "Mobile IP addresses movement across different networks, not just segments within a single LAN.",
+    "topic": "Mobile IP"
+  },
+  {
+    "stem": "Ron is the IT director at a medium-sized company. He frequently gets requests from employees who want to select customized mobile devices. He decides to allow them to purchase their own devices. Which type of policy should Ron implement to include the requirements and security controls for this arrangement?",
+    "options": ["Privacy", "Bring Your Own Device (BYOD)", "Acceptable use", "Data classification"],
+    "correct": 1,
+    "explanation": "A BYOD policy defines the requirements and security controls for employee-owned devices used for work.",
+    "topic": "BYOD"
+  },
+  {
+    "stem": "Which compliance obligation includes security requirements that apply specifically to the European Union?",
+    "options": ["Gramm-Leach-Bliley Act (GLBA)", "Health Insurance Portability and Accountability Act (HIPAA)", "General Data Protection Regulation (GDPR)", "Federal Information Security Management Act (FISMA)"],
+    "correct": 2,
+    "explanation": "GDPR sets security and privacy requirements specifically for the personal data of EU residents.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Store-and-forward communications should be used when you need to talk to someone immediately.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "Store-and-forward is asynchronous; real-time methods like calls or video conferencing are needed for immediate communication.",
+    "topic": "Communication Types"
+  },
+  {
+    "stem": "Which of the following enables businesses to transform themselves into an Internet of Things (IoT) service offering?",
+    "options": ["Anything as a Service (AaaS) delivery model", "Remote sensoring", "Real-time tracking and monitoring", "Store-and-forward communications"],
+    "correct": 0,
+    "explanation": "AaaS is the business model that lets companies package IoT capabilities as subscription-based services.",
+    "topic": "IoT Business Models"
+  },
+  {
+    "stem": "Which organization pursues standards for Internet of Things (IoT) devices and is widely recognized as the authority for creating standards on the Internet?",
+    "options": ["Internet Society", "Internet Engineering Task Force (IETF)", "Internet Association", "Internet Authority"],
+    "correct": 1,
+    "explanation": "The IETF develops protocols like CoAP and 6LoWPAN and is the primary technical standards body for the internet.",
+    "topic": "IoT Standards"
+  },
+  {
+    "stem": "Metadata of Internet of Things (IoT) devices is sometimes sold to companies seeking demographic marketing data about users and their spending habits.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Usage patterns and behavioral metadata from IoT devices are often monetized by being sold to data brokers and advertisers.",
+    "topic": "IoT Data Privacy"
+  },
+  {
+    "stem": "Which of the following is not a market driver for the Internet of Things (IoT)?",
+    "options": ["Global adoption of Internet Protocol (IP) networking", "Smaller and faster computing", "A decline in cloud computing", "Advancements in data analytics"],
+    "correct": 2,
+    "explanation": "Cloud computing has been growing, not declining, and its growth actually enables IoT data storage and processing.",
+    "topic": "IoT Market Drivers"
+  },
+  {
+    "stem": "Application service providers (ASPs) are software companies that build applications hosted in the cloud and on the Internet.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "ASPs host and deliver software applications over the internet, the conceptual predecessor to today's SaaS model.",
+    "topic": "IoT Business Models"
+  },
+  {
+    "stem": "The ownership of Internet of Things (IoT) data, as well as the metadata of that data, is sometimes in question.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Multiple parties, including users, manufacturers, and platform providers, can have competing claims over IoT-generated data.",
+    "topic": "IoT Data Privacy"
+  },
+  {
+    "stem": "With the use of Mobile IP, which device is responsible for keeping track of mobile nodes (MNs) and forwarding packets to the MN's current network?",
+    "options": ["Home agent (HA)", "Foreign agent (FA)", "Care of address (COA)", "Correspondent node (CN)"],
+    "correct": 0,
+    "explanation": "The home agent tracks the mobile node's current care-of address and tunnels packets to its current location.",
+    "topic": "Mobile IP"
+  },
+  {
+    "stem": "Utility companies are incorporating Internet-connected sensors into their business functions.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Smart meters, grid sensors, and leak detection systems are common IoT applications in utility operations.",
+    "topic": "IoT Applications"
+  },
+  {
+    "stem": "Which of the following would govern the use of Internet of Things (IoT) by health care providers, such as physicians and hospitals?",
+    "options": ["Payment Card Industry Data Security Standard (PCI DSS)", "Federal Financial Institutions Examination Council (FFIEC)", "Federal Information Security Management Act (FISMA)", "Health Insurance Portability and Accountability Act (HIPAA)"],
+    "correct": 3,
+    "explanation": "HIPAA governs the privacy and security of protected health information handled by physicians and hospitals, including data from connected medical devices.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which term best describes how a wide variety of objects, devices, sensors, and everyday items can connect and be accessed?",
+    "options": ["Radio frequency identification (RFID)", "Software as a Service (SaaS)", "Internet of Things (IoT)", "Unified messaging (UM)"],
+    "correct": 2,
+    "explanation": "IoT describes the broad concept of everyday objects and devices being interconnected and accessible over a network.",
+    "topic": "IoT Fundamentals"
+  },
+  {
+    "stem": "Vehicles that have Wi-Fi access and onboard computers require software patches and upgrades from the manufacturer.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Connected vehicles run software that needs ongoing security patches and firmware upgrades, often delivered over the air.",
+    "topic": "IoT Applications"
+  },
+  {
+    "stem": "Which term best describes the sale of goods and services on the Internet, whereby online customers buy those goods and services from a vendor's website and enter private data and checking account or credit card information to pay for them?",
+    "options": ["Software as a Service (SaaS)", "E-commerce", "Internet of Things (IoT)", "Economic development"],
+    "correct": 1,
+    "explanation": "E-commerce refers to buying and selling goods and services online, including entering payment and personal data to complete transactions.",
+    "topic": "E-commerce"
+  }
+]

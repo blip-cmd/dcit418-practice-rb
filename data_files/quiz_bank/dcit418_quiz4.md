@@ -1049,7 +1049,7 @@
 - D. It could not be implemented in hardware
 
 <details>
-<summary>Reveal Answer**</summary>
+<summary>Reveal Answer</summary>
 
 **Correct Answer:** **B. Its 56-bit key length is vulnerable to brute-force attack**
 

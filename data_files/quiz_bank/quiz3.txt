@@ -1,0 +1,296 @@
+[
+  {
+    "stem": "Many African countries lack:",
+    "options": ["Internet access completely", "Interest in technology", "Skilled data-hosting professionals", "Basic electricity"],
+    "correct": 2,
+    "explanation": "Local data-center and cloud hosting capacity is limited by a shortage of trained technical professionals, which is a key driver of why data is often hosted abroad.",
+    "topic": "Digital Infrastructure"
+  },
+  {
+    "stem": "The first step in breach response is:",
+    "options": ["Notify everyone immediately", "Delete affected data", "Ignore the incident", "Detect and record the breach"],
+    "correct": 3,
+    "explanation": "You must detect and document a breach before any containment, notification, or remediation can occur.",
+    "topic": "Breach Response"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO statements best define data sovereignty?",
+    "options": ["Data follows the country's laws", "Jurisdiction follows the data", "Data must stay in the cloud", "Data cannot cross borders"],
+    "correct": [0, 1],
+    "explanation": "Data sovereignty means data remains subject to the laws of the country where it is stored/processed — jurisdiction follows the data.",
+    "topic": "Data Sovereignty"
+  },
+  {
+    "stem": "Data sovereignty protects citizens from:",
+    "options": ["Local governments", "International trade agreements", "Foreign surveillance", "Domestic businesses"],
+    "correct": 2,
+    "explanation": "Sovereignty laws limit foreign governments' access to citizens' data by keeping it under domestic legal jurisdiction.",
+    "topic": "Data Sovereignty"
+  },
+  {
+    "stem": "Internal audit and KPIs should track:",
+    "options": ["Employee attendance", "Marketing campaigns", "SARs, training, incidents", "Financial metrics only"],
+    "correct": 2,
+    "explanation": "Compliance-focused KPIs track measurable indicators like Suspicious Activity Reports, training completion, and incident counts.",
+    "topic": "Governance & Audit"
+  },
+  {
+    "stem": "The fragmentation risk means:",
+    "options": ["No regulations exist", "All countries have identical rules", "Different national rules create barriers", "The internet becomes unified"],
+    "correct": 2,
+    "explanation": "Divergent national data laws create a patchwork of incompatible rules that hinder cross-border data flow.",
+    "topic": "Digital Sovereignty"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Data localization differs from data sovereignty because:",
+    "options": ["They are identical concepts", "Neither protects data", "Localization = storage location", "Sovereignty = legal control"],
+    "correct": [2, 3],
+    "explanation": "Localization concerns where data is physically stored; sovereignty concerns whose laws legally govern the data.",
+    "topic": "Data Sovereignty"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO steps are part of breach response?",
+    "options": ["Notify affected people when risk is high", "Wait 30 days before acting", "Report to the regulator within 72 hours", "Never inform the regulator"],
+    "correct": [0, 2],
+    "explanation": "Timely notification to both affected individuals (when high risk) and the regulator (within 72 hours) are standard breach response obligations.",
+    "topic": "Breach Response"
+  },
+  {
+    "stem": "Records must be indexed and titled consistently so they can be:",
+    "options": ["Deleted immediately", "Easily retrieved", "Shared publicly", "Hidden from users"],
+    "correct": 1,
+    "explanation": "Consistent indexing/titling exists to make records quickly and reliably retrievable.",
+    "topic": "Records Management"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Data collection includes:",
+    "options": ["Delete all sources", "Existing data only", "Gather new data", "Never collect data"],
+    "correct": [1, 2],
+    "explanation": "Data collection covers both using existing data sources and gathering new data directly.",
+    "topic": "Data Lifecycle"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO laws make DPIA mandatory for high-risk processing?",
+    "options": ["UK Data Protection Act", "Ghana's Act 843", "Nigeria's NDPA", "US HIPAA"],
+    "correct": [1, 2],
+    "explanation": "Nigeria's NDPA (Section 28) explicitly mandates DPIAs for high-risk processing; Ghana's DPC guidance (per Act 843) similarly requires DPIAs in specified cases.",
+    "topic": "African Data Protection Law"
+  },
+  {
+    "stem": "Breach notification to the regulator must occur within:",
+    "options": ["30 days", "72 hours", "One year", "Ten business days"],
+    "correct": 1,
+    "explanation": "72 hours is the standard benchmark for regulator notification under GDPR-style and NDPA frameworks.",
+    "topic": "Breach Response"
+  },
+  {
+    "stem": "Sharing in the data lifecycle means:",
+    "options": ["Never share", "Sell without consent", "Enable reuse", "Share only with competitors"],
+    "correct": 2,
+    "explanation": "The sharing stage makes data available to authorized parties so it can be reused for legitimate purposes.",
+    "topic": "Data Lifecycle"
+  },
+  {
+    "stem": "Regulatory fines can result from:",
+    "options": ["Following regulations", "Conducting a DPIA", "Skipping a DPIA", "Full compliance"],
+    "correct": 2,
+    "explanation": "Failing to conduct a required DPIA is a compliance violation that can trigger enforcement penalties.",
+    "topic": "DPIA"
+  },
+  {
+    "stem": "Risks of skipping a DPIA include:",
+    "options": ["Better system performance", "Increased public trust", "Regulatory fines", "Reduced operational costs"],
+    "correct": 2,
+    "explanation": "Unaddressed high-risk processing exposes an organization to regulatory enforcement and fines.",
+    "topic": "DPIA"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are African data protection laws mentioned?",
+    "options": ["GDPR", "Ghana Act 843", "CCPA", "Nigeria NDPA"],
+    "correct": [1, 3],
+    "explanation": "Ghana's Act 843 and Nigeria's NDPA are the African-specific laws; GDPR (EU) and CCPA (US) are not.",
+    "topic": "African Data Protection Law"
+  },
+  {
+    "stem": "Secure transfer of records requires:",
+    "options": ["Public posting", "Regular mail", "Encryption", "No protection"],
+    "correct": 2,
+    "explanation": "Encryption protects data confidentiality and integrity while in transit.",
+    "topic": "Records Management"
+  },
+  {
+    "stem": "Privacy by Design applies to:",
+    "options": ["Launch only", "Maintenance only", "Testing only", "Every stage"],
+    "correct": 3,
+    "explanation": "Privacy by Design requires privacy protections be embedded across the entire system lifecycle, not one phase.",
+    "topic": "Privacy by Design"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are uses of data in the lifecycle?",
+    "options": ["Ignore insights", "Support decisions", "Keep data unused", "Generate insights"],
+    "correct": [1, 3],
+    "explanation": "The 'use' stage involves generating insights from data and applying them to support decisions.",
+    "topic": "Data Lifecycle"
+  },
+  {
+    "stem": "When risk is high, affected people should be notified:",
+    "options": ["After one month", "Only if they request it", "Through legal documents only", "Without delay and in clear language"],
+    "correct": 3,
+    "explanation": "High-risk breaches require prompt notification in plain, understandable language so individuals can act.",
+    "topic": "Breach Response"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO challenges are unique to Africa's digital sovereignty?",
+    "options": ["Uniform regulations", "Different national rules", "Plenty of infrastructure", "Limited technical capacity"],
+    "correct": [1, 3],
+    "explanation": "Inconsistent national rules and a shortage of technical capacity are core digital sovereignty challenges across Africa.",
+    "topic": "Digital Sovereignty"
+  },
+  {
+    "stem": "Processing in the data lifecycle includes:",
+    "options": ["Analysis only", "Clean and organize data", "Sharing only", "Deletion only"],
+    "correct": 1,
+    "explanation": "Processing refers to cleaning and organizing raw data to prepare it for use.",
+    "topic": "Data Lifecycle"
+  },
+  {
+    "stem": "Secure destruction of records means:",
+    "options": ["Delete from desktop", "Burn without oversight", "Certified destruction", "Shred without records"],
+    "correct": 2,
+    "explanation": "Secure destruction requires a verifiable, documented process guaranteeing data is irrecoverable.",
+    "topic": "Records Management"
+  },
+  {
+    "stem": "A PIA (Privacy Impact Assessment) asks:",
+    "options": ["How much profit will this make?", "What does this mean for people's privacy?", "What is the marketing strategy?", "How fast is the system?"],
+    "correct": 1,
+    "explanation": "A PIA evaluates how a project or system affects individuals' privacy.",
+    "topic": "PIA"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO provide regulatory enforcement power?",
+    "options": ["Voluntary guidelines", "Data protection authorities", "No enforcement", "Data sovereignty laws"],
+    "correct": [1, 3],
+    "explanation": "Data protection authorities enforce compliance, backed by the legal authority established through data sovereignty laws.",
+    "topic": "Governance & Audit"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are benefits of data sovereignty for Africa?",
+    "options": ["Better national security and privacy", "Increased foreign surveillance", "Local infrastructure investment", "Reduced government control"],
+    "correct": [0, 2],
+    "explanation": "Data sovereignty strengthens privacy/security protections and drives local infrastructure investment.",
+    "topic": "Data Sovereignty"
+  },
+  {
+    "stem": "External assurance in breach response involves:",
+    "options": ["Ignoring the incident", "Independent assessment", "Hiding the breach", "Internal reviews only"],
+    "correct": 1,
+    "explanation": "External assurance means bringing in an independent third party to verify the breach response.",
+    "topic": "Breach Response"
+  },
+  {
+    "stem": "Benefits of DPIA in Africa include:",
+    "options": ["Ignore citizen rights", "Reduce public trust", "Avoid oversight", "Compliance with local laws"],
+    "correct": 3,
+    "explanation": "DPIAs help organizations meet legal obligations under laws like Nigeria's NDPA and Ghana's Act 843.",
+    "topic": "DPIA"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are phases of the data lifecycle?",
+    "options": ["Storage only", "Processing & analysis", "Deletion only", "Planning & collection"],
+    "correct": [1, 3],
+    "explanation": "The data lifecycle includes combined phases like planning/collection and processing/analysis, among others.",
+    "topic": "Data Lifecycle"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are risks of data localization in Africa?",
+    "options": ["Better connectivity", "Internet fragmentation", "Limited technical capacity", "Lower infrastructure costs"],
+    "correct": [1, 2],
+    "explanation": "Localization can worsen fragmentation and strains limited local technical/infrastructure capacity.",
+    "topic": "Data Localization"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are records management principles?",
+    "options": ["Keep records forever", "Retention schedules", "Never organize records", "Quality checks"],
+    "correct": [1, 3],
+    "explanation": "Retention schedules and quality checks are core principles of sound records management.",
+    "topic": "Records Management"
+  },
+  {
+    "stem": "A PIA is generally:",
+    "options": ["Only for governments", "Always required by law", "A best practice", "A criminal offense"],
+    "correct": 2,
+    "explanation": "PIAs are broadly recommended as best practice, beyond the specific legal mandates for high-risk processing.",
+    "topic": "PIA"
+  },
+  {
+    "stem": "The opposite of Privacy by Design is:",
+    "options": ["Continuous privacy", "Proactive privacy", "Privacy added at the end", "Built-in privacy"],
+    "correct": 2,
+    "explanation": "Privacy by Design embeds privacy from the start; its opposite treats privacy as an afterthought.",
+    "topic": "Privacy by Design"
+  },
+  {
+    "stem": "Access control should be based on:",
+    "options": ["Full access for everyone", "Managers only", "No restrictions", "Least privilege"],
+    "correct": 3,
+    "explanation": "Least privilege grants only the minimum access needed for a role, limiting exposure risk.",
+    "topic": "Security Controls"
+  },
+  {
+    "stem": "Strict localization rules across Africa can:",
+    "options": ["Remove competition", "Create one digital market", "Split Africa's digital market", "Reduce compliance costs"],
+    "correct": 2,
+    "explanation": "Inconsistent, strict localization rules across countries reinforce fragmentation rather than unifying the market.",
+    "topic": "Data Localization"
+  },
+  {
+    "type": "multi_select",
+    "stem": "Which TWO are essential parts of a DPIA template?",
+    "options": ["Marketing analysis", "Financial projections", "Processing scope and necessity", "Risks and mitigation measures"],
+    "correct": [2, 3],
+    "explanation": "DPIA templates define processing scope/necessity and assess risks with mitigation measures.",
+    "topic": "DPIA"
+  },
+  {
+    "stem": "The digital economy benefit of data localization is:",
+    "options": ["Reducing cross-border trade", "Strengthening AfCFTA's digital protocol", "Eliminating fintech services", "Lowering internet usage"],
+    "correct": 1,
+    "explanation": "Thoughtful localization can support continental integration goals like AfCFTA's Digital Trade Protocol.",
+    "topic": "Digital Economy"
+  },
+  {
+    "stem": "A Data Protection Impact Assessment (DPIA) is:",
+    "options": ["A process to identify privacy risks before launch", "Used only after a breach", "Optional under all laws", "Only for government agencies"],
+    "correct": 0,
+    "explanation": "A DPIA is a proactive assessment conducted before high-risk processing begins.",
+    "topic": "DPIA"
+  },
+  {
+    "stem": "Overly rigid localization rules may:",
+    "options": ["Attract more foreign investment", "Encourage global providers", "Keep costs low", "Discourage global cloud providers"],
+    "correct": 3,
+    "explanation": "Strict localization can make it costly for global cloud providers to operate in a market, discouraging entry.",
+    "topic": "Data Localization"
+  },
+  {
+    "stem": "A DPIA must be conducted:",
+    "options": ["Every ten years", "Before deployment", "After a data breach", "Only if requested"],
+    "correct": 1,
+    "explanation": "DPIAs are conducted proactively before a system or processing activity is deployed.",
+    "topic": "DPIA"
+  }
+]

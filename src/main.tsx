@@ -6,12 +6,14 @@ import {
   practiceBank as bank,
   supplemental,
   byId,
+  COURSE_PARTS,
   createSession,
   displayOption,
   emptyProgress,
   errorCsv,
   makeAttempt,
   median,
+  MOCK_PER_PART,
   mockIds,
   parseProgress,
   reviewIds,
@@ -35,44 +37,31 @@ import { MockHistory } from "./MockHistory";
 import { Reader } from "./Reader";
 
 const titles = [
-  "Management Foundations",
-  "Planning & Mission",
-  "Organising & Structure",
-  "Leadership",
-  "Motivation, Communication & Control",
-  "Evolution of Management",
+  "Data Protection & IT Security Policy",
+  "Overview & Computer Security Concepts",
+  "Classical Encryption Techniques",
+  "Block Ciphers & the Data Encryption Standard",
+  "Number Theory & Finite Fields",
+  "Advanced Encryption Standard (AES)",
+  "Block Cipher Operation",
+  "Pseudorandom Number Generation & Stream Ciphers",
+  "More Number Theory (Primes & Primality)",
+  "Public-Key Cryptography & RSA",
+  "Other Public-Key Cryptosystems",
+  "Cryptographic Hash Functions",
+  "Message Authentication Codes",
+  "Digital Signatures",
 ];
-const WEEK_SLIDE_NAMES: Record<string, string> = {
-  "Week 1": "Week1_Introduction_to_Management.pptx",
-  "Week 2": "Week2_Planning_and_Mission.pptx",
-  "Week 3": "Week3_Organising.pptx",
-  "Week 4": "Week4_Leadership.pptx",
-  "Week 5": "Week5_Motivation.pptx",
-  "Week 6": "Week6_Communication_Coordination.pptx",
-  "Week 7": "Week7_Controlling.pptx",
-  "Week 8": "Week8_Evolution_of_Management_Science.pptx",
-  "Week 9": "Week9_Communication.pptx",
-};
 const sourceBanks = [
   {
-    id: "itfill100",
-    label: "IT_Fill In Drill 100",
-    file: "bd/it-fill-in-drill-100.md",
+    id: "quizbank",
+    label: "Consolidated Quiz Bank (Quiz 1-5)",
+    file: "data_files/quiz_bank/quiz.md",
   },
   {
-    id: "itclass",
-    label: "IT class quiz bank",
-    file: "bd/dcit402-it-class-combined-tagged-quiz-bank.md",
-  },
-  {
-    id: "sakai",
-    label: "CS_Sakai_Quiz1",
-    file: "bd/dcit402-sakai-quiz1.md",
-  },
-  {
-    id: "mbamcq",
-    label: "Management MCQ bank",
-    file: "bd/principles-and-practices-of-management-questions-mbamcq.md",
+    id: "iabank",
+    label: "IA Offsite bank",
+    file: "data_files/ia_bank/dcit418_ia_offsite.md",
   },
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
@@ -95,27 +84,14 @@ function download(name: string, text: string, type: string) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 function load(): Progress {
-  let text = localStorage.getItem(STORAGE);
-  if (!text) {
-    try {
-      const legacy = localStorage.getItem("dcit408-progress-v1");
-      if (legacy) {
-        text = legacy;
-        localStorage.setItem(STORAGE, legacy);
-      }
-    } catch {
-      /* storage access might be restricted */
-    }
-  }
+  const text = localStorage.getItem(STORAGE);
   return text ? parseProgress(text) : emptyProgress();
 }
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
     try {
-      const saved =
-        localStorage.getItem("dcit402-sidebar-collapsed") ??
-        localStorage.getItem("dcit408-sidebar-collapsed");
+      const saved = localStorage.getItem("dcit418-sidebar-collapsed");
       return saved === null
         ? window.matchMedia("(max-width: 760px)").matches
         : saved === "true";
@@ -127,7 +103,7 @@ function App() {
     const collapsed = !sidebarCollapsed;
     setSidebarCollapsed(collapsed);
     try {
-      localStorage.setItem("dcit402-sidebar-collapsed", String(collapsed));
+      localStorage.setItem("dcit418-sidebar-collapsed", String(collapsed));
     } catch {
       /* Keep the toggle usable without browser storage. */
     }
@@ -136,33 +112,21 @@ function App() {
     "default" | "dark" | "ocean" | "sunset" | "custom"
   >(() => {
     try {
-      return (
-        (localStorage.getItem("dcit402-theme") as never) ||
-        (localStorage.getItem("dcit408-theme") as never) ||
-        "default"
-      );
+      return (localStorage.getItem("dcit418-theme") as never) || "default";
     } catch {
       return "default";
     }
   });
   const [customAccent, setCustomAccent] = useState(() => {
     try {
-      return (
-        localStorage.getItem("dcit402-custom-accent") ||
-        localStorage.getItem("dcit408-custom-accent") ||
-        "#214d3c"
-      );
+      return localStorage.getItem("dcit418-custom-accent") || "#214d3c";
     } catch {
       return "#214d3c";
     }
   });
   const [fontSize, setFontSize] = useState<"sm" | "md" | "lg" | "xl">(() => {
     try {
-      return (
-        (localStorage.getItem("dcit402-font-size") as never) ||
-        (localStorage.getItem("dcit408-font-size") as never) ||
-        "md"
-      );
+      return (localStorage.getItem("dcit418-font-size") as never) || "md";
     } catch {
       return "md";
     }
@@ -170,7 +134,7 @@ function App() {
   function applyTheme(next: typeof theme) {
     setTheme(next);
     try {
-      localStorage.setItem("dcit402-theme", next);
+      localStorage.setItem("dcit418-theme", next);
     } catch {
       /* Keep the picker usable without browser storage. */
     }
@@ -178,7 +142,7 @@ function App() {
   function applyCustomAccent(hex: string) {
     setCustomAccent(hex);
     try {
-      localStorage.setItem("dcit402-custom-accent", hex);
+      localStorage.setItem("dcit418-custom-accent", hex);
     } catch {
       /* Keep the picker usable without browser storage. */
     }
@@ -186,7 +150,7 @@ function App() {
   function applyFontSize(next: typeof fontSize) {
     setFontSize(next);
     try {
-      localStorage.setItem("dcit402-font-size", next);
+      localStorage.setItem("dcit418-font-size", next);
     } catch {
       /* Keep the picker usable without browser storage. */
     }
@@ -211,7 +175,7 @@ function App() {
   const [view, setView] = useState<
     "home" | "practice" | "mock" | "review" | "dashboard" | "read" | "settings"
   >(progress.session ? progress.session.mode : "home");
-  const [parts, setParts] = useState([1, 2, 3, 4, 5, 6]);
+  const [parts, setParts] = useState([...COURSE_PARTS]);
   const [scope, setScope] = useState("core");
   const [order, setOrder] = useState<"random" | "sequential">("random");
   const [week, setWeek] = useState("");
@@ -504,7 +468,22 @@ function App() {
         const original = active.orders[q.id][Number(e.key) - 1];
         if (original !== undefined) {
           e.preventDefault();
-          change({ selected: original, answer: displayOption(q, original) });
+          if (q.type === "multi") {
+            const picked = (draft?.selectedMulti ?? []).includes(original);
+            const next = picked
+              ? (draft?.selectedMulti ?? []).filter((v) => v !== original)
+              : [...(draft?.selectedMulti ?? []), original];
+            change({
+              selectedMulti: next,
+              answer: next
+                .slice()
+                .sort((a, b) => a - b)
+                .map((idx) => displayOption(q, idx))
+                .join(" and "),
+            });
+          } else {
+            change({ selected: original, answer: displayOption(q, original) });
+          }
         }
       }
       if (
@@ -570,7 +549,7 @@ function App() {
   }
   async function exportErrors() {
     const csv = errorCsv(progress.attempts);
-    download("dcit402-errors.csv", csv, "text/csv;charset=utf-8");
+    download("dcit418-errors.csv", csv, "text/csv;charset=utf-8");
     try {
       await navigator.clipboard.writeText(csv);
       setMessage("Error log downloaded and copied to clipboard.");
@@ -611,10 +590,10 @@ function App() {
           }}
         >
           <span className="brand-icon">
-            M<span>_</span>
+            S<span>_</span>
           </span>
           <span>
-            Management Lab<small>DCIT 402 · EXAM PRACTICE</small>
+            Security Lab<small>DCIT 418 · EXAM PRACTICE</small>
           </span>
         </a>
         <div className="nav-label">YOUR WORKSPACE</div>
@@ -652,7 +631,7 @@ function App() {
             className="text-button"
             onClick={() =>
               download(
-                "dcit402-progress.json",
+                "dcit418-progress.json",
                 JSON.stringify(progress, null, 2),
                 "application/json",
               )
@@ -713,7 +692,7 @@ function App() {
               onClick={() => {
                 const old = localStorage.getItem(STORAGE);
                 if (old)
-                  download("dcit402-recovery.json", old, "application/json");
+                  download("dcit418-recovery.json", old, "application/json");
               }}
             >
               Export stored data
@@ -752,7 +731,7 @@ function App() {
                     {active.mode.toUpperCase()} SESSION · PART {q.part}
                   </div>
                   <div className="session-title">
-                    <h1>{titles[q.part - 1]}</h1>
+                    <h1>{titles[q.part]}</h1>
                     <div className="timer">
                       {active.mode === "mock" && (
                         <strong>
@@ -807,7 +786,9 @@ function App() {
                         ? "Fill in the blank"
                         : q.type === "tf"
                           ? "True / False"
-                          : "Multiple choice"}
+                          : q.type === "multi"
+                            ? "Select all that apply"
+                            : "Multiple choice"}
                     </span>
                   </div>
                   <div className="markdown question-body">
@@ -832,6 +813,43 @@ function App() {
                         placeholder="Type your answer…"
                       />
                     </label>
+                  ) : q.type === "multi" ? (
+                    <div className="options">
+                      {active.orders[q.id].map((original, i) => {
+                        const picked = (draft.selectedMulti ?? []).includes(
+                          original,
+                        );
+                        return (
+                          <button
+                            key={original}
+                            disabled={!!attempt}
+                            aria-pressed={picked}
+                            className={`option ${picked ? "selected" : ""} ${attempt && q.correctIndices?.includes(original) ? "correct-option" : ""}`}
+                            onClick={() => {
+                              const next = picked
+                                ? (draft.selectedMulti ?? []).filter(
+                                    (v) => v !== original,
+                                  )
+                                : [...(draft.selectedMulti ?? []), original];
+                              change({
+                                selectedMulti: next,
+                                answer: next
+                                  .slice()
+                                  .sort((a, b) => a - b)
+                                  .map((idx) => displayOption(q, idx))
+                                  .join(" and "),
+                              });
+                            }}
+                          >
+                            <span className="option-number">{i + 1}</span>
+                            <div className="markdown">
+                              {md(displayOption(q, original))}
+                            </div>
+                            <span className="radio">{picked ? "☑" : "☐"}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   ) : (
                     <div className="options">
                       {active.orders[q.id].map((original, i) => (
@@ -919,7 +937,7 @@ function App() {
                             d.answer.trim(),
                           ).length
                         }
-                        /60 answered
+                        /{active.ids.length} answered
                       </span>
                     </h3>
                     <div>
@@ -969,20 +987,20 @@ function App() {
               <div className="eyebrow">A LITTLE PRACTICE, EVERY DAY</div>
               <h1>Make the concepts click.</h1>
               <p>
-                Your management principles question bank, turned into a focused
-                study routine.
+                Your systems and network security question bank, turned into a
+                focused study routine.
               </p>
             </div>
             <div className="hero">
               <div>
-                <span className="pill">DCIT 402 / MANAGEMENT PRINCIPLES</span>
+                <span className="pill">DCIT 418 / SYSTEMS &amp; NETWORK SECURITY</span>
                 <h2>
-                  From core principles
+                  From cipher fundamentals
                   <br />
                   to exam confidence.
                 </h2>
                 <p>
-                  Start with the core. Strengthen the tricky parts.
+                  Start with the core. Strengthen the tricky chapters.
                   <br />
                   Then put it all together in a timed mock.
                 </p>
@@ -995,21 +1013,21 @@ function App() {
               </div>
               <div className="compiler-art" aria-hidden="true">
                 <div>
-                  <b>01</b> PLANNING &amp; ORGANISING{" "}
+                  <b>01</b> SYMMETRIC CIPHERS{" "}
                   <code>
-                    Define goals &amp; structure;
+                    DES, AES, block cipher modes;
                     <br />
-                    allocate resources effectively.
+                    diffusion and confusion.
                   </code>
                 </div>
                 <span>↓</span>
                 <div>
-                  <b>02</b> LEADING &amp; MOTIVATING{" "}
+                  <b>02</b> ASYMMETRIC CIPHERS{" "}
                   <span className="art-nodes">○ ── ◇ ── ◎</span>
                 </div>
                 <span>↓</span>
                 <div>
-                  <b>03</b> CONTROLLING <strong>Master the principles. ✓</strong>
+                  <b>03</b> DATA INTEGRITY <strong>Hashes, MACs &amp; signatures. ✓</strong>
                 </div>
               </div>
             </div>
@@ -1057,7 +1075,7 @@ function App() {
                     "mock",
                     "02",
                     "Test your readiness",
-                    "60 questions. 60 minutes. Unseen questions first, with repeats when needed.",
+                    `${COURSE_PARTS.length * MOCK_PER_PART} questions. 60 minutes. Unseen questions first, with repeats when needed.`,
                     "Set up a mock",
                   ],
                   [
@@ -1123,7 +1141,7 @@ function App() {
                 {view === "practice"
                   ? "Choose what to work on. Every answer is a chance to understand more."
                   : view === "mock"
-                    ? "60 questions, 10 from each part. Unseen questions first, with previously seen questions filling any gaps."
+                    ? `${COURSE_PARTS.length * MOCK_PER_PART} questions, ${MOCK_PER_PART} from each part. Unseen questions first, with previously seen questions filling any gaps.`
                     : "Previously missed questions, ranked by miss count, then most recent miss."}
               </p>
             </div>
@@ -1143,24 +1161,24 @@ function App() {
                   <div className="part-grid">
                     {titles.map((title, i) => (
                       <button
-                        aria-pressed={parts.includes(i + 1)}
+                        aria-pressed={parts.includes(i)}
                         className={
-                          parts.includes(i + 1) ? "part chosen" : "part"
+                          parts.includes(i) ? "part chosen" : "part"
                         }
                         key={title}
                         onClick={() =>
                           setParts((p) =>
-                            p.includes(i + 1)
-                              ? p.filter((n) => n !== i + 1)
-                              : [...p, i + 1],
+                            p.includes(i)
+                              ? p.filter((n) => n !== i)
+                              : [...p, i],
                           )
                         }
                       >
-                        <span>PART {i + 1}</span>
+                        <span>PART {i}</span>
                         <strong>{title}</strong>
                         <small>
-                          {bank.filter((q) => q.part === i + 1).length}{" "}
-                          questions <b>{parts.includes(i + 1) ? "✓" : "+"}</b>
+                          {bank.filter((q) => q.part === i).length}{" "}
+                          questions <b>{parts.includes(i) ? "✓" : "+"}</b>
                         </small>
                       </button>
                     ))}
@@ -1242,17 +1260,15 @@ function App() {
                   <details>
                     <summary>
                       Fine-tune your session{" "}
-                      <span>Week, level & question type</span>
+                      <span>Source, level & question type</span>
                     </summary>
                     <div className="filters">
                       {[
                         [
-                          "Week",
+                          "Source",
                           week,
                           setWeek,
-                          [...new Set(bank.flatMap(weeks))].sort(
-                            (a, b) => Number(a.slice(5)) - Number(b.slice(5)),
-                          ),
+                          [...new Set(bank.flatMap(weeks))].sort(),
                         ],
                         [
                           "Level",
@@ -1260,7 +1276,12 @@ function App() {
                           setLevel,
                           [...new Set(bank.map((q) => q.level))],
                         ],
-                        ["Type", type, setType, ["mcq4", "mcq5", "fill", "tf"]],
+                        [
+                          "Type",
+                          type,
+                          setType,
+                          ["mcq4", "mcq5", "multi", "fill", "tf"],
+                        ],
                       ].map(([label, value, setter, options]) => (
                         <label key={String(label)}>
                           {String(label)}
@@ -1276,16 +1297,7 @@ function App() {
                           >
                             <option value="">All</option>
                             {(options as string[]).map((v) => (
-                              <option
-                                key={v}
-                                title={
-                                  label === "Week"
-                                    ? WEEK_SLIDE_NAMES[v]
-                                    : undefined
-                                }
-                              >
-                                {v}
-                              </option>
+                              <option key={v}>{v}</option>
                             ))}
                           </select>
                         </label>
@@ -1296,7 +1308,11 @@ function App() {
               ) : view === "mock" ? (
                 <>
                   <div className="mock-facts">
-                    <Stat label="Questions" value="60" detail="10 per part" />
+                    <Stat
+                      label="Questions"
+                      value={String(COURSE_PARTS.length * MOCK_PER_PART)}
+                      detail={`${MOCK_PER_PART} per part`}
+                    />
                     <Stat
                       label="Time limit"
                       value="60 min"
@@ -1312,17 +1328,16 @@ function App() {
                   <div className="availability">
                     {titles.map((title, i) => {
                       const count = bank.filter(
-                        (q) =>
-                          q.part === i + 1 && !progress.seen.includes(q.id),
+                        (q) => q.part === i && !progress.seen.includes(q.id),
                       ).length;
                       return (
                         <div key={title}>
                           <span>
-                            Part {i + 1} · {title}
+                            Part {i} · {title}
                           </span>
                           <strong className="good">
-                            {Math.min(count, 10)} fresh ·{" "}
-                            {Math.max(0, 10 - count)} reused
+                            {Math.min(count, MOCK_PER_PART)} fresh ·{" "}
+                            {Math.max(0, MOCK_PER_PART - count)} reused
                           </strong>
                         </div>
                       );
@@ -1440,8 +1455,8 @@ function App() {
           </>
         )}
         <footer>
-          MANAGEMENT LAB <span>Master the principles. Lead with confidence.</span>
-          <span>DCIT 402</span>
+          SECURITY LAB <span>Master the ciphers. Defend with confidence.</span>
+          <span>DCIT 418</span>
         </footer>
       </main>
     </div>
@@ -1530,6 +1545,7 @@ function MockResults({
   onClose: () => void;
 }) {
   const correct = attempts.filter((a) => a.correct).length;
+  const total = attempts.length;
   return (
     <>
       <div className="page-heading">
@@ -1542,20 +1558,20 @@ function MockResults({
       <section className="setup-card">
         <div className="result-score">
           {correct}
-          <span>/ 60</span>
-          <small>{Math.round((correct / 60) * 100)}% accuracy</small>
+          <span>/ {total}</span>
+          <small>{Math.round((correct / total) * 100)}% accuracy</small>
         </div>
         <div className="part-scores">
           {titles.map((title, i) => (
             <div key={title}>
-              <span>Part {i + 1}</span>
+              <span>Part {i}</span>
               <strong>
                 {
                   attempts.filter(
-                    (a) => byId.get(a.questionId)!.part === i + 1 && a.correct,
+                    (a) => byId.get(a.questionId)!.part === i && a.correct,
                   ).length
                 }
-                /10
+                /{MOCK_PER_PART}
               </strong>
               <small>{title}</small>
             </div>
@@ -1566,7 +1582,7 @@ function MockResults({
         </button>
       </section>
       <h2 className="miss-heading">
-        Review your paper · {60 - correct} misses
+        Review your paper · {total - correct} misses
       </h2>
       {attempts.map((a) => {
         const q = byId.get(a.questionId)!;
@@ -1647,10 +1663,12 @@ function Dashboard({
       {(["part", "week", "level", "type"] as const).map((group) => {
         const groups =
           group === "week"
-            ? [...new Set(bank.flatMap(weeks))].sort(
-                (a, b) => Number(a.slice(5)) - Number(b.slice(5)),
-              )
-            : [...new Set(bank.map((q) => String(q[group])))];
+            ? [...new Set(bank.flatMap(weeks))].sort()
+            : group === "part"
+              ? [...new Set(bank.map((q) => q.part))]
+                  .sort((a, b) => a - b)
+                  .map(String)
+              : [...new Set(bank.map((q) => String(q[group])))];
         return (
           <section className="breakdown" key={group}>
             <h2>Accuracy by {group}</h2>
@@ -1681,7 +1699,7 @@ function Dashboard({
                       <tr key={value}>
                         <th>
                           {group === "part"
-                            ? `Part ${value} · ${titles[Number(value) - 1]}`
+                            ? `Part ${value} · ${titles[Number(value)]}`
                             : value}
                         </th>
                         <td>{list.length}</td>

@@ -1,6 +1,6 @@
 import raw from "../questions.json" with { type: "json" };
 import drillRows from "../supplemental/drills.json" with { type: "json" };
-export type Kind = "mcq4" | "mcq5" | "fill" | "tf";
+export type Kind = "mcq4" | "mcq5" | "fill" | "tf" | "multi";
 export type Mode = "practice" | "review" | "mock";
 export interface Question {
   id: string;
@@ -15,6 +15,7 @@ export interface Question {
   bodyMarkdown: string;
   options: string[];
   correctIndex: number | null;
+  correctIndices?: number[] | null;
   correctText: string;
   acceptedAnswers: string[];
   reason: string;
@@ -93,6 +94,7 @@ export interface Attempt {
 export interface Draft {
   answer: string;
   selected: number | null;
+  selectedMulti?: number[];
   seconds: number;
 }
 export interface Session {
@@ -119,12 +121,9 @@ export const emptyProgress = (): Progress => ({
   seen: [],
   session: null,
 });
-export const STORAGE = "dcit402-progress-v1";
+export const STORAGE = "dcit418-progress-v1";
 export function weeks(q: Question): string[] {
-  const numbers = q.week.match(/\d+/g)?.map(Number) ?? [];
-  const start = numbers[0];
-  const end = numbers[1] ?? start;
-  return Array.from({ length: end - start + 1 }, (_, i) => `Week ${start + i}`);
+  return [q.week];
 }
 export function shuffle<T>(items: T[], random = Math.random): T[] {
   const a = [...items];
@@ -155,11 +154,20 @@ export function grade(q: Question, draft: Draft): boolean {
       )
     );
   }
-  return q.type === "fill"
-    ? [q.correctText, ...q.acceptedAnswers].some(
-        (a) => a.trim().toLowerCase() === draft.answer.trim().toLowerCase(),
-      )
-    : draft.selected === q.correctIndex;
+  if (q.type === "fill")
+    return [q.correctText, ...q.acceptedAnswers].some(
+      (a) => a.trim().toLowerCase() === draft.answer.trim().toLowerCase(),
+    );
+  if (q.type === "multi") {
+    const expected = [...(q.correctIndices ?? [])].sort((a, b) => a - b);
+    const given = [...(draft.selectedMulti ?? [])].sort((a, b) => a - b);
+    return (
+      expected.length > 0 &&
+      expected.length === given.length &&
+      expected.every((v, i) => v === given[i])
+    );
+  }
+  return draft.selected === q.correctIndex;
 }
 export function displayOption(q: Question, index: number): string {
   const text = q.options[index];
@@ -208,14 +216,21 @@ export function createSession(
     submitted: false,
   };
 }
+export const COURSE_PARTS = Array.from({ length: 14 }, (_, i) => i); // Part 0 .. Part 13
+export const MOCK_PER_PART = 15;
+export function mockQuota(part: number): number {
+  return Math.min(MOCK_PER_PART, bank.filter((q) => q.part === part).length);
+}
 export function mockIds(seen: string[]): string[] {
   const used = new Set(seen);
   const ids: string[] = [];
-  for (let part = 1; part <= 6; part++) {
+  for (const part of COURSE_PARTS) {
     const pool = bank.filter((q) => q.part === part && !used.has(q.id));
     const repeats = bank.filter((q) => q.part === part && used.has(q.id));
     ids.push(
-      ...[...shuffle(pool), ...shuffle(repeats)].slice(0, 10).map((q) => q.id),
+      ...[...shuffle(pool), ...shuffle(repeats)]
+        .slice(0, mockQuota(part))
+        .map((q) => q.id),
     );
   }
   return shuffle(ids);
@@ -390,11 +405,12 @@ function validateSession(value: unknown): Session {
     (typeof s.deadline !== "number" ||
       !Number.isFinite(s.deadline) ||
       s.deadline !== s.startedAt + 3600000 ||
-      s.ids.length !== 60 ||
-      [1, 2, 3, 4, 5, 6].some(
+      s.ids.length !==
+        COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0) ||
+      COURSE_PARTS.some(
         (part) =>
           (s.ids as string[]).filter((id) => byId.get(id)!.part === part)
-            .length !== 10,
+            .length !== mockQuota(part),
       ))
   )
     throw new Error("Invalid mock paper.");
@@ -428,7 +444,13 @@ function validateSession(value: unknown): Session {
         (typeof d.selected !== "number" ||
           !Number.isInteger(d.selected) ||
           d.selected < 0 ||
-          d.selected >= q.options.length))
+          d.selected >= q.options.length)) ||
+      (d.selectedMulti !== undefined &&
+        (!Array.isArray(d.selectedMulti) ||
+          !d.selectedMulti.every(
+            (i) =>
+              Number.isInteger(i) && i >= 0 && i < q.options.length,
+          )))
     )
       throw new Error("Invalid answer draft.");
   }

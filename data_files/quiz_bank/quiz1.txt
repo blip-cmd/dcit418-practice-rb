@@ -1,0 +1,842 @@
+[
+  {
+    "stem": "Which tenet of the CIA triad ensures that only authorized individuals can view sensitive data?",
+    "options": [
+      "Availability",
+      "Confidentiality",
+      "Integrity",
+      "Nonrepudiation"
+    ],
+    "correct": 1,
+    "explanation": "Confidentiality restricts access and disclosure of information to authorized parties only.",
+    "topic": "CIA Triad"
+  },
+  {
+    "stem": "Which tenet of the CIA triad ensures data has not been altered in an unauthorized way?",
+    "options": [
+      "Integrity",
+      "Confidentiality",
+      "Availability",
+      "Authentication"
+    ],
+    "correct": 0,
+    "explanation": "Integrity protects data from unauthorized modification, ensuring it remains accurate and trustworthy.",
+    "topic": "CIA Triad"
+  },
+  {
+    "stem": "Which tenet of the CIA triad ensures systems and data are accessible to authorized users when needed?",
+    "options": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Accountability"
+    ],
+    "correct": 2,
+    "explanation": "Availability ensures authorized users can access resources when required, tied to uptime and resilience.",
+    "topic": "CIA Triad"
+  },
+  {
+    "stem": "A hacker intercepts and reads unencrypted emails containing customer data. Which tenet was violated?",
+    "options": [
+      "Availability",
+      "Confidentiality",
+      "Integrity",
+      "Nonrepudiation"
+    ],
+    "correct": 1,
+    "explanation": "Unauthorized viewing of data is a breach of confidentiality.",
+    "topic": "CIA Triad"
+  },
+  {
+    "stem": "A DDoS attack takes an e-commerce site offline for six hours. Which tenet was primarily violated?",
+    "options": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Authorization"
+    ],
+    "correct": 2,
+    "explanation": "A DDoS attack disrupts access to a resource, directly violating availability.",
+    "topic": "CIA Triad"
+  },
+  {
+    "stem": "Which process involves a user claiming an identity, typically with a username?",
+    "options": [
+      "Authentication",
+      "Authorization",
+      "Identification",
+      "Accountability"
+    ],
+    "correct": 2,
+    "explanation": "Identification is the act of asserting who you are, such as entering a username.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which process verifies that a claimed identity is genuine?",
+    "options": [
+      "Authentication",
+      "Identification",
+      "Authorization",
+      "Nonrepudiation"
+    ],
+    "correct": 0,
+    "explanation": "Authentication proves an identity claim using a factor such as a password, token, or biometric.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which process determines what an authenticated user is permitted to do?",
+    "options": [
+      "Identification",
+      "Authentication",
+      "Authorization",
+      "Accountability"
+    ],
+    "correct": 2,
+    "explanation": "Authorization grants specific rights and permissions after identity has been verified.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which concept ensures a user cannot deny having performed a specific action?",
+    "options": [
+      "Accountability",
+      "Nonrepudiation",
+      "Authorization",
+      "Authentication"
+    ],
+    "correct": 1,
+    "explanation": "Nonrepudiation uses evidence such as digital signatures and logs to prevent denial of an action.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which access control model assigns permissions based on job role within an organization?",
+    "options": [
+      "Discretionary Access Control (DAC)",
+      "Mandatory Access Control (MAC)",
+      "Role-Based Access Control (RBAC)",
+      "Rule-Based Access Control"
+    ],
+    "correct": 2,
+    "explanation": "RBAC assigns access rights based on a user's role, simplifying administration for groups with similar needs.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which access control model allows the data owner to decide who can access their resources?",
+    "options": [
+      "Mandatory Access Control (MAC)",
+      "Discretionary Access Control (DAC)",
+      "Role-Based Access Control (RBAC)",
+      "Attribute-Based Access Control (ABAC)"
+    ],
+    "correct": 1,
+    "explanation": "In DAC, the resource owner has discretion over granting access to other users.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which access control model relies on centrally managed security labels/classifications rather than owner discretion?",
+    "options": [
+      "Discretionary Access Control (DAC)",
+      "Role-Based Access Control (RBAC)",
+      "Mandatory Access Control (MAC)",
+      "Rule-Based Access Control"
+    ],
+    "correct": 2,
+    "explanation": "MAC enforces access based on fixed classification levels set by a central authority, common in government/military systems.",
+    "topic": "Access Control"
+  },
+  {
+    "stem": "Which domain of a typical IT infrastructure includes employees, contractors, and consultants?",
+    "options": [
+      "Workstation Domain",
+      "User Domain",
+      "LAN Domain",
+      "System/Application Domain"
+    ],
+    "correct": 1,
+    "explanation": "The User Domain covers the people who access an organization's IT systems.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which domain of a typical IT infrastructure includes desktops, laptops, and end-user devices?",
+    "options": [
+      "User Domain",
+      "Workstation Domain",
+      "LAN Domain",
+      "Remote Access Domain"
+    ],
+    "correct": 1,
+    "explanation": "The Workstation Domain covers the devices employees use to connect to the network.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which domain includes servers, operating systems, and business applications like ERP or database systems?",
+    "options": [
+      "Workstation Domain",
+      "LAN Domain",
+      "System/Application Domain",
+      "WAN Domain"
+    ],
+    "correct": 2,
+    "explanation": "The System/Application Domain covers the servers and software that process and store organizational data.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which domain covers the risks associated with telecommuters and mobile users connecting from outside the office?",
+    "options": [
+      "LAN-to-WAN Domain",
+      "Remote Access Domain",
+      "WAN Domain",
+      "User Domain"
+    ],
+    "correct": 1,
+    "explanation": "The Remote Access Domain addresses risks tied to mobile/remote connectivity, such as lost laptops and brute-force attacks on VPNs.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which domain typically includes long-distance connectivity provided by carriers and ISPs?",
+    "options": [
+      "LAN Domain",
+      "LAN-to-WAN Domain",
+      "WAN Domain",
+      "Remote Access Domain"
+    ],
+    "correct": 2,
+    "explanation": "The WAN Domain covers wide area connectivity, often governed by service-level agreements with external providers.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which domain is the boundary where an organization's internal network connects to the Internet?",
+    "options": [
+      "WAN Domain",
+      "LAN Domain",
+      "LAN-to-WAN Domain",
+      "Remote Access Domain"
+    ],
+    "correct": 2,
+    "explanation": "The LAN-to-WAN Domain is the perimeter where firewalls and routers manage traffic entering and leaving the internal network.",
+    "topic": "Seven Domains"
+  },
+  {
+    "stem": "Which element of the security policy framework requires senior management approval and applies organization-wide?",
+    "options": [
+      "Guideline",
+      "Procedure",
+      "Standard",
+      "Policy"
+    ],
+    "correct": 3,
+    "explanation": "Policies are high-level, mandatory statements of intent that require upper management sign-off.",
+    "topic": "Security Policy Framework"
+  },
+  {
+    "stem": "Which element of the security policy framework specifies mandatory, specific technical requirements?",
+    "options": [
+      "Standard",
+      "Guideline",
+      "Policy",
+      "Baseline"
+    ],
+    "correct": 0,
+    "explanation": "Standards define mandatory, specific parameters (e.g., minimum password length) that support a policy.",
+    "topic": "Security Policy Framework"
+  },
+  {
+    "stem": "Which element of the security policy framework provides optional, recommended advice?",
+    "options": [
+      "Procedure",
+      "Standard",
+      "Guideline",
+      "Policy"
+    ],
+    "correct": 2,
+    "explanation": "Guidelines are non-mandatory suggestions for best practice.",
+    "topic": "Security Policy Framework"
+  },
+  {
+    "stem": "Which element of the security policy framework gives detailed, step-by-step instructions for completing a task?",
+    "options": [
+      "Policy",
+      "Standard",
+      "Guideline",
+      "Procedure"
+    ],
+    "correct": 3,
+    "explanation": "Procedures provide granular, sequential steps for performing a specific task consistently.",
+    "topic": "Security Policy Framework"
+  },
+  {
+    "stem": "A minimum acceptable level of security that all systems must meet is best described as a:",
+    "options": [
+      "Guideline",
+      "Baseline",
+      "Policy",
+      "Threat model"
+    ],
+    "correct": 1,
+    "explanation": "A baseline defines the minimum security configuration required across systems of a given type.",
+    "topic": "Security Policy Framework"
+  },
+  {
+    "stem": "Which term describes the likelihood that a threat will exploit a vulnerability to cause harm to an asset?",
+    "options": [
+      "Threat",
+      "Vulnerability",
+      "Risk",
+      "Countermeasure"
+    ],
+    "correct": 2,
+    "explanation": "Risk represents the exposure/likelihood of harm, combining threats and vulnerabilities.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Which term describes a weakness in a system that could be exploited?",
+    "options": [
+      "Vulnerability",
+      "Threat",
+      "Risk",
+      "Exposure"
+    ],
+    "correct": 0,
+    "explanation": "A vulnerability is a gap or flaw that a threat could exploit.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Which term describes any circumstance or event with the potential to cause harm to an asset?",
+    "options": [
+      "Vulnerability",
+      "Threat",
+      "Countermeasure",
+      "Risk"
+    ],
+    "correct": 1,
+    "explanation": "A threat is a potential danger, such as an attacker, malware, or natural disaster.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Which term describes a control implemented to reduce risk to an asset?",
+    "options": [
+      "Vulnerability",
+      "Threat",
+      "Countermeasure",
+      "Exposure"
+    ],
+    "correct": 2,
+    "explanation": "A countermeasure (or safeguard/control) is a mechanism, like a firewall or encryption, that reduces risk.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Accepting a risk because the cost of mitigation exceeds the potential loss is an example of which risk response strategy?",
+    "options": [
+      "Risk avoidance",
+      "Risk transfer",
+      "Risk acceptance",
+      "Risk mitigation"
+    ],
+    "correct": 2,
+    "explanation": "Risk acceptance means acknowledging a risk and choosing not to implement additional controls, often when cost outweighs benefit.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Purchasing cyber insurance to cover the financial impact of a breach is an example of which risk response strategy?",
+    "options": [
+      "Risk avoidance",
+      "Risk transfer",
+      "Risk mitigation",
+      "Risk acceptance"
+    ],
+    "correct": 1,
+    "explanation": "Risk transfer shifts the financial impact of a risk to a third party, such as an insurer.",
+    "topic": "Risk Management"
+  },
+  {
+    "stem": "Which U.S. law requires financial institutions to protect customers' private financial information?",
+    "options": [
+      "Sarbanes-Oxley Act (SOX)",
+      "Gramm-Leach-Bliley Act (GLBA)",
+      "HIPAA",
+      "FISMA"
+    ],
+    "correct": 1,
+    "explanation": "GLBA specifically governs how financial institutions handle and protect customer financial data.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which U.S. law focuses on the accuracy of corporate financial disclosures for publicly traded companies?",
+    "options": [
+      "GLBA",
+      "HIPAA",
+      "Sarbanes-Oxley Act (SOX)",
+      "CIPA"
+    ],
+    "correct": 2,
+    "explanation": "SOX was enacted to improve the reliability of corporate financial reporting after accounting scandals.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which U.S. law protects the privacy of patient health information?",
+    "options": [
+      "HIPAA",
+      "GLBA",
+      "SOX",
+      "FERPA"
+    ],
+    "correct": 0,
+    "explanation": "HIPAA governs the protection of protected health information (PHI) by healthcare entities and their business associates.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which U.S. law requires schools and libraries receiving federal E-Rate funding to filter harmful internet content?",
+    "options": [
+      "FISMA",
+      "CIPA",
+      "GLBA",
+      "HIPAA"
+    ],
+    "correct": 1,
+    "explanation": "CIPA requires internet filtering in schools/libraries as a condition of certain federal funding.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which U.S. law requires federal agencies to develop and implement information security programs?",
+    "options": [
+      "FISMA",
+      "SOX",
+      "GLBA",
+      "CIPA"
+    ],
+    "correct": 0,
+    "explanation": "FISMA applies to federal agencies and their contractors, mandating formal information security programs.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which industry standard governs organizations that store, process, or transmit credit card data?",
+    "options": [
+      "HIPAA",
+      "PCI DSS",
+      "GLBA",
+      "SOX"
+    ],
+    "correct": 1,
+    "explanation": "The Payment Card Industry Data Security Standard (PCI DSS) sets security requirements for handling cardholder data.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which U.S. law protects the privacy of student education records?",
+    "options": [
+      "FERPA",
+      "CIPA",
+      "HIPAA",
+      "GLBA"
+    ],
+    "correct": 0,
+    "explanation": "The Family Educational Rights and Privacy Act (FERPA) protects the privacy of student records.",
+    "topic": "Compliance"
+  },
+  {
+    "stem": "Which port is commonly used by SSH for secure, encrypted remote access?",
+    "options": [
+      "20",
+      "22",
+      "23",
+      "80"
+    ],
+    "correct": 1,
+    "explanation": "SSH uses port 22 and encrypts all traffic, including login credentials.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which port is commonly used by unencrypted Telnet connections?",
+    "options": [
+      "21",
+      "22",
+      "23",
+      "443"
+    ],
+    "correct": 2,
+    "explanation": "Telnet uses port 23 and transmits all data, including credentials, in plaintext.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which port is used by HTTPS for encrypted web traffic?",
+    "options": [
+      "80",
+      "443",
+      "8080",
+      "21"
+    ],
+    "correct": 1,
+    "explanation": "HTTPS uses port 443 and encrypts traffic using TLS/SSL.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which port is used by unencrypted HTTP web traffic?",
+    "options": [
+      "443",
+      "80",
+      "22",
+      "25"
+    ],
+    "correct": 1,
+    "explanation": "HTTP uses port 80 and transmits data in cleartext.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which protocol is used to send email between mail servers?",
+    "options": [
+      "POP3",
+      "IMAP",
+      "SMTP",
+      "FTP"
+    ],
+    "correct": 2,
+    "explanation": "SMTP (Simple Mail Transfer Protocol) is used to route and send email between servers.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which protocol translates domain names into IP addresses?",
+    "options": [
+      "DHCP",
+      "DNS",
+      "ARP",
+      "SNMP"
+    ],
+    "correct": 1,
+    "explanation": "DNS (Domain Name System) resolves human-readable domain names to IP addresses.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which protocol automatically assigns IP addresses to devices on a network?",
+    "options": [
+      "DNS",
+      "DHCP",
+      "SNMP",
+      "NTP"
+    ],
+    "correct": 1,
+    "explanation": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addressing information to devices.",
+    "topic": "Protocols and Ports"
+  },
+  {
+    "stem": "Which network device forwards packets between different networks based on IP addresses?",
+    "options": [
+      "Switch",
+      "Router",
+      "Hub",
+      "Firewall"
+    ],
+    "correct": 1,
+    "explanation": "A router's core function is to forward traffic between networks based on routing tables, not to serve as a dedicated security appliance.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which network device is specifically designed to filter and block traffic based on security rules?",
+    "options": [
+      "Switch",
+      "Hub",
+      "Firewall",
+      "Repeater"
+    ],
+    "correct": 2,
+    "explanation": "A firewall's defining purpose is to enforce security policy by filtering and blocking unwanted traffic.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which device passively monitors traffic and alerts administrators to suspicious activity without blocking it?",
+    "options": [
+      "IPS",
+      "IDS",
+      "Router",
+      "Proxy server"
+    ],
+    "correct": 1,
+    "explanation": "An Intrusion Detection System (IDS) detects and alerts but does not actively block traffic.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which device actively blocks malicious traffic in real time as it flows through the network?",
+    "options": [
+      "IDS",
+      "IPS",
+      "Hub",
+      "Web server"
+    ],
+    "correct": 1,
+    "explanation": "An Intrusion Prevention System (IPS) sits in-line and actively blocks identified malicious traffic.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which device acts as an intermediary, forwarding client requests to servers and can cache content or hide internal IPs?",
+    "options": [
+      "Proxy server",
+      "Switch",
+      "Repeater",
+      "IDS"
+    ],
+    "correct": 0,
+    "explanation": "A proxy server relays requests between clients and servers, often for caching, filtering, or anonymity.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which device connects multiple devices within a LAN and forwards traffic based on MAC addresses?",
+    "options": [
+      "Router",
+      "Switch",
+      "Gateway",
+      "Firewall"
+    ],
+    "correct": 1,
+    "explanation": "A switch operates at Layer 2, forwarding frames based on MAC addresses within a local network.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which security control creates an encrypted tunnel to protect data traveling across a WAN?",
+    "options": [
+      "Firewall",
+      "VPN",
+      "IDS",
+      "Proxy server"
+    ],
+    "correct": 1,
+    "explanation": "A VPN (Virtual Private Network) encrypts traffic in transit, protecting against eavesdropping on WAN links.",
+    "topic": "Network Devices"
+  },
+  {
+    "stem": "Which type of encryption uses the same key for both encryption and decryption?",
+    "options": [
+      "Asymmetric encryption",
+      "Symmetric encryption",
+      "Hashing",
+      "Steganography"
+    ],
+    "correct": 1,
+    "explanation": "Symmetric encryption uses a single shared secret key for both encrypting and decrypting data.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which type of encryption uses a public key and a private key pair?",
+    "options": [
+      "Symmetric encryption",
+      "Asymmetric encryption",
+      "Hashing",
+      "Obfuscation"
+    ],
+    "correct": 1,
+    "explanation": "Asymmetric encryption uses a mathematically linked public/private key pair, commonly used in PKI.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which cryptographic technique produces a fixed-length output used to verify data integrity, and is not meant to be reversed?",
+    "options": [
+      "Symmetric encryption",
+      "Asymmetric encryption",
+      "Hashing",
+      "Tokenization"
+    ],
+    "correct": 2,
+    "explanation": "Hashing produces a fixed-size digest used to detect changes to data; it is a one-way function.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which term describes protecting stored data on hard drives and databases through encryption?",
+    "options": [
+      "Encryption in transit",
+      "Encryption at rest",
+      "Tokenization",
+      "Data masking"
+    ],
+    "correct": 1,
+    "explanation": "Encryption at rest protects stored data, adding a layer of protection even if storage media is stolen.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which term describes protecting data as it moves across a network?",
+    "options": [
+      "Encryption at rest",
+      "Encryption in transit",
+      "Data masking",
+      "Hashing only"
+    ],
+    "correct": 1,
+    "explanation": "Encryption in transit (e.g., TLS, VPN) protects data while it travels between systems.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which infrastructure manages digital certificates and public/private key pairs to support secure communication?",
+    "options": [
+      "PKI",
+      "DNS",
+      "VLAN",
+      "ACL"
+    ],
+    "correct": 0,
+    "explanation": "Public Key Infrastructure (PKI) manages the creation, distribution, and revocation of digital certificates and keys.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "A digital signature primarily provides which security benefits?",
+    "options": [
+      "Confidentiality only",
+      "Availability only",
+      "Integrity and nonrepudiation",
+      "Anonymity"
+    ],
+    "correct": 2,
+    "explanation": "Digital signatures verify that a message wasn't altered and confirm the sender's identity, supporting nonrepudiation.",
+    "topic": "Cryptography"
+  },
+  {
+    "stem": "Which U.S. federal classification level applies to information that would cause exceptionally grave damage if disclosed?",
+    "options": [
+      "Confidential",
+      "Secret",
+      "Top Secret",
+      "Private"
+    ],
+    "correct": 2,
+    "explanation": "Top Secret is the highest classification, reserved for the most sensitive national security information.",
+    "topic": "Data Classification"
+  },
+  {
+    "stem": "Which U.S. federal classification level applies to information that would cause damage, but not serious or grave damage, if disclosed?",
+    "options": [
+      "Top Secret",
+      "Secret",
+      "Confidential",
+      "Unclassified"
+    ],
+    "correct": 2,
+    "explanation": "Confidential is the lowest of the three formal classification tiers, for information causing general damage.",
+    "topic": "Data Classification"
+  },
+  {
+    "stem": "Malicious software that replicates itself and spreads across networks without requiring a host file is called a:",
+    "options": [
+      "Virus",
+      "Worm",
+      "Trojan horse",
+      "Rootkit"
+    ],
+    "correct": 1,
+    "explanation": "A worm self-replicates and spreads independently across networks, unlike a virus which needs a host file.",
+    "topic": "Malware"
+  },
+  {
+    "stem": "Malicious software disguised as legitimate software to trick users into installing it is called a:",
+    "options": [
+      "Worm",
+      "Trojan horse",
+      "Virus",
+      "Logic bomb"
+    ],
+    "correct": 1,
+    "explanation": "A Trojan horse masquerades as legitimate software to deceive users into executing it.",
+    "topic": "Malware"
+  },
+  {
+    "stem": "Malicious software that encrypts a victim's files and demands payment for the decryption key is called:",
+    "options": [
+      "Spyware",
+      "Ransomware",
+      "Adware",
+      "A worm"
+    ],
+    "correct": 1,
+    "explanation": "Ransomware encrypts victim data and extorts payment in exchange for restoring access.",
+    "topic": "Malware"
+  },
+  {
+    "stem": "Software that covertly monitors user activity and collects information without consent is called:",
+    "options": [
+      "Spyware",
+      "Ransomware",
+      "A worm",
+      "A logic bomb"
+    ],
+    "correct": 0,
+    "explanation": "Spyware secretly gathers information about a user's activity, often for advertising or data theft.",
+    "topic": "Malware"
+  },
+  {
+    "stem": "Malicious code hidden at the operating system's kernel level to maintain hidden, privileged access is called a:",
+    "options": [
+      "Worm",
+      "Trojan horse",
+      "Rootkit",
+      "Adware"
+    ],
+    "correct": 2,
+    "explanation": "A rootkit embeds itself deep in the OS to hide its presence and maintain privileged access.",
+    "topic": "Malware"
+  },
+  {
+    "stem": "An email pretending to be from a trusted source to trick recipients into revealing sensitive information is called:",
+    "options": [
+      "Phishing",
+      "Pharming",
+      "Spoofing",
+      "Tailgating"
+    ],
+    "correct": 0,
+    "explanation": "Phishing uses deceptive emails/messages impersonating trusted entities to steal credentials or data.",
+    "topic": "Social Engineering"
+  },
+  {
+    "stem": "An attacker follows an authorized employee through a secure door without using their own credentials. This is an example of:",
+    "options": [
+      "Phishing",
+      "Tailgating",
+      "Pharming",
+      "Vishing"
+    ],
+    "correct": 1,
+    "explanation": "Tailgating (piggybacking) is a physical social engineering technique of following someone through a secured entry point.",
+    "topic": "Social Engineering"
+  },
+  {
+    "stem": "A phone-based social engineering attack designed to trick victims into revealing sensitive information is called:",
+    "options": [
+      "Vishing",
+      "Phishing",
+      "Smishing",
+      "Pharming"
+    ],
+    "correct": 0,
+    "explanation": "Vishing (voice phishing) uses phone calls to manipulate victims into disclosing sensitive data.",
+    "topic": "Social Engineering"
+  },
+  {
+    "stem": "A social engineering attack conducted via SMS text messages is called:",
+    "options": [
+      "Vishing",
+      "Pharming",
+      "Smishing",
+      "Spoofing"
+    ],
+    "correct": 2,
+    "explanation": "Smishing is phishing carried out through SMS/text messages.",
+    "topic": "Social Engineering"
+  },
+  {
+    "stem": "Which plan focuses on restoring critical business functions after a disruptive event?",
+    "options": [
+      "Business Continuity Plan (BCP)",
+      "Acceptable Use Policy (AUP)",
+      "Change management plan",
+      "Data classification policy"
+    ],
+    "correct": 0,
+    "explanation": "A BCP outlines how an organization continues critical operations during and after a disruption.",
+    "topic": "Business Continuity"
+  },
+  {
+    "stem": "Which plan focuses specifically on restoring IT systems and data after a disaster?",
+    "options": [
+      "Disaster Recovery Plan (DRP)",
+      "Acceptable Use Policy",
+      "Incident response policy",
+      "Security awareness plan"
+    ],
+    "correct": 0,
+    "explanation": "A DRP details the technical steps to recover IT infrastructure and data following a disaster.",
+    "topic": "Business Continuity"
+  }
+]

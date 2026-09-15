@@ -1,0 +1,498 @@
+[
+  {
+    "stem": "SHA-1 produces a message digest of:",
+    "options": ["160 bits", "128 bits", "256 bits", "512 bits"],
+    "correct": 0,
+    "explanation": "SHA-1 produces a fixed-length 160-bit message digest.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "Unlike a MAC, a digital signature:",
+    "options": ["Requires a symmetric shared secret key", "Is always shorter than a MAC", "Cannot be verified by a third party", "Uses the signer's private key, so anyone with the public key can verify it"],
+    "correct": 3,
+    "explanation": "A digital signature is created with a private key and can be verified using the corresponding public key.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "SHA-3 (Keccak) differs structurally from SHA-2 in that it is based on a:",
+    "options": ["Feistel network", "Modular exponentiation scheme", "Elliptic curve group", "Sponge construction"],
+    "correct": 3,
+    "explanation": "SHA-3 is based on the Keccak sponge construction, which uses absorbing and squeezing phases.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "A digital signature scheme primarily provides:",
+    "options": ["Key distribution only", "Compression of the transmitted data", "Authentication, data integrity, and non-repudiation", "Confidentiality only"],
+    "correct": 2,
+    "explanation": "Digital signatures provide authentication, integrity, and non-repudiation, but not confidentiality by themselves.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "A major security concern specific to multi-tenant cloud environments is:",
+    "options": ["Lack of any network connectivity", "Ensuring data isolation between different customers sharing the same physical infrastructure", "Inability to use passwords at all", "The complete absence of encryption standards"],
+    "correct": 1,
+    "explanation": "Multi-tenant environments require strong isolation so one customer's resources and data cannot be accessed by another customer.",
+    "topic": "Cloud Security"
+  },
+  {
+    "stem": "HMAC's security depends primarily on the strength of the underlying block cipher rather than the embedded hash function.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "HMAC is a hash-based authentication mechanism, so its security depends primarily on the underlying cryptographic hash function and the secrecy of the key.",
+    "topic": "HMAC"
+  },
+  {
+    "stem": "HTTPS is essentially:",
+    "options": ["A completely separate protocol unrelated to HTTP", "HTTP combined with Kerberos authentication", "HTTP with an additional compression layer", "HTTP running over an SSL/TLS-secured connection"],
+    "correct": 3,
+    "explanation": "HTTPS is HTTP protected by TLS, providing confidentiality, integrity, and authentication.",
+    "topic": "TLS/HTTPS"
+  },
+  {
+    "stem": "Cipher block chaining can be adapted to build a simple hash function by:",
+    "options": ["Encrypting the message with a fixed key and using the final block as the hash value", "Repeating the Caesar cipher on the message", "Applying RSA directly to the message digest", "Running the Diffie-Hellman protocol on the message"],
+    "correct": 0,
+    "explanation": "A CBC-based hash construction can use the final chaining value or ciphertext block as the resulting hash value.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "A certificate revocation list (CRL) is used to:",
+    "options": ["Identify certificates that should no longer be trusted before their expiration date", "Encrypt certificate data", "Distribute new public keys", "List all valid certificates currently in use"],
+    "correct": 0,
+    "explanation": "A CRL identifies certificates that have been revoked before their normal expiration.",
+    "topic": "PKI"
+  },
+  {
+    "type": "fill",
+    "stem": "The NIST-standardized digital signature algorithm based on discrete logarithms is called the ____.",
+    "answers": ["DSA", "Digital Signature Algorithm"],
+    "answer": "DSA",
+    "caseSensitive": false,
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "Kerberos is best described as:",
+    "options": ["A cryptographic hash function", "A public-key certificate format", "A firewall configuration standard", "A trusted third-party authentication service using symmetric-key cryptography and tickets"],
+    "correct": 3,
+    "explanation": "Kerberos uses a trusted Key Distribution Center and tickets to provide network authentication.",
+    "topic": "Kerberos"
+  },
+  {
+    "stem": "A Message Authentication Code (MAC) differs from a plain hash function primarily in that a MAC:",
+    "options": ["Cannot detect message alteration", "Is always longer than the original message", "Uses a secret key shared between sender and receiver", "Produces a variable-length digest"],
+    "correct": 2,
+    "explanation": "A MAC uses a secret key shared by the communicating parties to authenticate a message and detect modification.",
+    "topic": "MAC"
+  },
+  {
+    "stem": "Which of the following is a common basis for user authentication?",
+    "options": ["Only a digital certificate", "Only biometric data", "Only a smart card", "Something the individual knows, such as a password"],
+    "correct": 3,
+    "explanation": "A password is an example of the authentication factor 'something you know.'",
+    "topic": "Authentication"
+  },
+  {
+    "stem": "DomainKeys Identified Mail (DKIM) is designed mainly to:",
+    "options": ["Encrypt the entire body of an email", "Compress email attachments", "Replace SMTP entirely", "Allow a receiving mail server to verify an email genuinely originated from the claimed sending domain"],
+    "correct": 3,
+    "explanation": "DKIM uses cryptographic signatures to allow receiving servers to verify domain authorization and message integrity.",
+    "topic": "Email Security"
+  },
+  {
+    "stem": "IPsec's tunnel mode, compared to transport mode, differs in that it:",
+    "options": ["Does not support the ESP protocol", "Cannot be used to build VPNs", "Only protects the payload, leaving the original IP header exposed", "Encapsulates and protects the entire original IP packet inside a new IP packet"],
+    "correct": 3,
+    "explanation": "IPsec tunnel mode encapsulates the complete original IP packet inside a new IP packet and is commonly used for VPNs.",
+    "topic": "IPsec"
+  },
+  {
+    "type": "fill",
+    "stem": "The ____ construction underlies SHA-3 (Keccak), absorbing input blocks and squeezing out the digest.",
+    "answers": ["Sponge", "sponge", "Sponge construction", "sponge construction"],
+    "answer": "Sponge",
+    "caseSensitive": false,
+    "topic": "Hash Functions"
+  },
+  {
+    "type": "fill",
+    "stem": "In email security, ____ uses a decentralized web-of-trust model for key management instead of a formal CA hierarchy.",
+    "answers": ["PGP", "Pretty Good Privacy"],
+    "answer": "PGP",
+    "caseSensitive": false,
+    "topic": "Email Security"
+  },
+  {
+    "stem": "IPsec operates primarily at which layer of the protocol stack?",
+    "options": ["The session layer", "The data link layer only", "The IP (network) layer", "The application layer"],
+    "correct": 2,
+    "explanation": "IPsec operates at the Network Layer (Layer 3) and secures IP packets.",
+    "topic": "IPsec"
+  },
+  {
+    "stem": "X.509 certificates bind a public key to an identity and are digitally signed by a certificate authority.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "An X.509 certificate associates a public key with an identity and is signed by its issuing CA.",
+    "topic": "PKI"
+  },
+  {
+    "stem": "An X.509 certificate primarily binds:",
+    "options": ["A symmetric key to a password", "An IP address to a MAC address", "A public key to an identity, digitally signed by a certificate authority", "A private key to a single session"],
+    "correct": 2,
+    "explanation": "X.509 certificates bind identities to public keys and contain a CA's digital signature.",
+    "topic": "PKI"
+  },
+  {
+    "stem": "In a typical TLS handshake, the server authenticates itself to the client using:",
+    "options": ["A shared password", "A MAC key only", "A Kerberos ticket", "A digital certificate containing its public key"],
+    "correct": 3,
+    "explanation": "The server normally presents a CA-signed digital certificate containing its public key.",
+    "topic": "TLS"
+  },
+  {
+    "stem": "IEEE 802.1X provides port-based network access control primarily by:",
+    "options": ["Filtering traffic at the application layer", "Controlling access at the physical or data-link layer before higher-layer access is granted", "Managing DNS records", "Encrypting email messages"],
+    "correct": 1,
+    "explanation": "802.1X controls network access at the port level, commonly using EAP for authentication.",
+    "topic": "Network Access Control"
+  },
+  {
+    "stem": "The SSH Transport Layer Protocol provides:",
+    "options": ["Certificate revocation services", "User authentication only", "Application-layer routing", "Server authentication, confidentiality, and integrity for the underlying connection"],
+    "correct": 3,
+    "explanation": "The SSH Transport Layer provides server authentication, encryption, and integrity protection for the connection.",
+    "topic": "SSH"
+  },
+  {
+    "stem": "SSL/TLS operates primarily at which layer to secure application traffic such as HTTP?",
+    "options": ["The network layer", "The data link layer", "The physical layer", "The transport layer, between the application and TCP"],
+    "correct": 3,
+    "explanation": "TLS is positioned between application protocols such as HTTP and the transport protocol TCP.",
+    "topic": "TLS"
+  },
+  {
+    "stem": "Key distribution using asymmetric encryption can be used to securely distribute:",
+    "options": ["Only digital certificates", "A symmetric session key, encrypted with the recipient's public key", "Only public keys", "Only hash digests"],
+    "correct": 1,
+    "explanation": "A sender can encrypt a symmetric session key using the recipient's public key so only the recipient can recover it with the private key.",
+    "topic": "Key Distribution"
+  },
+  {
+    "stem": "In Kerberos, the component that issues session tickets for specific services after initial authentication is the:",
+    "options": ["Authentication Server (AS)", "Key Distribution Center exclusively", "Ticket-Granting Server (TGS)", "Certificate Authority"],
+    "correct": 2,
+    "explanation": "The TGS issues service tickets after the user has obtained a Ticket-Granting Ticket from the AS.",
+    "topic": "Kerberos"
+  },
+  {
+    "type": "fill",
+    "stem": "In Kerberos, the server that authenticates a user's initial login and issues a ticket-granting ticket is called the ____.",
+    "answers": ["Authentication Server", "Authentication Server (AS)", "AS"],
+    "answer": "Authentication Server (AS)",
+    "caseSensitive": false,
+    "topic": "Kerberos"
+  },
+  {
+    "stem": "Personal Identity Verification (PIV), as standardized by NIST, is primarily used for:",
+    "options": ["Standardized identity credentials for federal employees and contractors", "Consumer online banking only", "Wireless network encryption", "Email spam filtering"],
+    "correct": 0,
+    "explanation": "PIV provides standardized secure identity credentials primarily for U.S. federal employees and contractors.",
+    "topic": "Authentication"
+  },
+  {
+    "type": "fill",
+    "stem": "HMAC stands for Hash-based Message ____ Code.",
+    "answers": ["Authentication"],
+    "answer": "Authentication",
+    "caseSensitive": false,
+    "topic": "HMAC"
+  },
+  {
+    "stem": "Preimage resistance of a hash function means that given a hash value h, it should be infeasible to:",
+    "options": ["Compute the hash of a known message", "Compress the message further", "Find a second input with the same hash as a known input", "Find any input x such that H(x) equals h"],
+    "correct": 3,
+    "explanation": "Preimage resistance means it should be infeasible to find any input x such that H(x) equals a given hash value h.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "The security of HMAC depends most directly on the properties of the:",
+    "options": ["Public-key infrastructure in use", "Underlying embedded hash function", "Block cipher used for bulk encryption", "Digital certificate authority involved"],
+    "correct": 1,
+    "explanation": "HMAC is constructed from a cryptographic hash function, so the properties of that hash function are central to its security.",
+    "topic": "HMAC"
+  },
+  {
+    "stem": "In cloud computing terminology, IaaS refers to:",
+    "options": ["Internet as a Service", "Identity as a Service", "Integration as a Service", "Infrastructure as a Service"],
+    "correct": 3,
+    "explanation": "IaaS provides infrastructure resources such as virtual servers, storage, and networking.",
+    "topic": "Cloud Computing"
+  },
+  {
+    "type": "fill",
+    "stem": "A trusted entity that issues and digitally signs public-key certificates in a PKI is called a ____.",
+    "answers": ["Certificate Authority", "Certificate Authority (CA)", "CA"],
+    "answer": "Certificate Authority (CA)",
+    "caseSensitive": false,
+    "topic": "PKI"
+  },
+  {
+    "stem": "The X.509 standard defines the format for:",
+    "options": ["Public-key certificates", "Password hashing schemes", "MAC algorithms", "Symmetric session keys"],
+    "correct": 0,
+    "explanation": "X.509 defines the structure and format of public-key certificates.",
+    "topic": "PKI"
+  },
+  {
+    "stem": "A major security weakness of simple password-based remote authentication over an insecure network is that:",
+    "options": ["Passwords are too long to remember", "Passwords cannot be hashed", "Passwords may be intercepted (eavesdropped) if sent without protection", "Passwords never expire"],
+    "correct": 2,
+    "explanation": "Passwords sent without protection over an insecure network can be intercepted by an eavesdropper.",
+    "topic": "Authentication"
+  },
+  {
+    "stem": "If a digital signature private key is compromised, the most direct consequence is that an attacker can:",
+    "options": ["Break the underlying hash function", "Recover other users' private keys", "Decrypt all previously encrypted traffic", "Forge signatures that appear to originate from the legitimate signer"],
+    "correct": 3,
+    "explanation": "Possession of a signing private key allows an attacker to create signatures that verify under the corresponding public key.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "Which of the following best describes CCM mode?",
+    "options": ["A pure public-key encryption scheme", "Counter with CBC-MAC, combining CTR mode encryption with CBC-based authentication", "A key exchange protocol", "A stand-alone hash function"],
+    "correct": 1,
+    "explanation": "CCM combines CTR mode encryption for confidentiality with CBC-MAC for authentication and integrity.",
+    "topic": "Authenticated Encryption"
+  },
+  {
+    "stem": "A digital signature can be verified by anyone who has access to the signer's public key.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "Anyone with the appropriate public key can verify a digital signature.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "Distribution of public keys by simple public announcement is vulnerable primarily to:",
+    "options": ["Brute-force key search", "Collision attacks", "Forgery, since anyone can claim to be a particular user and broadcast a bogus key", "Traffic analysis only"],
+    "correct": 2,
+    "explanation": "Without a trusted binding between a key and identity, an attacker can announce a fraudulent public key while impersonating another user.",
+    "topic": "Key Distribution"
+  },
+  {
+    "stem": "The SSL/TLS Handshake Protocol is responsible for:",
+    "options": ["Negotiating cryptographic parameters and authenticating the parties before data exchange", "Routing IP packets", "Encrypting bulk application data only", "Compressing files for transmission"],
+    "correct": 0,
+    "explanation": "The TLS handshake negotiates cryptographic parameters, authenticates parties as applicable, and establishes session keys.",
+    "topic": "TLS"
+  },
+  {
+    "stem": "In PGP, message confidentiality is typically achieved by encrypting the message with a symmetric session key, which is then:",
+    "options": ["Encrypted with the recipient's public key and sent along with the message", "Discarded after use without any protection", "Sent alongside the message in plaintext", "Hashed and stored on a server"],
+    "correct": 0,
+    "explanation": "PGP uses hybrid encryption: the message is symmetrically encrypted, while the session key is encrypted with the recipient's public key.",
+    "topic": "Email Security"
+  },
+  {
+    "stem": "Which of these is NOT typically listed among the standard applications of cryptographic hash functions?",
+    "options": ["Digital signatures", "Password storage", "Providing confidentiality by encrypting data", "Message authentication"],
+    "correct": 2,
+    "explanation": "Hash functions do not provide confidentiality because hashing is not encryption.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "In key wrapping, the primary goal is to:",
+    "options": ["Distribute public keys via certificates", "Generate brand-new random keys", "Compress a cryptographic key for storage", "Protect cryptographic keys during storage or transmission by encrypting them"],
+    "correct": 3,
+    "explanation": "Key wrapping protects cryptographic keys using another key, such as a Key Encryption Key.",
+    "topic": "Key Management"
+  },
+  {
+    "stem": "SHA-3 is based on the Keccak sponge construction.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "SHA-3 is standardized from the Keccak family and uses its sponge construction.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "User authentication is fundamentally the process of:",
+    "options": ["Encrypting user data", "Generating session keys only", "Compressing user credentials", "Verifying the claimed identity of a user or system entity"],
+    "correct": 3,
+    "explanation": "Authentication verifies that a user or system entity is who or what it claims to be.",
+    "topic": "Authentication"
+  },
+  {
+    "stem": "Public-key certificates chiefly solve which key distribution problem?",
+    "options": ["The need for digital watermarking", "The need for symmetric encryption in general", "The need for out-of-band key exchange between every pair of communicating parties", "The need for hash functions"],
+    "correct": 2,
+    "explanation": "Certificates provide a trusted binding between an identity and public key, reducing the need for direct out-of-band key verification.",
+    "topic": "PKI"
+  },
+  {
+    "stem": "The Internet Key Exchange (IKE) protocol is used within IPsec to:",
+    "options": ["Negotiate and establish security associations and session keys", "Encrypt application data directly", "Provide email encryption", "Route IP packets"],
+    "correct": 0,
+    "explanation": "IKE negotiates IPsec security parameters, authenticates peers, and establishes keying material and Security Associations.",
+    "topic": "IPsec"
+  },
+  {
+    "stem": "Symmetric key distribution using a Key Distribution Center (KDC) relies on:",
+    "options": ["Public-key certificates exclusively", "A trusted server that shares a master key with each user and issues session keys", "Each pair of users pre-sharing a key directly with every other user", "No shared secrets of any kind"],
+    "correct": 1,
+    "explanation": "A KDC shares long-term keys with users and distributes temporary session keys for communication.",
+    "topic": "Key Distribution"
+  },
+  {
+    "stem": "A key motivation for Kerberos is to allow a user to authenticate once and then access multiple services without:",
+    "options": ["Ever having tickets expire", "Using any shared secret", "Re-entering a password for every individual service", "Encrypting any traffic"],
+    "correct": 2,
+    "explanation": "Kerberos supports Single Sign-On, allowing users to access multiple services without repeatedly entering their password.",
+    "topic": "Kerberos"
+  },
+  {
+    "stem": "A Certificate Authority (CA) in a PKI is responsible for:",
+    "options": ["Storing symmetric session keys", "Verifying identities and digitally signing public-key certificates", "Encrypting all network traffic", "Generating users' private keys only"],
+    "correct": 1,
+    "explanation": "A CA verifies identities according to its policies and signs certificates to establish trust in public keys.",
+    "topic": "PKI"
+  },
+  {
+    "stem": "IPsec's ESP in transport mode encrypts the entire original IP header along with the payload.",
+    "options": ["True", "False"],
+    "correct": 1,
+    "explanation": "ESP transport mode protects the payload but leaves the original IP header exposed. Tunnel mode protects the entire original IP packet.",
+    "topic": "IPsec"
+  },
+  {
+    "stem": "Mobile device security concerns highlighted by Stallings include risks arising from:",
+    "options": ["Devices being too large to lose", "Excessive built-in encryption", "A complete absence of wireless connectivity", "Lack of physical security control, since mobile devices are easily lost or stolen"],
+    "correct": 3,
+    "explanation": "The portability of mobile devices makes loss and theft important physical security risks.",
+    "topic": "Mobile Security"
+  },
+  {
+    "stem": "Remote user authentication using asymmetric encryption can rely on a user proving possession of:",
+    "options": ["A shared password only", "A symmetric session key generated by the server", "The private key corresponding to a certified public key", "A hash digest only"],
+    "correct": 2,
+    "explanation": "The user can prove possession of a private key by signing a challenge that the server verifies with the corresponding public key.",
+    "topic": "Authentication"
+  },
+  {
+    "stem": "A replay attack against a MAC-protected message can be effectively mitigated by including:",
+    "options": ["A longer hash digest", "A sequence number or timestamp within the authenticated data", "A weaker MAC algorithm", "A larger MAC key only"],
+    "correct": 1,
+    "explanation": "A sequence number or timestamp allows the receiver to identify stale or previously used messages.",
+    "topic": "MAC"
+  },
+  {
+    "stem": "WEP's main cryptographic weakness stemmed from:",
+    "options": ["Not using any encryption whatsoever", "Weak use of RC4 combined with short, reused initialization vectors", "Using AES incorrectly", "Requiring digital certificates"],
+    "correct": 1,
+    "explanation": "WEP used RC4 with a short 24-bit IV, causing frequent IV reuse and enabling practical attacks against the key.",
+    "topic": "Wireless Security"
+  },
+  {
+    "stem": "The Extensible Authentication Protocol (EAP) is designed to:",
+    "options": ["Replace TLS entirely", "Provide a single fixed authentication method", "Only work with wireless networks", "Support multiple authentication methods within a common framework"],
+    "correct": 3,
+    "explanation": "EAP is a flexible authentication framework that supports many authentication methods and is used in wired and wireless networks.",
+    "topic": "Authentication"
+  },
+  {
+    "stem": "S/MIME extends standard email primarily to add:",
+    "options": ["HTML formatting support", "Faster mail delivery times", "Cryptographic security services such as confidentiality and digital signatures, based on X.509 certificates", "Larger attachment size limits"],
+    "correct": 2,
+    "explanation": "S/MIME provides email encryption and digital signatures using public-key cryptography and X.509 certificates.",
+    "topic": "Email Security"
+  },
+  {
+    "stem": "Federated identity management allows:",
+    "options": ["Certificates to be issued without any CA", "A single organization to manage all identities in total isolation", "Identity and authentication information to be shared across autonomous security domains", "Passwords to be eliminated entirely"],
+    "correct": 2,
+    "explanation": "Federation allows trusted organizations or security domains to share identity and authentication information.",
+    "topic": "Identity Management"
+  },
+  {
+    "stem": "TLS improves on earlier SSL versions partly through the use of a more secure:",
+    "options": ["Physical transport medium", "Compression-only algorithm", "Key derivation (pseudorandom) function", "IP addressing scheme"],
+    "correct": 2,
+    "explanation": "TLS introduced improvements to the pseudorandom function used to derive cryptographic keying material.",
+    "topic": "TLS"
+  },
+  {
+    "stem": "IEEE 802.11i was developed primarily to address security weaknesses in:",
+    "options": ["Wired Ethernet networks", "Cellular telephone networks", "Bluetooth", "The original WEP protocol for wireless LANs"],
+    "correct": 3,
+    "explanation": "802.11i strengthened wireless LAN security and addressed major weaknesses in WEP.",
+    "topic": "Wireless Security"
+  },
+  {
+    "stem": "CMAC is a MAC algorithm based on:",
+    "options": ["A stream cipher", "Public-key encryption", "A block cipher operating in a chaining mode", "A hash function only"],
+    "correct": 2,
+    "explanation": "CMAC is a block-cipher-based MAC, commonly implemented using AES with a CBC-style construction.",
+    "topic": "MAC"
+  },
+  {
+    "stem": "The birthday attack exploits which phenomenon to find hash collisions faster than a naive brute-force search?",
+    "options": ["Fermat's Little Theorem", "The Chinese Remainder Theorem", "The pigeonhole principle alone", "The birthday paradox, where collisions become likely with far fewer than 2^n attempts"],
+    "correct": 3,
+    "explanation": "For an n-bit hash, birthday attacks can find collisions in roughly 2^(n/2) attempts.",
+    "topic": "Hash Functions"
+  },
+  {
+    "stem": "The TLS Handshake Protocol allows the client and server to negotiate a cipher suite before exchanging application data.",
+    "options": ["True", "False"],
+    "correct": 0,
+    "explanation": "The TLS handshake negotiates cryptographic parameters, including the cipher suite, before protected application data is exchanged.",
+    "topic": "TLS"
+  },
+  {
+    "stem": "The Digital Signature Algorithm (DSA), as standardized by NIST, is based on the difficulty of:",
+    "options": ["Finding hash collisions", "Elliptic curve point addition only", "Factoring large integers", "Computing discrete logarithms"],
+    "correct": 3,
+    "explanation": "DSA is based on the computational difficulty of the discrete logarithm problem in a finite field.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "In wireless network security, the four-way handshake in 802.11i is used to:",
+    "options": ["Derive and confirm fresh session keys between a client and access point", "Distribute the original network SSID", "Encrypt the SSID broadcast", "Replace the need for a password entirely"],
+    "correct": 0,
+    "explanation": "The 802.11i four-way handshake derives and confirms fresh keying material between the client and access point.",
+    "topic": "Wireless Security"
+  },
+  {
+    "stem": "Authenticated encryption modes such as GCM and CCM are valued because they provide:",
+    "options": ["Authentication only, with no confidentiality", "Both confidentiality and message authentication in a single operation", "Confidentiality only", "Key exchange services only"],
+    "correct": 1,
+    "explanation": "GCM and CCM combine encryption for confidentiality with authentication and integrity protection.",
+    "topic": "Authenticated Encryption"
+  },
+  {
+    "stem": "The Schnorr digital signature scheme is notable for:",
+    "options": ["Requiring no hash function at all", "Its efficiency and simple structure based on discrete logarithms", "Being the very first commercial signature scheme", "Being based on integer factoring"],
+    "correct": 1,
+    "explanation": "Schnorr signatures are known for an efficient and relatively simple design based on the discrete logarithm problem.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "In the ElGamal digital signature scheme, security is grounded in the difficulty of:",
+    "options": ["Computing discrete logarithms", "Solving the knapsack problem", "Breaking AES directly", "Factoring composite numbers"],
+    "correct": 0,
+    "explanation": "ElGamal signatures rely on the computational difficulty of discrete logarithms.",
+    "topic": "Digital Signatures"
+  },
+  {
+    "stem": "Secure Shell (SSH) is primarily used for:",
+    "options": ["Secure remote login and command execution over an insecure network", "Wireless network encryption", "Email encryption", "DNS security"],
+    "correct": 0,
+    "explanation": "SSH provides secure remote login, command execution, and other secure network services over untrusted networks.",
+    "topic": "SSH"
+  },
+  {
+    "stem": "RSA-PSS was introduced as a signature scheme mainly to address:",
+    "options": ["Weaknesses in basic textbook RSA signatures by adding randomized padding", "Weaknesses specific to SHA-1 alone", "The need for a shared secret key", "The speed of elliptic curve arithmetic"],
+    "correct": 0,
+    "explanation": "RSA-PSS adds randomized probabilistic padding to RSA signatures, providing stronger security properties than deterministic textbook RSA signatures.",
+    "topic": "Digital Signatures"
+  }
+]

@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   bank,
   byId,
+  COURSE_PARTS,
   createSession,
   displayOption,
   emptyProgress,
@@ -9,20 +10,25 @@ import {
   grade,
   makeAttempt,
   median,
+  MOCK_PER_PART,
   mockIds,
   parseProgress,
   reviewIds,
   submitMock,
 } from "../src/model";
 
+const MOCK_TOTAL = COURSE_PARTS.length * MOCK_PER_PART;
+
 describe("exam integrity", () => {
-  it("draws 60 unique unseen questions, exactly 10 per part", () => {
+  it(`draws ${MOCK_TOTAL} unique unseen questions, exactly ${MOCK_PER_PART} per part`, () => {
     const seen = bank.slice(0, 30).map((q) => q.id);
     const ids = mockIds(seen);
-    expect(new Set(ids).size).toBe(60);
+    expect(new Set(ids).size).toBe(MOCK_TOTAL);
     expect(ids.some((id) => seen.includes(id))).toBe(false);
-    for (let p = 1; p <= 6; p++)
-      expect(ids.filter((id) => byId.get(id)!.part === p)).toHaveLength(10);
+    for (const p of COURSE_PARTS)
+      expect(ids.filter((id) => byId.get(id)!.part === p)).toHaveLength(
+        MOCK_PER_PART,
+      );
   });
   it("reuses questions in depleted parts without duplicates, even when all are seen", () => {
     for (const seen of [
@@ -30,10 +36,10 @@ describe("exam integrity", () => {
       bank.map((q) => q.id),
     ]) {
       const ids = mockIds(seen);
-      expect(new Set(ids).size).toBe(60);
-      for (let part = 1; part <= 6; part++)
+      expect(new Set(ids).size).toBe(MOCK_TOTAL);
+      for (const part of COURSE_PARTS)
         expect(ids.filter((id) => byId.get(id)!.part === part)).toHaveLength(
-          10,
+          MOCK_PER_PART,
         );
     }
   });
@@ -74,7 +80,7 @@ describe("exam integrity", () => {
     expect(displayOption(dummy, 2)).toBe("(Macro expansion) and (File inclusion)");
     expect(displayOption(dummy, 3)).toBe("All of these statements: (Macro expansion); (File inclusion)");
   });
-  it("submits all 60 once, including blanks, and excludes the revealed paper from future mocks", () => {
+  it(`submits all ${MOCK_TOTAL} once, including blanks, and excludes the revealed paper from future mocks`, () => {
     const s = createSession("mock", mockIds([]), 1000);
     const q = byId.get(s.ids[0])!;
     s.drafts[q.id] = {
@@ -83,10 +89,10 @@ describe("exam integrity", () => {
       seconds: 19,
     };
     const p = submitMock({ ...emptyProgress(), session: s }, 3601000);
-    expect(p.attempts).toHaveLength(60);
+    expect(p.attempts).toHaveLength(MOCK_TOTAL);
     expect(p.attempts.filter((a) => a.correct)).toHaveLength(1);
-    expect(p.seen).toHaveLength(60);
-    expect(submitMock(p).attempts).toHaveLength(60);
+    expect(p.seen).toHaveLength(MOCK_TOTAL);
+    expect(submitMock(p).attempts).toHaveLength(MOCK_TOTAL);
   });
   it("ranks frequent misses first and breaks ties by recency", () => {
     const s = createSession("review", ["P1-Q1", "P1-Q2"]);
