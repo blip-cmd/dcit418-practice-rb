@@ -13,8 +13,8 @@ import {
   errorCsv,
   makeAttempt,
   median,
-  MOCK_PER_PART,
   mockIds,
+  mockQuota,
   parseProgress,
   reviewIds,
   shuffle,
@@ -66,6 +66,7 @@ const sourceBanks = [
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
   new Set(items.map(questionKey)).size;
+const mockTotal = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
 const md = (text: string) => (
   <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
 );
@@ -518,7 +519,7 @@ function App() {
   }
   async function importFile(f: File) {
     try {
-      const imported = parseProgress(await f.text());
+      const imported = parseProgress(await f.text(), { requireCourse: true });
       if (
         progress.session &&
         !progress.session.submitted &&
@@ -1075,7 +1076,7 @@ function App() {
                     "mock",
                     "02",
                     "Test your readiness",
-                    `${COURSE_PARTS.length * MOCK_PER_PART} questions. 60 minutes. Unseen questions first, with repeats when needed.`,
+                    `${mockTotal} questions. 60 minutes. Unseen questions first, with repeats when needed.`,
                     "Set up a mock",
                   ],
                   [
@@ -1141,7 +1142,7 @@ function App() {
                 {view === "practice"
                   ? "Choose what to work on. Every answer is a chance to understand more."
                   : view === "mock"
-                    ? `${COURSE_PARTS.length * MOCK_PER_PART} questions, ${MOCK_PER_PART} from each part. Unseen questions first, with previously seen questions filling any gaps.`
+                    ? `${mockTotal} questions across ${COURSE_PARTS.length} parts (up to 15 each). Unseen questions first, with previously seen questions filling any gaps.`
                     : "Previously missed questions, ranked by miss count, then most recent miss."}
               </p>
             </div>
@@ -1310,8 +1311,8 @@ function App() {
                   <div className="mock-facts">
                     <Stat
                       label="Questions"
-                      value={String(COURSE_PARTS.length * MOCK_PER_PART)}
-                      detail={`${MOCK_PER_PART} per part`}
+                      value={String(mockTotal)}
+                      detail="Up to 15 per part"
                     />
                     <Stat
                       label="Time limit"
@@ -1330,14 +1331,15 @@ function App() {
                       const count = bank.filter(
                         (q) => q.part === i && !progress.seen.includes(q.id),
                       ).length;
+                      const quota = mockQuota(i);
                       return (
                         <div key={title}>
                           <span>
                             Part {i} · {title}
                           </span>
                           <strong className="good">
-                            {Math.min(count, MOCK_PER_PART)} fresh ·{" "}
-                            {Math.max(0, MOCK_PER_PART - count)} reused
+                            {Math.min(count, quota)} fresh ·{" "}
+                            {Math.max(0, quota - count)} reused
                           </strong>
                         </div>
                       );
@@ -1404,7 +1406,6 @@ function App() {
                         value={drillSet}
                         onChange={(e) => {
                           setDrillSet(e.target.value);
-                          if (e.target.value === "IT_Fill In Drill 100") setOrder("sequential");
                         }}
                       >
                         <option value="original">
@@ -1571,7 +1572,7 @@ function MockResults({
                     (a) => byId.get(a.questionId)!.part === i && a.correct,
                   ).length
                 }
-                /{MOCK_PER_PART}
+                /{mockQuota(i)}
               </strong>
               <small>{title}</small>
             </div>

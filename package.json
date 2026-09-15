@@ -1,18 +1,16 @@
 {
-  "name": "dcit402-practice",
+  "name": "dcit418-practice",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:drills": "node scripts/build-it-fill-drill.mjs",
-    "predev": "npm run build:drills",
-    "prebuild": "npm run build:drills",
-    "pretest": "npm run build:drills",
+    "build:bank": "python scripts/parse_security_bank.py",
     "start": "node scripts/start.mjs",
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build && node scripts/cache.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:browser": "npm run build && playwright test"
   },
   "dependencies": {
     "react": "^19.1.0",

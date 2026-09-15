@@ -110,12 +110,14 @@ export interface Session {
   submitted: boolean;
 }
 export interface Progress {
+  course: "dcit418";
   version: 1;
   attempts: Attempt[];
   seen: string[];
   session: Session | null;
 }
 export const emptyProgress = (): Progress => ({
+  course: "dcit418",
   version: 1,
   attempts: [],
   seen: [],
@@ -324,7 +326,7 @@ export function errorCsv(attempts: Attempt[]): string {
       .join("\r\n")
   );
 }
-export function parseProgress(text: string): Progress {
+export function parseProgress(text: string, { requireCourse = false } = {}): Progress {
   const p: unknown = JSON.parse(text);
   if (
     !p ||
@@ -337,6 +339,8 @@ export function parseProgress(text: string): Progress {
     !Array.isArray(p.seen)
   )
     throw new Error("Invalid progress file.");
+  if (("course" in p && p.course !== "dcit418") || (requireCourse && !("course" in p)))
+    throw new Error("Import a DCIT 418 progress export. For older DCIT 418 backups, export again from the updated app.");
   if (!p.seen.every((id: unknown) => typeof id === "string" && byId.has(id)))
     throw new Error("Unknown question in progress.");
   for (const a of p.attempts as unknown[]) {
@@ -364,6 +368,7 @@ export function parseProgress(text: string): Progress {
   const attempts = p.attempts as Attempt[];
   return {
     version: 1,
+    course: "dcit418",
     attempts,
     seen: [
       ...new Set([

@@ -542,4 +542,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit('This legacy DCIT 402 parser is disabled in the DCIT 418 app. Run python scripts/parse_security_bank.py instead.')

@@ -1,6 +1,8 @@
 import { test, expect, type Page } from "@playwright/test";
 import {
   bank,
+  COURSE_PARTS,
+  mockQuota,
   practiceBank,
   byId,
   createSession,
@@ -9,6 +11,9 @@ import {
   STORAGE,
   type Progress,
 } from "../../src/model";
+
+const fillQuestion = bank.find((q) => q.type === "fill")!;
+const MOCK_TOTAL = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
 
 async function seed(page: Page, progress: Progress) {
   await page.goto("/");
@@ -25,9 +30,16 @@ test("home, practice setup, keyboard answer and persistence", async ({
   await expect(
     page.getByRole("heading", { name: "Make the concepts click." }),
   ).toBeVisible();
+  await expect(page).toHaveTitle("Security Lab · DCIT 418");
+  await expect.poll(async () => {
+    const sidebar = await page.locator("#study-sidebar").boundingBox();
+    const content = await page.locator("main").boundingBox();
+    return content!.x >= sidebar!.x + sidebar!.width;
+  }).toBe(true);
   await page.screenshot({
     path: "test-results/home-desktop.png",
     fullPage: true,
+    animations: "disabled",
   });
   await page.getByRole("button", { name: "Let’s practise" }).click();
   await page.getByRole("button", { name: "Start practice" }).click();
@@ -55,8 +67,8 @@ test("fill override records correctness and removes the miss from review", async
 }) => {
   await seed(page, {
     ...emptyProgress(),
-    seen: ["P1-Q41"],
-    session: createSession("practice", ["P1-Q41"]),
+    seen: [fillQuestion.id],
+    session: createSession("practice", [fillQuestion.id]),
   });
   await page.getByRole("textbox").fill("my equivalent notation");
   await page.keyboard.press("Enter");
@@ -71,7 +83,7 @@ test("fill override records correctness and removes the miss from review", async
   expect(p.attempts[0].override).toBe(true);
   expect(p.attempts[0].correct).toBe(true);
 });
-for (const id of ["P1-Q1", "P1-Q41"])
+for (const id of ["P1-Q1", fillQuestion.id])
   test(`mobile diagram and card preservation ${id}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await seed(page, {
@@ -90,7 +102,7 @@ for (const id of ["P1-Q1", "P1-Q41"])
       fullPage: true,
     });
   });
-test("mock hides answers, preserves choices and deadline, and submits all 60", async ({
+test("mock hides answers, preserves choices and deadline, and submits the full paper", async ({
   page,
 }) => {
   await page.goto("/");
@@ -100,7 +112,7 @@ test("mock hides answers, preserves choices and deadline, and submits all 60", a
     (key) => JSON.parse(localStorage.getItem(key)!),
     STORAGE,
   );
-  expect(before.session.ids).toHaveLength(60);
+  expect(before.session.ids).toHaveLength(MOCK_TOTAL);
   await expect(page.locator(".feedback")).toHaveCount(0);
   if (await page.getByRole("textbox").count())
     await page.getByRole("textbox").fill("answer");
@@ -120,8 +132,8 @@ test("mock hides answers, preserves choices and deadline, and submits all 60", a
     (key) => JSON.parse(localStorage.getItem(key)!),
     STORAGE,
   );
-  expect(final.attempts).toHaveLength(60);
-  expect(final.seen).toHaveLength(60);
+  expect(final.attempts).toHaveLength(MOCK_TOTAL);
+  expect(final.seen).toHaveLength(MOCK_TOTAL);
   await page.reload();
   expect(
     (
@@ -130,7 +142,7 @@ test("mock hides answers, preserves choices and deadline, and submits all 60", a
         STORAGE,
       )
     ).attempts,
-  ).toHaveLength(60);
+  ).toHaveLength(MOCK_TOTAL);
 });
 test("expired mock auto-submits on reload", async ({ page }) => {
   await seed(page, {
@@ -147,7 +159,7 @@ test("expired mock auto-submits on reload", async ({ page }) => {
         STORAGE,
       )
     ).attempts,
-  ).toHaveLength(60);
+  ).toHaveLength(MOCK_TOTAL);
 });
 test("offline cache reloads the full app", async ({ page, context }) => {
   await page.goto("/");
@@ -167,9 +179,9 @@ test("export and import resumes the active question on another device", async ({
   page,
   browser,
 }) => {
-  const s = createSession("practice", ["P1-Q41", "P1-Q1"]);
-  await seed(page, { ...emptyProgress(), session: s, seen: ["P1-Q41"] });
-  await page.getByRole("textbox").fill("responsibility");
+  const s = createSession("practice", [fillQuestion.id, "P1-Q1"]);
+  await seed(page, { ...emptyProgress(), session: s, seen: [fillQuestion.id] });
+  await page.getByRole("textbox").fill(fillQuestion.correctText);
   const downloaded = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export progress" }).click();
   const path = await (await downloaded).path();
@@ -177,7 +189,7 @@ test("export and import resumes the active question on another device", async ({
   const second = await other.newPage();
   await second.goto("/");
   await second.locator("input[type=file]").setInputFiles(path!);
-  await expect(second.getByRole("textbox")).toHaveValue("responsibility");
+  await expect(second.getByRole("textbox")).toHaveValue(fillQuestion.correctText);
   await second.getByRole("button", { name: "Check answer" }).click();
   await expect(
     second.getByRole("heading", { name: "✓ Correct", exact: true }),
@@ -215,7 +227,7 @@ test("dashboard flags, review queue and CSV download reflect actual mistakes", a
   await expect(page.getByText("Over 60s", { exact: true })).toBeVisible();
   const downloaded = page.waitForEvent("download");
   await page.getByRole("button", { name: "Copy & download error log" }).click();
-  expect((await downloaded).suggestedFilename()).toBe("dcit402-errors.csv");
+  expect((await downloaded).suggestedFilename()).toBe("dcit418-errors.csv");
   await page.getByRole("button", { name: /Review mistakes/ }).click();
   await page.getByRole("button", { name: "Start review" }).click();
   await expect(
@@ -293,17 +305,17 @@ test("quiz arrows navigate without grading and leave text cursor keys intact", a
 }) => {
   await seed(page, {
     ...emptyProgress(),
-    seen: ["P1-Q41"],
-    session: createSession("practice", ["P1-Q41", "P1-Q1"]),
+    seen: [fillQuestion.id],
+    session: createSession("practice", [fillQuestion.id, "P1-Q1"]),
   });
-  await page.getByRole("textbox").fill("responsibility");
+  await page.getByRole("textbox").fill(fillQuestion.correctText);
   await page.keyboard.press("ArrowRight");
-  await expect(page.locator(".tags")).toContainText("P1-Q41");
+  await expect(page.locator(".tags")).toContainText(fillQuestion.id);
   await page.locator("h1").click();
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".tags")).toContainText("P1-Q1");
   await page.keyboard.press("ArrowLeft");
-  await expect(page.getByRole("textbox")).toHaveValue("responsibility");
+  await expect(page.getByRole("textbox")).toHaveValue(fillQuestion.correctText);
   expect(
     (
       await page.evaluate(
@@ -354,18 +366,18 @@ test("sidebar collapses, remembers preference, and expands on mobile", async ({
 test("fully seen bank still starts a balanced mock", async ({ page }) => {
   await seed(page, { ...emptyProgress(), seen: practiceBank.map((q) => q.id) });
   await page.getByRole("button", { name: "Mock exam" }).click();
-  await expect(page.getByText("0 fresh", { exact: false })).toHaveCount(6);
+  await expect(page.getByText("0 fresh", { exact: false })).toHaveCount(COURSE_PARTS.length);
   await page.getByRole("button", { name: "Start 60-minute mock" }).click();
   await expect(page.locator(".question-card")).toBeVisible();
   const saved = await page.evaluate(
     (key) => JSON.parse(localStorage.getItem(key)!),
     STORAGE,
   );
-  expect(new Set(saved.session.ids).size).toBe(60);
-  for (let part = 1; part <= 6; part++)
+  expect(new Set(saved.session.ids).size).toBe(MOCK_TOTAL);
+  for (const part of COURSE_PARTS)
     expect(
       saved.session.ids.filter((id: string) => byId.get(id)!.part === part),
-    ).toHaveLength(10);
+    ).toHaveLength(mockQuota(part));
 });
 
 test("fill-in drill starts only fill questions and accepts a correct answer", async ({

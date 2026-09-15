@@ -10,24 +10,24 @@ import {
   grade,
   makeAttempt,
   median,
-  MOCK_PER_PART,
   mockIds,
+  mockQuota,
   parseProgress,
   reviewIds,
   submitMock,
 } from "../src/model";
 
-const MOCK_TOTAL = COURSE_PARTS.length * MOCK_PER_PART;
+const MOCK_TOTAL = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
 
 describe("exam integrity", () => {
-  it(`draws ${MOCK_TOTAL} unique unseen questions, exactly ${MOCK_PER_PART} per part`, () => {
+  it(`draws ${MOCK_TOTAL} unique unseen questions, exactly each part's quota`, () => {
     const seen = bank.slice(0, 30).map((q) => q.id);
     const ids = mockIds(seen);
     expect(new Set(ids).size).toBe(MOCK_TOTAL);
     expect(ids.some((id) => seen.includes(id))).toBe(false);
     for (const p of COURSE_PARTS)
       expect(ids.filter((id) => byId.get(id)!.part === p)).toHaveLength(
-        MOCK_PER_PART,
+        mockQuota(p),
       );
   });
   it("reuses questions in depleted parts without duplicates, even when all are seen", () => {
@@ -39,7 +39,7 @@ describe("exam integrity", () => {
       expect(new Set(ids).size).toBe(MOCK_TOTAL);
       for (const part of COURSE_PARTS)
         expect(ids.filter((id) => byId.get(id)!.part === part)).toHaveLength(
-          MOCK_PER_PART,
+          mockQuota(part),
         );
     }
   });
@@ -56,7 +56,7 @@ describe("exam integrity", () => {
     for (const id of fresh) expect(ids).toContain(id);
   });
   it("grades shuffled options by identity and fill-ins by normalized alternates", () => {
-    const q = byId.get("P1-Q1")!;
+    const q = bank.find((x) => x.type === "mcq4" || x.type === "mcq5")!;
     expect(
       grade(q, {
         answer: displayOption(q, q.correctIndex!),
@@ -115,6 +115,14 @@ describe("exam integrity", () => {
     expect(() =>
       parseProgress('{"version":1,"seen":["bad"],"attempts":[]}'),
     ).toThrow();
+  });
+  it("separates course imports while preserving existing local security progress", () => {
+    const current = emptyProgress();
+    expect(parseProgress(JSON.stringify(current), { requireCourse: true }).course).toBe("dcit418");
+    const { course, ...legacy } = current;
+    expect(parseProgress(JSON.stringify(legacy)).course).toBe("dcit418");
+    expect(() => parseProgress(JSON.stringify(legacy), { requireCourse: true })).toThrow("DCIT 418");
+    expect(() => parseProgress(JSON.stringify({ ...current, course: "dcit402" }))).toThrow("DCIT 418");
   });
   it("computes true medians and quotes multiline CSV safely", () => {
     expect(median([1, 2, 100, 200])).toBe(51);
