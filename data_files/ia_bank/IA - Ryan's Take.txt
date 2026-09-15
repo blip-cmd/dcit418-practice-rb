@@ -1,0 +1,1335 @@
+Ryan's Take
+DCIt418 IA Sakai Offisite 
+2026
+
+A sequence produced by a linear congruential generator can pass every standard statistical randomness test and still be considered cryptographically worthless because:
+
+ LCG output is always shorter than the plaintext it is meant to protect
+ An attacker who recovers a handful of consecutive outputs can solve for the generator's parameters and predict all future values
+ Statistical tests are incapable of evaluating any algorithmically generated sequence
+ LCGs cannot produce output that is uniformly distributed under any parameter choice
+The correct answer is:
+
+✅ An attacker who recovers a handful of consecutive outputs can solve for the generator's parameters and predict all future values.
+
+Why this is correct
+A Linear Congruential Generator (LCG) generates numbers using the formula:
+
+X
+n
++
+1
+=
+(
+a
+X
+n
++
+c
+)
+ 
+mod
+ 
+m
+X 
+n+1
+​
+ =(aX 
+n
+​
+ +c)modm
+where:
+
+a
+a = multiplier
+c
+c = increment
+m
+m = modulus
+X
+0
+X 
+0
+​
+  = seed
+Even if the sequence looks random and passes statistical tests (uniformity, frequency, runs, etc.), it is deterministic.
+
+If an attacker observes a few consecutive outputs, they can often recover the unknown parameters (
+a
+a, 
+c
+c, and sometimes 
+m
+m). Once these are known, they can compute every future (and often previous) output. This makes LCGs unsuitable for cryptography.
+
+Why the other options are wrong
+❌ LCG output is always shorter than the plaintext it is meant to protect
+
+There is no such limitation. An LCG can generate as many values as needed.
+❌ Statistical tests are incapable of evaluating any algorithmically generated sequence
+
+False. Statistical tests can evaluate algorithmically generated sequences.
+Passing these tests only shows the sequence appears random statistically, not that it is secure.
+❌ LCGs cannot produce output that is uniformly distributed under any parameter choice
+
+False. With carefully chosen parameters, LCGs can have good uniform distribution and a maximal period.
+Their weakness is predictability, not necessarily poor statistical distribution.
+Exam tip
+Remember the distinction:
+
+Statistical randomness → "Does it look random?"
+Cryptographic randomness → "Can an attacker predict future outputs?"
+An LCG may satisfy the first but fails the second, which is why it is considered cryptographically worthless.
+
+AES was selected by NIST through an open competition, with the winning algorithm originally named ____, designed by Daemen and Rijmen.  
+
+The correct answer is:
+
+✅ Rijndael
+
+Complete sentence:
+
+AES was selected by NIST through an open competition, with the winning algorithm originally named Rijndael, designed by Daemen and Rijmen.
+
+Quick facts
+Original algorithm: Rijndael
+Designers: Joan Daemen and Vincent Rijmen
+Selected by NIST: 2000
+Published as AES (FIPS 197): 2001
+Exam tip:
+Remember the name Rijndael comes from combining the surnames Rijmen and Daemen. After it won the competition, it was standardized as the Advanced Encryption Standard (AES).
+
+The AES round transformation that cyclically shifts each row of the State to the left by an amount equal to the row index is called ____.  Blank 1. Fill in the blank, read surrounding text.  
+  
+
+The correct answer is:
+
+✅ ShiftRows
+
+Complete sentence:
+
+The AES round transformation that cyclically shifts each row of the State to the left by an amount equal to the row index is called ShiftRows.
+
+Quick reminder
+AES has four main round transformations:
+
+SubBytes – Substitute each byte using the S-box.
+ShiftRows – Cyclically shift each row to the left:
+Row 0: 0 positions
+Row 1: 1 position
+Row 2: 2 positions
+Row 3: 3 positions
+MixColumns – Mix bytes within each column.
+AddRoundKey – XOR the state with the round key.
+Answer: ShiftRows
+
+Asymmetric ciphers such as RSA and ECC are not typically used to generate long, open-ended pseudorandom bit streams because:
+
+ They require a hardware TRNG to be present, unlike every symmetric-cipher-based PRNG
+ Asymmetric operations are comparatively slow, so they are better suited to producing a short pseudorandom function output per invocation
+ They are mathematically incapable of producing any output that looks statistically random
+ Their output is always shorter than the modulus n, regardless of the number of invocations
+The correct answer is:
+
+✅ Asymmetric operations are comparatively slow, so they are better suited to producing a short pseudorandom function output per invocation.
+
+Why this is correct
+Public-key cryptography algorithms like RSA and ECC involve computationally expensive operations (e.g., modular exponentiation for RSA and elliptic curve point multiplication for ECC). Because of this, they are much slower than symmetric algorithms such as AES or ChaCha20.
+
+For generating long streams of random bits, cryptographic systems typically:
+
+Use a true random source to obtain a seed.
+Use a symmetric cryptographic PRNG (CSPRNG) (e.g., AES-CTR DRBG or ChaCha20) to efficiently generate large amounts of pseudorandom data.
+Why the other options are wrong
+❌ They require a hardware TRNG...
+False. Neither RSA nor ECC inherently require a hardware TRNG.
+
+❌ They are mathematically incapable of producing any output that looks statistically random.
+False. Their outputs can appear statistically random.
+
+❌ Their output is always shorter than the modulus 
+n
+n...
+False. Repeated invocations can produce arbitrarily long outputs.
+
+Answer: ✅ Asymmetric operations are comparatively slow, so they are better suited to producing a short pseudorandom function output per invocation.
+
+Basic, unauthenticated Diffie-Hellman is vulnerable to a man-in-the-middle attack because:
+
+ The discrete logarithm problem becomes trivially easy once two parties are involved
+ The primitive root alpha must be kept secret, and any leak instantly reveals the key
+ The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages
+ Diffie-Hellman transmits the shared secret key directly, in plaintext, over the channel
+The correct answer is:
+
+✅ The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages.
+
+Why this is correct
+Basic Diffie–Hellman key exchange allows two parties to agree on a shared secret over an insecure channel, but it does not verify the identities of the participants.
+
+A man-in-the-middle (MITM) attacker can:
+
+Intercept Alice's public value and send their own to Bob.
+Intercept Bob's public value and send their own to Alice.
+Establish one shared key with Alice and a different shared key with Bob.
+Decrypt, modify, and re-encrypt every message between them without either party realizing.
+Why the other options are wrong
+❌ The discrete logarithm problem becomes trivially easy once two parties are involved.
+
+False. The security still relies on the hardness of the discrete logarithm problem.
+❌ The primitive root α must be kept secret, and any leak instantly reveals the key.
+
+False. The primitive root (generator) α is public, not secret.
+❌ Diffie-Hellman transmits the shared secret key directly, in plaintext, over the channel.
+
+False. Only the public values (e.g., 
+g
+a
+ 
+mod
+ 
+p
+g 
+a
+ modp and 
+g
+b
+ 
+mod
+ 
+p
+g 
+b
+ modp) are transmitted. The shared secret is never sent.
+Exam tip
+Remember:
+
+Diffie–Hellman provides: ✅ Key agreement
+Basic Diffie–Hellman does NOT provide: ❌ Authentication
+This lack of authentication is exactly why it is vulnerable to man-in-the-middle attacks.
+
+Answer: ✅ The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages.
+
+
+
+Given 84 = 2^2 x 3 x 7 and 126 = 2 x 3^2 x 7, gcd(84, 126) equals:
+
+
+
+ A. 21
+
+ B. 42
+
+ C. 84
+
+ D. 126
+
+To find the greatest common divisor (gcd) from prime factorizations, take the lowest power of each common prime factor:
+
+For 2: min(2 
+2
+ ,2 
+1
+ )=2 
+1
+ =2
+
+For 3: min(3 
+1
+ ,3 
+2
+ )=3 
+1
+ =3
+
+For 7: min(7 
+1
+ ,7 
+1
+ )=7 
+1
+ =7
+
+Multiply these minimum powers together:
+
+gcd(84,126)=2×3×7=42
+The correct option is B. 42.
+
+Question 71 of 100
+
+1 Points
+
+
+
+What follows is a fill in the blank question with 1 blanks.
+
+
+
+The attack in which an adversary establishes separate shared keys with each party in an unauthenticated Diffie-Hellman exchange, secretly relaying and altering messages between them, is called a ____ attack.  Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+man-in-the-middle (or MITM)
+
+Computing g^x mod p for a large exponent x is considered computationally easy mainly because:
+
+
+
+ A. Modular exponentiation avoids using multiplication entirely
+
+ B. x is always chosen to be smaller than the base g in practical schemes
+
+ C. The result is always small, regardless of how large x or p may be
+
+ D. Repeated squaring allows the result to be computed in a number of steps proportional to the number of bits in x
+
+The correct option is D. Repeated squaring allows the result to be computed in a number of steps proportional to the number of bits in x.
+
+Why D is correct: Algorithms like square-and-multiply compute g 
+x
+ (modp) in O(logx) multiplications by breaking the exponent down into its binary representation (bits).
+
+Why the others are incorrect:
+
+A is false because modular exponentiation heavily relies on multiplication combined with modulo operations.
+
+B is false because x is typically a very large secret exponent (e.g., 256 to 2048 bits), far larger than small generators like g=2.
+
+C is false because the result can be as large as p−1, which is huge in practical cryptographic systems (e.g., 2048-bit numbers).
+
+A timing attack against RSA, as described by Kocher, works by:
+
+
+
+ A. Directly factoring the public modulus n using a quantum computer
+
+ B. Guessing the plaintext message and checking it against a list of common phrases
+
+ C. Measuring how long decryption takes for different ciphertexts to leak information about the private key, bit by bit
+
+ D. Exploiting a mathematically proven flaw in the RSA encryption formula itself
+
+The correct option is C. Measuring how long decryption takes for different ciphertexts to leak information about the private key, bit by bit.
+
+Why C is correct: Paul Kocher introduced side-channel timing attacks by showing that variations in execution time during modular exponentiation (due to conditional branches or data-dependent operations) reveal the individual bits of the private exponent.
+
+Why the others are incorrect:
+
+A refers to Shor's algorithm, not a timing side-channel attack.
+
+B describes a dictionary attack or brute-force guessing against the message space.
+
+D is incorrect because RSA's underlying mathematical formulation remains sound; the flaw lies entirely in the physical implementation and non-constant-time execution.
+
+NIST's CTR_DRBG, the modern standard block-cipher-based PRNG, operates through which three phases?
+
+
+
+ A. Initialize (seed from entropy), Generate (encrypt and increment a counter), and Update (periodically reseed with fresh entropy)
+
+ B. Shuffle, Swap, and Output, exactly as in the RC4 algorithm
+
+ C. Encrypt, Decrypt, and Re-encrypt, exactly as in Triple DES
+
+ D. Select primes, Compute totient, and Generate keys, exactly as in RSA
+
+The correct option is A. Initialize (seed from entropy), Generate (encrypt and increment a counter), and Update (periodically reseed with fresh entropy).
+
+Why A is correct: According to NIST SP 800-90A, CTR_DRBG operates via:
+
+Instantiation / Initialization: Sets the internal state (Key and Value/counter) using seed material derived from an entropy source.
+
+Generate: Produces pseudorandom bits by iteratively encrypting an incremented counter value under the current key.
+
+Update / Reseed: Mixes in additional data or fresh entropy to refresh the internal state and provide forward/backward secrecy.
+
+Why the others are incorrect:
+
+B describes the state operations of the RC4 stream cipher (KSA and PRGA).
+
+C describes the 3-key Triple DES operation mode (EDE: Encrypt-Decrypt-Encrypt).
+
+D describes the standard key generation procedure for RSA.
+
+Question 75 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In Diffie-Hellman, both public parameters q (a prime) and alpha (a primitive root of q) are:
+
+ A. Derived mathematically from each party's private exponent after the exchange
+
+ B. Generated fresh for every single message exchanged between the parties
+
+ C. Kept secret and known only to the two communicating parties
+
+ D. Known publicly to everyone, including any potential attacker
+
+The correct option is D. Known publicly to everyone, including any potential attacker.
+
+Why D is correct: In the Diffie-Hellman key exchange, the prime modulus q (or p) and the primitive root α (or g) are public domain parameters. They can be shared openly over an insecure channel or standardized in advance. Security depends solely on the secrecy of each party's private exponents (X 
+A
+​
+ ,X 
+B
+​
+ ), not the domain parameters.
+
+Why the others are incorrect:
+
+A is false because q and α are agreed upon before the exchange and are independent of the private keys.
+
+B is false because domain parameters are static group parameters, often reused across many sessions.
+
+C is false because keeping the parameters secret is unnecessary and defeats the purpose of public-key negotiation.
+
+Question 76 of 100
+
+1 Points
+
+
+
+What follows is a fill in the blank question with 1 blanks.
+
+
+
+A generator that derives its randomness from a genuinely unpredictable physical process, such as thermal noise, rather than from a deterministic algorithm, is called a ____.  Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+True Random Number Generator (or TRNG / hardware random number generator)
+
+Question 77 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+To achieve authentication (a digital signature) using a public-key cryptosystem, a sender encrypts a message using:
+
+ A. The recipient's public key, so that only the recipient can later decrypt and verify it
+
+ B. The recipient's private key, shared with the sender ahead of time for this purpose
+
+ C. Their own private key, so that anyone with the matching public key can verify the message's origin
+
+ D. A key derived by hashing the recipient's public key together with a nonce
+
+The correct option is C. Their own private key, so that anyone with the matching public key can verify the message's origin.
+
+Why C is correct: In a public-key digital signature scheme, the sender creates the signature using their own private key. Because only the sender possesses this private key, anyone with the corresponding public key can decrypt or verify the signature, providing authenticity and non-repudiation.
+
+Why the others are incorrect:
+
+A provides confidentiality (only the recipient can read it), not authentication/origin proof from the sender.
+
+B violates the fundamental rule of public-key cryptography; private keys are never shared.
+
+D does not provide public-key digital signatures or asymmetric verification of origin.
+
+Question 78 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+AES was adopted as a replacement for DES/Triple DES mainly because:
+
+ A. NIST wanted an algorithm based on a Feistel network rather than a substitution-permutation network
+
+ B. DES had a mathematically proven flaw that made every message recoverable
+
+ C. Triple DES was too slow for many applications while still relying on a 64-bit block, and DES's 56-bit key was no longer safe
+
+ D. AES was the only submitted candidate that supported a 128-bit key at all
+
+The correct option is C. Triple DES was too slow for many applications while still relying on a 64-bit block, and DES's 56-bit key was no longer safe.
+
+Why C is correct: DES's 56-bit key had become vulnerable to exhaustive brute-force search attacks by the late 1990s. While Triple DES (3DES) solved the key-length problem, it required three full passes of DES per block, making it computationally inefficient in software, and its 64-bit block size left it vulnerable to collision-based birthday attacks on large data streams.
+
+Why the others are incorrect:
+
+A is false because AES (Rijndael) is built on a Substitution-Permutation Network (SPN), not a Feistel structure.
+
+B is false because DES fell to brute-force key search rather than a fundamental mathematical breakdown of its round structure.
+
+D is false because all final AES candidates (such as Twofish, Serpent, and RC6) supported 128-bit blocks along with 128, 192, and 256-bit key sizes.
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+DES processes plaintext through which overall sequence of steps?
+
+ A. A single large substitution table applied directly to the full 64-bit block
+
+ B. An initial permutation, sixteen Feistel rounds, a swap of the two halves, then the inverse initial permutation
+
+ C. Byte substitution, row shifting, column mixing, and a round-key XOR, repeated ten times
+
+ D. A key expansion, eight parallel Feistel rounds, then a single final substitution
+
+The correct option is B. An initial permutation, sixteen Feistel rounds, a swap of the two halves, then the inverse initial permutation.
+
+Why B is correct: Standard DES operates on a 64-bit plaintext block through:
+
+Initial Permutation (IP): Bit transposition before round processing.
+
+16 Feistel Rounds: Iterative substitution, permutation, and key mixing on the two 32-bit halves.
+
+32-bit Swap: The left and right halves are swapped after round 16 (pre-output swap).
+
+Inverse Initial Permutation (IP 
+−1
+ ): The final transposition producing the 64-bit ciphertext.
+
+Why the others are incorrect:
+
+A is mathematically and computationally infeasible for a 64-bit input block.
+
+C describes the round transformations of AES (128-bit key variant with 10 rounds), not DES.
+
+D specifies an incorrect round count (8 instead of 16) and an incorrect structure.
+
+Question 80 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+The AES S-box used in SubBytes is constructed from:
+
+ A. A simple Caesar-style shift applied to each byte value
+
+ B. The XOR of each byte with the AES key expansion constant
+
+ C. The multiplicative inverse in GF(2^8) followed by an affine transformation
+
+ D. A random permutation generated fresh for every encryption session
+
+The correct option is C. The multiplicative inverse in GF(2^8) followed by an affine transformation.
+
+Why C is correct: The AES S-box is designed algebraically to maximize non-linearity and minimize resistance to differential and linear cryptanalysis. Each byte is mapped to its multiplicative inverse in the finite field GF(2 
+8
+ ) (with the element {00} mapped to itself), followed by an invertible affine transformation over GF(2).
+
+Why the others are incorrect:
+
+A is linear and provides zero non-linear cryptographic confusion.
+
+B confuses the S-box substitution with the AddRoundKey step.
+
+D is false because the AES S-box is fixed, standardized, and deterministic, not dynamically generated per session.
+
+Question 81 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+To combine both secrecy and authentication for a message X sent from A to B, the correct construction is:
+
+ A. Z = E(PUa, E(PUb, X)) -- encrypt twice using both parties' public keys only
+
+ B. Z = E(PUb, X) alone, since encrypting with B's public key already signs the message
+
+ C. Z = E(PUb, E(PRa, X)) -- sign with A's private key, then encrypt the result with B's public key
+
+ D. Z = E(PRa, E(PRb, X)) -- encrypt twice using both parties' private keys only
+
+The correct option is C. Z = E(PUb, E(PRa, X)) -- sign with A's private key, then encrypt the result with B's public key.
+
+Why C is correct:
+
+Authentication/Signature: The inner operation, E(PR 
+a
+​
+ ,X), encrypts the plaintext using sender A's private key (PR 
+a
+​
+ ). Only A could have created this layer, proving origin and authenticity.
+
+Confidentiality/Secrecy: The outer operation, E(PU 
+b
+​
+ ,…), encrypts the signed payload using recipient B's public key (PU 
+b
+​
+ ). Only B possesses the matching private key (PR 
+b
+​
+ ) needed to peel back this layer, ensuring secrecy.
+
+Why the others are incorrect:
+
+A uses only public keys; anyone can perform these encryptions, offering zero origin authentication.
+
+B provides confidentiality only; encrypting with B's public key does not prove who sent the message.
+
+D is impossible because A does not (and must never) have access to B's private key (PR 
+b
+​
+ ).
+
+Question 82 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+Because OFB feeds back the encryption output rather than the ciphertext, it offers the practical advantage that:
+
+ A. It becomes fully immune to any form of cryptanalysis
+
+ B. It automatically compresses the ciphertext to a smaller size than the plaintext
+
+ C. A bit error introduced during transmission affects only the corresponding plaintext bit, without cascading into later blocks
+
+ D. No initialization vector or key is required to begin decryption
+
+The correct option is C. A bit error introduced during transmission affects only the corresponding plaintext bit, without cascading into later blocks.
+
+Why C is correct: In Output Feedback (OFB) mode, the keystream is generated by repeatedly encrypting the previous cipher output independently of the ciphertext or plaintext (O 
+i
+​
+ =E 
+K
+​
+ (O 
+i−1
+​
+ ) and C 
+i
+​
+ =P 
+i
+​
+ ⊕O 
+i
+​
+ ). Because corrupted ciphertext bits never re-enter the feedback loop, a single-bit transmission error in the ciphertext flips only the corresponding bit in the decrypted plaintext and does not propagate to subsequent blocks.
+
+Why the others are incorrect:
+
+A is false because OFB remains vulnerable to specific attacks if the keystream repeats (nonce reuse) or if ciphertext manipulation/malleability attacks are attempted without authentication.
+
+B is false because OFB is an encryption mode, not a compression algorithm; plaintext and ciphertext lengths remain identical.
+
+D is false because OFB requires both a secret key and a unique Initialization Vector (IV) to begin keystream generation.
+
+An integer p greater than 1 is defined as prime when:
+
+
+
+ A. It cannot be expressed as the product of any two smaller integers at all
+
+ B. Its only positive divisors are 1 and itself
+
+ C. It has exactly three distinct positive divisors, including itself
+
+ D. It is odd and also not divisible by 3 or 5
+
+The correct option is B. Its only positive divisors are 1 and itself.
+
+Why B is correct: By mathematical definition, an integer p>1 is prime if and only if its only positive divisors are 1 and p.
+
+Why the others are incorrect:
+
+A is slightly inaccurate because it leaves the number domain ambiguous (e.g., negative integers or rational factors).
+
+C describes numbers that are the square of a prime (e.g., 4 has divisors 1,2,4; 9 has divisors 1,3,9), whereas a prime has exactly two distinct positive divisors.
+
+D is an incomplete heuristic; it fails for 2 (which is prime but even) and for composite numbers like 49 or 77 (odd, not divisible by 3 or 5, but composite).
+
+
+
+
+
+What follows is a fill in the blank question with 1 blanks.
+
+
+
+The problem of finding the exponent x that solves g^x ≡ b (mod p), believed to be computationally infeasible for large p, is called the ____ problem.  
+
+Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+discrete logarithm (or DLP)
+
+Which statement correctly compares CBC and CTR mode with respect to error propagation from a single corrupted ciphertext bit?
+
+
+
+ A. Neither mode is affected at all by a single corrupted ciphertext bit
+
+ B. Both modes propagate a corrupted bit through every subsequent block indefinitely
+
+ C. CTR always corrupts the entire remaining message, while CBC corrupts nothing
+
+ D. In CBC, a corrupted bit affects that block and flips the corresponding bit in the next block's decrypted plaintext; in CTR, it affects only the corresponding bit of that same block
+
+The correct option is D. In CBC, a corrupted bit affects that block and flips the corresponding bit in the next block's decrypted plaintext; in CTR, it affects only the corresponding bit of that same block.
+
+Why D is correct:
+
+CBC Mode: Plaintext decryption is computed as P 
+i
+​
+ =D 
+K
+​
+ (C 
+i
+​
+ )⊕C 
+i−1
+​
+ . If a single bit in C 
+i
+​
+  is corrupted during transmission, passing it through block cipher decryption D 
+K
+​
+ (C 
+i
+​
+ ) completely scrambles/corrupts block P 
+i
+​
+ . When C 
+i
+​
+  is subsequently XORed into the next block (P 
+i+1
+​
+ =D 
+K
+​
+ (C 
+i+1
+​
+ )⊕C 
+i
+​
+ ), only the exact corresponding bit in P 
+i+1
+​
+  flips. Error propagation stops after block i+1.
+
+CTR Mode: Plaintext decryption is computed as P 
+i
+​
+ =C 
+i
+​
+ ⊕E 
+K
+​
+ (Counter 
+i
+​
+ ). Since the keystream generation is completely independent of the ciphertext and operation is bitwise XOR, a single corrupted ciphertext bit in C 
+i
+​
+  flips only the exact corresponding bit in P 
+i
+​
+ , with zero cascading into subsequent blocks.
+
+Why the others are incorrect:
+
+A is false because bit errors directly impact the decrypted output in both modes.
+
+B confuses CBC/CTR with continuous feedback modes where errors might persist, though standard CBC stops propagating after one subsequent block.
+
+C reverses and exaggerates the behavior; CTR exhibits no multi-block error propagation.
+
+Question 86 of 100
+
+1 Points
+
+
+
+What follows is a fill in the blank question with 1 blanks.
+
+
+
+A number-theoretic PRNG whose security rests on the difficulty of factoring n = p times q, the same hard problem underlying RSA, is called the ____ generator.  Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+Blum Blum Shub (or BBS)
+
+Question 87 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In ElGamal encryption, the sender picks a random value k for each message mainly because:
+
+ A. A fixed, reused k actually improves security by simplifying the ciphertext
+
+ B. k determines the size of the recipient's public key, so it must vary each time
+
+ C. k must equal the recipient's private key for decryption to succeed at all
+
+ D. Reusing the same k across two messages lets an attacker who knows one plaintext recover the other
+
+The correct option is D. Reusing the same k across two messages lets an attacker who knows one plaintext recover the other.
+
+Why D is correct: In ElGamal encryption, the ciphertext is a pair (C 
+1
+​
+ ,C 
+2
+​
+ )=(g 
+k
+ modp,M⋅y 
+k
+ modp). If the same random exponent k is reused to encrypt two different messages M 
+1
+​
+  and M 
+2
+​
+ :
+
+C 
+2,1
+​
+ =M 
+1
+​
+ ⋅y 
+k
+ modp
+
+C 
+2,2
+​
+ =M 
+2
+​
+ ⋅y 
+k
+ modp
+
+An attacker can compute the ratio  
+C 
+2,2
+​
+ 
+C 
+2,1
+​
+ 
+​
+ ≡ 
+M 
+2
+​
+ 
+M 
+1
+​
+ 
+​
+ (modp). If the attacker knows or guesses one plaintext (M 
+1
+​
+ ), they can immediately solve for the other (M 
+2
+​
+ =M 
+1
+​
+ ⋅C 
+2,2
+​
+ ⋅C 
+2,1
+−1
+​
+ modp).
+
+Why the others are incorrect:
+
+A is false because reusing k severely compromises confidentiality.
+
+B is false because the recipient's public key is independent of the ephemeral value k.
+
+C is false because k is an ephemeral random integer chosen by the sender; setting it equal to the recipient's private key is neither possible (since the sender does not know the private key) nor how the protocol works.
+
+Question 88 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+The Blum Blum Shub (BBS) generator produces each output bit by:
+
+ A. Computing the discrete logarithm of the previous output modulo a large prime
+
+ B. XORing the previous two output bits together, similar to a shift register
+
+ C. Directly encrypting a counter value using AES in CTR mode
+
+ D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round
+
+The correct option is D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round.
+
+Why D is correct: The Blum Blum Shub (BBS) generator operates by maintaining an internal state that is updated via the function x 
+i+1
+​
+ =x 
+i
+2
+​
+ modn (where n is the product of two large primes p and q). During each iteration, it extracts the least significant bit (or the parity bit) of the current state x 
+i
+​
+  as the pseudorandom output.
+
+Why the others are incorrect:
+
+A describes an operation related to the discrete logarithm problem (which is generally too slow for bit generation and isn't BBS).
+
+B describes a simple Linear Feedback Shift Register (LFSR), not a cryptographically secure number-theoretic PRNG.
+
+C describes a block-cipher-based PRNG like CTR_DRBG using AES.
+
+Question 89 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In RSA, the private exponent d is chosen so that it satisfies:
+
+ A. d is simply equal to phi(n) divided by e, with any remainder discarded
+
+ B. d must equal n minus e, computed without any modular reduction
+
+ C. d is the multiplicative inverse of e, modulo phi(n)
+
+ D. d is chosen as any prime number larger than both p and q
+
+The correct option is C. d is the multiplicative inverse of e, modulo phi(n).
+
+Why C is correct: In RSA key generation, the public exponent e and private exponent d satisfy the congruence:
+
+e⋅d≡1(modϕ(n))
+This means d is the modular multiplicative inverse of e modulo ϕ(n) (or modulo λ(n)=lcm(p−1,q−1)), computed using the Extended Euclidean Algorithm.
+
+Why the others are incorrect:
+
+A describes integer division, not a modular inverse.
+
+B has no mathematical relationship to the required modular arithmetic condition.
+
+D is incorrect because d cannot be chosen arbitrarily; it is deterministically derived from e and ϕ(n).
+
+Question 90 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In a Feistel cipher, the relationship that generates the right half of round i is:
+
+ A. Ri = F(Li-1, Ki) XOR Ri-1 XOR Li-1
+
+ B. Ri = Li-1 XOR F(Ri-1, Ki)
+
+ C. Ri = Li-1 AND F(Ri-1, Ki)
+
+ D. Ri = F(Ri-1, Ki-1) XOR Li
+
+The correct option is B. Ri = Li-1 XOR F(Ri-1, Ki).
+
+Why B is correct: In the standard classical Feistel cipher structure, each round i takes the inputs L 
+i−1
+​
+  and R 
+i−1
+​
+  and computes:
+
+L 
+i
+​
+ =R 
+i−1
+​
+ 
+
+R 
+i
+​
+ =L 
+i−1
+​
+ ⊕F(R 
+i−1
+​
+ ,K 
+i
+​
+ )
+
+Why the others are incorrect:
+
+A introduces unnecessary and non-standard XOR operations.
+
+C uses a bitwise AND operation, which is non-invertible and makes decryption impossible without information loss.
+
+D uses incorrect round indexing (K 
+i−1
+​
+  and L 
+i
+​
+ ).
+
+Question 91 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+For a positive integer n, arithmetic performed modulo n confines every result to the range:
+
+ A. {0, 1, ..., 2n-1}, doubling the usual modular range for security
+
+ B. {1, 2, ..., n}, excluding zero entirely from every calculation
+
+ C. {-n, ..., 0, ..., n}, allowing both positive and negative remainders freely
+
+ D. {0, 1, ..., n-1}, wrapping around whenever a value would leave that range
+
+The correct option is D. {0, 1, ..., n-1}, wrapping around whenever a value would leave that range.
+
+Why D is correct: In standard modular arithmetic modulo n, the complete set of residues is the set of non-negative remainders when divided by n, which is Z 
+n
+​
+ ={0,1,2,…,n−1}. Whenever an operation produces a value outside this set, it wraps around via division by n.
+
+Why the others are incorrect:
+
+A spans a range of 2n elements, which does not represent standard modulo n reduction.
+
+B excludes 0, which is a valid remainder (e.g., when a number is exactly divisible by n).
+
+C includes negative numbers and values ≥n, which are not the standard canonical set of least non-negative residues.
+
+Question 92 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+For cryptographic use, elliptic curve arithmetic is restricted to a finite field mainly so that:
+
+ A. The curve automatically becomes symmetric about the x-axis for every choice of a and b
+
+ B. The resulting group of curve points has a finite, countable number of elements suitable for cryptographic computation
+
+ C. Point addition can be replaced entirely by ordinary integer addition
+
+ D. The curve equation no longer needs coefficients a and b at all
+
+Reset Selection
+
+The correct option is B. The resulting group of curve points has a finite, countable number of elements suitable for cryptographic computation.
+
+Why B is correct: Defined over the real numbers (R), an elliptic curve contains an infinite, continuous set of points, making exact computation and discrete trapdoor one-way functions impossible. Restricting the curve to a finite field (such as F 
+p
+​
+  or F 
+2 
+m
+ 
+​
+ ) produces a finite, discrete algebraic group of points with a fixed size (governed by Hasse's Theorem). This enables the construction of the Elliptic Curve Discrete Logarithm Problem (ECDLP), which is computationally hard.
+
+Why the others are incorrect:
+
+A is incorrect because geometric concepts like symmetry about the real x-axis do not describe the discrete scatter of points over a finite field in the same way, nor is that the primary cryptographic motivation.
+
+C is false because point addition still involves group operations using modular arithmetic formulas (slopes and chords mapped to the field), not simple standard integer addition.
+
+D is false because the curve parameters a and b in the Weierstrass equation (y 
+2
+ ≡x 
+3
+ +ax+b(modp)) remain fundamental to defining the specific curve.
+
+Claude Shannon's principle by which the relationship between the ciphertext and the encryption key is made as complex as possible is called ____.  
+
+Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+confusion
+
+AddRoundKey is the only AES transformation that:
+
+
+
+ A. Requires computation in GF(2^8) using a fixed multiplication matrix
+
+ B. Provides nonlinearity through a substitution table
+
+ C. Reorders bytes without changing any of their values
+
+ D. Directly incorporates the secret key material into the State, via XOR with the round key
+
+The correct option is D. Directly incorporates the secret key material into the State, via XOR with the round key.
+
+Why D is correct: In AES, AddRoundKey is the only round operation where the State array is combined directly with the expanded key schedule (by performing a bitwise XOR with the 128-bit round key). Without AddRoundKey, the other three transformations (SubBytes, ShiftRows, MixColumns) are purely deterministic permutations and substitutions with no dependence on the secret key.
+
+Why the others are incorrect:
+
+A describes the MixColumns transformation.
+
+B describes the SubBytes transformation (which uses the S-box).
+
+C describes the ShiftRows transformation.
+
+Given public parameters q = 353 and alpha = 3, with Alice's private key XA = 97 and public key YA = 3^97 mod 353 = 40, and Bob's private key XB = 233 and public key YB = 3^233 mod 353 = 248, Alice computes the shared secret as:
+
+
+
+ A. K = XA * XB mod q = 97 * 233 mod 353
+
+ B. K = YA^XB mod q = 40^233 mod 353
+
+ C. K = YB^XA mod q = 248^97 mod 353
+
+ D. K = alpha^(XA+XB) mod q, computed without ever using YA or YB
+
+The correct option is C. K = YB^XA mod q = 248^97 mod 353.
+
+Why C is correct: In the Diffie-Hellman protocol, Alice takes Bob's public key (Y 
+B
+​
+ ) and raises it to her own private key (X 
+A
+​
+ ) modulo q:
+
+K=Y 
+B
+X 
+A
+​
+ 
+​
+ (modq)=248 
+97
+ (mod353)
+Why the others are incorrect:
+
+A is mathematically incorrect for Diffie-Hellman key exchange.
+
+B is the calculation performed by Bob using Alice's public key (Y 
+A
+​
+ ) and his private key (X 
+B
+​
+ ). Alice does not have access to X 
+B
+​
+ .
+
+D describes the theoretical mathematical equality of the secret (K≡α 
+X 
+A
+​
+ ⋅X 
+B
+​
+ 
+ (modq)), but Alice cannot compute this directly without using Bob's public key Y 
+B
+​
+ , because she does not know X 
+B
+​
+ .
+
+Fermat's Little Theorem states that, for a prime p and an integer a not divisible by p:
+
+
+
+ A. a^p is congruent to a modulo (p-1)
+
+ B. a^(p-1) is congruent to 1 modulo p
+
+ C. a^(p+1) is congruent to a modulo p
+
+ D. p^(a-1) is congruent to 1 modulo a
+
+Reset Selection
+
+The correct option is B. a^(p-1) is congruent to 1 modulo p.
+
+Why B is correct: Fermat's Little Theorem explicitly states that if p is a prime number and a is an integer such that gcd(a,p)=1 (i.e., a is not divisible by p), then:
+
+a 
+p−1
+ ≡1(modp)
+(Equivalently, for any integer a, a 
+p
+ ≡a(modp)).
+
+Why the others are incorrect:
+
+A uses the wrong modulus, (p−1) instead of p.
+
+C uses the wrong exponent, (p+1) instead of (p−1) (or p).
+
+D incorrectly swaps the base and the modulus prime.
+
+Question 97 of 100
+
+1 Points
+
+
+
+What follows is a fill in the blank question with 1 blanks.
+
+
+
+The block cipher mode that XORs each plaintext block with the previous ciphertext block before encryption, requiring an initialization vector for the first block, is called ____ mode.  Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+Cipher Block Chaining (or CBC)
+
+The value that provides variability so that identical plaintext blocks do not produce identical ciphertext at the start of CBC or CFB encryption is called the ____.  
+
+Blank 1. Fill in the blank, read surrounding text.
+
+
+
+  
+
+initialization vector (or IV)
+
+Timing-attack research on DES found that measuring decryption time can reveal:
+
+
+
+ A. Nothing useful at all, since DES executes in constant time by design
+
+ B. The plaintext directly, without needing to know anything about the key
+
+ C. The complete 56-bit key after only a handful of timed decryptions
+
+ D. The Hamming weight of the key (how many key bits are set to one), but not the key itself
+
+The correct option is D. The Hamming weight of the key (how many key bits are set to one), but not the key itself.
+
+Why D is correct: In early timing-attack research on symmetric algorithms like DES (e.g., studies evaluating conditional operations or bit-manipulation delays in software implementations), timing variations correlated with the Hamming weight (the total count of 1-bits) in the secret key. While timing attacks against modular exponentiation in RSA/Diffie-Hellman can reconstruct the exact secret key bit-by-bit, timing analysis on standard DES implementations generally leaked only aggregate properties like the Hamming weight rather than determining individual key bit positions directly.
+
+Why the others are incorrect:
+
+A is false because naive software implementations of DES often exhibit slight timing variations due to data/key-dependent conditional branches, memory cache lookups, or instruction timings.
+
+B is false because timing attacks exploit side-channel leakage to gain information about secret key material, not direct algebraic decryption of the plaintext without a key.
+
+C is false because recovering the entire 56-bit DES key purely through a handful of generic timing measurements is not achievable.
+
+Question 100 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+CTR mode is particularly well suited to high-speed, multi-core systems because:
+
+ A. It never needs to compute an initialization vector or nonce for any block
+
+ B. It automatically detects and corrects any transmission errors in the ciphertext
+
+ C. Blocks have no sequential dependency, so they can be encrypted and decrypted in parallel
+
+ D. It uses a smaller effective key length, so less computation is required per block
+
+The correct option is C. Blocks have no sequential dependency, so they can be encrypted and decrypted in parallel.
+
+Why C is correct: In Counter (CTR) mode, keystream blocks are generated independently by encrypting an incrementing counter value with the key (O 
+i
+​
+ =E 
+K
+​
+ (Counter 
+i
+​
+ )), and the ciphertext is produced by C 
+i
+​
+ =P 
+i
+​
+ ⊕O 
+i
+​
+ . Because neither encryption nor decryption depends on the output or input of previous blocks, multiple blocks can be processed concurrently across independent CPU cores or SIMD/hardware acceleration pipelines.
+
+Why the others are incorrect:
+
+A is false because CTR mode requires a unique nonce/IV combined with the counter to prevent keystream reuse.
+
+B is false because CTR mode is an unauthenticated encryption mode; it does not perform error detection or error correction.
+
+D is false because CTR mode uses the standard full key length of the underlying block cipher (e.g., 128, 192, or 256 bits for AES).
+
+A sequence produced by a linear congruential generator can pass every standard statistical randomness test and still be considered cryptographically worthless because:
+
+
+
+ A. LCG output is always shorter than the plaintext it is meant to protect
+
+ B. An attacker who recovers a handful of consecutive outputs can solve for the generator's parameters and predict all future values
+
+ C. Statistical tests are incapable of evaluating any algorithmically generated sequence
+
+ D. LCGs cannot produce output that is uniformly distributed under any parameter choice
+
+You stopped this response
+Given 84 = 2^2 x 3 x 7 and 126 = 2 x 3^2 x 7, gcd(84, 126) equals:
+
+
+
+ A. 21
+
+ B. 42
+
+ C. 84
+
+ D. 126 
+
+To find the greatest common divisor (gcd) using prime factorizations, take the lowest exponent for each shared prime factor:
+
+Prime factor 2: min(2 
+2
+ ,2 
+1
+ )=2 
+1
+ 
+
+Prime factor 3: min(3 
+1
+ ,3 
+2
+ )=3 
+1
+ 
+
+Prime factor 7: min(7 
+1
+ ,7 
+1
+ )=7 
+1
+ 
+
+gcd(84,126)=2×3×7=42
+The correct option is B. 42.
+
+Gemini is AI and can make mistakes.
+

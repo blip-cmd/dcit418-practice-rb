@@ -1,0 +1,2126 @@
+[
+  {
+    "number": 1,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 4 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-001",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Bringing people and resources together to achieve organisational goals is called ____.",
+    "answerBlanks": [
+      [
+        "Management"
+      ]
+    ],
+    "reason": "Management coordinates resources and people toward desired results.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 2,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 7 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-002",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The management function that recruits, selects and trains people for suitable roles is ____.",
+    "answerBlanks": [
+      [
+        "Staffing"
+      ]
+    ],
+    "reason": "Staffing puts the right person in the right job.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 3,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 7 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-003",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Guiding, supervising and motivating employees toward objectives is the function of ____.",
+    "answerBlanks": [
+      [
+        "Directing"
+      ]
+    ],
+    "reason": "Directing activates the organisation through leadership, motivation and communication.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 4,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [
+      "Top-level"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 8 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-004",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The management level responsible for broad policies and long-range strategy is ____ management.",
+    "answerBlanks": [
+      [
+        "Top",
+        "Top-level"
+      ]
+    ],
+    "reason": "Top managers set overall direction and strategic priorities.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 5,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [
+      "Middle-level"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 8 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-005",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Departmental heads who translate top-level plans into unit activities belong to ____ management.",
+    "answerBlanks": [
+      [
+        "Middle",
+        "Middle-level"
+      ]
+    ],
+    "reason": "Middle managers implement policies and coordinate departmental work.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 6,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [
+      "Lower-level",
+      "Supervisory",
+      "First-line"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 8 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-006",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Supervisors who guide workers' day-to-day activities belong to ____ management.",
+    "answerBlanks": [
+      [
+        "Lower",
+        "Lower-level",
+        "Supervisory",
+        "First-line"
+      ]
+    ],
+    "reason": "Lower managers directly supervise operational work.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 7,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 9 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-007",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Mintzberg's roles, a manager performing ceremonial duties acts as a ____.",
+    "answerBlanks": [
+      [
+        "Figurehead"
+      ]
+    ],
+    "reason": "The figurehead represents the organisation symbolically.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 8,
+    "part": 1,
+    "week": "Week 1",
+    "topic": "Management Foundations",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week1_Introduction_to_Management.pdf, page 10 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-008",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The skill of seeing the organisation as a whole and understanding relationships among its parts is ____ skill.",
+    "answerBlanks": [
+      [
+        "Conceptual"
+      ]
+    ],
+    "reason": "Conceptual skill connects individual activities with the wider organisation.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 9,
+    "part": 6,
+    "week": "Week 8",
+    "topic": "Evolution of Management",
+    "acceptedAnswers": [
+      "Frederick Taylor",
+      "F. W. Taylor",
+      "FW Taylor",
+      "Taylor"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week8_Evolution_of_Management_Science.pdf, page 14 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-009",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The thinker identified as the father of scientific management is ____.",
+    "answerBlanks": [
+      [
+        "Frederick Winslow Taylor",
+        "Frederick Taylor",
+        "F. W. Taylor",
+        "FW Taylor",
+        "Taylor"
+      ]
+    ],
+    "reason": "Taylor applied systematic study to improve work methods and efficiency.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 10,
+    "part": 6,
+    "week": "Week 8",
+    "topic": "Evolution of Management",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week8_Evolution_of_Management_Science.pdf, page 14 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-010",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Frank and Lillian Gilbreth are associated with ____ study, which removes unnecessary work movements.",
+    "answerBlanks": [
+      [
+        "Motion"
+      ]
+    ],
+    "reason": "Motion study improves the sequence of movements and reduces fatigue.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 11,
+    "part": 6,
+    "week": "Week 8",
+    "topic": "Evolution of Management",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week8_Evolution_of_Management_Science.pdf, page 14 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-011",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The time-based scheduling chart named after Henry Gantt is the ____ chart.",
+    "answerBlanks": [
+      [
+        "Gantt"
+      ]
+    ],
+    "reason": "A Gantt chart shows scheduled work and progress against time.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 12,
+    "part": 6,
+    "week": "Week 8",
+    "topic": "Evolution of Management",
+    "acceptedAnswers": [
+      "Weber"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week8_Evolution_of_Management_Science.pdf, page 16 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-012",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The theorist associated with an ideal bureaucracy based on rules and hierarchy is ____.",
+    "answerBlanks": [
+      [
+        "Max Weber",
+        "Weber"
+      ]
+    ],
+    "reason": "Weber emphasised formal roles, rules, hierarchy and impersonal decisions.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 13,
+    "part": 6,
+    "week": "Week 8",
+    "topic": "Evolution of Management",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week8_Evolution_of_Management_Science.pdf, page 14 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-013",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Taylor's book The Principles of Scientific Management was published in ____.",
+    "answerBlanks": [
+      [
+        "1911"
+      ]
+    ],
+    "reason": "The lecture dates Taylor's major scientific-management text to 1911.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 14,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 5 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-014",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Deciding beforehand what to do, how, when and who will do it is ____.",
+    "answerBlanks": [
+      [
+        "Planning"
+      ]
+    ],
+    "reason": "Planning establishes a course of action before resources are committed.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 15,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [
+      "Goals"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 10 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-015",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The first step of the lecture's planning process is setting ____.",
+    "answerBlanks": [
+      [
+        "Objectives",
+        "Goals"
+      ]
+    ],
+    "reason": "Objectives state the results that subsequent plans must achieve.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 16,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [
+      "Single use"
+    ],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 12 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-016",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A plan designed for a one-time event or project is a ____ plan.",
+    "answerBlanks": [
+      [
+        "Single-use",
+        "Single use"
+      ]
+    ],
+    "reason": "Single-use plans address non-recurring activities.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 17,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 12 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-017",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A plan used repeatedly for recurring situations is a ____ plan.",
+    "answerBlanks": [
+      [
+        "Standing"
+      ]
+    ],
+    "reason": "Standing plans guide repeated decisions and activities.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 18,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 10 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-018",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In SMART objectives, the letter M stands for ____.",
+    "answerBlanks": [
+      [
+        "Measurable"
+      ]
+    ],
+    "reason": "A measurable objective provides an indicator for checking progress.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 19,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 10 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-019",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The analysis that combines strengths, weaknesses, opportunities and threats is ____ analysis.",
+    "answerBlanks": [
+      [
+        "SWOT"
+      ]
+    ],
+    "reason": "SWOT brings internal strengths and weaknesses together with external opportunities and threats.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 20,
+    "part": 2,
+    "week": "Week 2",
+    "topic": "Planning and Decisions",
+    "acceptedAnswers": [],
+    "sourceRef": "slides_in_pdf/DCIT402_Week2_Planning_and_Mission.pdf, page 10 (lecture extracted text).",
+    "origin": "lecture",
+    "id": "IT-FILL-020",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The environmental framework examining Political, Economic, Social and Technological factors is ____ analysis.",
+    "answerBlanks": [
+      [
+        "PEST"
+      ]
+    ],
+    "reason": "PEST helps managers examine the wider external environment.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 21,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Organizing"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 151; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-021",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Bringing together resources and arranging productive working relationships is ____.",
+    "answerBlanks": [
+      [
+        "Organising",
+        "Organizing"
+      ]
+    ],
+    "reason": "Organising arranges activities, people and resources so plans can be carried out.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 22,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Departmentalization",
+      "Departmentation"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 164; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-022",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Grouping related jobs into administrative units is called ____.",
+    "answerBlanks": [
+      [
+        "Departmentalisation",
+        "Departmentalization",
+        "Departmentation"
+      ]
+    ],
+    "reason": "Related activities are grouped to make coordination and supervision manageable.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 23,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 154; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-023",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Grouping marketing, finance and production activities by their specialist work is ____ departmentation.",
+    "answerBlanks": [
+      [
+        "Functional"
+      ]
+    ],
+    "reason": "Functional departments bring together people performing similar work.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 24,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Geographical"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 162; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-024",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Grouping operations according to their locations is ____ departmentation.",
+    "answerBlanks": [
+      [
+        "Geographic",
+        "Geographical"
+      ]
+    ],
+    "reason": "Geographic grouping supports operations in different places.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 25,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Divisional"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 173; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-025",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Creating separate divisions for Mobile Services and Home Broadband illustrates ____ departmentation.",
+    "answerBlanks": [
+      [
+        "Product",
+        "Divisional"
+      ]
+    ],
+    "reason": "Product divisions organise work around distinct products or services.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 26,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 177; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-026",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Grouping activities according to the type of client served is ____ departmentation.",
+    "answerBlanks": [
+      [
+        "Customer"
+      ]
+    ],
+    "reason": "Customer departments focus on the requirements of particular customer groups.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 27,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 188; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-027",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The right to give orders and expect obedience is called ____.",
+    "answerBlanks": [
+      [
+        "Authority"
+      ]
+    ],
+    "reason": "Authority gives a manager the formal right to direct work.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 28,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 165; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-028",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The obligation to perform assigned duties is called ____.",
+    "answerBlanks": [
+      [
+        "Responsibility"
+      ]
+    ],
+    "reason": "Responsibility concerns carrying out the work entrusted to a person.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 29,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 174; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-029",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Being required to answer for performance and results is called ____.",
+    "answerBlanks": [
+      [
+        "Accountability"
+      ]
+    ],
+    "reason": "Accountability makes a person answerable for outcomes.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 30,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 152; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-030",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Assigning duties and the authority needed to carry them out to a subordinate is ____.",
+    "answerBlanks": [
+      [
+        "Delegation"
+      ]
+    ],
+    "reason": "Delegation transfers work and authority while the manager remains answerable for the overall outcome.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 31,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 167; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-031",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The principle that authority should match responsibility is called ____ of authority and responsibility.",
+    "answerBlanks": [
+      [
+        "Parity"
+      ]
+    ],
+    "reason": "People need authority sufficient to discharge their assigned responsibilities.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 32,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 156; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-032",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The principle that each employee should receive orders from one superior is unity of ____.",
+    "answerBlanks": [
+      [
+        "Command"
+      ]
+    ],
+    "reason": "Unity of command reduces conflicting instructions from multiple superiors.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 33,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 178; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-033",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "One manager and one plan for activities sharing an objective expresses unity of ____.",
+    "answerBlanks": [
+      [
+        "Direction"
+      ]
+    ],
+    "reason": "Unity of direction aligns related activities toward a common objective.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 34,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 160; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-034",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The line of authority from the highest to the lowest organisational level is the ____ chain.",
+    "answerBlanks": [
+      [
+        "Scalar"
+      ]
+    ],
+    "reason": "The scalar chain identifies the formal path of authority.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 35,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 157; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-035",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The number of subordinates a manager can effectively supervise is the span of ____.",
+    "answerBlanks": [
+      [
+        "Control"
+      ]
+    ],
+    "reason": "Span of control describes the breadth of direct supervision.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 36,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 153; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-036",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A structure with few management layers and a wide span of control is described as ____.",
+    "answerBlanks": [
+      [
+        "Flat"
+      ]
+    ],
+    "reason": "Flat structures have fewer levels between top managers and operational workers.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 37,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 158; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-037",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A structure with many management layers and a narrow span of control is described as ____.",
+    "answerBlanks": [
+      [
+        "Tall"
+      ]
+    ],
+    "reason": "Tall structures use more hierarchical levels and smaller supervisory groups.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 38,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Centralization"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 161; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-038",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Concentrating decision-making authority at the top is called ____.",
+    "answerBlanks": [
+      [
+        "Centralisation",
+        "Centralization"
+      ]
+    ],
+    "reason": "Centralisation places major decisions with senior management.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 39,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [
+      "Decentralization"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 180; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-039",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Distributing decision-making authority to lower organisational levels is called ____.",
+    "answerBlanks": [
+      [
+        "Decentralisation",
+        "Decentralization"
+      ]
+    ],
+    "reason": "Decentralisation gives lower levels greater authority to make decisions.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 40,
+    "part": 3,
+    "week": "Week 3",
+    "topic": "Organising and Structure",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 155; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-040",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A structure in which employees report to both functional and project managers is a ____ structure.",
+    "answerBlanks": [
+      [
+        "Matrix"
+      ]
+    ],
+    "reason": "A matrix combines functional expertise with project responsibility and dual reporting.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 41,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 30; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-041",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Influencing people to work willingly toward group goals is ____.",
+    "answerBlanks": [
+      [
+        "Leadership"
+      ]
+    ],
+    "reason": "Leadership guides and motivates people toward shared objectives.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 42,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 21; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-042",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A leader who makes decisions without consulting subordinates uses an ____ style.",
+    "answerBlanks": [
+      [
+        "Autocratic"
+      ]
+    ],
+    "reason": "Autocratic leadership concentrates decisions in the leader.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 43,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Participative"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 22; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-043",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A leader who involves subordinates in decisions uses a ____ style.",
+    "answerBlanks": [
+      [
+        "Democratic",
+        "Participative"
+      ]
+    ],
+    "reason": "Democratic leadership invites employee participation in decision-making.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 44,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Laissez faire"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 23; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-044",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A style that allows skilled employees substantial freedom with minimal leader intervention is ____.",
+    "answerBlanks": [
+      [
+        "Laissez-faire",
+        "Laissez faire"
+      ]
+    ],
+    "reason": "Laissez-faire leadership relies on capable, self-directed followers.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 45,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Trait theory"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 1; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-045",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The leadership approach emphasising a leader's personal characteristics is ____ theory.",
+    "answerBlanks": [
+      [
+        "Trait",
+        "Trait theory"
+      ]
+    ],
+    "reason": "Trait approaches study characteristics associated with leadership; early versions emphasised innate qualities.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 46,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 2; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-046",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In the Ohio State studies, defining roles and organising work is called ____.",
+    "answerBlanks": [
+      [
+        "Initiating structure"
+      ]
+    ],
+    "reason": "Initiating structure is the task-organising dimension of leadership behaviour.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 47,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 47; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-047",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In the Ohio State studies, building mutual trust and respect is called ____.",
+    "answerBlanks": [
+      [
+        "Consideration"
+      ]
+    ],
+    "reason": "Consideration is the relationship-oriented dimension of leadership behaviour.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 48,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 24; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-048",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Blake and Mouton's grid compares concern for production with concern for ____.",
+    "answerBlanks": [
+      [
+        "People"
+      ]
+    ],
+    "reason": "The grid considers attention to people and attention to production.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 49,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Fiedler"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 3; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-049",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The contingency model that matches a relatively fixed leadership style to the situation was developed by ____.",
+    "answerBlanks": [
+      [
+        "Fred Fiedler",
+        "Fiedler"
+      ]
+    ],
+    "reason": "Fiedler stresses matching the leader with a suitable situation.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 50,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Least Preferred Co-worker"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 3; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-050",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Fiedler's leadership-style measure is abbreviated LPC, meaning ____.",
+    "answerBlanks": [
+      [
+        "Least Preferred Coworker",
+        "Least Preferred Co-worker"
+      ]
+    ],
+    "reason": "The LPC measure is used to assess the leader's orientation.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 51,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Maturity"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 4; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-051",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Hersey and Blanchard's model adapts leadership style to follower ____.",
+    "answerBlanks": [
+      [
+        "Readiness",
+        "Maturity"
+      ]
+    ],
+    "reason": "Readiness combines followers' ability and willingness to perform the task.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 52,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "Path goal"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 7; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-052",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The leadership theory associated with Robert House is ____ theory.",
+    "answerBlanks": [
+      [
+        "Path-goal",
+        "Path goal"
+      ]
+    ],
+    "reason": "Path-goal theory explains how leaders clarify routes to goals and provide support.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 53,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 8; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-053",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Path-Goal Theory, giving clear instructions for ambiguous tasks is ____ leadership.",
+    "answerBlanks": [
+      [
+        "Directive"
+      ]
+    ],
+    "reason": "Directive leadership clarifies expectations, procedures and schedules.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 54,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [
+      "A transformational leader",
+      "Transformational leader"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 5; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-054",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A leader who inspires a shared vision and encourages followers to transcend self-interest is ____.",
+    "answerBlanks": [
+      [
+        "Transformational",
+        "A transformational leader",
+        "Transformational leader"
+      ]
+    ],
+    "reason": "Transformational leadership inspires change and develops followers.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 55,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 6; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-055",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A leader who relies on contingent rewards and corrective action uses ____ leadership.",
+    "answerBlanks": [
+      [
+        "Transactional"
+      ]
+    ],
+    "reason": "Transactional leadership links performance with rewards and correction.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 56,
+    "part": 4,
+    "week": "Week 4",
+    "topic": "Leadership",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 5; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-056",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In transformational leadership, encouraging followers to question assumptions is intellectual ____.",
+    "answerBlanks": [
+      [
+        "Stimulation"
+      ]
+    ],
+    "reason": "Intellectual stimulation promotes fresh thinking and innovation.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 57,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 9; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-057",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Maslow's hierarchy, basic bodily requirements such as food and water are ____ needs.",
+    "answerBlanks": [
+      [
+        "Physiological"
+      ]
+    ],
+    "reason": "Physiological needs form the base of Maslow's hierarchy.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 58,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 42; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-058",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Maslow's hierarchy, physical protection and job security are ____ needs.",
+    "answerBlanks": [
+      [
+        "Safety"
+      ]
+    ],
+    "reason": "Safety needs concern security and protection from threats.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 59,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Belonging",
+      "Love and belonging"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 26; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-059",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Maslow's hierarchy, friendship and belonging are ____ needs.",
+    "answerBlanks": [
+      [
+        "Social",
+        "Belonging",
+        "Love and belonging"
+      ]
+    ],
+    "reason": "Social needs involve acceptance and relationships.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 60,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Self-actualization"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 9; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-060",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The highest level in Maslow's hierarchy is ____.",
+    "answerBlanks": [
+      [
+        "Self-actualisation",
+        "Self-actualization"
+      ]
+    ],
+    "reason": "Self-actualisation concerns developing and realising one's potential.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 61,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 10; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-061",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Herzberg's theory, conditions that prevent dissatisfaction are ____ factors.",
+    "answerBlanks": [
+      [
+        "Hygiene"
+      ]
+    ],
+    "reason": "Hygiene factors concern the job context and do not by themselves create lasting satisfaction.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 62,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Motivator factors"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 11; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-062",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Herzberg calls achievement, recognition and responsibility ____.",
+    "answerBlanks": [
+      [
+        "Motivators",
+        "Motivator factors"
+      ]
+    ],
+    "reason": "Motivators concern the work itself and can create satisfaction.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 63,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 50; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-063",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "McClelland's three needs are achievement, affiliation and ____.",
+    "answerBlanks": [
+      [
+        "Power"
+      ]
+    ],
+    "reason": "The need for power concerns influencing others.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 64,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 13; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-064",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "McClelland's need concerned with friendly relationships is the need for ____.",
+    "answerBlanks": [
+      [
+        "Affiliation"
+      ]
+    ],
+    "reason": "Affiliation describes the desire for acceptance and positive relationships.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 65,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 15; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-065",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Vroom's theory, the belief that effort will produce good performance is ____.",
+    "answerBlanks": [
+      [
+        "Expectancy"
+      ]
+    ],
+    "reason": "Expectancy links effort to performance.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 66,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 27; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-066",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Vroom's theory, the belief that performance will lead to a reward is ____.",
+    "answerBlanks": [
+      [
+        "Instrumentality"
+      ]
+    ],
+    "reason": "Instrumentality links performance to the expected outcome.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 67,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 16; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-067",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Vroom's theory, the value a person places on an outcome is ____.",
+    "answerBlanks": [
+      [
+        "Valence"
+      ]
+    ],
+    "reason": "An outcome motivates only when the person values it.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 68,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Equity theory"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 17; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-068",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The theory comparing an employee's input-output relationship with that of others is ____ theory.",
+    "answerBlanks": [
+      [
+        "Equity",
+        "Equity theory"
+      ]
+    ],
+    "reason": "Adams' equity theory focuses on perceived fairness in exchange relationships.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 69,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Theory X"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 18; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-069",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "McGregor's assumption that workers require close control is Theory ____.",
+    "answerBlanks": [
+      [
+        "X",
+        "Theory X"
+      ]
+    ],
+    "reason": "Theory X assumes workers tend to avoid work and responsibility.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 70,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [
+      "Theory Y"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 19; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-070",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "McGregor's assumption that committed workers can exercise self-direction is Theory ____.",
+    "answerBlanks": [
+      [
+        "Y",
+        "Theory Y"
+      ]
+    ],
+    "reason": "Theory Y allows for responsibility, creativity and self-control.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 71,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 20; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-071",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Alderfer's ERG theory, E stands for ____.",
+    "answerBlanks": [
+      [
+        "Existence"
+      ]
+    ],
+    "reason": "Existence covers material and basic security needs.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 72,
+    "part": 5,
+    "week": "Week 5",
+    "topic": "Motivation",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 20; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-072",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "In Alderfer's ERG theory, R stands for ____.",
+    "answerBlanks": [
+      [
+        "Relatedness"
+      ]
+    ],
+    "reason": "Relatedness concerns meaningful relationships with other people.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 73,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 91; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-073",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The person who initiates a message is the ____.",
+    "answerBlanks": [
+      [
+        "Sender"
+      ]
+    ],
+    "reason": "The sender starts communication by forming and transmitting a message.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 74,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 54; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-074",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Converting an intended meaning into words or symbols is ____.",
+    "answerBlanks": [
+      [
+        "Encoding"
+      ]
+    ],
+    "reason": "Encoding turns an idea into a form that can be transmitted.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 75,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 93; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-075",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Converting received symbols back into meaning is ____.",
+    "answerBlanks": [
+      [
+        "Decoding"
+      ]
+    ],
+    "reason": "The receiver decodes the message to interpret its meaning.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 76,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 94; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-076",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "A receiver's response that helps confirm understanding is ____.",
+    "answerBlanks": [
+      [
+        "Feedback"
+      ]
+    ],
+    "reason": "Feedback lets the sender assess whether the message was understood.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 77,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 92; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-077",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Interference that distorts or blocks a message is ____.",
+    "answerBlanks": [
+      [
+        "Noise"
+      ]
+    ],
+    "reason": "Noise can disrupt communication at any stage.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 78,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [
+      "Downwards"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 56; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-078",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Communication from a superior to subordinates flows ____.",
+    "answerBlanks": [
+      [
+        "Downward",
+        "Downwards"
+      ]
+    ],
+    "reason": "Downward communication carries instructions and policies down the hierarchy.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 79,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [
+      "Upwards"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 95; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-079",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Communication from subordinates to their superiors flows ____.",
+    "answerBlanks": [
+      [
+        "Upward",
+        "Upwards"
+      ]
+    ],
+    "reason": "Upward communication conveys reports, suggestions and concerns to management.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 80,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [
+      "Lateral"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 58; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-080",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Communication between colleagues at the same hierarchical level is ____ communication.",
+    "answerBlanks": [
+      [
+        "Horizontal",
+        "Lateral"
+      ]
+    ],
+    "reason": "Horizontal communication helps colleagues and departments coordinate.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 81,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 59; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-081",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Communication crossing both departments and hierarchical levels is ____ communication.",
+    "answerBlanks": [
+      [
+        "Diagonal"
+      ]
+    ],
+    "reason": "Diagonal communication crosses functional and vertical boundaries together.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 82,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 96; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-082",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The organisation's informal communication network is the ____.",
+    "answerBlanks": [
+      [
+        "Grapevine"
+      ]
+    ],
+    "reason": "The grapevine develops through informal relationships outside official channels.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 83,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 97; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-083",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Judging a message before hearing it fully is premature ____.",
+    "answerBlanks": [
+      [
+        "Evaluation"
+      ]
+    ],
+    "reason": "Premature evaluation blocks careful understanding of the complete message.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 84,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [
+      "Face to face",
+      "Face-to-face communication",
+      "Face-to-face meeting"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 67; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-084",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The communication channel combining immediate feedback, voice and visible body language is ____.",
+    "answerBlanks": [
+      [
+        "Face-to-face",
+        "Face to face",
+        "Face-to-face communication",
+        "Face-to-face meeting"
+      ]
+    ],
+    "reason": "Face-to-face communication provides multiple cues and rapid clarification.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 85,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 72; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-085",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Giving full attention and checking understanding is called ____ listening.",
+    "answerBlanks": [
+      [
+        "Active"
+      ]
+    ],
+    "reason": "Active listening involves deliberate attention and confirmation of meaning.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 86,
+    "part": 5,
+    "week": "Week 6",
+    "topic": "Communication and Coordination",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 99; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-086",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Integrating and synchronising different units' efforts toward common goals is ____.",
+    "answerBlanks": [
+      [
+        "Coordination"
+      ]
+    ],
+    "reason": "Coordination aligns interdependent work across the organisation.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 87,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [
+      "Control"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 101; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-087",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Measuring results against standards and correcting deviations is the management function of ____.",
+    "answerBlanks": [
+      [
+        "Controlling",
+        "Control"
+      ]
+    ],
+    "reason": "Controlling checks whether performance is consistent with plans.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 88,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 103; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-088",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The first step of the control process is establishing performance ____.",
+    "answerBlanks": [
+      [
+        "Standards"
+      ]
+    ],
+    "reason": "Standards provide the benchmark for later measurement and comparison.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 89,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 104; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-089",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "After setting standards, the next step is measuring ____ performance.",
+    "answerBlanks": [
+      [
+        "Actual"
+      ]
+    ],
+    "reason": "Managers need evidence of actual results before comparing them with targets.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 90,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 150; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-090",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The four-step control process ends with taking ____ action.",
+    "answerBlanks": [
+      [
+        "Corrective"
+      ]
+    ],
+    "reason": "Corrective action addresses significant deviations from standards.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 91,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [
+      "Feed-forward"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 106; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-091",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Control used before an activity begins to prevent problems is ____ control.",
+    "answerBlanks": [
+      [
+        "Feedforward",
+        "Feed-forward"
+      ]
+    ],
+    "reason": "Feedforward control checks inputs and preparation before work starts.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 92,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 107; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-092",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Control applied while work is being performed is ____ control.",
+    "answerBlanks": [
+      [
+        "Concurrent"
+      ]
+    ],
+    "reason": "Concurrent control allows problems to be corrected during the activity.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 93,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 109; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-093",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Control applied after an activity has been completed is ____ control.",
+    "answerBlanks": [
+      [
+        "Feedback"
+      ]
+    ],
+    "reason": "Feedback control uses completed results to improve future performance.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 94,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 114; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-094",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Comparing actual financial results with planned budget figures is ____ control.",
+    "answerBlanks": [
+      [
+        "Budgetary"
+      ]
+    ],
+    "reason": "Budgetary control identifies variances between budgets and actual outcomes.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 95,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 112; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-095",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The budget combining all sectional budgets is the ____ budget.",
+    "answerBlanks": [
+      [
+        "Master"
+      ]
+    ],
+    "reason": "The master budget consolidates the organisation's individual budgets.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 96,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [
+      "Break even",
+      "Breakeven"
+    ],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 123; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-096",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The point where total revenue equals total cost is the ____ point.",
+    "answerBlanks": [
+      [
+        "Break-even",
+        "Break even",
+        "Breakeven"
+      ]
+    ],
+    "reason": "At break-even there is neither profit nor loss.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 97,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 115; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-097",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The ratio of net profit to total investment is return on ____.",
+    "answerBlanks": [
+      [
+        "Investment"
+      ]
+    ],
+    "reason": "ROI assesses profit relative to the investment used to generate it.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 98,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 117; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-098",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The project scheduling method abbreviated CPM is the ____.",
+    "answerBlanks": [
+      [
+        "Critical Path Method"
+      ]
+    ],
+    "reason": "CPM uses activity durations and dependencies to identify the critical path.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 99,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 127; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-099",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "The performance framework combining financial, customer, internal-process and learning perspectives is the ____.",
+    "answerBlanks": [
+      [
+        "Balanced Scorecard"
+      ]
+    ],
+    "reason": "The Balanced Scorecard combines financial and nonfinancial measures.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  },
+  {
+    "number": 100,
+    "part": 5,
+    "week": "Week 7",
+    "topic": "Controlling and Performance",
+    "acceptedAnswers": [],
+    "sourceRef": "bd/dcit402-it-class-combined-tagged-quiz-bank.md, question 140; original-source mapping: bd/dcit402-it-class-combined-tagged-quiz-bank-evidence.md.",
+    "origin": "itclass",
+    "id": "IT-FILL-100",
+    "setName": "IT_Fill In Drill 100",
+    "batch": "itfill100",
+    "bodyMarkdown": "Focusing managerial attention on significant deviations is management by ____.",
+    "answerBlanks": [
+      [
+        "Exception"
+      ]
+    ],
+    "reason": "Management by exception directs attention to departures that need intervention.",
+    "checkMethod": "Adapted as a single-blank question from the source recorded in the companion metadata; answer and explanation are maintained in bd/it-fill-in-drill-100.md."
+  }
+]

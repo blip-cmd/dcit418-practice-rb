@@ -1,0 +1,34 @@
+{
+  "name": "dcit402-practice",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:drills": "node scripts/build-it-fill-drill.mjs",
+    "predev": "npm run build:drills",
+    "prebuild": "npm run build:drills",
+    "pretest": "npm run build:drills",
+    "start": "node scripts/start.mjs",
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && node scripts/cache.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "prettier": "^3.9.6",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,4422 @@
+Bayat's Take
+
+
+
+
+In the terminology Stallings uses for classical and modern ciphers, permutation is best described as an operation that:
+ A. Compresses the plaintext into a shorter, fixed-length representation
+ B. Rearranges the order of plaintext elements without adding, removing, or replacing any of them
+ C. Splits the plaintext into independent blocks that are encrypted with different keys
+ D. Replaces each plaintext element with a different symbol drawn from a fixed alphabet
+Reset Selection
+The correct answer is:
+
+B. Rearranges the order of plaintext elements without adding, removing, or replacing any of them
+
+In Stallings' terminology, a permutation (or transposition) changes the position of elements in the plaintext but leaves the actual elements unchanged.
+
+A timing attack against RSA, as described by Kocher, works by:
+ A. Directly factoring the public modulus n using a quantum computer
+ B. Guessing the plaintext message and checking it against a list of common phrases
+ C. Measuring how long decryption takes for different ciphertexts to leak information about the private key, bit by bit
+ D. Exploiting a mathematically proven flaw in the RSA encryption formula itself
+Reset Selection
+The correct answer is:
+
+C. Measuring how long decryption takes for different ciphertexts to leak information about the private key, bit by bit
+
+In Kocher's timing attack, the attacker exploits the fact that the time taken to perform modular exponentiation (or other operations like CRT reduction) varies depending on the bits of the private exponent. By measuring these timing differences across many carefully chosen ciphertexts, the attacker can statistically deduce the private key bits one by one.
+
+This response is AI-generated, for reference only.
+In ElGamal encryption, the sender picks a random value k for each message mainly because:
+ A. A fixed, reused k actually improves security by simplifying the ciphertext
+ B. k determines the size of the recipient's public key, so it must vary each time
+ C. k must equal the recipient's private key for decryption to succeed at all
+ D. Reusing the same k across two messages lets an attacker who knows one plaintext recover the other
+Reset Selection
+The correct answer is:
+
+D. Reusing the same k across two messages lets an attacker who knows one plaintext recover the other
+
+In ElGamal encryption, the randomness 
+k
+k is crucial for semantic security. If the same 
+k
+k is reused for two different messages, the ciphertexts share the same ephemeral key component (
+g
+k
+g 
+k
+  and 
+y
+k
+y 
+k
+ ), allowing an attacker who knows one plaintext to easily compute the other by XORing or dividing the ciphertexts. This is a well-known vulnerability, which is why a fresh random 
+k
+k must be chosen for each encryption.
+
+The Chinese Remainder Theorem allows a number to be uniquely reconstructed within a given range from:
+ A. Its binary representation alone, without reference to any modulus
+ B. A single large modulus formed by adding all the smaller moduli together
+ C. Its remainders with respect to a set of moduli that share no common factors with one another
+ D. Its prime factorization expressed in base two
+The correct answer is:
+
+C. Its remainders with respect to a set of moduli that share no common factors with one another
+
+The Chinese Remainder Theorem (CRT) states that if you have a set of moduli that are pairwise coprime (i.e., share no common factors with one another), then a number can be uniquely reconstructed modulo the product of those moduli from its remainders upon division by each modulus.
+
+Continuing the same RSA example (n = 187, d = 23), decrypting the ciphertext C = 11 is computed as:
+ A. M = 11^23 mod 160 = 88
+ B. M = 88^23 mod 187 = 11
+ C. M = 11^23 mod 187 = 88
+ D. M = 11^7 mod 187 = 88
+Reset Selection
+The correct answer is:
+
+C. M = 11^23 mod 187 = 88
+
+In RSA, decryption is performed by computing 
+M
+=
+C
+d
+m
+o
+d
+ 
+ 
+n
+M=C 
+d
+ modn. Given 
+C
+=
+11
+C=11, 
+d
+=
+23
+d=23, and 
+n
+=
+187
+n=187:
+
+M
+=
+11
+23
+m
+o
+d
+ 
+ 
+187
+=
+88
+M=11 
+23
+ mod187=88.
+
+(Option A uses the wrong modulus 
+160
+160, which is 
+ϕ
+(
+n
+)
+ϕ(n), not 
+n
+n. Option B reverses the encryption operation. Option D uses an incorrect exponent.)
+
+To combine both secrecy and authentication for a message X sent from A to B, the correct construction is:
+ A. Z = E(PUa, E(PUb, X)) -- encrypt twice using both parties' public keys only
+ B. Z = E(PUb, X) alone, since encrypting with B's public key already signs the message
+ C. Z = E(PUb, E(PRa, X)) -- sign with A's private key, then encrypt the result with B's public key
+ D. Z = E(PRa, E(PRb, X)) -- encrypt twice using both parties' private keys only
+The correct answer is:
+
+C. Z = E(PUb, E(PRa, X)) -- sign with A's private key, then encrypt the result with B's public key
+
+To achieve both secrecy and authentication for a message sent from A to B:
+
+Authentication (digital signature): A encrypts (or signs) the message with A's own private key (PRa). This ensures that only A could have created it, providing non-repudiation.
+
+Secrecy (confidentiality): A then encrypts the signed message with B's public key (PUb). This ensures that only B (who possesses the corresponding private key) can decrypt and read it.
+
+The order is important: sign first, then encrypt. This prevents various attacks (e.g., signature stripping) and ensures that the signature covers the original message, not the encrypted form.
+
+This response is AI-generated, for reference only.
+The ElGamal cryptosystem, published in 1984, is most accurately described as:
+ A. An improved factoring algorithm used to attack RSA moduli directly
+ B. A hash-based signature scheme that does not rely on any modular exponentiation
+ C. A public-key encryption scheme closely related to Diffie-Hellman, resting on the same discrete-logarithm hardness assumption
+ D. A symmetric block cipher unrelated to any discrete-logarithm-based scheme
+Reset Selection
+The correct answer is:
+
+C. A public-key encryption scheme closely related to Diffie-Hellman, resting on the same discrete-logarithm hardness assumption
+
+The ElGamal cryptosystem is indeed a public-key encryption scheme that relies on the computational difficulty of the discrete logarithm problem in a finite cyclic group. It is a direct extension of the Diffie-Hellman key exchange protocol, using the same underlying mathematical principles.
+
+This response is AI-generated, for reference only.
+A mode of operation is best defined as:
+ A. A set of rules describing how a block cipher should be applied to encrypt data longer than a single block
+ B. An alternative block cipher algorithm used only for very large files
+ C. A method for generating the encryption key from a user-supplied password
+ D. A hardware-only technique that cannot be implemented in software
+Reset Selection
+The correct answer is:
+
+A. A set of rules describing how a block cipher should be applied to encrypt data longer than a single block
+
+A mode of operation (e.g., ECB, CBC, CTR, GCM) defines how to securely encrypt messages that are longer than the block size of the underlying block cipher. It specifies how to handle multiple blocks, incorporate initialization vectors (IVs), and provide properties like confidentiality, and in some cases, authentication.
+
+AES is generally considered secure today mainly because:
+ A. Its block size grows automatically as computing power increases
+ B. Its algorithm and S-box design have never been published or reviewed publicly
+ C. It uses a Feistel structure, which is inherently immune to differential cryptanalysis
+ D. Its 2^128 (or larger) keyspace makes brute force infeasible, and decades of public cryptanalysis have found no effective shortcut attack
+Reset Selection
+The correct answer is:
+
+D. Its 2^128 (or larger) keyspace makes brute force infeasible, and decades of public cryptanalysis have found no effective shortcut attack
+
+AES is considered secure because:
+
+The key space (128, 192, or 256 bits) is sufficiently large to make exhaustive brute-force search completely infeasible with current and foreseeable technology.
+
+Since its selection as the Advanced Encryption Standard in 2001, it has undergone extensive public scrutiny and cryptanalysis, and no practical shortcut attacks (significantly better than brute force) have been found against the full AES algorithm.
+
+The other options are incorrect because:
+
+A: AES has a fixed block size of 128 bits; it does not grow automatically.
+
+B: AES's algorithm and S-box design were fully published and openly reviewed during the standardization process.
+
+C: AES uses a substitution-permutation network (SPN), not a Feistel structure; and no structure is "inherently immune" to differential cryptanalysis—though AES was specifically designed to resist it.
+
+The avalanche effect, as illustrated by flipping a single bit of DES plaintext, refers to the property that:
+ A. A small change in the key always leaves the ciphertext completely unchanged
+ B. A small change in the input produces a large, seemingly unrelated change in the output ciphertext
+ C. The ciphertext becomes shorter as more plaintext bits are altered
+ D. Every round of DES must be repeated twice to detect tampering
+The correct answer is:
+
+B. A small change in the input produces a large, seemingly unrelated change in the output ciphertext
+
+The avalanche effect is a desirable property of cryptographic algorithms where a minor change in the input (e.g., flipping a single bit of the plaintext or the key) results in a significant and unpredictable change in the output ciphertext—typically about half of the output bits change. This ensures that similar plaintexts or closely related keys produce completely different ciphertexts, making statistical attacks much harder. DES was specifically designed to exhibit a strong avalanche effect.
+
+In cryptography, randomness and unpredictability are best distinguished as follows:
+ A. They are simply two different names for the exact same property of a number sequence
+ B. Randomness applies only to hardware generators, while unpredictability applies only to software algorithms
+ C. Randomness refers to statistical uniformity and independence, while unpredictability means future values cannot be guessed even after observing many past values
+ D. Unpredictability means the sequence never repeats, while randomness means it always repeats
+Reset Selection
+The correct answer is:
+
+C. Randomness refers to statistical uniformity and independence, while unpredictability means future values cannot be guessed even after observing many past values
+
+This distinction is important in cryptography:
+
+Randomness (or statistical randomness) is about the properties of a sequence itself—it should be uniformly distributed over the possible values, with no discernible patterns or correlations between elements (i.e., independence).
+
+Unpredictability is about the sequence from an attacker's perspective—even if the sequence passes all statistical tests for randomness, an adversary who has observed many past outputs should still be unable to predict the next output with any advantage over random guessing.
+
+A cryptographically secure pseudorandom number generator (CSPRNG) must satisfy both conditions: its output must appear statistically random, and it must be computationally infeasible to predict future outputs (or recover past outputs) from the observed stream.
+
+What follows is a fill in the blank question with 1 blanks.The AES round transformation that mixes the four bytes within each column using matrix multiplication over GF(2^8) is called ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is MixColumns (or Mix Column transformation).
+
+In AES, the MixColumns step operates independently on each column of the state array, treating each column as a four-term polynomial and multiplying it by a fixed polynomial 
+a
+(
+x
+)
+=
+{
+03
+}
+x
+3
++
+{
+01
+}
+x
+2
++
+{
+01
+}
+x
++
+{
+02
+}
+a(x)={03}x 
+3
+ +{01}x 
+2
+ +{01}x+{02} over 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ). This provides diffusion by mixing the four bytes within each column.
+
+The square-and-multiply technique for RSA is valuable because it computes a large modular exponentiation such as x^16 using:
+ A. Addition alone, avoiding multiplication entirely
+ B. Repeated squaring, needing only a handful of multiplications instead of performing the full exponent's worth
+ C. A random guess-and-check process repeated until the result matches
+ D. A single lookup table indexed by the exponent value
+The correct answer is:
+
+B. Repeated squaring, needing only a handful of multiplications instead of performing the full exponent's worth
+
+The square-and-multiply (also called exponentiation by squaring) algorithm is valuable because it reduces the number of multiplications needed for modular exponentiation from 
+O
+(
+e
+)
+O(e) (where 
+e
+e is the exponent) to 
+O
+(
+log
+⁡
+2
+e
+)
+O(log 
+2
+​
+ e).
+
+For example, computing 
+x
+16
+x 
+16
+  naively would require 15 multiplications (
+x
+⋅
+x
+⋅
+x
+⋯
+x⋅x⋅x⋯). With repeated squaring, you compute:
+
+x
+2
+x 
+2
+  (1 multiplication)
+
+x
+4
+=
+(
+x
+2
+)
+2
+x 
+4
+ =(x 
+2
+ ) 
+2
+  (2nd multiplication)
+
+x
+8
+=
+(
+x
+4
+)
+2
+x 
+8
+ =(x 
+4
+ ) 
+2
+  (3rd multiplication)
+
+x
+16
+=
+(
+x
+8
+)
+2
+x 
+16
+ =(x 
+8
+ ) 
+2
+  (4th multiplication)
+
+So only 4 multiplications are needed instead of 15. For larger exponents like those used in RSA (e.g., 2048-bit exponents), this technique is computationally essential.
+
+The 4x4 byte matrix that AES loads the plaintext block into, and which every round transformation operates on, is called the ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the State (or state array).
+
+In AES, the plaintext block is loaded into a 4×4 matrix of bytes (for a 128-bit block), and this matrix is referred to as the State. Every round transformation (SubBytes, ShiftRows, MixColumns, and AddRoundKey) operates directly on this State matrix throughout the encryption process.
+
+A cryptographic hash-like construction can be built from cipher block chaining by:
+ A. XORing the plaintext with a random initialization vector and discarding the key
+ B. Applying the Caesar cipher repeatedly until the output length matches the input
+ C. Running RSA directly on the message digest instead of on the message
+ D. Encrypting the message with a fixed key and using the final ciphertext block as the hash value
+Reset Selection
+The correct answer is:
+
+D. Encrypting the message with a fixed key and using the final ciphertext block as the hash value
+
+This describes the basic idea behind constructing a one-way hash function from a block cipher, such as the Davies-Meyer construction or the Matyas-Meyer-Oseas construction.
+
+In the simplest form (using CBC mode with a fixed key):
+
+The message is processed block by block using a block cipher (like DES or AES) in CBC mode with a fixed, publicly known key.
+
+The final ciphertext block (the last output of the CBC chain) serves as the hash value.
+
+Variations of this approach were used in early hash functions like MDC-2 (Modification Detection Code) and the Davies-Meyer construction (which underlies many modern hash functions like SHA-1 and SHA-2, though those use dedicated compression functions rather than directly using a block cipher). The resulting hash is a fixed-size digest that depends on the entire message, with the property that it is computationally infeasible to find two different messages producing the same final block.
+
+In GF(2^m), addition of two field elements is performed using the bitwise operation ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is XOR (or bitwise XOR / exclusive OR).
+
+In 
+G
+F
+(
+2
+m
+)
+GF(2 
+m
+ ), field elements are represented as binary polynomials (or bit vectors of length 
+m
+m). Addition of two elements is performed by adding the corresponding coefficients modulo 2, which is equivalent to a bitwise XOR operation. There is no carry propagation, making it a simple and fast operation in hardware and software.
+
+Addition of two elements in GF(2^m) is carried out as:
+ A. Concatenation of the two bit strings into one longer string
+ B. Ordinary decimal addition followed by reduction modulo m
+ C. Bitwise XOR of the corresponding binary coefficients, with no carrying
+ D. Multiplication of the two elements' polynomial representations
+The correct answer is:
+
+C. Bitwise XOR of the corresponding binary coefficients, with no carrying
+
+In 
+G
+F
+(
+2
+m
+)
+GF(2 
+m
+ ), each field element is represented as a polynomial over 
+G
+F
+(
+2
+)
+GF(2) (or equivalently, a binary bit string). Addition is performed by adding the coefficients of like powers of 
+x
+x modulo 2. Since 
+1
++
+1
+=
+0
+1+1=0 in 
+G
+F
+(
+2
+)
+GF(2), this results in a simple bitwise XOR of the two bit strings, with no carry propagation involved.
+
+An algebraic structure with two operations in which every nonzero element has a multiplicative inverse (such as GF(p) for a prime p) is called a ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a field (specifically, a finite field or Galois field).
+
+An algebraic structure with two operations (typically addition and multiplication) where:
+
+It forms an abelian group under addition,
+
+The nonzero elements form an abelian group under multiplication,
+
+And multiplication distributes over addition,
+
+is called a field.
+
+When the field has a finite number of elements, it is specifically called a finite field or Galois field, denoted as 
+G
+F
+(
+p
+)
+GF(p) for prime fields (where 
+p
+p is prime) or 
+G
+F
+(
+p
+m
+)
+GF(p 
+m
+ ) for extension fields. The condition that "every nonzero element has a multiplicative inverse" is the defining property that distinguishes a field from a ring.
+
+The points on an elliptic curve, together with a defined addition rule and a point at infinity, form:
+ A. An abelian group, satisfying closure, associativity, an identity element, inverses, and commutativity
+ B. A Feistel structure, alternating substitution and permutation at each point
+ C. A finite field in the same sense as GF(p), with every point having a multiplicative inverse
+ D. A simple ring with no guarantee that every point has an inverse
+Reset Selection
+The correct answer is:
+
+A. An abelian group, satisfying closure, associativity, an identity element, inverses, and commutativity
+
+The points on an elliptic curve (including the point at infinity, which serves as the identity element), together with the geometric "chord-and-tangent" addition rule, form an abelian group. This means they satisfy:
+
+Closure: Adding two points on the curve yields another point on the curve.
+
+Associativity: 
+(
+P
++
+Q
+)
++
+R
+=
+P
++
+(
+Q
++
+R
+)
+(P+Q)+R=P+(Q+R).
+
+Identity element: The point at infinity 
+O
+O acts as the identity, such that 
+P
++
+O
+=
+P
+P+O=P.
+
+Inverses: Every point 
+P
+P has an inverse 
+−
+P
+−P such that 
+P
++
+(
+−
+P
+)
+=
+O
+P+(−P)=O.
+
+Commutativity: 
+P
++
+Q
+=
+Q
++
+P
+P+Q=Q+P.
+
+This abelian group structure is the foundation of elliptic curve cryptography (ECC). The other options are incorrect because:
+
+B: Feistel structures relate to block ciphers, not elliptic curves.
+
+C: The points form a group, not a field (the underlying coordinates come from a field, but the points themselves are not a field).
+
+D: Rings require two operations (addition and multiplication); elliptic curve points only have one operation (addition).
+
+Asymmetric ciphers such as RSA and ECC are not typically used to generate long, open-ended pseudorandom bit streams because:
+ A. They require a hardware TRNG to be present, unlike every symmetric-cipher-based PRNG
+ B. Asymmetric operations are comparatively slow, so they are better suited to producing a short pseudorandom function output per invocation
+ C. They are mathematically incapable of producing any output that looks statistically random
+ D. Their output is always shorter than the modulus n, regardless of the number of invocations
+Reset Selection
+The correct answer is:
+
+B. Asymmetric operations are comparatively slow, so they are better suited to producing a short pseudorandom function output per invocation
+
+Asymmetric ciphers like RSA and ECC are based on expensive modular exponentiation or elliptic curve scalar multiplication, which are orders of magnitude slower than symmetric operations like AES or block-cipher-based PRNGs (e.g., CTR_DRBG or Hash_DRBG).
+
+While they can produce pseudorandom output (e.g., RSA can be used in a block cipher mode like OFB or CTR, or ECC can be used for key derivation), it is highly inefficient for generating long bitstreams. Instead, they are typically used for short operations such as:
+
+Encrypting a small session key (hybrid encryption),
+
+Generating a short pseudorandom value for a challenge-response,
+
+Deriving a key via a key exchange (e.g., ECDH),
+
+Digital signatures.
+
+For long, open-ended pseudorandom streams, symmetric ciphers or dedicated PRNGs are vastly more efficient and practical.
+
+Which pair correctly matches an AES key size with its corresponding number of rounds?
+ A. 192-bit key -> 10 rounds
+ B. 256-bit key -> 12 rounds
+ C. 192-bit key -> 12 rounds
+ D. 128-bit key -> 14 rounds
+Reset Selection
+The correct answer is:
+
+C. 192-bit key -> 12 rounds
+
+The AES standard defines the following key sizes and corresponding number of rounds:
+
+Key Size	Number of Rounds
+128-bit	10 rounds
+192-bit	12 rounds
+256-bit	14 rounds
+So the only option that correctly matches a key size with its round count is C (192-bit key → 12 rounds). The other options are incorrect: A and D have the rounds reversed, and B incorrectly states 12 rounds for a 256-bit key (which actually uses 14).
+
+A block cipher differs from a stream cipher primarily in that it:
+ A. Always runs faster than a stream cipher on the same hardware
+ B. Encrypts a fixed-size group of plaintext bits at once, rather than one bit or byte at a time
+ C. Uses a longer key than any stream cipher can support
+ D. Cannot be combined with a chaining or feedback mechanism
+Reset Selection4
+The correct answer is:
+
+B. Encrypts a fixed-size group of plaintext bits at once, rather than one bit or byte at a time
+
+A block cipher (e.g., AES, DES) processes plaintext in fixed-size chunks (blocks), typically 64 or 128 bits. A stream cipher (e.g., RC4, ChaCha20) encrypts data one bit or byte at a time, generating a keystream that is XORed with the plaintext.
+
+The other options are incorrect because:
+
+A: Block ciphers are not always faster; stream ciphers are often faster in software.
+
+C: Block ciphers do not inherently use longer keys; both types can support various key lengths.
+
+D: Block ciphers are commonly combined with chaining modes (e.g., CBC, CTR, GCM) to handle messages longer than a single block.
+
+Testing whether 29 is prime by checking divisibility only up to sqrt(29) ≈ 5.4 works because:
+ A. Any factor larger than the square root of a number must be paired with a factor smaller than the square root
+ B. Numbers greater than the square root are automatically assumed to be prime
+ C. The square root always equals exactly half of the number being tested
+ D. 29 is a special case, and this shortcut does not generalize to any other number
+The correct answer is:
+
+A. Any factor larger than the square root of a number must be paired with a factor smaller than the square root
+
+This is the fundamental reason for the square root shortcut in primality testing. If a composite number 
+n
+n has a factor 
+a
+>
+n
+a> 
+n
+​
+ , then the complementary factor 
+b
+=
+n
+/
+a
+b=n/a must satisfy 
+b
+<
+n
+b< 
+n
+​
+ . Therefore, if no factor is found up to 
+n
+n
+​
+ , no factor can exist at all. This principle applies universally to all integers, not just 29.
+
+The other options are incorrect because:
+
+B: Numbers larger than the square root are not automatically prime (e.g., 49 has factors 7 and 7, both equal to the square root).
+
+C: The square root is not "exactly half" except for the number 4.
+
+D: This shortcut generalizes to every positive integer; 29 is not a special case.
+
+Fermat's Little Theorem states that, for a prime p and an integer a not divisible by p:
+ A. a^p is congruent to a modulo (p-1)
+ B. a^(p-1) is congruent to 1 modulo p
+ C. a^(p+1) is congruent to a modulo p
+ D. p^(a-1) is congruent to 1 modulo a
+The correct answer is:
+
+B. a^(p-1) is congruent to 1 modulo p
+
+Fermat's Little Theorem states that if 
+p
+p is a prime number and 
+a
+a is any integer not divisible by 
+p
+p, then:
+
+a
+p
+−
+1
+≡
+1
+(
+m
+o
+d
+p
+)
+a 
+p−1
+ ≡1(modp)
+An equivalent formulation (without the coprime condition) is:
+
+a
+p
+≡
+a
+(
+m
+o
+d
+p
+)
+a 
+p
+ ≡a(modp)
+for all integers 
+a
+a.
+
+The other options are incorrect:
+
+A: Uses the wrong modulus (
+p
+−
+1
+p−1 instead of 
+p
+p).
+
+C: Uses 
+p
++
+1
+p+1 in the exponent, which is not the theorem.
+
+D: Reverses the roles of 
+p
+p and 
+a
+a, which is not correct.
+
+RSA was developed in 1977 by Ron Rivest, Adi Shamir, and Len ____, whose initials give the algorithm its name.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is Adleman.
+
+The full name is Ron Rivest, Adi Shamir, and Leonard Adleman — their initials (Rivest–Shamir–Adleman) form the acronym RSA.
+
+The recommended padding scheme that randomizes RSA plaintext before encryption, defending against chosen-ciphertext attacks, is called ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is OAEP (Optimal Asymmetric Encryption Padding).
+
+More fully, it is often referred to as RSA-OAEP (RSA with Optimal Asymmetric Encryption Padding). It was introduced by Bellare and Rogaway and is standardized in PKCS#1 v2.0 and later versions. OAEP adds randomness and structured padding to the plaintext before RSA encryption, which provides semantic security and defends against adaptive chosen-ciphertext attacks (CCA2) under the random oracle model.
+
+A key limitation of CBC mode compared to CTR mode is that CBC encryption:
+ A. Cannot use an initialization vector, unlike every other mode
+ B. Reveals identical plaintext blocks as identical ciphertext blocks, just like ECB
+ C. Requires a completely different block cipher algorithm for each block
+ D. Cannot be parallelized, because each block depends on the ciphertext of the block before it
+The correct answer is:
+
+D. Cannot be parallelized, because each block depends on the ciphertext of the block before it
+
+In CBC (Cipher Block Chaining) mode, encryption of each plaintext block depends on the ciphertext of the previous block (via XOR before encryption). This creates a sequential dependency, meaning you cannot encrypt multiple blocks in parallel—block 
+i
+i cannot be processed until block 
+i
+−
+1
+i−1 has been fully encrypted.
+
+In contrast, CTR (Counter) mode encrypts each block independently by XORing the plaintext with a counter value that is encrypted using the block cipher. Since the counter values can be precomputed and processed in parallel, CTR mode supports parallel encryption (and decryption) of all blocks, making it more efficient on multi-core systems.
+
+The other options are incorrect because:
+
+A: CBC does use an initialization vector (IV).
+
+B: Unlike ECB, CBC with a randomized IV ensures that identical plaintext blocks encrypt to different ciphertext blocks.
+
+C: CBC uses the same block cipher algorithm for all blocks, just with chaining.
+
+The process that stretches the original AES cipher key into a separate 128-bit round key for every round is called key ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is expansion (or key expansion).
+
+In AES, the key expansion (also known as the key schedule) algorithm takes the original cipher key and expands it into a linear array of 128-bit round keys (one for each round, plus an initial AddRoundKey). For example:
+
+A 128-bit key produces 11 round keys (10 rounds + 1 initial).
+
+A 192-bit key produces 13 round keys (12 rounds + 1 initial).
+
+A 256-bit key produces 15 round keys (14 rounds + 1 initial).
+
+The key expansion process involves rotations, substitutions (using the S-box), and XOR operations with round constants (Rcon) to ensure that each round key is distinct and exhibits no simple relationship to the original key.
+
+RC4 begins with a Key Scheduling Algorithm (KSA) that:
+ A. Fixes the state array S to a constant, unchanging table for every key
+ B. Directly encrypts the plaintext without ever touching a state array
+ C. Uses the secret key to scramble a 256-byte state array S into a key-dependent permutation
+ D. Generates a brand-new AES key for every byte of output produced
+The correct answer is:
+
+C. Uses the secret key to scramble a 256-byte state array S into a key-dependent permutation
+
+The RC4 Key Scheduling Algorithm (KSA) initializes a 256-byte state array 
+S
+S with values 0 through 255. It then uses the secret key to repeatedly swap entries in 
+S
+S based on the key bytes, producing a key-dependent permutation of the array. This permutation is then used by the Pseudo-Random Generation Algorithm (PRGA) to generate the keystream.
+
+The other options are incorrect:
+
+A: The state array is not constant; it is scrambled based on the key.
+
+B: RC4 does use the state array; the KSA is an essential step.
+
+D: RC4 does not generate AES keys; it uses its own keystream generation process.
+
+XTS-AES ties encryption to a particular physical storage location by using:
+ A. A running counter that resets to zero once per day
+ B. A separate hash function computed over the entire disk
+ C. A second, independently generated AES key for every sector
+ D. A tweak value derived from the sector or block address, alongside the key
+The correct answer is:
+
+D. A tweak value derived from the sector or block address, alongside the key
+
+XTS-AES (XEX-based Tweaked Codebook mode with Ciphertext Stealing) is a mode of operation specifically designed for disk and storage encryption. It uses a tweak—a value derived from the sector or block address—along with the encryption key to ensure that the same plaintext data stored at different physical locations encrypts to different ciphertexts. This prevents block shuffling attacks and ties the ciphertext to its specific location on the storage medium.
+
+The tweak is typically generated using the sector index and a second key (the "tweak key"), which together provide both location-dependent encryption and strong security properties for storage devices.
+
+This response is AI-generated, for reference only.
+The 2002 algorithm that was the first ever proven to determine primality with total certainty in polynomial time is called the ____ algorithm.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the AKS algorithm (or Agrawal–Kayal–Saxena algorithm).
+
+Published in 2002 by Manindra Agrawal, Neeraj Kayal, and Nitin Saxena, the AKS primality test was the first deterministic algorithm that can determine whether a given number is prime or composite in polynomial time (specifically, 
+O
+(
+log
+⁡
+12
+n
+)
+O(log 
+12
+ n) time, later improved to 
+O
+(
+log
+⁡
+6
+n
+)
+O(log 
+6
+ n)), without relying on any unproven assumptions like the Generalized Riemann Hypothesis.
+
+he Diffie-Hellman key exchange allows two parties to establish a shared secret key by:
+ A. Directly transmitting the shared secret key encrypted under RSA
+ B. Meeting in person beforehand to physically exchange the key on paper
+ C. Using a trusted third party to generate and distribute the key to both sides
+ D. Exchanging public values computed from private exponents over an insecure channel, without ever transmitting the secret key itself
+The correct answer is:
+
+D. Exchanging public values computed from private exponents over an insecure channel, without ever transmitting the secret key itself
+
+The Diffie-Hellman key exchange allows two parties (Alice and Bob) to agree on a shared secret key over an insecure communication channel without having to exchange the actual secret key.
+
+The process works as follows:
+
+They agree publicly on a large prime 
+p
+p and a primitive root 
+g
+g modulo 
+p
+p.
+
+Alice chooses a private exponent 
+a
+a, computes 
+A
+=
+g
+a
+m
+o
+d
+ 
+ 
+p
+A=g 
+a
+ modp, and sends 
+A
+A to Bob.
+
+Bob chooses a private exponent 
+b
+b, computes 
+B
+=
+g
+b
+m
+o
+d
+ 
+ 
+p
+B=g 
+b
+ modp, and sends 
+B
+B to Alice.
+
+Alice computes 
+K
+=
+B
+a
+m
+o
+d
+ 
+ 
+p
+=
+g
+a
+b
+m
+o
+d
+ 
+ 
+p
+K=B 
+a
+ modp=g 
+ab
+ modp.
+
+Bob computes 
+K
+=
+A
+b
+m
+o
+d
+ 
+ 
+p
+=
+g
+a
+b
+m
+o
+d
+ 
+ 
+p
+K=A 
+b
+ modp=g 
+ab
+ modp.
+
+They now both share the same secret key 
+K
+K, while an eavesdropper who sees only 
+p
+,
+g
+,
+A
+,
+p,g,A, and 
+B
+B cannot feasibly compute 
+K
+K due to the computational difficulty of the discrete logarithm problem. The shared secret key is never transmitted over the channel.
+
+According to the design-parameter discussion of Feistel ciphers, below a certain number of rounds a cipher becomes more vulnerable because:
+ A. The S-boxes lose their nonlinear behavior entirely
+ B. Differential cryptanalysis can become cheaper than an exhaustive key search
+ C. The block size effectively shrinks with each additional round
+ D. The key schedule stops generating distinct subkeys for each round
+The correct answer is:
+
+B. Differential cryptanalysis can become cheaper than an exhaustive key search
+
+In Feistel ciphers, each round provides diffusion and confusion. If the number of rounds is too low, the cipher may not have enough diffusion to fully obscure the relationships between plaintext, ciphertext, and the key. This allows advanced attacks like differential cryptanalysis or linear cryptanalysis to break the cipher with less computational effort than a brute-force exhaustive key search.
+
+Increasing the number of rounds makes such attacks impractical by ensuring that the probability of useful differential or linear characteristics becomes so low that the attack requires more work than simply trying all possible keys. The design discussion typically notes that the minimum number of rounds must be set high enough so that the best known cryptanalytic attack is no better than brute force.
+
+Question 34 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+Which requirement is essential when parameterizing an RSA-based PRNG such as Micali-Schnorr?
+ A. e must be chosen equal to the private exponent d used for RSA decryption
+ B. gcd(e, phi(n)) = 1, mirroring the same requirement used for ordinary RSA key generation
+ C. The modulus n must be chosen to be a small prime number, unlike ordinary RSA
+ D. The output length r must always exceed the modulus n's bit length
+The correct answer is:
+
+B. gcd(e, phi(n)) = 1, mirroring the same requirement used for ordinary RSA key generation
+
+In the Micali-Schnorr PRNG (and any RSA-based pseudorandom number generator), the RSA public exponent 
+e
+e must be coprime to 
+ϕ
+(
+n
+)
+ϕ(n) (i.e., 
+gcd
+⁡
+(
+e
+,
+ϕ
+(
+n
+)
+)
+=
+1
+gcd(e,ϕ(n))=1). This is the same fundamental requirement as in standard RSA key generation, ensuring that the encryption function 
+x
+↦
+x
+e
+ 
+mod
+ 
+n
+x↦x 
+e
+ modn is a permutation over the multiplicative group 
+Z
+n
+∗
+Z 
+n
+∗
+​
+ , which guarantees that the mapping is bijective and properly invertible (though inversion is not needed for the PRNG's forward direction, the permutation property is essential for the security analysis).
+
+The other options are incorrect because:
+
+A: 
+e
+e is the public exponent, not the private exponent 
+d
+d; they serve different roles.
+
+C: The modulus 
+n
+n must be a large composite (product of two large primes), not a small prime.
+
+D: The output length 
+r
+r is typically less than the bit length of 
+n
+n; the generator outputs the least significant 
+r
+r bits of 
+x
+e
+ 
+mod
+ 
+n
+x 
+e
+ modn, with 
+r
+r chosen to balance efficiency and security (typically 
+r
+≈
+log
+⁡
+2
+n
+−
+safety margin
+r≈log 
+2
+​
+ n−safety margin).
+
+An integer p greater than 1 is defined as prime when:
+ A. It cannot be expressed as the product of any two smaller integers at all
+ B. Its only positive divisors are 1 and itself
+ C. It has exactly three distinct positive divisors, including itself
+ D. It is odd and also not divisible by 3 or 5
+Reset Selection
+The correct answer is:
+
+B. Its only positive divisors are 1 and itself
+
+This is the standard definition of a prime number: an integer greater than 1 that has no positive divisors other than 1 and itself.
+
+The other options are incorrect because:
+
+A: This is too strict—a prime cannot be expressed as the product of two smaller positive integers greater than 1, but it can be expressed as 
+1
+×
+p
+1×p (which are two smaller integers if you count 1, but 1 is not considered a proper factor in the definition).
+
+C: A prime has exactly two distinct positive divisors (1 and itself), not three. (A number with exactly three divisors would be a square of a prime, e.g., 9 has divisors 1, 3, 9.)
+
+D: This describes numbers coprime to 30, not primes (e.g., 25 is odd and not divisible by 3 or 5, but 25 is composite).
+
+AES is best classified structurally as a:
+ A. Substitution-permutation network operating on the full block every round, not a Feistel cipher
+ B. Hash-based construction with no dependency on a secret key
+ C. Stream cipher that produces one keystream byte at a time
+ D. Feistel cipher that splits its block into two halves each round
+Reset Selection
+The correct answer is:
+
+A. Substitution-permutation network operating on the full block every round, not a Feistel cipher
+
+AES is structurally a Substitution-Permutation Network (SPN). In each round, it applies:
+
+SubBytes (substitution using an S-box) — provides confusion,
+
+ShiftRows and MixColumns (permutations/diffusion) — provide diffusion,
+
+AddRoundKey (XOR with the round key) — mixes in the key.
+
+Crucially, AES operates on the entire 128-bit block in parallel during every round, rather than splitting the block into halves and applying a Feistel structure (as in DES, which is a Feistel cipher).
+
+The other options are incorrect because:
+
+B: AES is a block cipher that depends on a secret key, not a hash function.
+
+C: AES is a block cipher, not a stream cipher (though it can be used in stream-like modes like CTR).
+
+D: AES does not use a Feistel structure; it uses an SPN.
+
+A generator that derives its randomness from a genuinely unpredictable physical process, such as thermal noise, rather than from a deterministic algorithm, is called a ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a True Random Number Generator (or TRNG).
+
+A TRNG (True Random Number Generator) derives its randomness from genuinely unpredictable physical processes, such as:
+
+Thermal noise (Johnson–Nyquist noise) in semiconductor junctions,
+
+Atmospheric noise,
+
+Radioactive decay,
+
+Quantum effects (e.g., photon arrival times),
+
+Other physical phenomena that are inherently non-deterministic.
+
+This contrasts with a Pseudo-Random Number Generator (PRNG) or Cryptographically Secure Pseudo-Random Number Generator (CSPRNG), which generate randomness deterministically from an initial seed value using an algorithm. TRNGs are typically used as the source of entropy to seed PRNGs in cryptographic systems.
+
+Which AES round transformation is the only one that is non-linear, providing the algorithm's confusion?
+ A. SubBytes
+ B. ShiftRows
+ C. AddRoundKey
+ D. MixColumns
+The correct answer is:
+
+A. SubBytes
+
+The SubBytes transformation is the only non-linear step in the AES round function. It applies a fixed S-box (substitution table) to each byte of the State independently, performing a non-linear mapping over 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ). This non-linearity is essential for providing confusion, which obscures the relationship between the plaintext, ciphertext, and the key—making it resistant to linear and differential cryptanalysis.
+
+The other transformations are linear or affine:
+
+ShiftRows – is a linear permutation (byte transposition).
+
+MixColumns – is a linear transformation over 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ).
+
+AddRoundKey – is an XOR operation, which is linear.
+
+Together, the combination of non-linear SubBytes with the linear/diffusion steps gives AES its strength.
+
+Using the LCG recurrence Xn+1 = (5*Xn + 3) mod 16 with seed X0 = 7, the first two outputs X1 and X2 are:
+ A. X1 = 1, X2 = 6
+ B. X1 = 7, X2 = 3
+ C. X1 = 6, X2 = 1
+ D. X1 = 3, X2 = 6
+The correct answer is:
+
+C. X1 = 6, X2 = 1
+
+Let's compute step by step using the LCG recurrence 
+X
+n
++
+1
+=
+(
+5
+⋅
+X
+n
++
+3
+)
+m
+o
+d
+ 
+ 
+16
+X 
+n+1
+​
+ =(5⋅X 
+n
+​
+ +3)mod16, with seed 
+X
+0
+=
+7
+X 
+0
+​
+ =7.
+
+X₁:
+
+X
+1
+=
+(
+5
+⋅
+7
++
+3
+)
+m
+o
+d
+ 
+ 
+16
+=
+(
+35
++
+3
+)
+m
+o
+d
+ 
+ 
+16
+=
+38
+m
+o
+d
+ 
+ 
+16
+=
+6
+X 
+1
+​
+ =(5⋅7+3)mod16=(35+3)mod16=38mod16=6
+X₂:
+
+X
+2
+=
+(
+5
+⋅
+6
++
+3
+)
+m
+o
+d
+ 
+ 
+16
+=
+(
+30
++
+3
+)
+m
+o
+d
+ 
+ 
+16
+=
+33
+m
+o
+d
+ 
+ 
+16
+=
+1
+X 
+2
+​
+ =(5⋅6+3)mod16=(30+3)mod16=33mod16=1
+So 
+X
+1
+=
+6
+X 
+1
+​
+ =6 and 
+X
+2
+=
+1
+X 
+2
+​
+ =1, which matches option C.
+
+A sequence produced by a linear congruential generator can pass every standard statistical randomness test and still be considered cryptographically worthless because:
+ A. LCG output is always shorter than the plaintext it is meant to protect
+ B. An attacker who recovers a handful of consecutive outputs can solve for the generator's parameters and predict all future values
+ C. Statistical tests are incapable of evaluating any algorithmically generated sequence
+ D. LCGs cannot produce output that is uniformly distributed under any parameter choice
+Reset Selection
+The correct answer is:
+
+B. An attacker who recovers a handful of consecutive outputs can solve for the generator's parameters and predict all future values
+
+This is the fundamental cryptographic weakness of linear congruential generators (LCGs). Even though an LCG may produce output that passes standard statistical tests for randomness (uniformity, independence, etc.), it is entirely deterministic and linear.
+
+Given just a few consecutive outputs, an attacker can set up a system of linear congruences to solve for the unknown modulus 
+m
+m, multiplier 
+a
+a, increment 
+c
+c, and the internal state. Once these parameters are recovered, all past and future outputs can be predicted with certainty. This makes LCGs completely unsuitable for cryptographic applications, where unpredictability (not just statistical randomness) is required.
+
+The other options are incorrect:
+
+A: LCG output length is not inherently limited; it can produce arbitrarily long streams.
+
+C: Statistical tests can evaluate algorithmically generated sequences; they just can't guarantee cryptographic security.
+
+D: LCGs can be uniformly distributed over their full period if parameters are chosen correctly (e.g., full-period conditions).
+
+Concern about the DES S-boxes containing a deliberate weakness arose mainly because:
+ A. IBM and the NSA never publicly disclosed the exact criteria used to design them
+ B. They were replaced entirely in the final published version of the standard
+ C. They were later shown to reduce the effective key length to under 40 bits
+ D. Independent researchers had mathematically proven a fatal structural flaw in them
+Reset Selection
+The correct answer is:
+
+A. IBM and the NSA never publicly disclosed the exact criteria used to design them
+
+When DES was first published in the 1970s, the design criteria for its S-boxes were classified and not publicly disclosed. This secrecy led to widespread suspicion and concern that the S-boxes might contain a hidden "trapdoor" or deliberate weakness that could allow the NSA (who participated in the design review) to break DES more easily than the public could, while still keeping the algorithm secure enough against commercial attackers.
+
+It was only years later that the design criteria were declassified and published, revealing that the S-boxes were specifically designed to resist differential cryptanalysis—a technique that was not publicly known at the time (it was discovered independently in the late 1980s by Biham and Shamir). Far from containing a deliberate weakness, the S-boxes were actually carefully crafted to be stronger against this attack. However, the initial lack of transparency fueled the controversy.
+
+The classic, simple algorithm defined by the recurrence Xn+1 = (aXn + c) mod m is called a ____ generator.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a linear congruential generator (or LCG).
+
+The recurrence 
+X
+n
++
+1
+=
+(
+a
+X
+n
++
+c
+)
+m
+o
+d
+ 
+ 
+m
+X 
+n+1
+​
+ =(aX 
+n
+​
+ +c)modm defines the classic Linear Congruential Generator (LCG), which is one of the oldest and simplest pseudorandom number generator algorithms. It was introduced by D. H. Lehmer in 1949. The parameters are:
+
+m
+m — the modulus (defines the range of output values and the period),
+
+a
+a — the multiplier,
+
+c
+c — the increment,
+
+X
+0
+X 
+0
+​
+  — the seed (starting value).
+
+While LCGs are fast and easy to implement, they are not cryptographically secure because their linear structure makes them predictable given a few consecutive outputs.
+
+To achieve authentication (a digital signature) using a public-key cryptosystem, a sender encrypts a message using:
+ A. The recipient's public key, so that only the recipient can later decrypt and verify it
+ B. The recipient's private key, shared with the sender ahead of time for this purpose
+ C. Their own private key, so that anyone with the matching public key can verify the message's origin
+ D. A key derived by hashing the recipient's public key together with a nonce
+Reset Selection
+The correct answer is:
+
+C. Their own private key, so that anyone with the matching public key can verify the message's origin
+
+To create a digital signature (achieve authentication and non-repudiation), the sender encrypts (or more precisely, signs) the message using their own private key. Anyone who has the corresponding public key can then decrypt/verify the signature and confirm that the message originated from the sender (since only the sender possesses the private key).
+
+This is the core principle of public-key digital signatures:
+
+Signing: 
+Signature
+=
+E
+(
+P
+R
+a
+,
+message
+)
+Signature=E(PR 
+a
+​
+ ,message) or 
+Signature
+=
+E
+(
+P
+R
+a
+,
+hash(message)
+)
+Signature=E(PR 
+a
+​
+ ,hash(message))
+
+Verification: Anyone computes 
+D
+(
+P
+U
+a
+,
+Signature
+)
+D(PU 
+a
+​
+ ,Signature) and compares it to the message or its hash.
+
+The other options are incorrect:
+
+A: Encrypting with the recipient's public key provides confidentiality (secrecy), not authentication.
+
+B: The recipient's private key is never shared with anyone; it must remain secret.
+
+D: Hashing with a nonce is not how standard digital signatures work; it would not provide the binding to the sender's identity.
+
+This response is AI-generated, for reference only.
+Which statement correctly compares PRNG output with TRNG output?
+ A. PRNG output never repeats, while TRNG output repeats after a fixed period
+ B. PRNG output is fast, deterministic, and eventually periodic, while TRNG output is slower, non-deterministic, and does not repeat
+ C. Both PRNG and TRNG output are fully reproducible from the same starting seed
+ D. TRNG output is always faster to generate than PRNG output, but less secure
+The correct answer is:
+
+B. PRNG output is fast, deterministic, and eventually periodic, while TRNG output is slower, non-deterministic, and does not repeat
+
+This correctly captures the essential differences:
+
+PRNG (Pseudo-Random Number Generator):
+
+Fast (computationally efficient).
+
+Deterministic (given the same seed, it produces the exact same sequence).
+
+Eventually periodic (its output sequence will repeat after a finite period, though the period can be made very large with good design).
+
+Suitable for cryptographic applications when seeded with sufficient entropy and cryptographically secure (CSPRNG).
+
+TRNG (True Random Number Generator):
+
+Slower (relies on physical processes like thermal noise, which are typically slower than arithmetic operations).
+
+Non-deterministic (outputs are not reproducible; even with the same initial conditions, the output differs because the physical process is inherently unpredictable).
+
+Does not repeat (in practice, it is aperiodic and does not have a guaranteed finite period).
+
+The other options are incorrect:
+
+A: PRNGs do repeat (eventually), while TRNGs do not have a fixed period.
+
+C: TRNG output is not reproducible from a seed; only PRNG output is.
+
+D: TRNG is slower, not faster, than PRNG.
+
+A deterministic algorithm that takes a seed and produces a long sequence of numbers that statistically resemble true randomness is called a ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a pseudorandom number generator (or PRNG).
+
+A PRNG (Pseudorandom Number Generator) is a deterministic algorithm that takes a finite initial value (called a seed) and produces a long output sequence that appears statistically random—meaning it passes various statistical tests for uniformity, independence, and lack of patterns—but is entirely reproducible given the same seed.
+
+When the PRNG is designed to be cryptographically secure (i.e., unpredictable to an adversary), it is specifically called a CSPRNG (Cryptographically Secure Pseudorandom Number Generator). However, the basic general term for any deterministic algorithm producing statistically random-looking output is PRNG.
+
+Using the Euclidean Algorithm on 252 and 105 (252 = 2*105 + 42, 105 = 2*42 + 21, 42 = 2*21 + 0), gcd(252, 105) equals:
+ A. 21
+ B. 105
+ C. 7
+ D. 42
+Reset Selection
+The correct answer is:
+
+A. 21
+
+The Euclidean Algorithm proceeds as follows:
+
+252
+=
+2
+×
+105
++
+42
+252=2×105+42 → remainder 42
+
+105
+=
+2
+×
+42
++
+21
+105=2×42+21 → remainder 21
+
+42
+=
+2
+×
+21
++
+0
+42=2×21+0 → remainder 0
+
+When the remainder reaches 0, the last non-zero remainder is the greatest common divisor (gcd). The last non-zero remainder here is 21.
+
+So, 
+gcd
+⁡
+(
+252
+,
+105
+)
+=
+21
+gcd(252,105)=21.
+
+Plain (unpadded) RSA is described as malleable because:
+ A. Encrypting the same message twice with the same key always changes the ciphertext
+ B. Any two different plaintexts always encrypt to the exact same ciphertext under plain RSA
+ C. E(PU, M1) x E(PU, M2) = E(PU, M1*M2), letting an attacker manipulate a ciphertext by a known factor without knowing the plaintext
+ D. The private key can be recovered directly from any single intercepted ciphertext
+Reset Selection
+The correct answer is:
+
+C. E(PU, M1) × E(PU, M2) = E(PU, M1 × M2), letting an attacker manipulate a ciphertext by a known factor without knowing the plaintext
+
+This is the multiplicative homomorphic property of plain (unpadded) RSA:
+
+E
+(
+M
+1
+)
+⋅
+E
+(
+M
+2
+)
+≡
+(
+M
+1
+e
+ 
+mod
+ 
+n
+)
+⋅
+(
+M
+2
+e
+ 
+mod
+ 
+n
+)
+≡
+(
+M
+1
+⋅
+M
+2
+)
+e
+ 
+mod
+ 
+n
+≡
+E
+(
+M
+1
+⋅
+M
+2
+)
+(
+m
+o
+d
+n
+)
+E(M 
+1
+​
+ )⋅E(M 
+2
+​
+ )≡(M 
+1
+e
+​
+ modn)⋅(M 
+2
+e
+​
+ modn)≡(M 
+1
+​
+ ⋅M 
+2
+​
+ ) 
+e
+ modn≡E(M 
+1
+​
+ ⋅M 
+2
+​
+ )(modn)
+This property makes plain RSA malleable—an attacker can take an intercepted ciphertext 
+C
+=
+M
+e
+ 
+mod
+ 
+n
+C=M 
+e
+ modn, multiply it by 
+r
+e
+ 
+mod
+ 
+n
+r 
+e
+ modn (for a chosen 
+r
+r), and obtain a valid ciphertext for 
+M
+⋅
+r
+ 
+mod
+ 
+n
+M⋅rmodn, all without knowing the original plaintext 
+M
+M. This enables chosen-ciphertext attacks and is why proper padding (like OAEP) is essential for RSA in practice.
+
+The other options are incorrect:
+
+A: Plain RSA is deterministic (no randomness), so encrypting the same message twice gives the same ciphertext.
+
+B: RSA is a bijective mapping; different plaintexts encrypt to different ciphertexts (as long as they are in 
+Z
+n
+∗
+Z 
+n
+∗
+​
+ ).
+
+D: Recovering the private key from a single ciphertext is not possible; the hardness of factoring is what keeps RSA secure.
+
+This response is AI-generated, for reference only.
+Question 48 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In evaluating candidate round functions F for a block cipher, the strict avalanche criterion (SAC) specifically requires that:
+ A. Each output bit should change with probability one-half whenever a single input bit is inverted
+ B. The round function should use exactly the same number of rounds as the key length in bits
+ C. Every output bit should be a linear combination of the input bits
+ D. The ciphertext should always be exactly the same length as the plaintext
+Reset Selection
+The correct answer is:
+
+A. Each output bit should change with probability one-half whenever a single input bit is inverted
+
+The Strict Avalanche Criterion (SAC) is a property of boolean functions and cryptographic round functions. It requires that when a single input bit is complemented (inverted), each output bit should change with a probability of exactly 1/2 (or very close to it). This ensures that the function provides strong diffusion and that small changes in the input propagate unpredictably throughout the output—a key requirement for resisting differential and linear cryptanalysis.
+
+The other options are incorrect because:
+
+B: The number of rounds is not tied to the key length in bits; it's a design choice based on security margins.
+
+C: SAC explicitly requires non-linearity; output bits should not be linear combinations of input bits.
+
+D: This is a general property of block ciphers (fixed block size), not specifically SAC.
+
+A number-theoretic PRNG whose security rests on the difficulty of factoring n = p times q, the same hard problem underlying RSA, is called the ____ generator.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the Blum Blum Shub (or BBS) generator.
+
+The Blum Blum Shub (BBS) generator, proposed by Lenore Blum, Manuel Blum, and Michael Shub in 1986, is a number-theoretic pseudorandom number generator whose security is reducible to the difficulty of the quadratic residuosity problem, which is closely related to the hardness of factoring 
+n
+=
+p
+⋅
+q
+n=p⋅q.
+
+Its recurrence is:
+
+X
+n
++
+1
+=
+X
+n
+2
+ 
+mod
+ 
+n
+X 
+n+1
+​
+ =X 
+n
+2
+​
+ modn
+where 
+n
+=
+p
+⋅
+q
+n=p⋅q is the product of two large primes (typically Blum integers, i.e., primes congruent to 3 mod 4). The output is typically the least significant bit (or several bits) of each 
+X
+n
+X 
+n
+​
+ .
+
+BBS is provably secure in the sense that predicting its output is as hard as factoring 
+n
+n, making it cryptographically strong—though it is slower than other PRNGs, so it's mostly used in theoretical contexts or applications where provable security is paramount.
+
+Given public parameters q = 353 and alpha = 3, with Alice's private key XA = 97 and public key YA = 3^97 mod 353 = 40, and Bob's private key XB = 233 and public key YB = 3^233 mod 353 = 248, Alice computes the shared secret as:
+ A. K = XA * XB mod q = 97 * 233 mod 353
+ B. K = YA^XB mod q = 40^233 mod 353
+ C. K = YB^XA mod q = 248^97 mod 353
+ D. K = alpha^(XA+XB) mod q, computed without ever using YA or YB
+Reset Selection
+The correct answer is:
+
+C. K = YB^XA mod q = 248^97 mod 353
+
+In the Diffie-Hellman key exchange, the shared secret is computed as follows:
+
+Alice computes 
+K
+=
+Y
+B
+X
+A
+m
+o
+d
+ 
+ 
+q
+K=Y 
+B
+X 
+A
+​
+ 
+​
+ modq, where 
+Y
+B
+=
+α
+X
+B
+m
+o
+d
+ 
+ 
+q
+Y 
+B
+​
+ =α 
+X 
+B
+​
+ 
+ modq.
+This gives 
+K
+=
+(
+α
+X
+B
+)
+X
+A
+=
+α
+X
+A
+X
+B
+m
+o
+d
+ 
+ 
+q
+K=(α 
+X 
+B
+​
+ 
+ ) 
+X 
+A
+​
+ 
+ =α 
+X 
+A
+​
+ X 
+B
+​
+ 
+ modq.
+
+Bob computes 
+K
+=
+Y
+A
+X
+B
+m
+o
+d
+ 
+ 
+q
+K=Y 
+A
+X 
+B
+​
+ 
+​
+ modq, where 
+Y
+A
+=
+α
+X
+A
+m
+o
+d
+ 
+ 
+q
+Y 
+A
+​
+ =α 
+X 
+A
+​
+ 
+ modq.
+This gives 
+K
+=
+(
+α
+X
+A
+)
+X
+B
+=
+α
+X
+A
+X
+B
+m
+o
+d
+ 
+ 
+q
+K=(α 
+X 
+A
+​
+ 
+ ) 
+X 
+B
+​
+ 
+ =α 
+X 
+A
+​
+ X 
+B
+​
+ 
+ modq.
+
+So with the given values:
+
+Alice: 
+K
+=
+248
+97
+m
+o
+d
+ 
+ 
+353
+K=248 
+97
+ mod353
+
+Bob: 
+K
+=
+40
+233
+m
+o
+d
+ 
+ 
+353
+K=40 
+233
+ mod353
+
+Both yield the same shared secret 
+α
+X
+A
+X
+B
+m
+o
+d
+ 
+ 
+q
+α 
+X 
+A
+​
+ X 
+B
+​
+ 
+ modq.
+
+The other options are incorrect:
+
+A: Multiplying private keys is not how DH works.
+
+B: Alice would use Bob's public key 
+Y
+B
+Y 
+B
+​
+ , not her own 
+Y
+A
+Y 
+A
+​
+  raised to Bob's private exponent.
+
+D: The shared secret is 
+α
+X
+A
+X
+B
+α 
+X 
+A
+​
+ X 
+B
+​
+ 
+ , not 
+α
+X
+A
++
+X
+B
+α 
+X 
+A
+​
+ +X 
+B
+​
+ 
+ , and the computation does use the public keys.
+
+This response is AI-generated, for reference only.
+The block cipher mode that turns a block cipher into a stream cipher by encrypting a counter value for each block and XORing it with the plaintext is called ____ mode.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is CTR (or Counter) mode.
+
+In CTR (Counter) mode, a block cipher is turned into a stream cipher by encrypting a sequence of counter values (which are incremented for each block) and then XORing the resulting keystream with the plaintext to produce the ciphertext.
+
+Key features of CTR mode:
+
+Parallelizable (both encryption and decryption can be done in parallel).
+
+Random access (any block can be decrypted independently).
+
+Requires a unique nonce/initial counter value to prevent keystream reuse.
+
+This mode is widely used in practice (e.g., in TLS, IPsec, and disk encryption).
+
+The value that provides variability so that identical plaintext blocks do not produce identical ciphertext at the start of CBC or CFB encryption is called the ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the initialization vector (or IV).
+
+In CBC (Cipher Block Chaining) and CFB (Cipher Feedback) modes, the initialization vector (IV) is a random or pseudorandom value that is XORed with the first plaintext block (in CBC) or used as the initial input to the feedback shift register (in CFB) before encryption.
+
+The IV provides variability so that:
+
+Identical plaintext blocks do not produce identical ciphertext blocks (even for the same key),
+
+The same message encrypted twice with the same key produces different ciphertexts,
+
+It prevents precomputation attacks and pattern analysis.
+
+The IV does not need to be kept secret, but it must be unpredictable (for CBC mode) or unique (for CFB mode) and should be transmitted along with the ciphertext (usually in the clear).
+
+A network structure built from alternating layers of substitution and permutation across multiple rounds, as proposed by Shannon and used in ciphers such as DES, is called a substitution-____ network.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is permutation (or substitution-permutation network).
+
+The full term is substitution-permutation network (SPN), which is the structure proposed by Claude Shannon that alternates layers of substitution (S-boxes) and permutation (P-boxes) across multiple rounds to provide confusion and diffusion.
+
+(Note: DES actually uses a Feistel network, not a pure SPN, but SPNs are used in ciphers like AES. However, the question mentions "proposed by Shannon and used in ciphers such as DES" – Shannon's concept of "mixing" layers applies broadly, and the blank asks for the second half of the classic "substitution-permutation" pairing.)
+
+In an extension field GF(2^m), each element can be represented as:
+ A. A single decimal digit between 0 and m
+ B. A polynomial of degree less than m with binary (0 or 1) coefficients, equivalent to an m-bit string
+ C. An ordered pair of prime numbers whose product is less than 2^m
+ D. A matrix of size m by m containing only prime entries
+Reset Selection
+The correct answer is:
+
+B. A polynomial of degree less than m with binary (0 or 1) coefficients, equivalent to an m-bit string
+
+In an extension field 
+G
+F
+(
+2
+m
+)
+GF(2 
+m
+ ), each element is represented as a polynomial of the form:
+
+a
+m
+−
+1
+x
+m
+−
+1
++
+a
+m
+−
+2
+x
+m
+−
+2
++
+⋯
++
+a
+1
+x
++
+a
+0
+a 
+m−1
+​
+ x 
+m−1
+ +a 
+m−2
+​
+ x 
+m−2
+ +⋯+a 
+1
+​
+ x+a 
+0
+​
+ 
+where each coefficient 
+a
+i
+∈
+{
+0
+,
+1
+}
+a 
+i
+​
+ ∈{0,1}. This polynomial has degree at most 
+m
+−
+1
+m−1, and it is equivalent to an 
+m
+m-bit binary string 
+(
+a
+m
+−
+1
+a
+m
+−
+2
+⋯
+a
+1
+a
+0
+)
+(a 
+m−1
+​
+ a 
+m−2
+​
+ ⋯a 
+1
+​
+ a 
+0
+​
+ ).
+
+Addition is performed as bitwise XOR (coefficient-wise modulo 2), and multiplication is performed modulo a chosen irreducible polynomial of degree 
+m
+m. This representation is fundamental to many cryptographic algorithms, including AES (which uses 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ )).
+
+The other options are incorrect because:
+
+A: Elements are not single decimal digits; they are 
+m
+m-bit vectors.
+
+C: Elements are not pairs of primes.
+
+D: Elements are not matrices of primes.
+
+NIST's selection of Rijndael as AES was notable because it was:
+ A. Chosen without any competing candidate algorithms being considered
+ B. The result of an open, multi-round public competition rather than an algorithm designed internally by the government
+ C. The first cipher ever to be patented by a government standards body
+ D. Selected purely on the basis of being the fastest candidate in hardware
+Reset Selection
+The correct answer is:
+
+B. The result of an open, multi-round public competition rather than an algorithm designed internally by the government
+
+The selection of Rijndael as the Advanced Encryption Standard (AES) in 2001 was notable because it was the result of an open, transparent, international competition run by NIST. Unlike DES, which was developed internally by IBM and the NSA with limited public input, the AES process:
+
+Invited submissions from cryptographers worldwide,
+
+Held multiple public conferences to analyze and discuss the candidate algorithms,
+
+Considered security, performance (in both hardware and software), and implementation characteristics,
+
+Involved extensive public cryptanalysis over several years before narrowing down from 15 candidates to 5 finalists (MARS, RC6, Rijndael, Serpent, and Twofish),
+
+Ultimately selected Rijndael in a public announcement.
+
+This open process was a landmark in cryptographic standardization and helped build confidence in the security of AES.
+
+The other options are incorrect because:
+
+A: There were many competing candidates (15 initial submissions).
+
+C: AES was not patented by the government; the Rijndael algorithm was unpatented and free to use.
+
+D: While efficiency was a factor, the selection was based on a combination of security, performance, and flexibility—not solely on hardware speed.
+
+Question 56 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+A finite field, or Galois field GF(q), is a finite set of elements with addition and multiplication such that:
+ A. Every element, including zero, is required to have a multiplicative inverse
+ B. Only addition is guaranteed to have inverses; multiplication need not be invertible
+ C. The number of elements q must always be an even number
+ D. Every nonzero element has a multiplicative inverse and the usual algebraic laws (associativity, commutativity, distributivity) hold
+The correct answer is:
+
+D. Every nonzero element has a multiplicative inverse and the usual algebraic laws (associativity, commutativity, distributivity) hold
+
+A finite field (Galois field) 
+G
+F
+(
+q
+)
+GF(q) is a set with two operations (addition and multiplication) that satisfies:
+
+It forms an abelian group under addition (closure, associativity, identity 0, inverses for all elements, commutativity).
+
+The nonzero elements form an abelian group under multiplication (closure, associativity, identity 1, inverses for every nonzero element, commutativity).
+
+Multiplication distributes over addition.
+
+The other options are incorrect because:
+
+A: Zero does not have a multiplicative inverse; only the nonzero elements do.
+
+B: Multiplication must also be invertible for all nonzero elements; this is a defining property of a field.
+
+C: The number of elements 
+q
+q in a finite field is always 
+p
+m
+p 
+m
+  where 
+p
+p is a prime and 
+m
+≥
+1
+m≥1. This can be odd (e.g., 
+G
+F
+(
+3
+)
+GF(3), 
+G
+F
+(
+9
+)
+GF(9)) or even (e.g., 
+G
+F
+(
+2
+m
+)
+GF(2 
+m
+ )), so it is not required to be even.
+
+For an elliptic curve defined over the real numbers as y^2 = x^3 + ax + b, adding two distinct points P and Q geometrically involves:
+ A. Multiplying the x-coordinates of P and Q together to get the new x-coordinate
+ B. Drawing the line through P and Q, finding its third intersection with the curve, and reflecting that point across the x-axis
+ C. Reflecting P alone across the y-axis without ever considering Q's position
+ D. Averaging the x-coordinates and y-coordinates of P and Q directly
+Reset Selection
+The correct answer is:
+
+B. Drawing the line through P and Q, finding its third intersection with the curve, and reflecting that point across the x-axis
+
+This is the geometric definition of point addition on an elliptic curve (in Weierstrass form 
+y
+2
+=
+x
+3
++
+a
+x
++
+b
+y 
+2
+ =x 
+3
+ +ax+b):
+
+Draw the line through the two distinct points 
+P
+P and 
+Q
+Q.
+
+This line will intersect the elliptic curve at exactly one additional point (by Bézout's theorem, counting multiplicities).
+
+Reflect that third intersection point across the x-axis (i.e., negate its y-coordinate). The reflected point is 
+P
++
+Q
+P+Q.
+
+If 
+P
+=
+Q
+P=Q (point doubling), the line is replaced by the tangent line at 
+P
+P, and the same process applies.
+
+The other options are incorrect:
+
+A: Multiplying x-coordinates is not how elliptic curve addition works.
+
+C: Only reflecting 
+P
+P is not the correct operation.
+
+D: Averaging coordinates is not geometrically meaningful for elliptic curves.
+
+What follows is a fill in the blank question with 1 blanks.AES was selected by NIST through an open competition, with the winning algorithm originally named ____, designed by Daemen and Rijmen.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is Rijndael.
+
+The winning algorithm was originally named Rijndael (a portmanteau of the names of its designers, Joan Daemen and Vincent Rijmen). It was selected by NIST in 2001 and then standardized as the Advanced Encryption Standard (AES).
+
+Claude Shannon's principle by which the relationship between the ciphertext and the encryption key is made as complex as possible is called ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is confusion.
+
+Claude Shannon introduced two fundamental principles for secure ciphers in his 1949 paper "Communication Theory of Secrecy Systems":
+
+Confusion: The encryption key's relationship to the ciphertext is made as complex and involved as possible, making it difficult to determine the key from the ciphertext. This is typically achieved through substitution (non-linear S-boxes) in modern ciphers.
+
+Diffusion: The statistical structure of the plaintext is spread out and dissipated throughout the ciphertext, so that small changes in the plaintext produce large changes in the ciphertext. This is typically achieved through permutations (e.g., ShiftRows and MixColumns in AES).
+
+Together, confusion and diffusion are the twin pillars of secure block cipher design.
+
+This response is AI-generated, for reference only.
+In Electronic Codebook (ECB) mode, each plaintext block is:
+ A. XORed with the previous ciphertext block before being encrypted
+ B. Split into two halves and processed through a Feistel-like structure
+ C. Encrypted independently with the same key, with no chaining or feedback between blocks
+ D. Combined with a running counter before being encrypted
+The correct answer is:
+
+C. Encrypted independently with the same key, with no chaining or feedback between blocks
+
+In Electronic Codebook (ECB) mode, each plaintext block is encrypted separately using the same key, and there is no chaining or feedback between blocks. This means that identical plaintext blocks will always encrypt to identical ciphertext blocks, which can reveal patterns in the data. This is why ECB is generally not recommended for encrypting data with repetitive patterns (e.g., images), as the structure of the plaintext may still be visible in the ciphertext.
+
+The other options are incorrect:
+
+A: This describes CBC (Cipher Block Chaining) mode, where each plaintext block is XORed with the previous ciphertext block before encryption.
+
+B: This describes a Feistel structure, not ECB mode.
+
+D: This describes CTR (Counter) mode, where a counter value is combined with the plaintext.
+
+Question 61 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+MixColumns provides diffusion by:
+ A. XORing every column with the same fixed round key value
+ B. Swapping entire columns of the State with one another
+ C. Reversing the byte order within each row of the State
+ D. Treating each column as a polynomial over GF(2^8) and multiplying it by a fixed matrix, so every output byte depends on all four input bytes of that column
+Reset Selection
+The correct answer is:
+
+D. Treating each column as a polynomial over GF(2^8) and multiplying it by a fixed matrix, so every output byte depends on all four input bytes of that column
+
+The MixColumns transformation in AES provides diffusion by operating independently on each column of the State. Each column is treated as a 4-term polynomial over 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ) and is multiplied modulo 
+x
+4
++
+1
+x 
+4
+ +1 by a fixed polynomial 
+a
+(
+x
+)
+=
+{
+03
+}
+x
+3
++
+{
+01
+}
+x
+2
++
+{
+01
+}
+x
++
+{
+02
+}
+a(x)={03}x 
+3
+ +{01}x 
+2
+ +{01}x+{02}, which is equivalent to multiplying the column by a fixed 
+4
+×
+4
+4×4 matrix over 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ).
+
+The result is that every output byte in a column is a linear combination of all four input bytes of that column, spreading the influence of each plaintext byte throughout the column. This is a key source of diffusion in AES, complementing the ShiftRows transformation which diffuses bytes across columns.
+
+The other options are incorrect:
+
+A: XORing with a round key is AddRoundKey, not MixColumns.
+
+B: Swapping columns is not part of MixColumns (ShiftRows swaps rows, not columns).
+
+C: Reversing byte order within rows is not part of AES.
+
+The main security weakness of ECB mode is that:
+ A. Identical plaintext blocks always produce identical ciphertext blocks, revealing patterns in the underlying data
+ B. It cannot be used with block ciphers larger than 64 bits
+ C. It exposes the entire secret key after only two blocks are encrypted
+ D. It requires a new key to be generated for every single block encrypted
+Reset Selection
+The correct answer is:
+
+A. Identical plaintext blocks always produce identical ciphertext blocks, revealing patterns in the underlying data
+
+This is the main security weakness of Electronic Codebook (ECB) mode. Because each plaintext block is encrypted independently with the same key, identical plaintext blocks will always encrypt to identical ciphertext blocks. This deterministic property means that patterns and repetitions in the plaintext data (such as in images, formatted documents, or structured data) remain visible in the ciphertext. An attacker can analyze the ciphertext for repeated blocks and potentially deduce information about the plaintext structure, which is why ECB is generally discouraged for encrypting data with predictable patterns.
+
+The other options are incorrect:
+
+B: ECB can be used with any block cipher size (64, 128, etc.), though it's not secure.
+
+C: ECB does not expose the encryption key; the key remains secure under the block cipher's security.
+
+D: ECB uses the same key for all blocks, not a new key per block.
+
+This response is AI-generated, for reference only.
+Question 63 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+The AES State array arranges the 16 bytes of a block into a matrix of:
+ A. 8 rows by 2 columns
+ B. 2 rows by 8 columns
+ C. 4 rows by 4 columns
+ D. 16 rows by 1 column
+Reset Selection
+The correct answer is:
+
+C. 4 rows by 4 columns
+
+The AES state array arranges the 128-bit (16-byte) plaintext block into a 4×4 matrix of bytes. The bytes are loaded column by column (the first 4 bytes form the first column, the next 4 bytes form the second column, and so on). This 4×4 matrix is the fundamental data structure that all AES round transformations (SubBytes, ShiftRows, MixColumns, and AddRoundKey) operate on.
+
+Basic, unauthenticated Diffie-Hellman is vulnerable to a man-in-the-middle attack because:
+ A. The discrete logarithm problem becomes trivially easy once two parties are involved
+ B. The primitive root alpha must be kept secret, and any leak instantly reveals the key
+ C. The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages
+ D. Diffie-Hellman transmits the shared secret key directly, in plaintext, over the channel
+Reset Selection
+The correct answer is:
+
+C. The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages
+
+Basic, unauthenticated Diffie-Hellman is vulnerable to a man-in-the-middle (MITM) attack because it lacks authentication of the communicating parties. An attacker (Mallory) can intercept the public values exchanged between Alice and Bob, replace them with her own public values, and establish two separate shared secrets—one with Alice and one with Bob. Mallory can then decrypt, read, and re-encrypt messages as they pass through, effectively eavesdropping on the entire communication without either party detecting the intrusion.
+
+The other options are incorrect:
+
+A: The discrete logarithm problem remains hard even with two parties involved.
+
+B: The primitive root 
+α
+α and the prime 
+p
+p are public parameters, not secret.
+
+D: Diffie-Hellman never transmits the shared secret key itself; it transmits only the public values, from which the secret is computed locally.
+
+The AES round transformation that performs a non-linear byte-by-byte substitution using a fixed lookup table is called ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is SubBytes (or SubByte transformation).
+
+The SubBytes transformation is the non-linear step in AES that substitutes each byte of the State independently using a fixed 16×16 lookup table called the S-box. This S-box is constructed using inversion in 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ) followed by an affine transformation over 
+G
+F
+(
+2
+)
+GF(2), providing the confusion essential to AES's security.
+
+A function that is easy to compute in one direction but infeasible to invert without secret extra information is called a ____ one-way function.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a trapdoor one-way function (or trapdoor).
+
+A trapdoor one-way function is a function that is:
+
+Easy to compute in the forward direction (given an input 
+x
+x, computing 
+f
+(
+x
+)
+f(x) is efficient).
+
+Infeasible to invert (given 
+f
+(
+x
+)
+f(x), finding 
+x
+x) without some additional secret information, known as the trapdoor.
+
+This is the foundational concept behind most public-key cryptosystems:
+
+In RSA, the function 
+f
+(
+x
+)
+=
+x
+e
+ 
+mod
+ 
+n
+f(x)=x 
+e
+ modn is easy to compute, but inverting it (decryption) is hard unless you know the private exponent 
+d
+d (the trapdoor) or the factorization of 
+n
+n.
+
+In other schemes like Diffie-Hellman and ECC, the trapdoor concept is analogous (though the underlying one-way function is exponentiation or scalar multiplication).
+
+The term "trapdoor" distinguishes these functions from one-way functions (which have no secret trapdoor and are used in hash functions and symmetric crypto).
+
+This response is AI-generated, for reference only.
+Optimal Asymmetric Encryption Padding (OAEP) is recommended for RSA mainly because it:
+ A. Removes the need to generate two distinct large prime numbers
+ B. Randomizes the plaintext before encryption, defeating the malleability exploited by chosen-ciphertext attacks
+ C. Allows RSA to be used without ever computing a private exponent d
+ D. Increases the size of the RSA modulus n automatically at encryption time
+The correct answer is:
+
+B. Randomizes the plaintext before encryption, defeating the malleability exploited by chosen-ciphertext attacks
+
+Optimal Asymmetric Encryption Padding (OAEP) is a padding scheme for RSA that introduces randomness and structured encoding to the plaintext before encryption. This randomization ensures that:
+
+Encrypting the same message twice produces different ciphertexts (probabilistic encryption).
+
+The scheme provides semantic security and non-malleability, meaning an attacker cannot modify a ciphertext in a predictable way to produce a valid related plaintext.
+
+It defends against adaptive chosen-ciphertext attacks (CCA2) in the random oracle model.
+
+The other options are incorrect:
+
+A: OAEP does not eliminate the need for two large primes; RSA still requires key generation with 
+n
+=
+p
+⋅
+q
+n=p⋅q.
+
+C: OAEP does not remove the need for the private exponent 
+d
+d; decryption still requires it.
+
+D: OAEP does not change the modulus size; 
+n
+n is fixed at key generation time.
+
+The set of points on an elliptic curve, together with a defined addition rule and a point at infinity, forms an algebraic structure called an ____ group.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is an abelian group.
+
+The set of points on an elliptic curve (including the point at infinity as the identity element), together with the geometric "chord-and-tangent" addition rule, forms an abelian group (also called a commutative group). This means the group operation is:
+
+Closure: Adding two points on the curve yields another point on the curve.
+
+Associative: 
+(
+P
++
+Q
+)
++
+R
+=
+P
++
+(
+Q
++
+R
+)
+(P+Q)+R=P+(Q+R).
+
+Identity: There is a point at infinity 
+O
+O such that 
+P
++
+O
+=
+P
+P+O=P.
+
+Inverse: For every point 
+P
+P, there exists a point 
+−
+P
+−P such that 
+P
++
+(
+−
+P
+)
+=
+O
+P+(−P)=O.
+
+Commutative: 
+P
++
+Q
+=
+Q
++
+P
+P+Q=Q+P.
+
+This abelian group structure is the foundation of elliptic curve cryptography (ECC).
+
+The Diffie-Hellman protocol requires two public parameters known to everyone: a prime q and a ____ root of q.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is primitive (or primitive root).
+
+The Diffie-Hellman protocol requires two public parameters:
+
+A large prime 
+q
+q, and
+
+A primitive root 
+α
+α (also called a generator) of 
+q
+q.
+
+A primitive root 
+α
+α modulo 
+q
+q is an integer whose powers 
+α
+1
+,
+α
+2
+,
+α
+3
+,
+…
+,
+α
+q
+−
+1
+m
+o
+d
+ 
+ 
+q
+α 
+1
+ ,α 
+2
+ ,α 
+3
+ ,…,α 
+q−1
+ modq generate all nonzero elements of the multiplicative group 
+Z
+q
+∗
+Z 
+q
+∗
+​
+ . This property ensures that the discrete logarithm problem is hard and that the key exchange can produce a uniform distribution of values.
+
+Question 70 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+Why is factoring huge numbers considered computationally hard even when a shortcut like the shared-prime-factor rule can quickly find a gcd once factorizations are already known?
+ A. Because the gcd shortcut only ever works for numbers smaller than 1,000
+ B. Because gcd computation requires knowledge of the discrete logarithm first
+ C. That shortcut assumes the factorizations are already available; obtaining those factorizations for very large numbers in the first place is itself the hard step
+ D. Because factoring and computing a gcd are mathematically the identical operation
+Reset Selection
+The correct answer is:
+
+C. That shortcut assumes the factorizations are already available; obtaining those factorizations for very large numbers in the first place is itself the hard step
+
+The Euclidean algorithm can compute the gcd of two numbers very efficiently (in polynomial time) if you have the numbers themselves. However, in cryptographic contexts like RSA, the hardness lies in obtaining the prime factorization of a large composite number 
+n
+=
+p
+⋅
+q
+n=p⋅q in the first place.
+
+Once the factorizations are known, finding a shared factor (gcd) is trivial. But finding those factors—i.e., factoring a 2048-bit or larger number—is computationally infeasible with current algorithms and hardware. That is the core assumption underpinning the security of RSA and other factoring-based cryptosystems.
+
+The other options are incorrect:
+
+A: The gcd shortcut works for numbers of any size, not just small ones.
+
+B: GCD computation does not require discrete logarithms; it's a different problem.
+
+D: Factoring and gcd are not identical operations; factoring is hard, gcd is easy.
+
+CTR mode is particularly well suited to high-speed, multi-core systems because:
+ A. It never needs to compute an initialization vector or nonce for any block
+ B. It automatically detects and corrects any transmission errors in the ciphertext
+ C. Blocks have no sequential dependency, so they can be encrypted and decrypted in parallel
+ D. It uses a smaller effective key length, so less computation is required per block
+Reset Selection
+The correct answer is:
+
+C. Blocks have no sequential dependency, so they can be encrypted and decrypted in parallel
+
+CTR (Counter) mode is highly suitable for high-speed, multi-core systems because each block's encryption or decryption is independent of every other block. The keystream for each block is generated by encrypting a unique counter value (which can be precomputed), and then the plaintext (or ciphertext) is XORed with that keystream. Since there is no chaining between blocks, multiple blocks can be processed simultaneously across different CPU cores or hardware pipelines, greatly improving throughput.
+
+The other options are incorrect:
+
+A: CTR mode does require a unique nonce/initial counter value to prevent keystream reuse.
+
+B: CTR mode does not automatically detect or correct transmission errors; it provides confidentiality only (and no built-in integrity).
+
+D: CTR mode uses the same key length as the underlying block cipher; it does not use a smaller effective key length.
+
+Why is MixColumns skipped in the final AES round rather than in every round?
+ A. Because skipping it doubles the effective key length of the cipher
+ B. Because MixColumns cannot be computed on the very last block of a message
+ C. To keep encryption invertible and simple while still ensuring the earlier rounds provide adequate diffusion
+ D. Because the final round always uses a 256-bit key regardless of the chosen AES variant
+Reset Selection
+The correct answer is:
+
+C. To keep encryption invertible and simple while still ensuring the earlier rounds provide adequate diffusion
+
+In AES, MixColumns is skipped in the final round (but performed in all previous rounds) for structural and security reasons:
+
+Invertibility: The final round of AES is designed to be structurally symmetric to the initial AddRoundKey and the inverse cipher. Omitting MixColumns in the final round makes the decryption process match the encryption structure more cleanly—it allows the final round to consist only of SubBytes, ShiftRows, and AddRoundKey (the inverse operations in reverse order during decryption).
+
+Security: The full diffusion provided by MixColumns in the earlier rounds (especially combined with ShiftRows) is already sufficient to ensure that every output bit depends on every input bit and every key bit. Adding MixColumns in the final round would not provide any additional security benefit, because:
+
+The final round is followed by no further rounds to diffuse its output.
+
+The final AddRoundKey already mixes the key in directly.
+
+The omission does not weaken the cipher, as all the necessary diffusion has already been achieved by the previous 
+N
+r
+−
+1
+N 
+r
+​
+ −1 rounds.
+
+Simplicity and Efficiency: Skipping MixColumns in the final round reduces computational cost slightly without compromising security.
+
+The other options are incorrect:
+
+A: Skipping MixColumns does not double the key length.
+
+B: MixColumns is defined for any block of 16 bytes; it is not limited by message position.
+
+D: The number of rounds and key size are determined by the AES variant; the final round always skips MixColumns regardless of key size.
+
+After the KSA, RC4's Pseudo-Random Generation Algorithm (PRGA) produces the keystream by:
+ A. Continuously swapping entries within the permuted state array S and combining selected entries to output one byte at a time
+ B. Applying the SHA-1 hash function repeatedly to the previous keystream byte
+ C. Reading the secret key directly, byte by byte, without any further processing
+ D. Encrypting a running counter with a block cipher and outputting the ciphertext bytes
+Reset Selection
+The correct answer is:
+
+A. Continuously swapping entries within the permuted state array S and combining selected entries to output one byte at a time
+
+After the Key Scheduling Algorithm (KSA) initializes and permutes the 256-byte state array 
+S
+S based on the secret key, the Pseudo-Random Generation Algorithm (PRGA) generates the keystream by:
+
+Incrementing an index 
+i
+i (mod 256).
+
+Adding 
+S
+[
+i
+]
+S[i] to another index 
+j
+j (mod 256).
+
+Swapping 
+S
+[
+i
+]
+S[i] and 
+S
+[
+j
+]
+S[j] (continuing the permutation of the state).
+
+Selecting an output byte as 
+S
+[
+S
+[
+i
+]
++
+S
+[
+j
+]
+ 
+mod
+ 
+256
+]
+S[S[i]+S[j]mod256].
+
+This process produces one keystream byte per iteration, which is then XORed with the plaintext (or ciphertext) for encryption/decryption. The state continuously evolves, ensuring that the keystream appears random and is not trivially predictable from the key alone.
+
+The other options are incorrect:
+
+B: RC4 does not use SHA-1 or any hash function in its PRGA.
+
+C: The secret key is only used during the KSA; the PRGA operates on the permuted state array, not directly on the key.
+
+D: RC4 is a stream cipher, not a block cipher in counter mode; it uses its own internal state, not a block cipher.
+
+What follows is a fill in the blank question with 1 blanks.The fast, widely used probabilistic primality test that repeatedly tests random witnesses against a candidate number is called the ____ test.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the Miller–Rabin test (or Miller-Rabin primality test).
+
+The Miller–Rabin test is a fast, probabilistic primality test that works by selecting random bases (witnesses) and testing whether certain congruences hold for the candidate number 
+n
+n. If the test says "composite," the number is definitely composite. If it says "probably prime," the probability of error can be made arbitrarily small by repeating the test with multiple independent random bases. It is widely used in cryptographic key generation (e.g., for RSA primes) because it is efficient and the error probability can be driven down to negligible levels (e.g., 
+2
+−
+80
+2 
+−80
+  or less).
+
+In RSA, encryption of message M is computed as C = M^e mod n, and decryption of ciphertext C is computed as M = C^____ mod n.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is d (the private exponent).
+
+In RSA, decryption is computed as:
+
+M
+=
+C
+d
+ 
+mod
+ 
+n
+M=C 
+d
+ modn
+where:
+
+C
+C is the ciphertext,
+
+d
+d is the private exponent (the modular multiplicative inverse of 
+e
+e modulo 
+ϕ
+(
+n
+)
+ϕ(n)),
+
+n
+n is the modulus.
+
+Together, encryption 
+C
+=
+M
+e
+ 
+mod
+ 
+n
+C=M 
+e
+ modn and decryption 
+M
+=
+C
+d
+ 
+mod
+ 
+n
+M=C 
+d
+ modn are inverse operations because 
+e
+⋅
+d
+≡
+1
+(
+m
+o
+d
+ϕ
+(
+n
+)
+)
+e⋅d≡1(modϕ(n)), ensuring that 
+(
+M
+e
+)
+d
+≡
+M
+(
+m
+o
+d
+n
+)
+(M 
+e
+ ) 
+d
+ ≡M(modn).
+
+The Blum Blum Shub (BBS) generator produces each output bit by:
+ A. Computing the discrete logarithm of the previous output modulo a large prime
+ B. XORing the previous two output bits together, similar to a shift register
+ C. Directly encrypting a counter value using AES in CTR mode
+ D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round
+The correct answer is:
+
+D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round
+
+The Blum Blum Shub (BBS) generator operates as follows:
+
+Choose two large primes 
+p
+p and 
+q
+q, both congruent to 3 mod 4 (Blum integers), and set 
+n
+=
+p
+⋅
+q
+n=p⋅q.
+
+Choose a seed 
+X
+0
+X 
+0
+​
+  that is coprime to 
+n
+n.
+
+Generate the sequence iteratively:
+
+X
+i
++
+1
+=
+X
+i
+2
+ 
+mod
+ 
+n
+X 
+i+1
+​
+ =X 
+i
+2
+​
+ modn
+At each iteration, output the least significant bit (or up to 
+O
+(
+log
+⁡
+log
+⁡
+n
+)
+O(loglogn) bits) of 
+X
+i
++
+1
+X 
+i+1
+​
+ .
+
+The security of BBS is provably reducible to the difficulty of factoring 
+n
+n (specifically, the quadratic residuosity problem), making it a cryptographically strong PRNG—though relatively slow compared to other generators.
+
+The other options are incorrect:
+
+A: BBS uses modular squaring, not discrete logarithms.
+
+B: XORing previous outputs is characteristic of linear-feedback shift registers (LFSRs), not BBS.
+
+C: AES-CTR is a different kind of PRNG (symmetric-cipher-based), not BBS.
+
+The Blum Blum Shub (BBS) generator produces each output bit by:
+ A. Computing the discrete logarithm of the previous output modulo a large prime
+ B. XORing the previous two output bits together, similar to a shift register
+ C. Directly encrypting a counter value using AES in CTR mode
+ D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round
+The correct answer is:
+
+D. Repeatedly squaring a value modulo n = p*q and taking the least significant bit of the result each round
+
+The Blum Blum Shub (BBS) generator is a cryptographically secure pseudorandom number generator (CSPRNG) based on the difficulty of the quadratic residuosity problem (which is related to the hardness of factoring 
+n
+=
+p
+⋅
+q
+n=p⋅q).
+
+Its operation is as follows:
+
+Choose two large primes 
+p
+p and 
+q
+q, both congruent to 3 mod 4 (Blum integers).
+
+Compute 
+n
+=
+p
+⋅
+q
+n=p⋅q.
+
+Choose a random seed 
+x
+0
+x 
+0
+​
+  that is coprime to 
+n
+n.
+
+Generate the sequence iteratively:
+
+x
+i
++
+1
+=
+x
+i
+2
+ 
+mod
+ 
+n
+x 
+i+1
+​
+ =x 
+i
+2
+​
+ modn
+At each step, the output bit (or bits) is taken as the least significant bit (LSB) of 
+x
+i
++
+1
+x 
+i+1
+​
+  (or a fixed number of the least significant bits).
+
+The security of BBS is provable: if an attacker can predict the next output bit with any advantage, they can factor 
+n
+n, making it as hard as breaking RSA. However, it is relatively slow, so it is not used in high-performance applications.
+
+The other options are incorrect:
+
+A: BBS uses modular squaring, not discrete logarithms.
+
+B: XORing previous outputs is characteristic of LFSR-based generators, not BBS.
+
+C: AES-CTR is a different (symmetric-cipher-based) PRNG, not BBS.
+
+An integer in Z8 fails to have a multiplicative inverse modulo 8 precisely when it:
+ A. Shares a common factor greater than 1 with 8
+ B. Is an odd number less than 8
+ C. Is larger than half of 8
+ D. Is itself equal to zero or to one
+Reset Selection
+The correct answer is:
+
+A. Shares a common factor greater than 1 with 8
+
+In modular arithmetic, an integer 
+a
+a has a multiplicative inverse modulo 
+m
+m if and only if 
+gcd
+⁡
+(
+a
+,
+m
+)
+=
+1
+gcd(a,m)=1 (i.e., 
+a
+a and 
+m
+m are coprime).
+
+For 
+m
+=
+8
+m=8, the integers in 
+Z
+8
+=
+{
+0
+,
+1
+,
+2
+,
+3
+,
+4
+,
+5
+,
+6
+,
+7
+}
+Z 
+8
+​
+ ={0,1,2,3,4,5,6,7} that are coprime to 8 (i.e., 
+gcd
+⁡
+(
+a
+,
+8
+)
+=
+1
+gcd(a,8)=1) are:
+
+1
+1 (gcd(1,8)=1) → has inverse
+
+3
+3 (gcd(3,8)=1) → has inverse
+
+5
+5 (gcd(5,8)=1) → has inverse
+
+7
+7 (gcd(7,8)=1) → has inverse
+
+The integers that fail to have an inverse are those that share a common factor with 8:
+
+0
+0 (gcd(0,8)=8)
+
+2
+2 (gcd(2,8)=2)
+
+4
+4 (gcd(4,8)=4)
+
+6
+6 (gcd(6,8)=2)
+
+Thus, the condition is precisely that the integer shares a common factor > 1 with 8.
+
+The other options are incorrect:
+
+B: Odd numbers like 1, 3, 5, 7 do have inverses modulo 8.
+
+C: Being larger than half of 8 is irrelevant (e.g., 5 and 7 are larger than 4 but have inverses; 6 is larger but does not).
+
+D: Zero has no inverse; one does have an inverse (itself), so this is not a unified condition.
+
+Question 78 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+In ShiftRows, row r of the State is cyclically shifted left by:
+ A. One byte for every row without exception
+ B. r bytes, so row 0 is unshifted, row 1 shifts by 1, row 2 by 2, and row 3 by 3
+ C. r bits rather than r bytes, applied to every row equally
+ D. A fixed 4 bytes regardless of which row it is
+Reset Selection
+The correct answer is:
+
+B. r bytes, so row 0 is unshifted, row 1 shifts by 1, row 2 by 2, and row 3 by 3
+
+In the ShiftRows transformation of AES, the 4×4 State array is shifted row by row as follows:
+
+Row 0: Shifted left by 0 bytes (no shift).
+
+Row 1: Shifted left by 1 byte.
+
+Row 2: Shifted left by 2 bytes.
+
+Row 3: Shifted left by 3 bytes.
+
+This cyclic left shift (with wrap-around) is applied on a byte basis, not bitwise. The effect is that bytes in each row are moved to different column positions, providing diffusion by spreading the influence of each column across multiple columns when combined with MixColumns.
+
+The other options are incorrect:
+
+A: The shift amount varies by row (0, 1, 2, 3 bytes).
+
+C: The shift is in bytes, not bits, and the amount varies by row.
+
+D: The shift amount is not fixed at 4 bytes for all rows; it depends on the row index.
+
+Question 79 of 100
+
+1 Points. Points deducted for incorrect answer: 0.333
+
+NIST's CTR_DRBG, the modern standard block-cipher-based PRNG, operates through which three phases?
+ A. Initialize (seed from entropy), Generate (encrypt and increment a counter), and Update (periodically reseed with fresh entropy)
+ B. Shuffle, Swap, and Output, exactly as in the RC4 algorithm
+ C. Encrypt, Decrypt, and Re-encrypt, exactly as in Triple DES
+ D. Select primes, Compute totient, and Generate keys, exactly as in RSA
+The correct answer is:
+
+A. Initialize (seed from entropy), Generate (encrypt and increment a counter), and Update (periodically reseed with fresh entropy)
+
+NIST's CTR_DRBG (Counter-mode Deterministic Random Bit Generator) is a block-cipher-based pseudorandom number generator specified in NIST Special Publication 800-90A. It operates through three main phases:
+
+Initialize (Instantiate): The DRBG is seeded with entropy from a trusted entropy source, along with optional nonce and personalization string. This sets up the internal state (including the counter and the key).
+
+Generate: When random bits are requested, the DRBG encrypts the current counter value using the block cipher (e.g., AES), produces the keystream, increments the counter, and returns the requested number of bits. This can be repeated as long as the security strength permits before requiring reseeding.
+
+Update (Reseed): Periodically (or on request), the DRBG is reseeded with fresh entropy to maintain security and protect against state compromise. This updates the internal key and counter values.
+
+The other options are incorrect:
+
+B: Shuffle, Swap, and Output describe RC4's PRGA, not CTR_DRBG.
+
+C: Encrypt, Decrypt, Re-encrypt describe Triple DES (3DES) operation, not a PRNG.
+
+D: Select primes, Compute totient, Generate keys describe RSA key generation, not a PRNG.
+
+Shannon's principle of confusion is achieved mainly by:
+ A. Spreading each plaintext bit's influence across the whole ciphertext block
+ B. Choosing a block size larger than the key size
+ C. Repeating the plaintext block several times before encryption begins
+ D. Making the relationship between the ciphertext and the key as complex as possible, typically through substitution
+Reset Selection
+The correct answer is:
+
+D. Making the relationship between the ciphertext and the key as complex as possible, typically through substitution
+
+Claude Shannon's principle of confusion aims to make the relationship between the encryption key and the ciphertext as intricate and involved as possible, so that even if an attacker knows the statistical structure of the plaintext, they cannot easily deduce the key from the ciphertext. In modern block ciphers, confusion is primarily achieved through non-linear substitution (e.g., S-boxes), which obscures the algebraic relationship between the key and the ciphertext.
+
+The other option describes diffusion, not confusion:
+
+Diffusion (option A) spreads each plaintext bit's influence across many output bits (e.g., through permutations like ShiftRows and MixColumns in AES), making it harder to trace small changes in the plaintext through to the ciphertext.
+
+The remaining options are incorrect:
+
+B: Block size is not directly tied to confusion; it's a separate design parameter.
+
+C: Repeating the plaintext is not a security principle; it would actually weaken the cipher by introducing redundancy.
+
+This response is AI-generated, for reference only.
+The AES key expansion algorithm's g() function, applied to certain words, involves:
+ A. Rotating the bytes of the word, applying the S-box to each byte, then XORing in a round constant
+ B. Reversing the entire 128-bit key and discarding half of it
+ C. Multiplying the word by the AES modulus polynomial directly
+ D. Applying the inverse ShiftRows transformation to the word
+Reset Selection
+The correct answer is:
+
+A. Rotating the bytes of the word, applying the S-box to each byte, then XORing in a round constant
+
+In the AES key expansion algorithm, the g() function (also called the key schedule core or RotWord-SubWord-Rcon) is applied to every fourth word of the expanded key schedule. The function consists of three steps:
+
+RotWord: Perform a cyclic left shift (rotation) of the 4-byte word by one byte (e.g., [a, b, c, d] → [b, c, d, a]).
+
+SubWord: Apply the AES S-box (SubBytes) to each of the four bytes individually.
+
+Rcon (Round Constant): XOR the resulting word with a round constant (Rcon) — a fixed value from 
+G
+F
+(
+2
+8
+)
+GF(2 
+8
+ ) that depends on the round number.
+
+The result is then XORed with the appropriate word from the previous group to produce the next word in the expanded key schedule. This process ensures that the round keys are distinct and that there is no simple linear relationship between them.
+
+The other options are incorrect:
+
+B: Reversing and discarding is not part of AES key expansion.
+
+C: Multiplying by the AES modulus polynomial is part of MixColumns, not key expansion.
+
+D: Inverse ShiftRows is a transformation used in decryption, not in key expansion.
+
+The AES-based mode approved by NIST in 2010 specifically for encrypting block-oriented storage devices such as disks is called ____. Answer: XTS-AES
+
+Maximum number of characters (including HTML tags added by text editor): 32,000
+Your answer is correct.
+
+The NIST-approved mode specifically designed for encrypting block-oriented storage devices (such as hard disks and solid-state drives) is XTS-AES (XEX-based Tweaked Codebook mode with Ciphertext Stealing). It was officially standardized by NIST in 2010 as Special Publication 800-38E. XTS-AES uses a tweak derived from the logical block address to ensure that identical plaintext blocks at different disk locations encrypt to different ciphertexts, providing security against attacks like block shuffling.
+
+A mode of operation that allows random access to any individual block without first decrypting all preceding blocks is best exemplified by:
+ A. ECB mode used together with an initialization vector
+ B. CTR mode, since each block's keystream depends only on its own counter value
+ C. CFB mode, since it processes data in variable-size segments
+ D. CBC mode, since each block depends on the ciphertext immediately before it
+The correct answer is:
+
+B. CTR mode, since each block's keystream depends only on its own counter value
+
+Counter (CTR) mode allows random access to any individual block without needing to decrypt all preceding blocks. This is because each block's encryption is independent — the keystream for each block is generated by encrypting a unique counter value associated with that specific block. Therefore, you can decrypt any block directly by computing the counter for that position, encrypting it, and XORing it with the ciphertext block.
+
+The other options do not support random access:
+
+A: ECB mode does support independent block access (no chaining), but it does not use an IV and has serious security weaknesses due to identical plaintext blocks producing identical ciphertext blocks. It is not typically considered a secure mode for general use.
+
+C: CFB (Cipher Feedback) mode has sequential dependency like CBC; each block depends on the previous ciphertext, so random access is not possible.
+
+D: CBC mode has a sequential dependency (each block depends on the previous ciphertext), so you must decrypt all previous blocks to decrypt a specific one (with the exception of the first block, which uses the IV).
+
+Euler's Theorem, a^phi(n) is congruent to 1 (mod n) provided that gcd(a, n) = 1, is best described as:
+ A. An unrelated result used exclusively for testing whether n is a perfect square
+ B. A generalization of Fermat's Little Theorem that applies to any modulus n, not only prime moduli
+ C. A restatement of the Euclidean Algorithm using exponents instead of remainders
+ D. A special case of Fermat's Little Theorem that only applies when n itself is prime
+Reset Selection
+The correct answer is:
+
+B. A generalization of Fermat's Little Theorem that applies to any modulus n, not only prime moduli
+
+Euler's Theorem states that for any integer 
+n
+>
+1
+n>1 and any integer 
+a
+a such that 
+gcd
+⁡
+(
+a
+,
+n
+)
+=
+1
+gcd(a,n)=1:
+
+a
+ϕ
+(
+n
+)
+≡
+1
+(
+m
+o
+d
+n
+)
+a 
+ϕ(n)
+ ≡1(modn)
+where 
+ϕ
+(
+n
+)
+ϕ(n) is Euler's totient function (the number of positive integers less than 
+n
+n that are coprime to 
+n
+n).
+
+This is a direct generalization of Fermat's Little Theorem, which is the special case where 
+n
+n is prime. When 
+n
+=
+p
+n=p (prime), 
+ϕ
+(
+p
+)
+=
+p
+−
+1
+ϕ(p)=p−1, and Euler's Theorem reduces to:
+
+a
+p
+−
+1
+≡
+1
+(
+m
+o
+d
+p
+)
+a 
+p−1
+ ≡1(modp)
+which is exactly Fermat's Little Theorem.
+
+The other options are incorrect:
+
+A: Euler's Theorem is foundational to RSA and many number-theoretic cryptographic schemes, not used for testing perfect squares.
+
+C: Euler's Theorem involves exponentiation, not the Euclidean Algorithm (which is about gcd computation).
+
+D: It's the reverse: Fermat's Little Theorem is a special case of Euler's Theorem, not the other way around.
+
+The statement a ≡ b (mod n) means that:
+ A. a multiplied by b is always evenly divisible by n
+ B. n divides (a - b), so a and b leave the same remainder when divided by n
+ C. a and b are both prime numbers that happen to share the modulus n
+ D. a and b must be equal integers before applying the modulus operation
+Reset Selection
+The correct answer is:
+
+B. n divides (a - b), so a and b leave the same remainder when divided by n
+
+The notation 
+a
+≡
+b
+(
+m
+o
+d
+n
+)
+a≡b(modn) means that 
+a
+a and 
+b
+b are congruent modulo 
+n
+n, which is defined as:
+
+n
+n divides 
+a
+−
+b
+a−b (i.e., 
+a
+−
+b
+=
+k
+⋅
+n
+a−b=k⋅n for some integer 
+k
+k),
+
+Equivalently, 
+a
+a and 
+b
+b leave the same remainder when divided by 
+n
+n.
+
+For example, 
+17
+≡
+5
+(
+m
+o
+d
+6
+)
+17≡5(mod6) because 
+17
+−
+5
+=
+12
+17−5=12, and 
+12
+12 is divisible by 
+6
+6. Both 17 and 5 leave a remainder of 5 when divided by 6.
+
+The other options are incorrect:
+
+A: 
+a
+⋅
+b
+a⋅b being divisible by 
+n
+n is not the definition of congruence; that's a different condition.
+
+C: Congruence does not require 
+a
+a or 
+b
+b to be prime.
+
+D: 
+a
+a and 
+b
+b do not need to be equal; they only need to differ by a multiple of 
+n
+n.
+
+Reusing the same keystream to encrypt two different messages in a stream cipher is dangerous because:
+ A. It doubles the length of the ciphertext for the second message only
+ B. It causes the second message to be encrypted with a weaker, shorter effective key
+ C. XORing the two resulting ciphertexts together cancels the keystream and exposes the XOR of the two plaintexts
+ D. It has no security impact as long as the two plaintexts are of different lengths
+Reset Selection
+The correct answer is:
+
+C. XORing the two resulting ciphertexts together cancels the keystream and exposes the XOR of the two plaintexts
+
+This is the classic keystream reuse attack. In a stream cipher, encryption is 
+C
+1
+=
+P
+1
+⊕
+K
+C 
+1
+​
+ =P 
+1
+​
+ ⊕K and 
+C
+2
+=
+P
+2
+⊕
+K
+C 
+2
+​
+ =P 
+2
+​
+ ⊕K (using the same keystream 
+K
+K). If an attacker intercepts both ciphertexts, they can XOR them:
+
+C
+1
+⊕
+C
+2
+=
+(
+P
+1
+⊕
+K
+)
+⊕
+(
+P
+2
+⊕
+K
+)
+=
+P
+1
+⊕
+P
+2
+C 
+1
+​
+ ⊕C 
+2
+​
+ =(P 
+1
+​
+ ⊕K)⊕(P 
+2
+​
+ ⊕K)=P 
+1
+​
+ ⊕P 
+2
+​
+ 
+The keystream 
+K
+K cancels out, leaving the XOR of the two plaintexts. An attacker can then use statistical analysis (e.g., frequency analysis of ASCII text) to recover the original plaintexts. This is why stream ciphers must use a unique, non-repeating keystream for each message — typically achieved through a unique nonce/IV per encryption.
+
+The other options are incorrect:
+
+A: Reusing the keystream does not double the ciphertext length; it produces ciphertexts of the same length as the plaintexts.
+
+B: Reuse does not shorten the effective key length; the problem is keystream repetition, not key strength.
+
+D: Even if the plaintexts are of different lengths, the overlapping portion is still exposed, which is a serious security vulnerability.
+
+AES always operates on a fixed block size of:
+ A. 64 bits
+ B. 192 bits
+ C. 256 bits
+ D. 128 bits
+Reset Selection
+The correct answer is:
+
+D. 128 bits
+
+AES (Advanced Encryption Standard) always operates on a fixed block size of 128 bits (16 bytes), regardless of the key size used (128, 192, or 256 bits). The block size is invariant and is the same for all variants of AES.
+
+The key sizes vary (128, 192, or 256 bits), and the number of rounds depends on the key size (10, 12, or 14 rounds respectively), but the block size remains 128 bits throughout. This is in contrast to its predecessor, the Rijndael algorithm, which supported variable block sizes; NIST standardized only the 128-bit block size version as AES.
+
+An attack that infers secret key information by measuring how long RSA decryption takes for different ciphertexts is called a ____ attack.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is a timing attack (or timing side-channel attack).
+
+A timing attack is a type of side-channel attack in which the attacker observes the time it takes for a cryptographic operation (such as RSA decryption or modular exponentiation) to complete for different ciphertext inputs. Because operations like modular exponentiation or Chinese Remainder Theorem (CRT) reductions can take variable amounts of time depending on the bits of the private key, an attacker can use statistical analysis of these timing differences to recover the private key bit by bit.
+
+This attack was famously demonstrated by Paul Kocher in 1996 against RSA and other cryptosystems. Defenses against timing attacks include constant-time algorithms, blinding (adding randomness to the input before decryption), and masking operations to ensure uniform execution time regardless of the key or input.
+
+This response is AI-generated, for reference only.
+Claude Shannon's principle by which each plaintext digit affects many digits of the ciphertext, hiding statistical structure, is called ____.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is diffusion.
+
+Claude Shannon introduced two fundamental principles for secure ciphers in his 1949 paper "Communication Theory of Secrecy Systems":
+
+Diffusion: This principle aims to spread the statistical structure of the plaintext throughout the ciphertext so that each plaintext digit affects many digits of the ciphertext. This makes it difficult for an attacker to use statistical patterns in the plaintext to deduce the key or the plaintext itself. In modern block ciphers, diffusion is typically achieved through permutations (e.g., ShiftRows and MixColumns in AES, or the permutation (P) box in DES).
+
+Confusion: This principle aims to make the relationship between the ciphertext and the encryption key as complex as possible, typically achieved through substitution (e.g., S-boxes).
+
+This response is AI-generated, for reference only.
+The attack that defeats Double DES by working forward from the plaintext and backward from the ciphertext to find a matching intermediate value is called the ____ attack.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is the meet-in-the-middle attack.
+
+The meet-in-the-middle (MITM) attack is a cryptographic attack that defeats Double DES (and other double-encryption schemes) by exploiting the fact that encrypting with two different keys, 
+C
+=
+E
+K
+2
+(
+E
+K
+1
+(
+P
+)
+)
+C=E 
+K2
+​
+ (E 
+K1
+​
+ (P)), can be broken with much less work than a brute-force search over 
+2
+112
+2 
+112
+  keys for 2-DES.
+
+The attack works as follows:
+
+Encrypt forward: The attacker encrypts the known plaintext 
+P
+P under all possible 
+2
+56
+2 
+56
+  keys for the first encryption (key 
+K
+1
+K1), storing each intermediate result 
+X
+=
+E
+K
+1
+(
+P
+)
+X=E 
+K1
+​
+ (P) in a table.
+
+Decrypt backward: The attacker decrypts the known ciphertext 
+C
+C under all possible 
+2
+56
+2 
+56
+  keys for the second encryption (key 
+K
+2
+K2), computing 
+X
+′
+=
+D
+K
+2
+(
+C
+)
+X 
+′
+ =D 
+K2
+​
+ (C).
+
+Match: The attacker looks for a match between the forward-computed values 
+X
+X and the backward-computed values 
+X
+′
+X 
+′
+ . When a match is found, the corresponding keys 
+K
+1
+K1 and 
+K
+2
+K2 are the likely correct pair.
+
+This attack reduces the complexity from 
+2
+112
+2 
+112
+  (brute force on double-DES) to 
+2
+56
++
+2
+56
+=
+2
+57
+2 
+56
+ +2 
+56
+ =2 
+57
+  operations, with moderate storage (
+2
+56
+2 
+56
+ ). This is why Double DES provides only about 57 bits of security, not 112 bits, and why Triple DES (with three keys) was adopted instead.
+
+The discrete logarithm problem asks, given a base g, a prime p, and a value b, to find x such that:
+ A. x^g is congruent to b modulo p
+ B. g + x is congruent to b modulo p
+ C. x is congruent to gcd(g, b) modulo p
+ D. g^x is congruent to b modulo p
+Reset Selection
+The correct answer is:
+
+D. g^x is congruent to b modulo p
+
+The discrete logarithm problem is defined as follows:
+
+Given:
+
+A prime 
+p
+p,
+
+A primitive root (or generator) 
+g
+g modulo 
+p
+p,
+
+A value 
+b
+b in the multiplicative group 
+Z
+p
+∗
+Z 
+p
+∗
+​
+ ,
+
+find the integer 
+x
+x (the discrete logarithm) such that:
+
+g
+x
+≡
+b
+(
+m
+o
+d
+p
+)
+g 
+x
+ ≡b(modp)
+In other words, 
+x
+x is the exponent to which the base 
+g
+g must be raised (modulo 
+p
+p) to obtain the value 
+b
+b. The problem is considered computationally hard for large primes, which forms the security basis for the Diffie-Hellman key exchange, ElGamal encryption, and digital signature algorithms like DSA.
+
+The other options are incorrect:
+
+A: 
+x
+g
+≡
+b
+(
+m
+o
+d
+p
+)
+x 
+g
+ ≡b(modp) would be a different (and generally easier) problem.
+
+B: 
+g
++
+x
+≡
+b
+(
+m
+o
+d
+p
+)
+g+x≡b(modp) is a simple linear congruence, easily solved.
+
+C: 
+x
+≡
+gcd
+⁡
+(
+g
+,
+b
+)
+(
+m
+o
+d
+p
+)
+x≡gcd(g,b)(modp) is not a meaningful formulation of the problem.
+
+The standard practical fix for the Diffie-Hellman man-in-the-middle vulnerability is to add:
+ A. Digital signatures and public-key certificates to authenticate each party's exchanged value
+ B. A symmetric pre-shared key used instead of the discrete logarithm exchange
+ C. Multiple additional unauthenticated rounds of the identical exchange
+ D. A longer prime modulus q, with no other changes required to the protocol
+Reset Selection
+The correct answer is:
+
+A. Digital signatures and public-key certificates to authenticate each party's exchanged value
+
+The standard and practical fix for the Diffie-Hellman man-in-the-middle (MITM) vulnerability is to authenticate the exchanged public values (or the entire Diffie-Hellman messages) using digital signatures. This is typically done by:
+
+Each party signing their ephemeral public value (or the entire transcript) with their long-term private key,
+
+The receiving party verifying the signature using the sender's public key certificate (issued by a trusted Certificate Authority).
+
+This ensures that each party knows they are communicating with the genuine owner of the public key, rather than an attacker. This approach is used in protocols like Station-to-Station (STS) protocol, IPsec IKE, TLS (with certificate-based authentication), and SSH.
+
+The other options are incorrect:
+
+B: Using a pre-shared symmetric key avoids the MITM issue but is not practical for large-scale open systems (key distribution problem) and is not a "fix" to the DH protocol itself.
+
+C: Adding more unauthenticated rounds does nothing to prevent MITM, since the attacker can still intercept and relay all messages.
+
+D: A longer prime modulus increases security against discrete logarithm attacks but does nothing to authenticate the parties; the MITM attack remains possible regardless of the modulus size.
+
+This response is AI-generated, for reference only.
+A True Random Number Generator (TRNG) differs from a PRNG chiefly in that a TRNG:
+ A. Draws its randomness from an unpredictable physical process, such as thermal noise, rather than a deterministic algorithm
+ B. Cannot be used to seed any other type of random number generator
+ C. Requires a secret key to be shared in advance between sender and receiver
+ D. Always produces output faster than any PRNG can achieve
+Reset Selection
+The correct answer is:
+
+A. Draws its randomness from an unpredictable physical process, such as thermal noise, rather than a deterministic algorithm
+
+A True Random Number Generator (TRNG) obtains randomness from inherently unpredictable physical phenomena—such as thermal noise, atmospheric noise, radioactive decay, or quantum effects—that are non-deterministic in nature. This makes the output truly random and not reproducible.
+
+In contrast, a Pseudorandom Number Generator (PRNG) uses a deterministic algorithm to produce a sequence of numbers from a seed. While the output may statistically resemble randomness, it is entirely reproducible if the seed is known, and it is eventually periodic.
+
+The other options are incorrect:
+
+B: TRNGs are commonly used to seed PRNGs (e.g., a TRNG provides the initial entropy to seed a CSPRNG).
+
+C: TRNGs do not require a shared secret key; they are not a cryptographic key exchange mechanism.
+
+D: TRNGs are typically slower than PRNGs because they rely on physical processes, whereas PRNGs are fast arithmetic operations.
+
+The DES round function expands the 32-bit right half of the data to ____ bits before it is combined with the round subkey.  Blank 1. Fill in the blank, read surrounding text.
+The correct answer is:
+
+D. Known publicly to everyone, including any potential attacker
+
+In the Diffie-Hellman key exchange, the prime 
+q
+q and the primitive root 
+α
+α (also called the generator) are public parameters. They are not secret; they are agreed upon in advance by the communicating parties and are known to everyone, including any potential attacker who is eavesdropping on the channel.
+
+The security of the protocol relies entirely on the difficulty of the discrete logarithm problem: even though an attacker knows 
+q
+q, 
+α
+α, Alice's public value 
+Y
+A
+=
+α
+X
+A
+m
+o
+d
+ 
+ 
+q
+Y 
+A
+​
+ =α 
+X 
+A
+​
+ 
+ modq, and Bob's public value 
+Y
+B
+=
+α
+X
+B
+m
+o
+d
+ 
+ 
+q
+Y 
+B
+​
+ =α 
+X 
+B
+​
+ 
+ modq, they cannot feasibly compute the shared secret 
+α
+X
+A
+X
+B
+m
+o
+d
+ 
+ 
+q
+α 
+X 
+A
+​
+ X 
+B
+​
+ 
+ modq without knowing either private exponent 
+X
+A
+X 
+A
+​
+  or 
+X
+B
+X 
+B
+​
+ .
+
+The other options are incorrect:
+
+A: The public parameters are not derived from the private exponents; they are chosen independently and shared beforehand.
+
+B: The public parameters are fixed for a given session or system, not regenerated per message.
+
+C: If they were kept secret, the protocol would not work as a public-key exchange; the whole point is that they are public.
+
+This response is AI-generated, for reference only.
+XTS-AES is a specialized mode designed primarily for:
+ A. Block-oriented storage devices such as hard drives and SSDs
+ B. Producing message authentication codes for email
+ C. Generating session keys for TLS handshakes
+ D. Streaming voice and video data over unreliable wireless links
+Reset Selection
+The correct answer is:
+
+A. Block-oriented storage devices such as hard drives and SSDs
+
+XTS-AES (XEX-based Tweaked Codebook mode with Ciphertext Stealing) is a specialized mode of operation designed by NIST (SP 800-38E) specifically for block-oriented storage encryption—such as hard drives, solid-state drives (SSDs), and other disk storage devices.
+
+Key features of XTS-AES:
+
+It uses a tweak derived from the logical block address (sector/block index) to ensure that identical plaintext data stored at different locations encrypts to different ciphertexts.
+
+It provides length-preserving encryption (ciphertext is the same length as plaintext), which is essential for storage devices where data must fit exactly into fixed-size sectors.
+
+It uses Ciphertext Stealing to handle data that is not a multiple of the block size, ensuring efficient use of storage without padding.
+
+XTS-AES is not designed for:
+
+B: Message authentication (it provides confidentiality only, not integrity or authentication).
+
+C: Key exchange or session key generation (that's the domain of key establishment protocols).
+
+D: Streaming data over unreliable links (where modes like CTR or GCM are more appropriate).
+
+In a Feistel cipher, the relationship that generates the right half of round i is:
+ A. Ri = F(Li-1, Ki) XOR Ri-1 XOR Li-1
+ B. Ri = Li-1 XOR F(Ri-1, Ki)
+ C. Ri = Li-1 AND F(Ri-1, Ki)
+ D. Ri = F(Ri-1, Ki-1) XOR Li
+The correct answer is:
+
+B. Ri = Li-1 XOR F(Ri-1, Ki)
+
+In a Feistel cipher, the round transformation for round 
+i
+i is defined as:
+
+L
+i
+=
+R
+i
+−
+1
+L 
+i
+​
+ =R 
+i−1
+​
+ 
+
+R
+i
+=
+L
+i
+−
+1
+⊕
+F
+(
+R
+i
+−
+1
+,
+K
+i
+)
+R 
+i
+​
+ =L 
+i−1
+​
+ ⊕F(R 
+i−1
+​
+ ,K 
+i
+​
+ )
+
+where:
+
+L
+i
+−
+1
+L 
+i−1
+​
+  and 
+R
+i
+−
+1
+R 
+i−1
+​
+  are the left and right halves from the previous round,
+
+K
+i
+K 
+i
+​
+  is the round subkey for round 
+i
+i,
+
+F
+F is the round function (which typically includes substitution, permutation, and key mixing),
+
+⊕
+⊕ denotes XOR.
+
+The left half of the next round is simply a copy of the previous right half, while the new right half is the previous left half XORed with the output of the round function applied to the previous right half and the round key.
+
+The other options are incorrect:
+
+A: Includes 
+R
+i
+−
+1
+R 
+i−1
+​
+  twice and also 
+L
+i
+−
+1
+L 
+i−1
+​
+  in the XOR, which is not the Feistel structure.
+
+C: Uses AND instead of XOR, which would not be invertible and is not how Feistel ciphers work.
+
+D: Incorrectly indexes 
+K
+i
+−
+1
+K 
+i−1
+​
+  and uses 
+L
+i
+L 
+i
+​
+  (which is not yet defined) in the expression.
+
+

@@ -1,0 +1,210 @@
+IA - Eugene's Take
+
+
+
+This is a copy of a shared ChatGPT chat. It won't be added to memory.
+
+Report conversation
+
+Fri, Aug 21 at 4:31 PM
+Decryption of a MixColumns-transformed column uses:
+
+ A. InvMixColumns, multiplying by the inverse of the fixed matrix used during encryption
+ B. No matrix at all, since MixColumns is skipped automatically during decryption
+ C. A completely different, randomly generated matrix chosen for each session
+ D. The identical MixColumns matrix used during encryption, applied a second time
+
+
+Optimal Asymmetric Encryption Padding (OAEP) is recommended for RSA mainly because it:
+
+ A. Removes the need to generate two distinct large prime numbers
+ B. Randomizes the plaintext before encryption, defeating the malleability exploited by chosen-ciphertext attacks
+ C. Allows RSA to be used without ever computing a private exponent d
+ D. Increases the size of the RSA modulus n automatically at encryption time
+
+
+In ElGamal encryption, the sender picks a random value k for each message mainly because:
+
+ A. A fixed, reused k actually improves security by simplifying the ciphertext
+ B. k determines the size of the recipient's public key, so it must vary each time
+ C. k must equal the recipient's private key for decryption to succeed at all
+ D. Reusing the same k across two messages lets an attacker who knows one plaintext recover the other
+
+
+Euler's Theorem, a^phi(n) is congruent to 1 (mod n) provided that gcd(a, n) = 1, is best described as:
+
+ A. An unrelated result used exclusively for testing whether n is a perfect square
+ B. A generalization of Fermat's Little Theorem that applies to any modulus n, not only prime moduli
+ C. A restatement of the Euclidean Algorithm using exponents instead of remainders
+ D. A special case of Fermat's Little Theorem that only applies when n itself is prime
+
+
+Which requirement is essential when parameterizing an RSA-based PRNG such as Micali-Schnorr?
+
+ A. e must be chosen equal to the private exponent d used for RSA decryption
+ B. gcd(e, phi(n)) = 1, mirroring the same requirement used for ordinary RSA key generation
+ C. The modulus n must be chosen to be a small prime number, unlike ordinary RSA
+ D. The output length r must always exceed the modulus n's bit length
+
+The correct answer is:
+
+✅ D. Directly incorporates the secret key material into the State, via XOR with the round key.
+
+Why?
+AddRoundKey is the AES transformation that combines the current State with the round key:
+
+State⊕RoundKey
+The other transformations don't directly use the secret key:
+
+SubBytes → nonlinear substitution using the S-box.
+
+ShiftRows → rearranges byte positions.
+
+MixColumns → performs matrix multiplication in GF(2 
+8
+ ).
+
+Answer: D ✅
+
+
+A message encrypted only with the sender's private key, as in a basic digital signature scheme, provides authentication but NOT confidentiality because:
+
+ A. Digital signatures are only ever applied to a hash of the message, never its content
+ B. Anyone who has the sender's public key can decrypt and read the message
+ C. The message is never actually transformed, only tagged with a plaintext label
+ D. The private key used is always shorter than the key used for encryption alone
+
+The correct answer is:
+
+✅ B. Anyone who has the sender's public key can decrypt and read the message.
+
+Why?
+If the sender uses their private key to create a signature:
+
+S=Sign 
+K 
+private
+​
+ 
+​
+ (M)
+Anyone with the sender's public key can verify the signature (and, in the simplified textbook RSA view, recover the signed data).
+
+Therefore:
+
+Authentication ✅ → proves the message came from the holder of the private key.
+
+Integrity ✅ → detects modification.
+
+Confidentiality ❌ → the public key is openly available.
+
+For confidentiality, you instead encrypt using the recipient's public key, so only their private key can decrypt it.
+
+Answer: B ✅
+
+
+Sure — here’s the full set of questions and answers from this chat:
+
+In RSA, the public key is the pair {e, n} and the private key is the pair {____, n}.
+Answer: d → Private key = {d, n}
+In Diffie-Hellman, both public parameters q (a prime) and α (a primitive root of q) are:
+Answer: D. Known publicly to everyone, including any potential attacker.
+A timing attack against RSA, as described by Kocher, works by:
+Answer: C. Measuring how long decryption takes for different ciphertexts to leak information about the private key, bit by bit.
+In RSA, the private exponent d is chosen so that it satisfies:
+Answer: C. d is the multiplicative inverse of e, modulo φ(n).
+When selecting a mode of operation for high-throughput, parallelizable, general-purpose encryption, the most appropriate recommendation is typically:
+Answer: D. CTR mode.
+DES uses an initial permutation, ____ rounds of processing, and then the inverse of the initial permutation to produce the ciphertext.
+Answer: 16 rounds
+Basic, unauthenticated Diffie-Hellman is vulnerable to a man-in-the-middle attack because:
+Answer: C. The protocol does not authenticate either party, allowing an attacker to establish separate shared keys with each side while relaying and altering messages.
+The DES round function expands the 32-bit right half of the data to ____ bits before it is combined with the round subkey.
+Answer: 48 bits
+XTS-AES is a specialized mode designed primarily for:
+Answer: A. Block-oriented storage devices such as hard drives and SSDs.
+Feistel's design goal was to approximate the security of an ideal block cipher while avoiding its main practical drawback, which is that an ideal cipher with an n-bit block requires:
+Answer: A. A key large enough to select among (2^n!) possible transformations, which is computationally unmanageable.
+RSA's underlying trap-door one-way function relies on the difficulty of:
+Answer: D. Factoring the product of two large prime numbers.
+Using the Euclidean Algorithm on 252 and 105, gcd(252, 105) equals:
+Answer: A. 21
+Given x ≡ 2 (mod 3) and x ≡ 3 (mod 5), the Chinese Remainder Theorem gives the unique solution in the range 0 to 14 as:
+Answer: B. x = 8
+The recommended padding scheme that randomizes RSA plaintext before encryption, defending against chosen-ciphertext attacks, is called ____.
+Answer: OAEP (Optimal Asymmetric Encryption Padding)
+Concern about the DES S-boxes containing a deliberate weakness arose mainly because:
+Answer: A. IBM and the NSA never publicly disclosed the exact criteria used to design them.
+In evaluating candidate round functions F for a block cipher, the strict avalanche criterion (SAC) specifically requires that:
+Answer: A. Each output bit should change with probability one-half whenever a single input bit is inverted.
+AES was adopted as a replacement for DES/Triple DES mainly because:
+Answer: C. Triple DES was too slow for many applications while still relying on a 64-bit block, and DES's 56-bit key was no longer safe.
+A number-theoretic PRNG whose security rests on the difficulty of factoring n = p × q, the same hard problem underlying RSA, is called the ____ generator.
+Answer: Blum Blum Shub (BBS) generator
+The block cipher mode in which each plaintext block is encrypted independently with the same key, and which reveals repeated patterns in the plaintext, is called ____ mode.
+Answer: ECB (Electronic Codebook) mode
+DES processes plaintext through which overall sequence of steps?
+Answer: B. An initial permutation, sixteen Feistel rounds, a swap of the two halves, then the inverse initial permutation.
+For a stream cipher to be considered secure, all of the following are generally required EXCEPT:
+Answer: C. The keystream must be shorter than the plaintext so it can be reused efficiently across several messages.
+XTS-AES ties encryption to a particular physical storage location by using:
+Answer: D. A tweak value derived from the sector or block address, alongside the key.
+AES was selected by NIST through an open competition, with the winning algorithm originally named ____, designed by Daemen and Rijmen.
+Answer: Rijndael
+Which statement correctly compares PRNG output with TRNG output?
+Answer: B. PRNG output is fast, deterministic, and eventually periodic, while TRNG output is slower, non-deterministic, and does not repeat.
+Which statement correctly compares CBC and CTR mode with respect to error propagation from a single corrupted ciphertext bit?
+Answer: D. In CBC, a corrupted bit affects that block and flips the corresponding bit in the next block's decrypted plaintext; in CTR, it affects only the corresponding bit of that same block.
+
+Got it. This is a solid consolidated set, and the answers are correct. ✅
+
+A few especially important facts to keep straight for the exam:
+
+RSA: public ={e,n}, private ={d,n}
+
+Diffie-Hellman: security → discrete logarithm problem
+
+RSA: security → factoring
+
+OAEP: randomized RSA padding
+
+DES: 16 rounds, 56-bit effective key, 64-bit block
+
+AES: 128-bit block, 128/192/256-bit keys → 10/12/14 rounds
+
+ECB: identical plaintext blocks → identical ciphertext blocks
+
+CBC: requires an IV and has limited error propagation
+
+CTR: parallelizable and supports random access
+
+XTS-AES: designed for storage encryption
+
+BBS: PRNG based on factoring difficulty
+
+TRNG: physical entropy; PRNG: deterministic from a seed
+
+SAC: flipping one input bit changes each output bit with probability 1/2
+
+CRT: reconstructs a value from congruences with pairwise-coprime moduli
+
+Euler: a 
+ϕ(n)
+ ≡1(modn), when gcd(a,n)=1
+
+Fermat: a 
+p−1
+ ≡1(modp), for prime p∤a
+
+One small wording nuance: for CBC, saying a corrupted ciphertext bit "affects that block" is a little imprecise. A bit error in ciphertext block C 
+i
+​
+  causes the entire decrypted P 
+i
+​
+  to be corrupted unpredictably, while the corresponding bit of P 
+i+1
+​
+  is flipped. The intended answer D is still correct.
+
+
