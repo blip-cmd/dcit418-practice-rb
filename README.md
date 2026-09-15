@@ -11,12 +11,12 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Question bank and study modes
 
-The checked-in bank currently contains 528 questions: 370 from the consolidated quizzes and 158 from the offsite IA. It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
+The checked-in bank currently contains 524 questions: 366 from the consolidated quizzes and 158 from the offsite IA. It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
 
 - Practice: filter parts, source banks, question types and difficulty; optionally use only unseen questions.
 - Read with answers: navigate questions and explanations without recording scored attempts.
 - Fill-in drill: practise the security bank's fill-in questions. No supplemental sets are currently bundled.
-- Mock: up to 15 questions per part (203 with the current bank), with a 60-minute deadline. Unseen questions are prioritised; previously seen questions fill remaining places. Answers appear after submission.
+- Mock: up to 15 questions per part (203 with the current bank, since Part 2 has only 8 source questions), with a 60-minute deadline. Unseen questions are prioritised; previously seen questions fill remaining places. Answers appear after submission.
 - Review and progress: revisit mistakes and inspect accuracy and timing.
 
 Options shuffle while preserving the correct answer's identity. Multi-answer questions require all correct choices. Fill-ins support accepted alternatives and a manual correctness override.
@@ -37,9 +37,13 @@ npm run build:bank
 
 This runs `scripts/parse_security_bank.py` against:
 - `data_files/quiz_bank/quiz.md`
-- `data_files/ia_bank/dcit418_ia_offsite.md`
+- `data_files/ia_bank/ia_clean.md`
 
 It rewrites `questions.json` and `PARSER_REPORT.md`. Review those changes, then rebuild. Parsing checks structure; it does not independently verify the academic correctness of every source answer.
+
+`data_files/ia_bank/ia_clean.md` is a metadata-stripped copy of `data_files/ia_bank/dcit418_ia_offsite.md`, the original 158-question IA bank kept alongside it with its provider attribution and question-frequency/coverage tables intact. `data_files/quiz_bank/quiz.md` and `data_files/quiz_bank/quiz_bank.md` are identical; only `quiz.md` is read by the parser.
+
+`data_files/study_sets/` (mock exam papers and answer keys, e.g. `SET1_ANSWER_KEY.md`) is not yet parsed into the question bank — TODO for a future pass.
 
 The former management parser is disabled. Deployment uses the checked-in JSON and needs neither Python nor files outside this repository.
 

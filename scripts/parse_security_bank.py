@@ -2,7 +2,8 @@
 
 Reads the consolidated quiz bank and the IA offsite bank from data_files/:
   1. data_files/quiz_bank/quiz.md (379 questions, Quiz 1-5 consolidated, <details> answer blocks)
-  2. data_files/ia_bank/dcit418_ia_offsite.md (158 questions, Sakai Offsite IA)
+  2. data_files/ia_bank/ia_clean.md (158 questions, Sakai Offsite IA; original with
+     provider/coverage metadata kept at data_files/ia_bank/dcit418_ia_offsite.md)
 
 Classifies each question into one of 14 course parts (Part 0: Data Protection &
 IT Security Policy, covering the two guest lectures from the Data Protection
@@ -394,7 +395,7 @@ def main() -> None:
     else:
         print(f"  WARNING: {quiz_path} not found", file=sys.stderr)
 
-    ia_path = data / "ia_bank" / "dcit418_ia_offsite.md"
+    ia_path = data / "ia_bank" / "ia_clean.md"
     if ia_path.exists():
         qs = parse_bank(ia_path, "iabank")
         print(f"  IA offsite bank: {len(qs)} questions parsed")

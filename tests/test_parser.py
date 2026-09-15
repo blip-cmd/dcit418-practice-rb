@@ -20,7 +20,7 @@ class SecurityParserTests(unittest.TestCase):
                 self.assertIn(q["type"], ["mcq4", "mcq5", "multi", "fill", "tf"])
 
     def test_ia_bank_parser(self):
-        ia_path = Path("data_files/ia_bank/dcit418_ia_offsite.md")
+        ia_path = Path("data_files/ia_bank/ia_clean.md")
         if ia_path.exists():
             qs = parse_bank(ia_path, "iabank")
             self.assertGreater(len(qs), 100)

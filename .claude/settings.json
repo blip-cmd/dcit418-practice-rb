@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vitest *)",
+      "Bash(python3 -m unittest tests.test_parser -v)",
+      "Bash(sed -n '224,2569p' \"data_files/ia_bank/dcit418_ia_offsite.md\")",
+      "Read(//tmp/**)"
+    ]
+  }
+}

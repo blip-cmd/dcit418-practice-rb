@@ -796,18 +796,18 @@
     "source": "Data Protection & IT Security Policy",
     "level": "Recall",
     "type": "mcq4",
-    "bodyMarkdown": "Which element of the security policy framework requires senior management approval and applies organization-wide?",
+    "bodyMarkdown": "Which element of the security policy framework specifies mandatory, specific technical requirements?",
     "options": [
-      "Guideline",
-      "Procedure",
       "Standard",
-      "Policy"
+      "Guideline",
+      "Policy",
+      "Baseline"
     ],
-    "correctIndex": 3,
+    "correctIndex": 0,
     "correctIndices": null,
-    "correctText": "Policy",
+    "correctText": "Standard",
     "acceptedAnswers": [],
-    "reason": "Policies are high-level, mandatory statements of intent that require upper management sign-off.",
+    "reason": "Standards define mandatory, specific parameters (e.g., minimum password length) that support a policy.",
     "trap": "",
     "sourceRef": "quizbank, Quiz 1, Question 49",
     "checkMethod": "Verified against source answer key.",
@@ -850,33 +850,6 @@
     "source": "Data Protection & IT Security Policy",
     "level": "Recall",
     "type": "mcq4",
-    "bodyMarkdown": "Which element of the security policy framework specifies mandatory, specific technical requirements?",
-    "options": [
-      "Standard",
-      "Guideline",
-      "Policy",
-      "Baseline"
-    ],
-    "correctIndex": 0,
-    "correctIndices": null,
-    "correctText": "Standard",
-    "acceptedAnswers": [],
-    "reason": "Standards define mandatory, specific parameters (e.g., minimum password length) that support a policy.",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 50",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P0-Q34",
-    "part": 0,
-    "batch": "quizbank",
-    "family": "P0-Q34",
-    "isCore": true,
-    "week": "Quiz 1",
-    "source": "Data Protection & IT Security Policy",
-    "level": "Recall",
-    "type": "mcq4",
     "bodyMarkdown": "Which element of the security policy framework provides optional, recommended advice?",
     "options": [
       "Procedure",
@@ -890,15 +863,15 @@
     "acceptedAnswers": [],
     "reason": "Guidelines are non-mandatory suggestions for best practice.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 51",
+    "sourceRef": "quizbank, Quiz 1, Question 50",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q35",
+    "id": "P0-Q34",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q35",
+    "family": "P0-Q34",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -917,15 +890,15 @@
     "acceptedAnswers": [],
     "reason": "Procedures provide granular, sequential steps for performing a specific task consistently.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 52",
+    "sourceRef": "quizbank, Quiz 1, Question 51",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q36",
+    "id": "P0-Q35",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q36",
+    "family": "P0-Q35",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -944,15 +917,15 @@
     "acceptedAnswers": [],
     "reason": "GLBA specifically governs how financial institutions handle and protect customer financial data.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 60",
+    "sourceRef": "quizbank, Quiz 1, Question 59",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q37",
+    "id": "P0-Q36",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q37",
+    "family": "P0-Q36",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -971,15 +944,15 @@
     "acceptedAnswers": [],
     "reason": "SOX was enacted to improve the reliability of corporate financial reporting after accounting scandals.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 61",
+    "sourceRef": "quizbank, Quiz 1, Question 60",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q38",
+    "id": "P0-Q37",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q38",
+    "family": "P0-Q37",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -998,15 +971,15 @@
     "acceptedAnswers": [],
     "reason": "HIPAA governs the protection of protected health information (PHI) by healthcare entities and their business associates.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 62",
+    "sourceRef": "quizbank, Quiz 1, Question 61",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q39",
+    "id": "P0-Q38",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q39",
+    "family": "P0-Q38",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -1030,10 +1003,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q40",
+    "id": "P0-Q39",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q40",
+    "family": "P0-Q39",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -1052,15 +1025,15 @@
     "acceptedAnswers": [],
     "reason": "DNS (Domain Name System) resolves human-readable domain names to IP addresses.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 72",
+    "sourceRef": "quizbank, Quiz 1, Question 71",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q41",
+    "id": "P0-Q40",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q41",
+    "family": "P0-Q40",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -1079,15 +1052,15 @@
     "acceptedAnswers": [],
     "reason": "An Intrusion Prevention System (IPS) sits in-line and actively blocks identified malicious traffic.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 77",
+    "sourceRef": "quizbank, Quiz 1, Question 76",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q42",
+    "id": "P0-Q41",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q42",
+    "family": "P0-Q41",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -1106,15 +1079,15 @@
     "acceptedAnswers": [],
     "reason": "A proxy server relays requests between clients and servers, often for caching, filtering, or anonymity.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 78",
+    "sourceRef": "quizbank, Quiz 1, Question 77",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q43",
+    "id": "P0-Q42",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q43",
+    "family": "P0-Q42",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Data Protection & IT Security Policy",
@@ -1138,10 +1111,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q44",
+    "id": "P0-Q43",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q44",
+    "family": "P0-Q43",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1163,10 +1136,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q45",
+    "id": "P0-Q44",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q45",
+    "family": "P0-Q44",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1190,10 +1163,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q46",
+    "id": "P0-Q45",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q46",
+    "family": "P0-Q45",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1217,10 +1190,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q47",
+    "id": "P0-Q46",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q47",
+    "family": "P0-Q46",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1242,10 +1215,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q48",
+    "id": "P0-Q47",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q48",
+    "family": "P0-Q47",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1269,10 +1242,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q49",
+    "id": "P0-Q48",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q49",
+    "family": "P0-Q48",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1294,10 +1267,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q50",
+    "id": "P0-Q49",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q50",
+    "family": "P0-Q49",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1321,10 +1294,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q51",
+    "id": "P0-Q50",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q51",
+    "family": "P0-Q50",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1348,10 +1321,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q52",
+    "id": "P0-Q51",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q52",
+    "family": "P0-Q51",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1373,10 +1346,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q53",
+    "id": "P0-Q52",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q53",
+    "family": "P0-Q52",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1398,10 +1371,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q54",
+    "id": "P0-Q53",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q54",
+    "family": "P0-Q53",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1425,10 +1398,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q55",
+    "id": "P0-Q54",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q55",
+    "family": "P0-Q54",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1452,10 +1425,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q56",
+    "id": "P0-Q55",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q56",
+    "family": "P0-Q55",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1477,10 +1450,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q57",
+    "id": "P0-Q56",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q57",
+    "family": "P0-Q56",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1504,10 +1477,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q58",
+    "id": "P0-Q57",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q58",
+    "family": "P0-Q57",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1531,10 +1504,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q59",
+    "id": "P0-Q58",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q59",
+    "family": "P0-Q58",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1558,10 +1531,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q60",
+    "id": "P0-Q59",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q60",
+    "family": "P0-Q59",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1585,10 +1558,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q61",
+    "id": "P0-Q60",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q61",
+    "family": "P0-Q60",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1610,10 +1583,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q62",
+    "id": "P0-Q61",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q62",
+    "family": "P0-Q61",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1637,85 +1610,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q63",
+    "id": "P0-Q62",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q63",
-    "isCore": true,
-    "week": "Quiz 2",
-    "source": "Data Protection & IT Security Policy",
-    "level": "Recall",
-    "type": "tf",
-    "bodyMarkdown": "A challenge created by the Internet of Things (IoT) is how to protect personal identity and private data from theft or unauthorized access.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctIndex": 0,
-    "correctIndices": null,
-    "correctText": "True",
-    "acceptedAnswers": [],
-    "reason": "The expanded attack surface and weak default security of IoT devices make identity and data protection a core challenge.",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 2, Question 34",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P0-Q64",
-    "part": 0,
-    "batch": "quizbank",
-    "family": "P0-Q64",
-    "isCore": true,
-    "week": "Quiz 2",
-    "source": "Data Protection & IT Security Policy",
-    "level": "Recall",
-    "type": "tf",
-    "bodyMarkdown": "Bring Your Own Device (BYOD) often replaces the need for the organization to procure limited mobile device model options and issue them to employees for individual use.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctIndex": 0,
-    "correctIndices": null,
-    "correctText": "True",
-    "acceptedAnswers": [],
-    "reason": "BYOD shifts hardware procurement to employees, removing the need for the organization to standardize on a narrow device list.",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 2, Question 35",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P0-Q65",
-    "part": 0,
-    "batch": "quizbank",
-    "family": "P0-Q65",
-    "isCore": true,
-    "week": "Quiz 2",
-    "source": "Data Protection & IT Security Policy",
-    "level": "Recall",
-    "type": "tf",
-    "bodyMarkdown": "Internet of Things (IoT) upgrades can be difficult to distribute and deploy, leaving gaps in the remediation of IoT devices or endpoints.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctIndex": 0,
-    "correctIndices": null,
-    "correctText": "True",
-    "acceptedAnswers": [],
-    "reason": "Device fragmentation, limited resources, and manufacturer abandonment make consistent patch deployment difficult across IoT fleets.",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 2, Question 38",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P0-Q66",
-    "part": 0,
-    "batch": "quizbank",
-    "family": "P0-Q66",
+    "family": "P0-Q62",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1737,10 +1635,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q67",
+    "id": "P0-Q63",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q67",
+    "family": "P0-Q63",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1764,10 +1662,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q68",
+    "id": "P0-Q64",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q68",
+    "family": "P0-Q64",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1791,10 +1689,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q69",
+    "id": "P0-Q65",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q69",
+    "family": "P0-Q65",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1816,10 +1714,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q70",
+    "id": "P0-Q66",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q70",
+    "family": "P0-Q66",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Data Protection & IT Security Policy",
@@ -1841,10 +1739,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q71",
+    "id": "P0-Q67",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q71",
+    "family": "P0-Q67",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -1868,10 +1766,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q72",
+    "id": "P0-Q68",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q72",
+    "family": "P0-Q68",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -1895,10 +1793,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q73",
+    "id": "P0-Q69",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q73",
+    "family": "P0-Q69",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -1922,10 +1820,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q74",
+    "id": "P0-Q70",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q74",
+    "family": "P0-Q70",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -1952,10 +1850,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q75",
+    "id": "P0-Q71",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q75",
+    "family": "P0-Q71",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -1982,10 +1880,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q76",
+    "id": "P0-Q72",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q76",
+    "family": "P0-Q72",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2009,10 +1907,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q77",
+    "id": "P0-Q73",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q77",
+    "family": "P0-Q73",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2036,10 +1934,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q78",
+    "id": "P0-Q74",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q78",
+    "family": "P0-Q74",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2063,10 +1961,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q79",
+    "id": "P0-Q75",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q79",
+    "family": "P0-Q75",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2090,10 +1988,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q80",
+    "id": "P0-Q76",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q80",
+    "family": "P0-Q76",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2117,10 +2015,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q81",
+    "id": "P0-Q77",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q81",
+    "family": "P0-Q77",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2147,10 +2045,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q82",
+    "id": "P0-Q78",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q82",
+    "family": "P0-Q78",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2174,10 +2072,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q83",
+    "id": "P0-Q79",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q83",
+    "family": "P0-Q79",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2201,10 +2099,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q84",
+    "id": "P0-Q80",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q84",
+    "family": "P0-Q80",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2231,10 +2129,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q85",
+    "id": "P0-Q81",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q85",
+    "family": "P0-Q81",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2261,10 +2159,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q86",
+    "id": "P0-Q82",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q86",
+    "family": "P0-Q82",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2288,10 +2186,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q87",
+    "id": "P0-Q83",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q87",
+    "family": "P0-Q83",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2318,10 +2216,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q88",
+    "id": "P0-Q84",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q88",
+    "family": "P0-Q84",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2345,10 +2243,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q89",
+    "id": "P0-Q85",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q89",
+    "family": "P0-Q85",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2372,10 +2270,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q90",
+    "id": "P0-Q86",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q90",
+    "family": "P0-Q86",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2399,10 +2297,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q91",
+    "id": "P0-Q87",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q91",
+    "family": "P0-Q87",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2429,10 +2327,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q92",
+    "id": "P0-Q88",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q92",
+    "family": "P0-Q88",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2459,10 +2357,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q93",
+    "id": "P0-Q89",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q93",
+    "family": "P0-Q89",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2486,10 +2384,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q94",
+    "id": "P0-Q90",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q94",
+    "family": "P0-Q90",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2513,10 +2411,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q95",
+    "id": "P0-Q91",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q95",
+    "family": "P0-Q91",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2540,10 +2438,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q96",
+    "id": "P0-Q92",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q96",
+    "family": "P0-Q92",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2567,10 +2465,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q97",
+    "id": "P0-Q93",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q97",
+    "family": "P0-Q93",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2594,10 +2492,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q98",
+    "id": "P0-Q94",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q98",
+    "family": "P0-Q94",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2616,15 +2514,40 @@
     "acceptedAnswers": [],
     "reason": "The **GDPR** is the statutory data protection framework governing personal data privacy across the European Union. GLBA and HIPAA are US-specific acts, while FISMA governs US federal agencies.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 69",
+    "sourceRef": "quizbank, Quiz 3, Question 66",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q99",
+    "id": "P0-Q95",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q99",
+    "family": "P0-Q95",
+    "isCore": true,
+    "week": "Quiz 3",
+    "source": "Data Protection & IT Security Policy",
+    "level": "Recall",
+    "type": "tf",
+    "bodyMarkdown": "Internet of Things (IoT) devices cannot share and communicate your IoT device data to other systems and applications without your authorization or knowledge.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctIndex": 1,
+    "correctIndices": null,
+    "correctText": "False",
+    "acceptedAnswers": [],
+    "reason": "Embedded background diagnostic software, vendor cloud connectivity, and default firmware permissions often transmit IoT sensor telemetry to third-party brokers without explicit user knowledge or real-time approval.",
+    "trap": "",
+    "sourceRef": "quizbank, Quiz 3, Question 68",
+    "checkMethod": "Verified against source answer key.",
+    "workingMarkdown": ""
+  },
+  {
+    "id": "P0-Q96",
+    "part": 0,
+    "batch": "quizbank",
+    "family": "P0-Q96",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2651,35 +2574,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q100",
+    "id": "P0-Q97",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q100",
-    "isCore": true,
-    "week": "Quiz 3",
-    "source": "Data Protection & IT Security Policy",
-    "level": "Recall",
-    "type": "tf",
-    "bodyMarkdown": "Internet of Things (IoT) devices cannot share and communicate your IoT device data to other systems and applications without your authorization or knowledge.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctIndex": 1,
-    "correctIndices": null,
-    "correctText": "False",
-    "acceptedAnswers": [],
-    "reason": "Embedded background diagnostic software, vendor cloud connectivity, and default firmware permissions often transmit IoT sensor telemetry to third-party brokers without explicit user knowledge or real-time approval.",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 71",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P0-Q101",
-    "part": 0,
-    "batch": "quizbank",
-    "family": "P0-Q101",
+    "family": "P0-Q97",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2698,15 +2596,15 @@
     "acceptedAnswers": [],
     "reason": "Divergent national data laws create a patchwork of incompatible rules that hinder cross-border data flow.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 76",
+    "sourceRef": "quizbank, Quiz 3, Question 70",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q102",
+    "id": "P0-Q98",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q102",
+    "family": "P0-Q98",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2725,15 +2623,15 @@
     "acceptedAnswers": [],
     "reason": "Nigeria's NDPA (Section 28) explicitly mandates DPIAs for high-risk processing; Ghana's DPC guidance (per Act 843) similarly requires DPIAs in specified cases.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 77",
+    "sourceRef": "quizbank, Quiz 3, Question 71",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q103",
+    "id": "P0-Q99",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q103",
+    "family": "P0-Q99",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2752,15 +2650,15 @@
     "acceptedAnswers": [],
     "reason": "Unaddressed high-risk processing exposes an organization to regulatory enforcement and fines.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 79",
+    "sourceRef": "quizbank, Quiz 3, Question 73",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q104",
+    "id": "P0-Q100",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q104",
+    "family": "P0-Q100",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Data Protection & IT Security Policy",
@@ -2784,10 +2682,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q105",
+    "id": "P0-Q101",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q105",
+    "family": "P0-Q101",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Data Protection & IT Security Policy",
@@ -2811,10 +2709,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q106",
+    "id": "P0-Q102",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q106",
+    "family": "P0-Q102",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Data Protection & IT Security Policy",
@@ -2838,10 +2736,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q107",
+    "id": "P0-Q103",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q107",
+    "family": "P0-Q103",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2860,10 +2758,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q108",
+    "id": "P0-Q104",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q108",
+    "family": "P0-Q104",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2887,10 +2785,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q109",
+    "id": "P0-Q105",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q109",
+    "family": "P0-Q105",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2914,10 +2812,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q110",
+    "id": "P0-Q106",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q110",
+    "family": "P0-Q106",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2941,10 +2839,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q111",
+    "id": "P0-Q107",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q111",
+    "family": "P0-Q107",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2968,10 +2866,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q112",
+    "id": "P0-Q108",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q112",
+    "family": "P0-Q108",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -2993,10 +2891,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P0-Q113",
+    "id": "P0-Q109",
     "part": 0,
     "batch": "quizbank",
-    "family": "P0-Q113",
+    "family": "P0-Q109",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Data Protection & IT Security Policy",
@@ -3407,7 +3305,7 @@
     "acceptedAnswers": [],
     "reason": "Risk acceptance means acknowledging a risk and choosing not to implement additional controls, often when cost outweighs benefit.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 58",
+    "sourceRef": "quizbank, Quiz 1, Question 57",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3434,7 +3332,7 @@
     "acceptedAnswers": [],
     "reason": "Risk transfer shifts the financial impact of a risk to a third party, such as an insurer.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 59",
+    "sourceRef": "quizbank, Quiz 1, Question 58",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3486,7 +3384,7 @@
     "acceptedAnswers": [],
     "reason": "FISMA applies to federal agencies and their contractors, mandating formal information security programs.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 64",
+    "sourceRef": "quizbank, Quiz 1, Question 63",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3513,7 +3411,7 @@
     "acceptedAnswers": [],
     "reason": "The Family Educational Rights and Privacy Act (FERPA) protects the privacy of student records.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 66",
+    "sourceRef": "quizbank, Quiz 1, Question 65",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3540,7 +3438,7 @@
     "acceptedAnswers": [],
     "reason": "SSH uses port 22 and encrypts all traffic, including login credentials.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 67",
+    "sourceRef": "quizbank, Quiz 1, Question 66",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3567,7 +3465,7 @@
     "acceptedAnswers": [],
     "reason": "Telnet uses port 23 and transmits all data, including credentials, in plaintext.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 68",
+    "sourceRef": "quizbank, Quiz 1, Question 67",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3594,7 +3492,7 @@
     "acceptedAnswers": [],
     "reason": "HTTPS uses port 443 and encrypts traffic using TLS/SSL.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 69",
+    "sourceRef": "quizbank, Quiz 1, Question 68",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3621,7 +3519,7 @@
     "acceptedAnswers": [],
     "reason": "HTTP uses port 80 and transmits data in cleartext.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 70",
+    "sourceRef": "quizbank, Quiz 1, Question 69",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3648,7 +3546,7 @@
     "acceptedAnswers": [],
     "reason": "SMTP (Simple Mail Transfer Protocol) is used to route and send email between servers.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 71",
+    "sourceRef": "quizbank, Quiz 1, Question 70",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3675,7 +3573,7 @@
     "acceptedAnswers": [],
     "reason": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addressing information to devices.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 73",
+    "sourceRef": "quizbank, Quiz 1, Question 72",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3702,7 +3600,7 @@
     "acceptedAnswers": [],
     "reason": "A router's core function is to forward traffic between networks based on routing tables, not to serve as a dedicated security appliance.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 74",
+    "sourceRef": "quizbank, Quiz 1, Question 73",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3729,7 +3627,7 @@
     "acceptedAnswers": [],
     "reason": "An Intrusion Detection System (IDS) detects and alerts but does not actively block traffic.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 76",
+    "sourceRef": "quizbank, Quiz 1, Question 75",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3756,7 +3654,7 @@
     "acceptedAnswers": [],
     "reason": "A VPN (Virtual Private Network) encrypts traffic in transit, protecting against eavesdropping on WAN links.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 80",
+    "sourceRef": "quizbank, Quiz 1, Question 79",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3783,7 +3681,7 @@
     "acceptedAnswers": [],
     "reason": "Symmetric encryption uses a single shared secret key for both encrypting and decrypting data.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 81",
+    "sourceRef": "quizbank, Quiz 1, Question 80",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3810,7 +3708,7 @@
     "acceptedAnswers": [],
     "reason": "Asymmetric encryption uses a mathematically linked public/private key pair, commonly used in PKI.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 82",
+    "sourceRef": "quizbank, Quiz 1, Question 81",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3837,7 +3735,7 @@
     "acceptedAnswers": [],
     "reason": "Hashing produces a fixed-size digest used to detect changes to data; it is a one-way function.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 83",
+    "sourceRef": "quizbank, Quiz 1, Question 82",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3864,7 +3762,7 @@
     "acceptedAnswers": [],
     "reason": "Public Key Infrastructure (PKI) manages the creation, distribution, and revocation of digital certificates and keys.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 86",
+    "sourceRef": "quizbank, Quiz 1, Question 85",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3891,7 +3789,7 @@
     "acceptedAnswers": [],
     "reason": "Top Secret is the highest classification, reserved for the most sensitive national security information.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 88",
+    "sourceRef": "quizbank, Quiz 1, Question 87",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -3900,6 +3798,33 @@
     "part": 1,
     "batch": "quizbank",
     "family": "P1-Q34",
+    "isCore": true,
+    "week": "Quiz 1",
+    "source": "Overview & Computer Security Concepts",
+    "level": "Recall",
+    "type": "mcq4",
+    "bodyMarkdown": "Which U.S. federal classification level applies to information that would cause damage, but not serious or grave damage, if disclosed?",
+    "options": [
+      "Top Secret",
+      "Secret",
+      "Confidential",
+      "Unclassified"
+    ],
+    "correctIndex": 2,
+    "correctIndices": null,
+    "correctText": "Confidential",
+    "acceptedAnswers": [],
+    "reason": "Confidential is the lowest of the three formal classification tiers, for information causing general damage.",
+    "trap": "",
+    "sourceRef": "quizbank, Quiz 1, Question 88",
+    "checkMethod": "Verified against source answer key.",
+    "workingMarkdown": ""
+  },
+  {
+    "id": "P1-Q35",
+    "part": 1,
+    "batch": "quizbank",
+    "family": "P1-Q35",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Overview & Computer Security Concepts",
@@ -3923,10 +3848,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q35",
+    "id": "P1-Q36",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q35",
+    "family": "P1-Q36",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Overview & Computer Security Concepts",
@@ -3950,10 +3875,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q36",
+    "id": "P1-Q37",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q36",
+    "family": "P1-Q37",
     "isCore": true,
     "week": "Quiz 1",
     "source": "Overview & Computer Security Concepts",
@@ -3977,10 +3902,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q37",
+    "id": "P1-Q38",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q37",
+    "family": "P1-Q38",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Overview & Computer Security Concepts",
@@ -4002,10 +3927,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q38",
+    "id": "P1-Q39",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q38",
+    "family": "P1-Q39",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Overview & Computer Security Concepts",
@@ -4027,10 +3952,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q39",
+    "id": "P1-Q40",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q39",
+    "family": "P1-Q40",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Overview & Computer Security Concepts",
@@ -4052,10 +3977,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q40",
+    "id": "P1-Q41",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q40",
+    "family": "P1-Q41",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Overview & Computer Security Concepts",
@@ -4072,15 +3997,15 @@
     "acceptedAnswers": [],
     "reason": "Confidentiality, integrity, and availability are all essential given the sensitive financial data e-commerce systems handle.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 2, Question 36",
+    "sourceRef": "quizbank, Quiz 2, Question 34",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q41",
+    "id": "P1-Q42",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q41",
+    "family": "P1-Q42",
     "isCore": true,
     "week": "Quiz 2",
     "source": "Overview & Computer Security Concepts",
@@ -4102,10 +4027,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q42",
+    "id": "P1-Q43",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q42",
+    "family": "P1-Q43",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4132,10 +4057,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q43",
+    "id": "P1-Q44",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q43",
+    "family": "P1-Q44",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4159,10 +4084,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q44",
+    "id": "P1-Q45",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q44",
+    "family": "P1-Q45",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4186,10 +4111,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q45",
+    "id": "P1-Q46",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q45",
+    "family": "P1-Q46",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4213,10 +4138,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q46",
+    "id": "P1-Q47",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q46",
+    "family": "P1-Q47",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4240,10 +4165,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q47",
+    "id": "P1-Q48",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q47",
+    "family": "P1-Q48",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4270,10 +4195,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q48",
+    "id": "P1-Q49",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q48",
+    "family": "P1-Q49",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4300,10 +4225,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q49",
+    "id": "P1-Q50",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q49",
+    "family": "P1-Q50",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4327,10 +4252,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q50",
+    "id": "P1-Q51",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q50",
+    "family": "P1-Q51",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4354,10 +4279,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q51",
+    "id": "P1-Q52",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q51",
+    "family": "P1-Q52",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4381,10 +4306,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q52",
+    "id": "P1-Q53",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q52",
+    "family": "P1-Q53",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4408,10 +4333,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q53",
+    "id": "P1-Q54",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q53",
+    "family": "P1-Q54",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4435,10 +4360,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q54",
+    "id": "P1-Q55",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q54",
+    "family": "P1-Q55",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4465,10 +4390,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q55",
+    "id": "P1-Q56",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q55",
+    "family": "P1-Q56",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4487,15 +4412,15 @@
     "acceptedAnswers": [],
     "reason": "Government information sensitivity levels are defined as: **Top Secret** (exceptionally grave damage), **Secret** (serious damage), and **Confidential** (damage). \"Private\" is an enterprise classification tier rather than a government security tier.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 62",
+    "sourceRef": "quizbank, Quiz 3, Question 61",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q56",
+    "id": "P1-Q57",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q56",
+    "family": "P1-Q57",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4512,15 +4437,15 @@
     "acceptedAnswers": [],
     "reason": "The **TCP/IP protocol suite** defines standard networking layers, IP addressing, routing, and transport protocols that enable heterogeneous devices across global networks to connect and communicate reliably.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 66",
+    "sourceRef": "quizbank, Quiz 3, Question 63",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q57",
+    "id": "P1-Q58",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q57",
+    "family": "P1-Q58",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4539,15 +4464,15 @@
     "acceptedAnswers": [],
     "reason": "A username claims an identity (**Identification**), while a biometric scan (fingerprint/facial scan) verifies that identity claim (**Authentication**).",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 68",
+    "sourceRef": "quizbank, Quiz 3, Question 65",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q58",
+    "id": "P1-Q59",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q58",
+    "family": "P1-Q59",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4566,15 +4491,15 @@
     "acceptedAnswers": [],
     "reason": "Compliance-focused KPIs track measurable indicators like Suspicious Activity Reports, training completion, and incident counts.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 75",
+    "sourceRef": "quizbank, Quiz 3, Question 69",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q59",
+    "id": "P1-Q60",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q59",
+    "family": "P1-Q60",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4593,15 +4518,15 @@
     "acceptedAnswers": [],
     "reason": "Ghana's Act 843 and Nigeria's NDPA are the African-specific laws; GDPR (EU) and CCPA (US) are not.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 80",
+    "sourceRef": "quizbank, Quiz 3, Question 74",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q60",
+    "id": "P1-Q61",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q60",
+    "family": "P1-Q61",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4620,15 +4545,15 @@
     "acceptedAnswers": [],
     "reason": "Retention schedules and quality checks are core principles of sound records management.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 81",
+    "sourceRef": "quizbank, Quiz 3, Question 75",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q61",
+    "id": "P1-Q62",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q61",
+    "family": "P1-Q62",
     "isCore": true,
     "week": "Quiz 3",
     "source": "Overview & Computer Security Concepts",
@@ -4652,10 +4577,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q62",
+    "id": "P1-Q63",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q62",
+    "family": "P1-Q63",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Overview & Computer Security Concepts",
@@ -4679,10 +4604,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q63",
+    "id": "P1-Q64",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q63",
+    "family": "P1-Q64",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Overview & Computer Security Concepts",
@@ -4706,10 +4631,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q64",
+    "id": "P1-Q65",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q64",
+    "family": "P1-Q65",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Overview & Computer Security Concepts",
@@ -4733,10 +4658,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q65",
+    "id": "P1-Q66",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q65",
+    "family": "P1-Q66",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Overview & Computer Security Concepts",
@@ -4760,10 +4685,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q66",
+    "id": "P1-Q67",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q66",
+    "family": "P1-Q67",
     "isCore": true,
     "week": "Quiz 4",
     "source": "Overview & Computer Security Concepts",
@@ -4787,10 +4712,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q67",
+    "id": "P1-Q68",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q67",
+    "family": "P1-Q68",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4809,10 +4734,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q68",
+    "id": "P1-Q69",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q68",
+    "family": "P1-Q69",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4836,10 +4761,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q69",
+    "id": "P1-Q70",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q69",
+    "family": "P1-Q70",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4863,10 +4788,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q70",
+    "id": "P1-Q71",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q70",
+    "family": "P1-Q71",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4890,10 +4815,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q71",
+    "id": "P1-Q72",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q71",
+    "family": "P1-Q72",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4917,10 +4842,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q72",
+    "id": "P1-Q73",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q72",
+    "family": "P1-Q73",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4939,10 +4864,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q73",
+    "id": "P1-Q74",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q73",
+    "family": "P1-Q74",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4966,10 +4891,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q74",
+    "id": "P1-Q75",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q74",
+    "family": "P1-Q75",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -4993,10 +4918,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q75",
+    "id": "P1-Q76",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q75",
+    "family": "P1-Q76",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5020,10 +4945,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q76",
+    "id": "P1-Q77",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q76",
+    "family": "P1-Q77",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5047,10 +4972,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q77",
+    "id": "P1-Q78",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q77",
+    "family": "P1-Q78",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5074,10 +4999,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q78",
+    "id": "P1-Q79",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q78",
+    "family": "P1-Q79",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5101,10 +5026,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q79",
+    "id": "P1-Q80",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q79",
+    "family": "P1-Q80",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5128,10 +5053,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q80",
+    "id": "P1-Q81",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q80",
+    "family": "P1-Q81",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5155,10 +5080,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q81",
+    "id": "P1-Q82",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q81",
+    "family": "P1-Q82",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5182,10 +5107,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q82",
+    "id": "P1-Q83",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q82",
+    "family": "P1-Q83",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5207,10 +5132,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q83",
+    "id": "P1-Q84",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q83",
+    "family": "P1-Q84",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5234,10 +5159,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q84",
+    "id": "P1-Q85",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q84",
+    "family": "P1-Q85",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5261,10 +5186,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q85",
+    "id": "P1-Q86",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q85",
+    "family": "P1-Q86",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5283,10 +5208,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q86",
+    "id": "P1-Q87",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q86",
+    "family": "P1-Q87",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5310,10 +5235,10 @@
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q87",
+    "id": "P1-Q88",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q87",
+    "family": "P1-Q88",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5327,15 +5252,15 @@
     "acceptedAnswers": [],
     "reason": "PKI",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 82",
+    "sourceRef": "quizbank, Quiz 5, Question 81",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q88",
+    "id": "P1-Q89",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q88",
+    "family": "P1-Q89",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5354,15 +5279,15 @@
     "acceptedAnswers": [],
     "reason": "Without a trusted binding between a key and identity, an attacker can announce a fraudulent public key while impersonating another user.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 83",
+    "sourceRef": "quizbank, Quiz 5, Question 82",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q89",
+    "id": "P1-Q90",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q89",
+    "family": "P1-Q90",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5381,15 +5306,15 @@
     "acceptedAnswers": [],
     "reason": "The TLS handshake negotiates cryptographic parameters, authenticates parties as applicable, and establishes session keys.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 84",
+    "sourceRef": "quizbank, Quiz 5, Question 83",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q90",
+    "id": "P1-Q91",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q90",
+    "family": "P1-Q91",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5408,15 +5333,15 @@
     "acceptedAnswers": [],
     "reason": "PGP uses hybrid encryption: the message is symmetrically encrypted, while the session key is encrypted with the recipient's public key.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 85",
+    "sourceRef": "quizbank, Quiz 5, Question 84",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q91",
+    "id": "P1-Q92",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q91",
+    "family": "P1-Q92",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5435,15 +5360,15 @@
     "acceptedAnswers": [],
     "reason": "Authentication verifies that a user or system entity is who or what it claims to be.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 86",
+    "sourceRef": "quizbank, Quiz 5, Question 85",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q92",
+    "id": "P1-Q93",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q92",
+    "family": "P1-Q93",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5462,15 +5387,15 @@
     "acceptedAnswers": [],
     "reason": "A CA verifies identities according to its policies and signs certificates to establish trust in public keys.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 87",
+    "sourceRef": "quizbank, Quiz 5, Question 86",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q93",
+    "id": "P1-Q94",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q93",
+    "family": "P1-Q94",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5489,15 +5414,15 @@
     "acceptedAnswers": [],
     "reason": "Federation allows trusted organizations or security domains to share identity and authentication information.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 89",
+    "sourceRef": "quizbank, Quiz 5, Question 88",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P1-Q94",
+    "id": "P1-Q95",
     "part": 1,
     "batch": "quizbank",
-    "family": "P1-Q94",
+    "family": "P1-Q95",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Overview & Computer Security Concepts",
@@ -5516,7 +5441,7 @@
     "acceptedAnswers": [],
     "reason": "802.11i strengthened wireless LAN security and addressed major weaknesses in WEP.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 90",
+    "sourceRef": "quizbank, Quiz 5, Question 89",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6147,7 +6072,7 @@
     "acceptedAnswers": [],
     "reason": "A baseline defines the minimum security configuration required across systems of a given type.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 53",
+    "sourceRef": "quizbank, Quiz 1, Question 52",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6174,7 +6099,7 @@
     "acceptedAnswers": [],
     "reason": "Risk represents the exposure/likelihood of harm, combining threats and vulnerabilities.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 54",
+    "sourceRef": "quizbank, Quiz 1, Question 53",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6201,7 +6126,7 @@
     "acceptedAnswers": [],
     "reason": "A vulnerability is a gap or flaw that a threat could exploit.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 55",
+    "sourceRef": "quizbank, Quiz 1, Question 54",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6228,7 +6153,7 @@
     "acceptedAnswers": [],
     "reason": "A threat is a potential danger, such as an attacker, malware, or natural disaster.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 56",
+    "sourceRef": "quizbank, Quiz 1, Question 55",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6255,7 +6180,7 @@
     "acceptedAnswers": [],
     "reason": "A countermeasure (or safeguard/control) is a mechanism, like a firewall or encryption, that reduces risk.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 57",
+    "sourceRef": "quizbank, Quiz 1, Question 56",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6307,7 +6232,7 @@
     "acceptedAnswers": [],
     "reason": "Encryption at rest protects stored data, adding a layer of protection even if storage media is stolen.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 84",
+    "sourceRef": "quizbank, Quiz 1, Question 83",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -6334,7 +6259,7 @@
     "acceptedAnswers": [],
     "reason": "Encryption in transit (e.g., TLS, VPN) protects data while it travels between systems.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 85",
+    "sourceRef": "quizbank, Quiz 1, Question 84",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7177,7 +7102,7 @@
     "acceptedAnswers": [],
     "reason": "CIPA requires internet filtering in schools/libraries as a condition of certain federal funding.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 63",
+    "sourceRef": "quizbank, Quiz 1, Question 62",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7204,7 +7129,7 @@
     "acceptedAnswers": [],
     "reason": "A firewall's defining purpose is to enforce security policy by filtering and blocking unwanted traffic.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 75",
+    "sourceRef": "quizbank, Quiz 1, Question 74",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7499,7 +7424,7 @@
     "acceptedAnswers": [],
     "reason": "E-commerce refers to buying and selling goods and services online, including entering payment and personal data to complete transactions.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 2, Question 40",
+    "sourceRef": "quizbank, Quiz 2, Question 35",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7889,7 +7814,7 @@
     "acceptedAnswers": [],
     "reason": "**Port 22** runs Secure Shell (SSH), which provides encrypted terminal communication and remote administration. Port 20 is FTP Data, Port 23 is Telnet (unencrypted), and Port 80 is HTTP (unencrypted cleartext).",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 61",
+    "sourceRef": "quizbank, Quiz 3, Question 60",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7916,7 +7841,7 @@
     "acceptedAnswers": [],
     "reason": "**Integrity** ensures that data remains accurate, complete, and untampered with. Unauthorized modification or altering of academic grades directly compromises data integrity.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 65",
+    "sourceRef": "quizbank, Quiz 3, Question 62",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7941,7 +7866,7 @@
     "acceptedAnswers": [],
     "reason": "**Access Control Lists (ACLs)** are packet-filtering rule sets configured on routers and firewalls that inspect source/destination IP addresses and port numbers to permit or deny network traffic.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 67",
+    "sourceRef": "quizbank, Quiz 3, Question 64",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -7968,7 +7893,7 @@
     "acceptedAnswers": [],
     "reason": "The sharing stage makes data available to authorized parties so it can be reused for legitimate purposes.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 78",
+    "sourceRef": "quizbank, Quiz 3, Question 72",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -12541,7 +12466,7 @@
     "acceptedAnswers": [],
     "reason": "Preimage resistance means it should be infeasible to find any input x such that H(x) equals a given hash value h.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 81",
+    "sourceRef": "quizbank, Quiz 5, Question 80",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -12622,7 +12547,7 @@
     "acceptedAnswers": [],
     "reason": "A switch operates at Layer 2, forwarding frames based on MAC addresses within a local network.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 79",
+    "sourceRef": "quizbank, Quiz 1, Question 78",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -13004,28 +12929,6 @@
     "week": "Quiz 5",
     "source": "Message Authentication Codes",
     "level": "Recall",
-    "type": "fill",
-    "bodyMarkdown": "HMAC stands for Hash-based Message ____ Code.",
-    "options": [],
-    "correctIndex": null,
-    "correctIndices": null,
-    "correctText": "Authentication",
-    "acceptedAnswers": [],
-    "reason": "HMAC",
-    "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 80",
-    "checkMethod": "Verified against source answer key.",
-    "workingMarkdown": ""
-  },
-  {
-    "id": "P12-Q19",
-    "part": 12,
-    "batch": "quizbank",
-    "family": "P12-Q19",
-    "isCore": true,
-    "week": "Quiz 5",
-    "source": "Message Authentication Codes",
-    "level": "Recall",
     "type": "mcq4",
     "bodyMarkdown": "A replay attack against a MAC-protected message can be effectively mitigated by including:",
     "options": [
@@ -13040,15 +12943,15 @@
     "acceptedAnswers": [],
     "reason": "A sequence number or timestamp allows the receiver to identify stale or previously used messages.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 88",
+    "sourceRef": "quizbank, Quiz 5, Question 87",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
   {
-    "id": "P12-Q20",
+    "id": "P12-Q19",
     "part": 12,
     "batch": "quizbank",
-    "family": "P12-Q20",
+    "family": "P12-Q19",
     "isCore": true,
     "week": "Quiz 5",
     "source": "Message Authentication Codes",
@@ -13418,7 +13321,7 @@
     "acceptedAnswers": [],
     "reason": "The Payment Card Industry Data Security Standard (PCI DSS) sets security requirements for handling cardholder data.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 65",
+    "sourceRef": "quizbank, Quiz 1, Question 64",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -13445,7 +13348,7 @@
     "acceptedAnswers": [],
     "reason": "Digital signatures verify that a message wasn't altered and confirm the sender's identity, supporting nonrepudiation.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 1, Question 87",
+    "sourceRef": "quizbank, Quiz 1, Question 86",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -13472,7 +13375,7 @@
     "acceptedAnswers": [],
     "reason": "**PCI DSS** is the mandatory security framework established by major payment card brands governing any organization that stores, processes, or transmits credit cardholder data.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 3, Question 70",
+    "sourceRef": "quizbank, Quiz 3, Question 67",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   },
@@ -13920,7 +13823,7 @@
     "acceptedAnswers": [],
     "reason": "ElGamal signatures rely on the computational difficulty of discrete logarithms.",
     "trap": "",
-    "sourceRef": "quizbank, Quiz 5, Question 91",
+    "sourceRef": "quizbank, Quiz 5, Question 90",
     "checkMethod": "Verified against source answer key.",
     "workingMarkdown": ""
   }

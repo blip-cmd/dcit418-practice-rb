@@ -61,7 +61,7 @@ const sourceBanks = [
   {
     id: "iabank",
     label: "IA Offsite bank",
-    file: "data_files/ia_bank/dcit418_ia_offsite.md",
+    file: "data_files/ia_bank/ia_clean.md",
   },
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
