@@ -1,7 +1,9 @@
 """Parse DCIT 418 Systems and Network Security question banks into questions.json.
 
 Reads the consolidated quiz bank and the IA offsite bank from data_files/:
-  1. data_files/quiz_bank/quiz.md (379 questions, Quiz 1-5 consolidated, <details> answer blocks)
+  1. data_files/quiz_bank/quiz_clean.md (379 questions, Quiz 1-5 consolidated, <details> answer
+     blocks; originals with provider/coverage metadata kept at data_files/quiz_bank/quiz.md and
+     quiz_bank.md)
   2. data_files/ia_bank/ia_clean.md (158 questions, Sakai Offsite IA; original with
      provider/coverage metadata kept at data_files/ia_bank/dcit418_ia_offsite.md)
 
@@ -387,7 +389,7 @@ def main() -> None:
 
     all_questions: list[dict] = []
 
-    quiz_path = data / "quiz_bank" / "quiz.md"
+    quiz_path = data / "quiz_bank" / "quiz_clean.md"
     if quiz_path.exists():
         qs = parse_bank(quiz_path, "quizbank")
         print(f"  Consolidated quiz bank: {len(qs)} questions parsed")

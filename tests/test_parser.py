@@ -10,7 +10,7 @@ from scripts.parse_security_bank import (
 
 class SecurityParserTests(unittest.TestCase):
     def test_quiz_bank_parser(self):
-        quiz_path = Path("data_files/quiz_bank/quiz.md")
+        quiz_path = Path("data_files/quiz_bank/quiz_clean.md")
         if quiz_path.exists():
             qs = parse_bank(quiz_path, "quizbank")
             self.assertGreater(len(qs), 300)

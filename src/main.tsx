@@ -56,7 +56,7 @@ const sourceBanks = [
   {
     id: "quizbank",
     label: "Consolidated Quiz Bank (Quiz 1-5)",
-    file: "data_files/quiz_bank/quiz.md",
+    file: "data_files/quiz_bank/quiz_clean.md",
   },
   {
     id: "iabank",
