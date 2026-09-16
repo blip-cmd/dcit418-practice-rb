@@ -21,7 +21,9 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Question bank and study modes
 
-The checked-in bank currently contains 799 questions: 366 from the consolidated quizzes, 158 from the offsite IA, 100 from SET5 (fill-ins), 95 from SET4 (MCQ drill, 5 fewer after deduplication), 77 from Desmond's comprehensive exam review, and 3 from Christian's comprehensive exam review (97 of his 100 were duplicates of existing questions). It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
+The checked-in bank currently contains 735 questions: 379 from the consolidated quizzes (including Christian's 38 unique Quiz 1-4 questions), 161 from the IA bank (including Christian's 3 unique exam-review questions), 100 from SET5 (fill-ins), and 95 from SET4 (MCQ drill, 5 fewer after deduplication). It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
+
+Desmond's 77 unique exam-review questions are held out for now pending confirmation that their source (`data_files/received qus/desmond_dcit418_ia.md`) is genuinely IA-source material. See the TODO comment in `data_files/ia_bank/ia_clean.md` above its "Additional Questions" section.
 
 - Practice: filter parts, source banks, question types and difficulty; optionally use only unseen questions.
 - Read with answers: navigate questions and explanations without recording scored attempts.
@@ -50,16 +52,16 @@ This runs `scripts/parse_security_bank.py` against:
 - `data_files/ia_bank/ia_clean.md`
 - `data_files/study_sets/SET4_clean.md`
 - `data_files/study_sets/SET5_clean.md`
-- `data_files/ia_bank/chris_clean.md`
-- `data_files/ia_bank/desmond_clean.md`
 
 It rewrites `questions.json` and `PARSER_REPORT.md`. Review those changes, then rebuild. Parsing checks structure; it does not independently verify the academic correctness of every source answer.
 
-All six `*_clean.md` files are metadata-stripped copies of the originals, produced so the parser reads plain question/answer/explanation content without attribution or checklists. The originals are kept alongside them: `data_files/ia_bank/dcit418_ia_offsite.md` (158-question IA bank), `data_files/quiz_bank/quiz.md` (366-question quiz bank), `data_files/study_sets/SET4_MCQ_Drill_QUESTIONS.md` + `SET4_MCQ_Drill_ANSWER_KEY.md`, `data_files/study_sets/SET5_FillIns_QUESTIONS.md` + `SET5_FillIns_ANSWER_KEY.md`, `data_files/received qus/Chris/IA.md` (100-question Christian's exam review), and `data_files/received qus/desmond_dcit418_ia.md` (Desmond's exam review, 78 recoverable questions, one lost to a PDF extraction gap). Human-readable review copies with the same content live at `data_files/ia_bank/CHRIS_IA_FORMATTED.md` and `data_files/ia_bank/DESMOND_IA_FORMATTED.md`.
+Every `*_clean.md` file is a metadata-stripped copy of its original(s), produced so the parser reads plain question/answer/explanation content without attribution or checklists. `quiz_clean.md` and `ia_clean.md` also carry unique questions from contributor sources appended directly at the end, rather than being parsed as separate per-contributor batches: `quiz_clean.md` includes Christian's unique Quiz 1-4 questions, and `ia_clean.md` includes Christian's and Desmond's unique exam-review questions. The full per-contributor originals are kept for reference (and for re-deriving the merge, via `scripts/convert_chris_ia.py`, `scripts/convert_desmond_ia.py` and `scripts/convert_chris_quiz.py`) at `data_files/ia_bank/dcit418_ia_offsite.md` (the original 158-question IA bank), `data_files/quiz_bank/quiz.md` (the original 366-question quiz bank), `data_files/study_sets/SET4_MCQ_Drill_QUESTIONS.md` + `SET4_MCQ_Drill_ANSWER_KEY.md`, `data_files/study_sets/SET5_FillIns_QUESTIONS.md` + `SET5_FillIns_ANSWER_KEY.md`, `data_files/received qus/Chris/IA.md` and `Quiz 1.md`/`Quiz 2.md`/`Quiz 3.md`/`quiz_4.md`, and `data_files/received qus/desmond_dcit418_ia.md`. Human-readable review copies live at `data_files/ia_bank/CHRIS_IA_FORMATTED.md` and `data_files/ia_bank/DESMOND_IA_FORMATTED.md`.
+
+`data_files/received qus/Chris/quiz_5.md` is excluded entirely: it is a garbled multilingual voice-transcript artifact where the real question text was never captured, only fragments of an AI's spoken-back explanation.
 
 `data_files/study_sets/` contains exam papers and answer keys (e.g. `SET1_ANSWER_KEY.md`), most not yet parsed into the question bank: TODO for a future pass. **SET4 (MCQ Drill)** and **SET5 (Fill-ins)** are now parsed and included. The exception is Set 9, the timed 60-minute simulation, which the app surfaces directly from the Mock exam screen as a one-time paper with its own warning, not through the interactive question bank.
 
-`data_files/received qus/Chris/IA.md` is **Christian's comprehensive exam review** and `data_files/received qus/desmond_dcit418_ia.md` is **Desmond's comprehensive exam review** (both parsed and included as dedicated banks). Chris's Quiz 1-5 files and Emma's files under `received qus/` are not yet parsed; they remain as reference/comparison material.
+Emma's files under `received qus/` are not yet parsed; they remain as reference/comparison material.
 
 The former management parser is disabled. Deployment uses the checked-in JSON and needs neither Python nor files outside this repository.
 

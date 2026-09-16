@@ -1,5 +1,5 @@
 # DCIT 418: Systems and Network Security
-## Interim Assessment (IA) — Question Bank
+## Interim Assessment (IA): Question Bank
 
 158 questions with verified answers and worked solutions, covering RSA, AES, DES, block cipher modes, number theory, stream ciphers, and related topics from William Stallings' *Cryptography and Network Security*.
 
@@ -2351,3 +2351,61 @@
 </details>
 
 ---
+
+---
+
+<!-- TODO: Desmond's 77 unique exam-review questions were removed from this file
+     pending confirmation that data_files/received qus/desmond_dcit418_ia.md is
+     genuinely IA-source material rather than quiz or general-review content.
+     Once confirmed, re-run: python scripts/convert_desmond_ia.py, then re-append
+     the survivors the same way Christian's questions below were appended
+     (see the git history for the append step, or scripts/parse_security_bank.py's
+     module docstring). The full 77-question set with explanations is preserved
+     at data_files/ia_bank/desmond_clean.md and data_files/ia_bank/DESMOND_IA_FORMATTED.md,
+     it was only removed from this consolidated bank, not deleted. -->
+
+## Additional Questions (Christian's Exam Review)
+
+### 159. An ideal block cipher mapping n bits to n bits allows how many possible reversible mappings?
+- A. 2^n
+- B. n!
+- C. (2^n)!
+- D. 2^(2n)
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **C. (2^n)!**
+
+*Intuition:* There are 2^n possible input states, and any reversible mapping is a permutation of these states, yielding (2^n)! possible bijections.
+</details>
+
+---
+
+### 160. The primary advantage of asymmetric key cryptography over symmetric key cryptography in large
+- A. Asymmetric cryptography is computationally faster for bulk file transfers
+- B. It scales with N key pairs for N users instead of N*(N-1)/2 shared secret keys
+- C. It uses shorter keys to achieve the same bit-strength security as AES
+- D. It eliminates the need for mathematical modular arithmetic
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. It scales with N key pairs for N users instead of N*(N-1)/2 shared secret keys**
+
+*Intuition:* In a network of N users, symmetric encryption requires N*(N-1)/2 pre-shared secret keys, whereas public-key cryptography requires only N key pairs.
+</details>
+
+---
+
+### 197. The block cipher mode specifically designed for encrypting data on sector-based block storage devices
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **XTS-AES**
+
+*Intuition:* XTS-AES is the tweakable block cipher standard designed for sector-level storage encryption.
+</details>
+
+---
+

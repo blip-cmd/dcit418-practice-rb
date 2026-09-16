@@ -78,16 +78,6 @@ const sourceBanks = [
     label: "SET5 Fill-ins",
     file: "data_files/study_sets/SET5_clean.md",
   },
-  {
-    id: "chris",
-    label: "Christian's Exam Review",
-    file: "data_files/ia_bank/chris_clean.md",
-  },
-  {
-    id: "desmond",
-    label: "Desmond's Exam Review",
-    file: "data_files/ia_bank/desmond_clean.md",
-  },
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
   new Set(items.map(questionKey)).size;

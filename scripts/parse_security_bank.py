@@ -1,15 +1,22 @@
 """Parse DCIT 418 Systems and Network Security question banks into questions.json.
 
 Reads every clean source bank from data_files/:
-  1. data_files/quiz_bank/quiz_clean.md (Quiz 1-5 consolidated, <details> answer
-     blocks; originals with provider/coverage metadata kept at data_files/quiz_bank/quiz.md and
-     quiz_bank.md)
-  2. data_files/ia_bank/ia_clean.md (Sakai Offsite IA; original with
-     provider/coverage metadata kept at data_files/ia_bank/dcit418_ia_offsite.md)
+  1. data_files/quiz_bank/quiz_clean.md (Quiz 1-5 consolidated, plus Christian's
+     unique Quiz 1-4 questions appended at the end; <details> answer blocks;
+     originals with provider/coverage metadata kept at data_files/quiz_bank/quiz.md
+     and quiz_bank.md, and data_files/received qus/Chris/Quiz *.md /quiz_4.md)
+  2. data_files/ia_bank/ia_clean.md (Sakai Offsite IA, plus Christian's and
+     Desmond's unique exam-review questions appended at the end; original with
+     provider/coverage metadata kept at data_files/ia_bank/dcit418_ia_offsite.md,
+     data_files/received qus/Chris/IA.md and data_files/received qus/desmond_dcit418_ia.md)
   3. data_files/study_sets/SET4_clean.md (SET4 MCQ Drill)
   4. data_files/study_sets/SET5_clean.md (SET5 Fill-ins)
-  5. data_files/ia_bank/chris_clean.md (Christian's comprehensive exam review)
-  6. data_files/ia_bank/desmond_clean.md (Desmond's comprehensive exam review)
+
+Christian's and Desmond's exam-review questions, and Christian's Quiz 1-4
+questions, were originally parsed as their own separate batches, deduplicated,
+then their unique survivors were appended directly into ia_clean.md and
+quiz_clean.md so IA and quiz content each live in one file rather than being
+split across several small per-contributor sources.
 
 Every source is deduplicated together, so a later source only contributes
 questions whose body text does not already match one already in the bank.
@@ -235,7 +242,18 @@ def parse_bank(filepath: Path, batch: str) -> list[dict]:
         options = [om.group(2).strip() for om in option_matches]
         labels = [om.group(1).upper() for om in option_matches]
 
-        intuition_match = re.search(r"\*Intuition:\*\s*(.*?)(?:</details>|\Z)", block, re.DOTALL)
+        # Two Intuition-label styles appear across sources: the <details>-wrapped
+        # single-asterisk *Intuition:* used by quiz_clean.md/ia_clean.md, and the
+        # bare double-asterisk **Intuition:** used by every clean.md that skips
+        # <details>. Matching **Intuition:** against the single-star pattern first
+        # would consume only one of its two leading asterisks, leaving a stray "*"
+        # at the start of the captured reason and, with no </details> to stop it,
+        # swallowing the trailing "---" separator into the reason too. Try the
+        # bold form first, anchored to the "---" block separator, before falling
+        # back to the <details> form.
+        intuition_match = re.search(r"\*\*Intuition:\*\*\s*(.*?)(?:\n\n---|\Z)", block, re.DOTALL)
+        if not intuition_match:
+            intuition_match = re.search(r"\*Intuition:\*\s*(.*?)(?:</details>|\Z)", block, re.DOTALL)
         reason = intuition_match.group(1).strip() if intuition_match else ""
         if not reason:
             reason_match = re.search(r"\*\*Reason:\*\*\s*(.*?)(?:---|</details>|\Z)", block, re.DOTALL)
@@ -318,7 +336,7 @@ def parse_bank(filepath: Path, batch: str) -> list[dict]:
     return questions
 
 
-SOURCE_PRIORITY = {"chris": 1, "desmond": 1, "set4": 0, "set5": 0, "iabank": 2, "quizbank": 1}
+SOURCE_PRIORITY = {"set4": 0, "set5": 0, "iabank": 2, "quizbank": 1}
 
 
 def deduplicate(questions: list[dict]) -> list[dict]:
@@ -481,18 +499,6 @@ def main() -> None:
     if set5_path.exists():
         qs = parse_bank(set5_path, "set5")
         print(f"  SET5 Fill-ins: {len(qs)} questions parsed")
-        all_questions.extend(qs)
-
-    chris_path = data / "ia_bank" / "chris_clean.md"
-    if chris_path.exists():
-        qs = parse_bank(chris_path, "chris")
-        print(f"  Christian's IA Review: {len(qs)} questions parsed")
-        all_questions.extend(qs)
-
-    desmond_path = data / "ia_bank" / "desmond_clean.md"
-    if desmond_path.exists():
-        qs = parse_bank(desmond_path, "desmond")
-        print(f"  Desmond's IA Review: {len(qs)} questions parsed")
         all_questions.extend(qs)
 
     print(f"\nTotal raw questions: {len(all_questions)}")

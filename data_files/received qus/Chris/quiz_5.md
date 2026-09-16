@@ -1,3 +1,5 @@
+Marked as unsuable.
+
 What's the answer?
 
 The correct answer is A, because the Feistel structure allows you to use the same hardware or software for both encryption and decryption.
