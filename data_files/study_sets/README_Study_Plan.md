@@ -1,7 +1,7 @@
 # DCIT418 — Revision Pack
 ## How to use these files
 
-**Exam format:** 60 minutes on Sakai. MCQs, fill-ins, essay. Chapters 1–13. No calculation questions, though simple worked examples remain in the older sets because they build understanding you will be asked to explain in words.
+**Exam format:** 60 minutes on Sakai. MCQs, fill-ins, essay. Chapters 1–13. No calculation questions, though simple worked examples remain because they build understanding one could be asked to explain in words.
 
 ---
 
