@@ -1460,35 +1460,38 @@ function App() {
                       ))}
                     </div>
                   </details>
-                  <h2>
-                    04 <span>Export your deck</span>
-                  </h2>
-                  <div className="segmented">
-                    {(
-                      [
-                        ["markdown", "Markdown"],
-                        ["csv", "CSV"],
-                        ["pdf", "PDF"],
-                      ] as const
-                    ).map(([v, l]) => (
-                      <button
-                        key={v}
-                        aria-pressed={exportFormat === v}
-                        className={exportFormat === v ? "chosen" : ""}
-                        onClick={() => setExportFormat(v)}
-                      >
-                        {l}
-                      </button>
-                    ))}
-                  </div>
-                  <p className="export-note">
-                    Downloads exactly what your current filters match —{" "}
-                    {exportCandidates().length} questions — with answers and
-                    explanations included.
-                  </p>
-                  <button className="secondary" onClick={downloadDeck}>
-                    Download deck
-                  </button>
+                  <details>
+                    <summary>
+                      Export your deck{" "}
+                      <span>Markdown, CSV or PDF, with answers</span>
+                    </summary>
+                    <div className="segmented">
+                      {(
+                        [
+                          ["markdown", "Markdown"],
+                          ["csv", "CSV"],
+                          ["pdf", "PDF"],
+                        ] as const
+                      ).map(([v, l]) => (
+                        <button
+                          key={v}
+                          aria-pressed={exportFormat === v}
+                          className={exportFormat === v ? "chosen" : ""}
+                          onClick={() => setExportFormat(v)}
+                        >
+                          {l}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="export-note">
+                      Downloads exactly what your current filters match —{" "}
+                      {exportCandidates().length} questions — with answers and
+                      explanations included.
+                    </p>
+                    <button className="secondary" onClick={downloadDeck}>
+                      Download deck
+                    </button>
+                  </details>
                 </>
               ) : view === "mock" ? (
                 <>
