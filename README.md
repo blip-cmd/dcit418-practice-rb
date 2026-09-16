@@ -2,6 +2,8 @@
 
 Browser exam practice for **Systems and Network Security**, built with React, TypeScript and Vite. Progress stays in your browser; there is no backend or account.
 
+See [the comprehensive feature list](docs/feature_list.md) for study modes, navigation, grading, progress, exports, offline behavior, feature evolution and current limitations.
+
 ## Run locally
 
 Install dependencies with `npm ci`, then run `npm run dev`.
