@@ -94,7 +94,7 @@ const deckAnswer = (q: Question) =>
 function buildDeckMarkdown(questions: Question[]): string {
   const labels = "ABCDE";
   const lines = [
-    "# DCIT 418: Systems and Network Security — Exported Question Deck",
+    "# DCIT 418: Systems and Network Security, Exported Question Deck",
     "",
     `${questions.length} questions, exported ${new Date().toLocaleDateString()}.`,
     "",
@@ -308,8 +308,8 @@ function App() {
   });
   function openSet9Paper() {
     const warning = set9OpenedAt
-      ? `You already opened Set 9 on ${new Date(set9OpenedAt).toLocaleDateString()}. Its value comes entirely from being the first time you see it — retaking it won't tell you anything new. Open it again anyway?`
-      : "Set 9 is the timed 60-minute simulation across all 13 chapters — the true mock for this course. Do this ONCE, and do it last, after everything else. Phone away, timer running, no notes, no scrolling back. Continue?";
+      ? `You already opened Set 9 on ${new Date(set9OpenedAt).toLocaleDateString()}. Its value comes entirely from being the first time you see it. Retaking it won't tell you anything new. Open it again anyway?`
+      : "Set 9 is the timed 60-minute simulation across all 13 chapters, the true mock for this course. Do this ONCE, and do it last, after everything else. Phone away, timer running, no notes, no scrolling back. Continue?";
     if (!window.confirm(warning)) return;
     if (!set9OpenedAt) {
       const now = new Date().toISOString();
@@ -889,8 +889,8 @@ function App() {
             <div className="session-title">
               <h1>
                 {set9View === "paper"
-                  ? "Set 9 — Timed Sakai Simulation"
-                  : "Set 9 — Answer Key"}
+                  ? "Set 9: Timed Sakai Simulation"
+                  : "Set 9: Answer Key"}
               </h1>
               <button className="secondary" onClick={() => setSet9View(null)}>
                 Close
@@ -901,7 +901,7 @@ function App() {
             </div>
             {set9View === "paper" && (
               <button className="primary" onClick={openSet9Key}>
-                I've finished — reveal answer key
+                I've finished, reveal answer key
               </button>
             )}
           </section>
@@ -1540,8 +1540,8 @@ function App() {
                       ))}
                     </div>
                     <p className="export-note">
-                      Downloads exactly what your current filters match —{" "}
-                      {exportCandidates().length} questions — with answers and
+                      Downloads exactly what your current filters match:{" "}
+                      {exportCandidates().length} questions, with answers and
                       explanations included.
                     </p>
                     <button className="secondary" onClick={downloadDeck}>
@@ -1604,7 +1604,7 @@ function App() {
                     </h3>
                     <p>
                       Set 9 is a fixed 60-minute, 100-mark paper across all 13
-                      chapters — 30 MCQ, 8 fill-ins, 7 essay questions. Do it
+                      chapters: 30 MCQ, 8 fill-ins, 7 essay questions. Do it
                       ONCE, and do it last, after everything else. Pen and
                       paper, timer running, no notes.
                     </p>

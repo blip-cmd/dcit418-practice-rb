@@ -53,7 +53,7 @@ It rewrites `questions.json` and `PARSER_REPORT.md`. Review those changes, then 
 
 Both `*_clean.md` files are metadata-stripped copies of the originals, produced so the parser and app read plain question/answer/explanation content without the provider attribution, checklists, and question-frequency/coverage tables the source documents carry. The originals are kept alongside them: `data_files/ia_bank/dcit418_ia_offsite.md` (158-question IA bank) and `data_files/quiz_bank/quiz.md` / `quiz_bank.md` (identical copies of the 366-question consolidated quiz bank, Quizzes 1-5).
 
-`data_files/study_sets/` (mock exam papers and answer keys, e.g. `SET1_ANSWER_KEY.md`) is not yet parsed into the question bank — TODO for a future pass.
+`data_files/study_sets/` (mock exam papers and answer keys, e.g. `SET1_ANSWER_KEY.md`) is not yet parsed into the question bank: TODO for a future pass. The exception is Set 9, the timed 60-minute simulation, which the app surfaces directly from the Mock exam screen as a one-time paper with its own warning, not through the interactive question bank.
 
 The former management parser is disabled. Deployment uses the checked-in JSON and needs neither Python nor files outside this repository.
 
