@@ -1,12 +1,14 @@
 # DCIT418 MOCK — SET 1
 ## Knowledge, Factual Recall & Vocabulary
-**Chapters 1–10 | Time limit: 60 minutes | Closed book**
+**Chapters 1–13 | Time limit: 75 minutes | Closed book**
 
 Write your answers on paper. Do not check the answer key until you have attempted every question.
 
+Chapters 11–13 material sits at the end of each section, clearly marked. Skip those parts until the hash, MAC and signature blocks have been taught.
+
 ---
 
-## SECTION A — MULTIPLE CHOICE (30 marks, 1 mark each)
+## SECTION A — MULTIPLE CHOICE (40 marks, 1 mark each)
 
 Circle or write the letter of the best answer.
 
@@ -190,9 +192,71 @@ b) The discrete logarithm problem
 c) Frequency analysis
 d) The birthday problem
 
+### Chapters 11–13
+
+**A31.** A cryptographic hash function maps:
+a) Fixed-length input to variable-length output
+b) Variable-length input to fixed-length output
+c) Fixed-length input to fixed-length output
+d) Variable-length input to variable-length output
+
+**A32.** Given a digest h, the infeasibility of finding any input x with H(x) = h is:
+a) Collision resistance
+b) Second preimage resistance
+c) Preimage resistance
+d) Avalanche
+
+**A33.** Given a specific input x, the infeasibility of finding a different x′ with the same digest is:
+a) Preimage resistance
+b) Second preimage resistance
+c) Collision resistance
+d) Diffusion
+
+**A34.** The birthday attack reduces the effective security of an n-bit digest to approximately:
+a) n bits
+b) n/2 bits
+c) n/4 bits
+d) 2n bits
+
+**A35.** SHA-3 is built on which construction?
+a) Merkle-Damgård
+b) Feistel
+c) Sponge
+d) Substitution-permutation network
+
+**A36.** Which attack specifically affects Merkle-Damgård hashes but not sponge constructions?
+a) Birthday attack
+b) Length extension attack
+c) Differential cryptanalysis
+d) Replay attack
+
+**A37.** A message authentication code differs from a plain hash because it:
+a) Produces a longer digest
+b) Uses a secret key
+c) Is reversible
+d) Is faster to compute
+
+**A38.** HMAC uses two padding constants known as:
+a) salt and pepper
+b) ipad and opad
+c) nonce and counter
+d) seed and mask
+
+**A39.** Which service can a digital signature provide that a MAC cannot?
+a) Data integrity
+b) Authentication
+c) Non-repudiation
+d) Confidentiality
+
+**A40.** In producing a digital signature, the message is normally hashed first because:
+a) It encrypts the message
+b) It fixes the input size and improves efficiency
+c) It provides confidentiality
+d) It is required by law
+
 ---
 
-## SECTION B — FILL IN THE BLANKS (30 marks, 1 mark each)
+## SECTION B — FILL IN THE BLANKS (40 marks, 1 mark each)
 
 **B1.** The three core objectives of computer security, known as the CIA triad, are ______________, ______________, and ______________.
 
@@ -254,9 +318,31 @@ d) The birthday problem
 
 **B30.** The hard problem underlying elliptic curve cryptography is called the ______________.
 
+### Chapters 11–13
+
+**B31.** A cryptographic hash function takes ______________-length input and produces ______________-length output.
+
+**B32.** The three required security properties of a cryptographic hash function are ______________, ______________ and ______________.
+
+**B33.** The attack exploiting the probability of collisions rather than exhaustive search is the ______________ attack.
+
+**B34.** For an n-bit digest, that attack reduces effective collision security to approximately ______________ bits.
+
+**B35.** SHA-1 and SHA-2 use the ______________ construction, while SHA-3 uses the ______________ construction.
+
+**B36.** The attack that affects the first of those constructions but not the second is the ______________ attack.
+
+**B37.** A keyed hash used to provide message authentication is called a ______________.
+
+**B38.** The standard nested construction for building one from a hash function is ______________, and its two padding constants are ______________ and ______________.
+
+**B39.** A MAC provides ______________ and ______________, but cannot provide ______________.
+
+**B40.** A digital signature is produced using the sender's ______________ key and verified using the sender's ______________ key.
+
 ---
 
-## SECTION C — SHORT ANSWER (40 marks)
+## SECTION C — SHORT ANSWER (50 marks)
 
 Answer in 2–4 sentences each unless stated otherwise.
 
@@ -301,6 +387,22 @@ Answer in 2–4 sentences each unless stated otherwise.
 **C20.** (3 marks) Describe the man-in-the-middle attack on plain Diffie-Hellman and explain what property of the protocol makes it possible.
 
 **C21.** (3 marks) State the main practical advantage of elliptic curve cryptography over RSA, with an example of comparable key sizes.
+
+### Chapters 11–13
+
+**C22.** (4 marks) Define the three security properties required of a cryptographic hash function and give one practical application that depends on each.
+
+**C23.** (3 marks) Explain the birthday attack and why collision resistance is the weakest of the three hash properties.
+
+**C24.** (3 marks) List four applications of cryptographic hash functions.
+
+**C25.** (3 marks) Distinguish between the Merkle-Damgård and sponge constructions, and name one attack the second resists.
+
+**C26.** (4 marks) Explain why a plain hash alone cannot provide message authentication over an insecure channel, and how a MAC solves this.
+
+**C27.** (3 marks) Describe the structure of HMAC at a high level and state why it nests the hash function rather than simply appending the key.
+
+**C28.** (4 marks) Explain why a MAC cannot provide non-repudiation while a digital signature can, referencing the key structure of each.
 
 ---
 

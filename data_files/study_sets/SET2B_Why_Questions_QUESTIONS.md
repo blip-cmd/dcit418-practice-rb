@@ -1,10 +1,12 @@
 # DCIT418 MOCK — SET 2B
 ## The "Why" Paper: Design Rationale & Justification
-**Chapters 1–10 | Time limit: 60 minutes | Closed book**
+**Chapters 1–13 | Time limit: 75 minutes | Closed book**
 
 Every question here asks **why** something is done the way it is. Naming the fact earns nothing; the marks are in the justification. If your answer could be written by someone who had memorised a glossary but never understood the design, it is not a full answer.
 
-Answer all questions. 5 marks each, 100 marks total.
+Answer all questions. 5 marks each, 250 marks total.
+
+Part 5B covers Chapters 11–13. Skip it until those blocks have been taught.
 
 ---
 
@@ -97,6 +99,34 @@ Answer all questions. 5 marks each, 100 marks total.
 **35.** Why is public-key cryptography not simply used for everything, given that it solves the key distribution problem that symmetric cryptography suffers from?
 
 **36.** Why does ECC achieve equivalent security to RSA at a fraction of the key size? Point to the difference in the underlying hard problem.
+
+---
+
+## PART 5B — HASHES, MACS AND SIGNATURES
+
+**36a.** Why must a hash function's output be fixed-length when its input is not? What would be lost if the digest grew with the message?
+
+**36b.** Why is collision resistance considered the weakest of the three hash security properties, when it sounds like the strongest requirement?
+
+**36c.** Why must a digest be roughly twice as long as the security level you want against collisions?
+
+**36d.** Why did SHA-1 have to be retired even though no practical preimage attack against it was ever demonstrated?
+
+**36e.** Why does SHA-3 use a sponge construction rather than continuing with Merkle-Damgård, when SHA-2 remains unbroken?
+
+**36f.** Why is a hash sent alongside a message insufficient to detect deliberate tampering, when it reliably detects accidental corruption?
+
+**36g.** Why does HMAC nest the hash function with two padding constants rather than simply computing H(key ‖ message)?
+
+**36h.** Why can a MAC not provide non-repudiation, when it clearly proves the message came from someone holding the key?
+
+**36i.** Why is a message hashed before it is signed, rather than signing the message directly?
+
+**36j.** Why does the security of a digital signature depend on the collision resistance of the hash used, and not merely on the strength of the signing algorithm?
+
+**36k.** Why are password files stored as hashes rather than encrypted, given that encryption would allow legitimate recovery?
+
+**36l.** Why is a fast hash function such as SHA-256 a poor choice for storing passwords, despite being an excellent choice for verifying file integrity?
 
 ---
 

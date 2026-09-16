@@ -39,6 +39,16 @@
 | A28 | b | a^(p−1) ≡ 1 (mod p). |
 | A29 | b | Factoring large integers. |
 | A30 | b | Discrete logarithm problem. |
+| A31 | b | Variable in, fixed out. |
+| A32 | c | Preimage resistance — the one-way property. |
+| A33 | b | Second preimage: the first input is fixed and given. |
+| A34 | b | n/2, by the birthday bound. |
+| A35 | c | Sponge (Keccak). |
+| A36 | b | Length extension — a known weakness of Merkle-Damgård. |
+| A37 | b | A secret key. |
+| A38 | b | ipad and opad. |
+| A39 | c | Non-repudiation. |
+| A40 | b | Fixes input size, and signing a short digest is far cheaper than signing a long message. |
 
 ---
 
@@ -108,6 +118,28 @@
 
 **B30.** Elliptic Curve Discrete Logarithm Problem (ECDLP)
 
+### Chapters 11–13
+
+**B31.** variable; fixed
+
+**B32.** Preimage resistance; second preimage resistance; collision resistance
+
+**B33.** birthday
+
+**B34.** n/2
+
+**B35.** Merkle-Damgård; sponge
+
+**B36.** length extension
+
+**B37.** MAC (message authentication code)
+
+**B38.** HMAC; ipad; opad
+
+**B39.** integrity; authentication; non-repudiation
+
+**B40.** private; public
+
 ---
 
 ## SECTION C — SHORT ANSWER
@@ -159,6 +191,22 @@ Public key = (e, n); private key = (d, n).
 **C20.** An attacker intercepts the exchange and conducts a separate Diffie-Hellman exchange with each party, substituting their own public value in each direction. Alice ends up sharing a key with the attacker believing it is Bob, and Bob does the same, letting the attacker decrypt, read, and re-encrypt all traffic. It is possible because plain Diffie-Hellman provides **no authentication** — nothing binds a public value to a verified identity.
 
 **C21.** ECC achieves equivalent security to RSA with substantially smaller key sizes — for example a 256-bit ECC key offers security comparable to a 3072-bit RSA key. This means faster computation, lower storage, and less bandwidth, which is why ECC is preferred in mobile and constrained environments.
+
+### Chapters 11–13
+
+**C22.** **Preimage resistance**: given a digest h, it is infeasible to find any input x with H(x) = h. Application: stored password hashes, where an attacker who steals the file must not be able to recover the passwords. **Second preimage resistance**: given a specific input x, it is infeasible to find a different x′ with the same digest. Application: file integrity checking, where an attacker must not be able to substitute a different file with a matching checksum. **Collision resistance**: it is infeasible to find any two distinct inputs with the same digest. Application: digital signatures, where a signer must not be able to sign one document and later claim to have signed another.
+
+**C23.** The birthday attack exploits the fact that finding *any* colliding pair is far easier than matching a *specific* target, because the number of possible pairs grows quadratically with the number of inputs tried. For an n-bit digest, a collision is expected after roughly 2^(n/2) attempts rather than 2^n, so effective security is halved. Collision resistance is the weakest of the three properties precisely because the attacker chooses both inputs freely, whereas preimage and second preimage resistance fix the target in advance. This is why digest lengths must be roughly double the intended security level, and why 128-bit digests are no longer acceptable.
+
+**C24.** Any four of: verifying message and file integrity; constructing digital signatures; building message authentication codes such as HMAC; one-way password file storage; intrusion detection and virus detection through file fingerprinting; use as a pseudorandom function or in PRNG construction.
+
+**C25.** **Merkle-Damgård** iterates a compression function over the padded message block by block, carrying a chaining value forward, with the final chaining value as the digest — used by MD5, SHA-1 and SHA-2. **Sponge** absorbs the input into a large internal state, then squeezes output from that state — used by SHA-3/Keccak. The sponge resists the **length extension attack**, in which an attacker knowing H(m) and the length of m can compute H(m ‖ padding ‖ extension) without knowing m, because the Merkle-Damgård digest *is* the internal chaining state. A sponge's state is larger than its output, so the digest does not reveal the full state.
+
+**C26.** A plain hash is unkeyed, so anyone can compute it — including an attacker who intercepts the message. They simply alter the message, recompute the digest, and forward both; the receiver's verification succeeds and the tampering is invisible. A hash therefore detects accidental corruption but not deliberate modification. A MAC solves this by incorporating a **secret key** into the computation, so only holders of that key can produce a valid tag. An attacker without the key cannot generate a matching tag for their altered message, which gives authentication as well as integrity.
+
+**C27.** HMAC computes H((K ⊕ opad) ‖ H((K ⊕ ipad) ‖ message)) — the key is XORed with two distinct padding constants and the hash function is applied twice, with the inner result fed into the outer computation. It nests rather than simply appending the key because the naive construction H(K ‖ message) is vulnerable to the **length extension attack** on Merkle-Damgård hashes: an attacker can append data and compute a valid tag without knowing K. The outer hash conceals the inner chaining state, closing that route. A further benefit is that HMAC treats the hash as a black box, so it can be built on any hash function without modification.
+
+**C28.** A MAC uses a **single shared secret key** held by both parties, so either of them could have produced any valid tag. If the sender later denies authorship, the receiver cannot prove otherwise, since the receiver was equally capable of generating the tag — a third party has no basis to decide between them. A digital signature uses an **asymmetric key pair**: the signature is produced with the signer's private key, which only the signer holds, and verified with the corresponding public key, which anyone holds. Since no one else could have produced the signature, the signer cannot credibly deny it, and a third party can verify this independently. The asymmetry of key possession is what makes non-repudiation possible.
 
 ---
 

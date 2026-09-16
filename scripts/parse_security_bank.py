@@ -48,7 +48,7 @@ CHAPTER_KEYWORDS: list[tuple[int, list[str]]] = [
         "universal forgery", "total break",
     ]),
     (12, [
-        "message authentication code", "mac ", " mac", "hmac", "cmac",
+        "message authentication code", " mac ", "hmac", "cmac",
         "ipad", "opad", "authenticated encryption", "ccm mode", "gcm mode",
         "galois/counter", "cipher-based mac", "daa", "key wrapping",
         "data authentication algorithm",
@@ -66,7 +66,7 @@ CHAPTER_KEYWORDS: list[tuple[int, list[str]]] = [
         "point at infinity", "chord-and-tangent", "koblitz",
     ]),
     (9, [
-        "rsa", "trapdoor", "oaep", "public-key cryptosystem", "public key cryptosystem",
+        " rsa ", "trapdoor", "oaep", "public-key cryptosystem", "public key cryptosystem",
         "adleman", "rivest", "shamir", "timing attack", "square-and-multiply",
         "square and multiply", "hamming weight", "chosen-ciphertext",
     ]),
@@ -80,7 +80,7 @@ CHAPTER_KEYWORDS: list[tuple[int, list[str]]] = [
     (7, [
         "pseudorandom number generat", "prng", "trng", "csprng",
         "linear congruential generator", "lcg", "blum blum shub", "bbs generator",
-        "keystream", "rc4", "key scheduling algorithm", "ksa ",
+        "keystream", "rc4", "key scheduling algorithm", " ksa ",
         "pseudo-random generation algorithm", "prga", "stream cipher",
         "true random number generator", "forward unpredictab", "backward unpredictab",
         "seed",
@@ -94,19 +94,19 @@ CHAPTER_KEYWORDS: list[tuple[int, list[str]]] = [
         "encrypt-decrypt-encrypt",
     ]),
     (5, [
-        "aes", "rijndael", "subbytes", "shiftrows", "mixcolumns", "addroundkey",
+        " aes ", "rijndael", "subbytes", "shiftrows", "mixcolumns", "addroundkey",
         "state array", "key expansion", "rotword", "round constant", "rcon",
         "advanced encryption standard",
     ]),
     (4, [
         "euclidean algorithm", "gcd(", "greatest common divisor", "modular arithmetic",
         "galois field", "finite field", "gf(2", "gf(p", "irreducible polynomial",
-        "abelian", "relatively prime", "coprime", "ring", "integral domain",
+        "abelian", "relatively prime", "coprime", " ring ", "integral domain",
         "polynomial arithmetic",
     ]),
     (3, [
-        "feistel", "data encryption standard", "des ", "s-box", "sbox",
-        "avalanche effect", "strict avalanche criterion", "sac ",
+        "feistel", "data encryption standard", " des ", "s-box", "sbox",
+        "avalanche effect", "strict avalanche criterion", " sac ",
         "diffusion", "confusion", "expansion permutation", "block cipher design",
         "substitution-permutation network", "spn",
     ]),
@@ -132,13 +132,13 @@ CHAPTER_KEYWORDS: list[tuple[int, list[str]]] = [
 PART0_KEYWORDS = [
     "it security policy framework", "infrastructure domain", "7 domains",
     "seven domains", "security policy framework", "data classification",
-    "sarbanes-oxley", "gramm-leach-bliley", "glba", "sox ", "hipaa",
-    "service-level agreement", "sla ", "workstation domain", "lan domain",
+    "sarbanes-oxley", "gramm-leach-bliley", "glba", " sox ", "hipaa",
+    "service-level agreement", " sla ", "workstation domain", "lan domain",
     "wan domain", "remote access domain", "system/application domain",
     "user domain", "lan-to-wan", "mean time to failure", "mttf",
-    "intrusion prevention system", "ips ", "standard (mandatory technical",
+    "intrusion prevention system", " ips ", "standard (mandatory technical",
     "guideline", "procedure (step-by-step", "policy framework",
-    "internet of things", "iot ", "mobile ip", "byod", "smart cit",
+    "internet of things", " iot ", "mobile ip", "byod", "smart cit",
     "data sovereignty", "privacy impact assessment", "dpia",
     "personally identifiable information", "anonymiz", "pseudonymiz",
     "data protection officer", "data residency", "cross-border data",
@@ -155,16 +155,28 @@ def normalize_text(text: str) -> str:
     return text
 
 
+def normalize_keyword(kw: str) -> str:
+    """Like normalize_text, but preserves a leading/trailing space that a
+    keyword author added as a word-boundary marker (e.g. "des " so it matches
+    the standalone word "DES" rather than the "des" inside "modes"). Piping a
+    boundary-marked keyword through normalize_text() strips exactly that
+    space, silently turning it back into an unguarded substring search."""
+    leading = kw[:1] == " "
+    trailing = kw[-1:] == " "
+    core = normalize_text(kw)
+    return f"{' ' if leading else ''}{core}{' ' if trailing else ''}"
+
+
 def classify_part(body: str, reason: str) -> int:
     haystack = normalize_text(f"{body} {reason}")
     padded = f" {haystack} "
     for _part, keywords in ((0, PART0_KEYWORDS),):
         for kw in keywords:
-            if normalize_text(kw) in padded:
+            if normalize_keyword(kw) in padded:
                 return 0
     for part, keywords in CHAPTER_KEYWORDS:
         for kw in keywords:
-            if normalize_text(kw) in padded:
+            if normalize_keyword(kw) in padded:
                 return part
     return 1
 
@@ -373,6 +385,53 @@ def report(records: list[dict]) -> str:
     for source, count in source_counts.most_common():
         lines.append(f"| {source} | {count} |")
 
+    sources = sorted(source_counts)
+    lines += [
+        "",
+        "## Coverage by Source and Part",
+        "",
+        "| Part | Title | " + " | ".join(sources) + " | Total |",
+        "|---|---|" + "---:|" * (len(sources) + 1),
+    ]
+    for part in parts:
+        subset = [q for q in records if q["part"] == part]
+        by_source = collections.Counter(q["batch"] for q in subset)
+        title = PART_TITLES.get(part, f"Part {part}")
+        lines.append(
+            f"| {part} | {title} | "
+            + " | ".join(str(by_source.get(s, 0)) for s in sources)
+            + f" | {len(subset)} |"
+        )
+
+    return "\n".join(lines) + "\n"
+
+
+def chapter_map(records: list[dict], batch: str) -> str:
+    """A per-question audit trail: which chapter each question in `batch` was
+    classified into, so the mapping can be spot-checked against the textbook's
+    chapter headings instead of trusted blindly."""
+    subset = [q for q in records if q["batch"] == batch]
+    parts = sorted(set(q["part"] for q in subset))
+    lines = [
+        f"# {batch}: question-to-chapter mapping",
+        "",
+        f"{len(subset)} questions from `{batch}`, grouped by the chapter part they were classified into.",
+        "Cross-check against `data_files/ChapterHeadings - STUDY OUTLINE.md`.",
+        "",
+    ]
+    for part in parts:
+        title = PART_TITLES.get(part, f"Part {part}")
+        rows = sorted(
+            (q for q in subset if q["part"] == part), key=lambda q: q["id"]
+        )
+        lines.append(f"## Part {part}: {title} ({len(rows)} questions)")
+        lines.append("")
+        for q in rows:
+            excerpt = q["bodyMarkdown"].strip().replace("\n", " ")
+            if len(excerpt) > 100:
+                excerpt = excerpt[:97] + "..."
+            lines.append(f"- `{q['id']}` [{q['type']}] {excerpt}")
+        lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -423,6 +482,12 @@ def main() -> None:
     report_path = Path("PARSER_REPORT.md")
     report_path.write_text(summary, encoding="utf-8")
     print(f"Wrote report to {report_path}")
+
+    for batch, out_name in [("iabank", "IA_BANK_CHAPTER_MAP.md"), ("quizbank", "QUIZ_BANK_CHAPTER_MAP.md")]:
+        if any(q["batch"] == batch for q in final):
+            out_path = Path(out_name)
+            out_path.write_text(chapter_map(final, batch), encoding="utf-8")
+            print(f"Wrote {batch} chapter map to {out_path}")
 
 
 if __name__ == "__main__":

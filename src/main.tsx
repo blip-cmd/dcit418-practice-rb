@@ -38,6 +38,8 @@ import type {
 import "./style.css";
 import { MockHistory } from "./MockHistory";
 import { Reader } from "./Reader";
+import set9Paper from "../data_files/study_sets/SET9_Timed_Sakai_Simulation.md?raw";
+import set9Key from "../data_files/study_sets/SET9_Timed_Sakai_Simulation_ANSWER_KEY.md?raw";
 
 const titles = [
   "Data Protection & IT Security Policy",
@@ -296,6 +298,39 @@ function App() {
     "markdown",
   );
   const [readingIds, setReadingIds] = useState(bank.map((q) => q.id));
+  const [set9View, setSet9View] = useState<null | "paper" | "key">(null);
+  const [set9OpenedAt, setSet9OpenedAt] = useState(() => {
+    try {
+      return localStorage.getItem("dcit418-set9-opened");
+    } catch {
+      return null;
+    }
+  });
+  function openSet9Paper() {
+    const warning = set9OpenedAt
+      ? `You already opened Set 9 on ${new Date(set9OpenedAt).toLocaleDateString()}. Its value comes entirely from being the first time you see it — retaking it won't tell you anything new. Open it again anyway?`
+      : "Set 9 is the timed 60-minute simulation across all 13 chapters — the true mock for this course. Do this ONCE, and do it last, after everything else. Phone away, timer running, no notes, no scrolling back. Continue?";
+    if (!window.confirm(warning)) return;
+    if (!set9OpenedAt) {
+      const now = new Date().toISOString();
+      try {
+        localStorage.setItem("dcit418-set9-opened", now);
+      } catch {
+        /* Still let them take it without the persisted flag. */
+      }
+      setSet9OpenedAt(now);
+    }
+    setSet9View("paper");
+  }
+  function openSet9Key() {
+    if (
+      !window.confirm(
+        "Only open the answer key after you've stopped the timer and finished the paper honestly. Continue?",
+      )
+    )
+      return;
+    setSet9View("key");
+  }
   const sourceSelected = (q: Question) =>
     selectedSources.includes(q.batch) ||
     (!!q.setName && !sourceBanks.some((source) => source.id === q.batch));
@@ -849,7 +884,28 @@ function App() {
             </button>
           </div>
         )}
-        {view === "read" ? (
+        {set9View ? (
+          <section className="setup-card">
+            <div className="session-title">
+              <h1>
+                {set9View === "paper"
+                  ? "Set 9 — Timed Sakai Simulation"
+                  : "Set 9 — Answer Key"}
+              </h1>
+              <button className="secondary" onClick={() => setSet9View(null)}>
+                Close
+              </button>
+            </div>
+            <div className="markdown">
+              {md(set9View === "paper" ? set9Paper : set9Key)}
+            </div>
+            {set9View === "paper" && (
+              <button className="primary" onClick={openSet9Key}>
+                I've finished — reveal answer key
+              </button>
+            )}
+          </section>
+        ) : view === "read" ? (
           <Reader ids={readingIds} onSeen={markRead} />
         ) : active ? (
           active.submitted && active.mode === "mock" ? (
@@ -1537,6 +1593,30 @@ function App() {
                     questions before submitting. Explanations appear only after
                     the whole paper is submitted.
                   </p>
+                  <div className="set9-panel">
+                    <h3>
+                      The one you save for last
+                      {set9OpenedAt && (
+                        <span className="flag">
+                          Opened {new Date(set9OpenedAt).toLocaleDateString()}
+                        </span>
+                      )}
+                    </h3>
+                    <p>
+                      Set 9 is a fixed 60-minute, 100-mark paper across all 13
+                      chapters — 30 MCQ, 8 fill-ins, 7 essay questions. Do it
+                      ONCE, and do it last, after everything else. Pen and
+                      paper, timer running, no notes.
+                    </p>
+                    <div className="fill-in-actions">
+                      <button className="secondary-action" onClick={openSet9Paper}>
+                        Open Set 9 paper
+                      </button>
+                      <button className="secondary-action" onClick={openSet9Key}>
+                        Reveal answer key
+                      </button>
+                    </div>
+                  </div>
                 </>
               ) : (
                 <>

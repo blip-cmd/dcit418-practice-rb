@@ -796,12 +796,25 @@ summary span {
 /* Fill-in drills are a separate mode, so they get their own panel rather than
    sharing the main action row - two "start" buttons side by side read as
    competing choices for the same thing. */
-.drill-panel {
+.drill-panel,
+.set9-panel {
   margin-top: 22px;
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg);
+}
+.set9-panel h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.set9-panel p {
+  font-size: 11px;
+  margin: 0 0 14px;
 }
 .drill-panel h3 {
   margin: 0 0 14px;

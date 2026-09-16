@@ -250,7 +250,7 @@ test("reading shows answers immediately, navigates with arrows and records no at
   const firstId = practiceBank[0].id;
   const secondId = practiceBank[1].id;
   await expect(page.locator(".feedback")).toContainText(
-    byId.get(firstId)!.reason.replace(/\*\*/g, ""),
+    byId.get(firstId)!.reason.replace(/\*+/g, ""),
   );
   await expect(page.getByRole("button", { name: "Previous" })).toBeDisabled();
   await page.keyboard.press("ArrowRight");
