@@ -21,12 +21,12 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Question bank and study modes
 
-The checked-in bank currently contains 524 questions: 366 from the consolidated quizzes and 158 from the offsite IA. It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
+The checked-in bank currently contains 799 questions: 366 from the consolidated quizzes, 158 from the offsite IA, 100 from SET5 (fill-ins), 95 from SET4 (MCQ drill, 5 fewer after deduplication), 77 from Desmond's comprehensive exam review, and 3 from Christian's comprehensive exam review (97 of his 100 were duplicates of existing questions). It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
 
 - Practice: filter parts, source banks, question types and difficulty; optionally use only unseen questions.
 - Read with answers: navigate questions and explanations without recording scored attempts.
 - Fill-in drill: practise the security bank's fill-in questions. No supplemental sets are currently bundled.
-- Mock: up to 15 questions per part (203 with the current bank, since Part 2 has only 8 source questions), with a 60-minute deadline. Unseen questions are prioritised; previously seen questions fill remaining places. Answers appear after submission.
+- Mock: 4 guaranteed questions per part plus 4 random, 60 questions total, with a 60-minute deadline. Unseen questions are prioritised; previously seen questions fill remaining places. Answers appear after submission.
 - Review and progress: revisit mistakes and inspect accuracy and timing.
 
 Options shuffle while preserving the correct answer's identity. Multi-answer questions require all correct choices. Fill-ins support accepted alternatives and a manual correctness override.
@@ -48,12 +48,18 @@ npm run build:bank
 This runs `scripts/parse_security_bank.py` against:
 - `data_files/quiz_bank/quiz_clean.md`
 - `data_files/ia_bank/ia_clean.md`
+- `data_files/study_sets/SET4_clean.md`
+- `data_files/study_sets/SET5_clean.md`
+- `data_files/ia_bank/chris_clean.md`
+- `data_files/ia_bank/desmond_clean.md`
 
 It rewrites `questions.json` and `PARSER_REPORT.md`. Review those changes, then rebuild. Parsing checks structure; it does not independently verify the academic correctness of every source answer.
 
-Both `*_clean.md` files are metadata-stripped copies of the originals, produced so the parser and app read plain question/answer/explanation content without the provider attribution, checklists, and question-frequency/coverage tables the source documents carry. The originals are kept alongside them: `data_files/ia_bank/dcit418_ia_offsite.md` (158-question IA bank) and `data_files/quiz_bank/quiz.md` / `quiz_bank.md` (identical copies of the 366-question consolidated quiz bank, Quizzes 1-5).
+All six `*_clean.md` files are metadata-stripped copies of the originals, produced so the parser reads plain question/answer/explanation content without attribution or checklists. The originals are kept alongside them: `data_files/ia_bank/dcit418_ia_offsite.md` (158-question IA bank), `data_files/quiz_bank/quiz.md` (366-question quiz bank), `data_files/study_sets/SET4_MCQ_Drill_QUESTIONS.md` + `SET4_MCQ_Drill_ANSWER_KEY.md`, `data_files/study_sets/SET5_FillIns_QUESTIONS.md` + `SET5_FillIns_ANSWER_KEY.md`, `data_files/received qus/Chris/IA.md` (100-question Christian's exam review), and `data_files/received qus/desmond_dcit418_ia.md` (Desmond's exam review, 78 recoverable questions, one lost to a PDF extraction gap). Human-readable review copies with the same content live at `data_files/ia_bank/CHRIS_IA_FORMATTED.md` and `data_files/ia_bank/DESMOND_IA_FORMATTED.md`.
 
-`data_files/study_sets/` (mock exam papers and answer keys, e.g. `SET1_ANSWER_KEY.md`) is not yet parsed into the question bank: TODO for a future pass. The exception is Set 9, the timed 60-minute simulation, which the app surfaces directly from the Mock exam screen as a one-time paper with its own warning, not through the interactive question bank.
+`data_files/study_sets/` contains exam papers and answer keys (e.g. `SET1_ANSWER_KEY.md`), most not yet parsed into the question bank: TODO for a future pass. **SET4 (MCQ Drill)** and **SET5 (Fill-ins)** are now parsed and included. The exception is Set 9, the timed 60-minute simulation, which the app surfaces directly from the Mock exam screen as a one-time paper with its own warning, not through the interactive question bank.
+
+`data_files/received qus/Chris/IA.md` is **Christian's comprehensive exam review** and `data_files/received qus/desmond_dcit418_ia.md` is **Desmond's comprehensive exam review** (both parsed and included as dedicated banks). Chris's Quiz 1-5 files and Emma's files under `received qus/` are not yet parsed; they remain as reference/comparison material.
 
 The former management parser is disabled. Deployment uses the checked-in JSON and needs neither Python nor files outside this repository.
 

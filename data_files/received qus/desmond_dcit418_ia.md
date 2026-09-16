@@ -1,6 +1,6 @@
 desmond_dcit418_ia.md
 
-TODO: format this md well.then add to ia_offiste.md with necessary analysis, before outputting the clean md and loading into app. 
+DONE: formatted and analyzed at data_files/ia_bank/DESMOND_IA_FORMATTED.md (human-readable review copy with original explanations) and data_files/ia_bank/desmond_clean.md (parser input, batch "desmond"). 77 of the 78 recoverable questions were loaded into the app; one question's stem and options were lost entirely to a PDF extraction gap and were dropped rather than reconstructed from a guess. This raw file is kept as the unedited source of record.
 
 DCIT418 AI 
 1. What distinguishes a symmetric cipher from an asymmetric cipher?  

@@ -1,6 +1,12 @@
 # DCIT418 — Revision Pack
 ## How to use these files
 
+## TODO: Update study sets for the new exam format
+
+- [ ] Update the study sets, especially the SET3 and SET9 exam papers, their answer keys, and this study plan, to match the new format: **50 multiple-choice questions (MCQs), 10 fill-in questions, and 2 practical questions**. Include applied security scenarios such as how ATMs store and verify passwords/PINs. Reconcile the existing section instructions and question counts with this format.
+
+The existing papers below still use the previous format until this task is completed.
+
 **Exam format:** 60 minutes on Sakai. MCQs, fill-ins, essay. Chapters 1–13. No calculation questions, though simple worked examples remain because they build understanding one could be asked to explain in words.
 
 ---

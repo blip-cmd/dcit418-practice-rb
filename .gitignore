@@ -4,3 +4,4 @@ node_modules/
 dist/
 test-results/
 playwright-report/
+data_files/study_sets/rb.txt

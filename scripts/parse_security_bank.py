@@ -1,11 +1,18 @@
 """Parse DCIT 418 Systems and Network Security question banks into questions.json.
 
-Reads the consolidated quiz bank and the IA offsite bank from data_files/:
-  1. data_files/quiz_bank/quiz_clean.md (379 questions, Quiz 1-5 consolidated, <details> answer
+Reads every clean source bank from data_files/:
+  1. data_files/quiz_bank/quiz_clean.md (Quiz 1-5 consolidated, <details> answer
      blocks; originals with provider/coverage metadata kept at data_files/quiz_bank/quiz.md and
      quiz_bank.md)
-  2. data_files/ia_bank/ia_clean.md (158 questions, Sakai Offsite IA; original with
+  2. data_files/ia_bank/ia_clean.md (Sakai Offsite IA; original with
      provider/coverage metadata kept at data_files/ia_bank/dcit418_ia_offsite.md)
+  3. data_files/study_sets/SET4_clean.md (SET4 MCQ Drill)
+  4. data_files/study_sets/SET5_clean.md (SET5 Fill-ins)
+  5. data_files/ia_bank/chris_clean.md (Christian's comprehensive exam review)
+  6. data_files/ia_bank/desmond_clean.md (Desmond's comprehensive exam review)
+
+Every source is deduplicated together, so a later source only contributes
+questions whose body text does not already match one already in the bank.
 
 Classifies each question into one of 14 course parts (Part 0: Data Protection &
 IT Security Policy, covering the two guest lectures from the Data Protection
@@ -311,7 +318,7 @@ def parse_bank(filepath: Path, batch: str) -> list[dict]:
     return questions
 
 
-SOURCE_PRIORITY = {"iabank": 2, "quizbank": 1}
+SOURCE_PRIORITY = {"chris": 1, "desmond": 1, "set4": 0, "set5": 0, "iabank": 2, "quizbank": 1}
 
 
 def deduplicate(questions: list[dict]) -> list[dict]:
@@ -463,6 +470,30 @@ def main() -> None:
         all_questions.extend(qs)
     else:
         print(f"  WARNING: {ia_path} not found", file=sys.stderr)
+
+    set4_path = data / "study_sets" / "SET4_clean.md"
+    if set4_path.exists():
+        qs = parse_bank(set4_path, "set4")
+        print(f"  SET4 MCQ Drill: {len(qs)} questions parsed")
+        all_questions.extend(qs)
+
+    set5_path = data / "study_sets" / "SET5_clean.md"
+    if set5_path.exists():
+        qs = parse_bank(set5_path, "set5")
+        print(f"  SET5 Fill-ins: {len(qs)} questions parsed")
+        all_questions.extend(qs)
+
+    chris_path = data / "ia_bank" / "chris_clean.md"
+    if chris_path.exists():
+        qs = parse_bank(chris_path, "chris")
+        print(f"  Christian's IA Review: {len(qs)} questions parsed")
+        all_questions.extend(qs)
+
+    desmond_path = data / "ia_bank" / "desmond_clean.md"
+    if desmond_path.exists():
+        qs = parse_bank(desmond_path, "desmond")
+        print(f"  Desmond's IA Review: {len(qs)} questions parsed")
+        all_questions.extend(qs)
 
     print(f"\nTotal raw questions: {len(all_questions)}")
 

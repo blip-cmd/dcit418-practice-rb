@@ -68,6 +68,26 @@ const sourceBanks = [
     label: "IA Offsite bank",
     file: "data_files/ia_bank/ia_clean.md",
   },
+  {
+    id: "set4",
+    label: "SET4 MCQ Drill",
+    file: "data_files/study_sets/SET4_clean.md",
+  },
+  {
+    id: "set5",
+    label: "SET5 Fill-ins",
+    file: "data_files/study_sets/SET5_clean.md",
+  },
+  {
+    id: "chris",
+    label: "Christian's Exam Review",
+    file: "data_files/ia_bank/chris_clean.md",
+  },
+  {
+    id: "desmond",
+    label: "Desmond's Exam Review",
+    file: "data_files/ia_bank/desmond_clean.md",
+  },
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
   new Set(items.map(questionKey)).size;
