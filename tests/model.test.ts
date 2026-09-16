@@ -12,23 +12,24 @@ import {
   median,
   mockIds,
   mockQuota,
+  mockTotalTarget,
   parseProgress,
   reviewIds,
   submitMock,
 } from "../src/model";
 
-const MOCK_TOTAL = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
+const MOCK_TOTAL = mockTotalTarget();
 
 describe("exam integrity", () => {
-  it(`draws ${MOCK_TOTAL} unique unseen questions, exactly each part's quota`, () => {
+  it(`draws ${MOCK_TOTAL} unique unseen questions, at least each part's quota`, () => {
     const seen = bank.slice(0, 30).map((q) => q.id);
     const ids = mockIds(seen);
     expect(new Set(ids).size).toBe(MOCK_TOTAL);
     expect(ids.some((id) => seen.includes(id))).toBe(false);
     for (const p of COURSE_PARTS)
-      expect(ids.filter((id) => byId.get(id)!.part === p)).toHaveLength(
-        mockQuota(p),
-      );
+      expect(
+        ids.filter((id) => byId.get(id)!.part === p).length,
+      ).toBeGreaterThanOrEqual(mockQuota(p));
   });
   it("reuses questions in depleted parts without duplicates, even when all are seen", () => {
     for (const seen of [
@@ -38,9 +39,9 @@ describe("exam integrity", () => {
       const ids = mockIds(seen);
       expect(new Set(ids).size).toBe(MOCK_TOTAL);
       for (const part of COURSE_PARTS)
-        expect(ids.filter((id) => byId.get(id)!.part === part)).toHaveLength(
-          mockQuota(part),
-        );
+        expect(
+          ids.filter((id) => byId.get(id)!.part === part).length,
+        ).toBeGreaterThanOrEqual(mockQuota(part));
     }
   });
   it("uses every remaining unseen question before filling a partial part", () => {
@@ -82,7 +83,9 @@ describe("exam integrity", () => {
   });
   it(`submits all ${MOCK_TOTAL} once, including blanks, and excludes the revealed paper from future mocks`, () => {
     const s = createSession("mock", mockIds([]), 1000);
-    const q = byId.get(s.ids[0])!;
+    const q = s.ids.map((id) => byId.get(id)!).find(
+      (x) => x.type === "mcq4" || x.type === "mcq5",
+    )!;
     s.drafts[q.id] = {
       selected: q.correctIndex,
       answer: q.correctText,

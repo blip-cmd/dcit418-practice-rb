@@ -14,7 +14,10 @@ import {
   makeAttempt,
   median,
   mockIds,
+  MOCK_PER_PART,
+  MOCK_RANDOM_EXTRA,
   mockQuota,
+  mockTotalTarget,
   parseProgress,
   reviewIds,
   shuffle,
@@ -66,7 +69,7 @@ const sourceBanks = [
 ] as const;
 const uniqueQuestionCount = (items: Question[]) =>
   new Set(items.map(questionKey)).size;
-const mockTotal = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
+const mockTotal = mockTotalTarget();
 const md = (text: string) => (
   <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
 );
@@ -83,6 +86,97 @@ function download(name: string, text: string, type: string) {
   a.download = name;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+const deckAnswer = (q: Question) =>
+  q.correctIndex === null ? q.correctText : displayOption(q, q.correctIndex);
+function buildDeckMarkdown(questions: Question[]): string {
+  const labels = "ABCDE";
+  const lines = [
+    "# DCIT 418: Systems and Network Security — Exported Question Deck",
+    "",
+    `${questions.length} questions, exported ${new Date().toLocaleDateString()}.`,
+    "",
+    "---",
+    "",
+  ];
+  questions.forEach((q, i) => {
+    lines.push(`### ${i + 1}. ${q.bodyMarkdown}`);
+    q.options.forEach((opt, idx) => lines.push(`- ${labels[idx]}. ${opt}`));
+    lines.push("<details>", "<summary>Reveal Answer</summary>", "");
+    lines.push(`**Correct Answer:** ${deckAnswer(q)}`);
+    if (q.reason) lines.push("", `*Explanation:* ${q.reason}`);
+    lines.push("</details>", "", `*Source: ${q.sourceRef}*`, "", "---", "");
+  });
+  return lines.join("\n");
+}
+function csvCell(value: string): string {
+  return /[",\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
+}
+function buildDeckCsv(questions: Question[]): string {
+  const header = [
+    "id",
+    "part",
+    "type",
+    "question",
+    "options",
+    "correct_answer",
+    "explanation",
+    "source",
+  ];
+  const rows = questions.map((q) =>
+    [
+      q.id,
+      String(q.part),
+      q.type,
+      q.bodyMarkdown,
+      q.options.join(" | "),
+      deckAnswer(q),
+      q.reason,
+      q.sourceRef,
+    ]
+      .map(csvCell)
+      .join(","),
+  );
+  return [header.join(","), ...rows].join("\n");
+}
+function buildDeckHtml(questions: Question[], title: string): string {
+  const labels = "ABCDE";
+  const esc = (s: string) =>
+    s
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  const body = questions
+    .map((q, i) => {
+      const options = q.options.length
+        ? `<ul>${q.options
+            .map((o, idx) => `<li>${labels[idx]}. ${esc(o)}</li>`)
+            .join("")}</ul>`
+        : "";
+      return `<div class="q"><h3>${i + 1}. ${esc(q.bodyMarkdown)}</h3>${options}<p><strong>Answer:</strong> ${esc(
+        deckAnswer(q),
+      )}</p>${
+        q.reason
+          ? `<p class="reason"><strong>Explanation:</strong> ${esc(q.reason)}</p>`
+          : ""
+      }</div>`;
+    })
+    .join("\n");
+  return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>
+body{font-family:Georgia,serif;max-width:760px;margin:32px auto;padding:0 16px;color:#1c2a20;}
+h1{font-size:20px;} .q{margin-bottom:20px;page-break-inside:avoid;} h3{font-size:14px;margin-bottom:6px;}
+ul{margin:4px 0 8px 20px;padding:0;} li{margin:2px 0;} .reason{color:#445;font-size:13px;}
+@media print{body{margin:0;}}
+</style></head><body><h1>${esc(title)}</h1><p>${questions.length} questions</p><hr/>${body}</body></html>`;
+}
+function printDeckPdf(questions: Question[], title: string) {
+  const w = window.open("", "_blank");
+  if (!w) return false;
+  w.document.write(buildDeckHtml(questions, title));
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 300);
+  return true;
 }
 function load(): Progress {
   const text = localStorage.getItem(STORAGE);
@@ -140,6 +234,13 @@ function App() {
       /* Keep the picker usable without browser storage. */
     }
   }
+  // Mirrored onto <html> so the page background outside .shell - the overscroll
+  // area and any gap below short pages - uses the same palette.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.theme = theme === "custom" ? "default" : theme;
+    root.style.colorScheme = theme === "dark" ? "dark" : "light";
+  }, [theme]);
   function applyCustomAccent(hex: string) {
     setCustomAccent(hex);
     try {
@@ -191,6 +292,9 @@ function App() {
     sourceBanks.map((source) => source.id),
   );
   const [drillSet, setDrillSet] = useState("original");
+  const [exportFormat, setExportFormat] = useState<"markdown" | "csv" | "pdf">(
+    "markdown",
+  );
   const [readingIds, setReadingIds] = useState(bank.map((q) => q.id));
   const sourceSelected = (q: Question) =>
     selectedSources.includes(q.batch) ||
@@ -236,6 +340,43 @@ function App() {
     setReadingIds(ids);
     setView("read");
     setMessage("");
+  }
+  function exportCandidates(): Question[] {
+    const candidates = bank.filter(
+      (q) =>
+        sourceSelected(q) &&
+        parts.includes(q.part) &&
+        (scope === "all" || (scope === "core" ? q.isCore : !q.isCore)) &&
+        (!week || weeks(q).includes(week)) &&
+        (!level || q.level === level) &&
+        (!type || q.type === type),
+    );
+    return filterUnseen(candidates);
+  }
+  function downloadDeck() {
+    const questions = exportCandidates();
+    if (!questions.length) {
+      setMessage("No questions match your filters. Adjust and try again.");
+      return;
+    }
+    const title = "DCIT 418 Exported Question Deck";
+    if (exportFormat === "markdown") {
+      download(
+        "dcit418-deck.md",
+        buildDeckMarkdown(questions),
+        "text/markdown;charset=utf-8",
+      );
+    } else if (exportFormat === "csv") {
+      download(
+        "dcit418-deck.csv",
+        buildDeckCsv(questions),
+        "text/csv;charset=utf-8",
+      );
+    } else if (!printDeckPdf(questions, title)) {
+      setMessage("Allow pop-ups to export as PDF, then try again.");
+      return;
+    }
+    setMessage(`Deck exported: ${questions.length} questions.`);
   }
   const [now, setNow] = useState(Date.now());
   const [offline, setOffline] = useState(!navigator.onLine);
@@ -1142,7 +1283,7 @@ function App() {
                 {view === "practice"
                   ? "Choose what to work on. Every answer is a chance to understand more."
                   : view === "mock"
-                    ? `${mockTotal} questions across ${COURSE_PARTS.length} parts (up to 15 each). Unseen questions first, with previously seen questions filling any gaps.`
+                    ? `${mockTotal} questions: ${MOCK_PER_PART} guaranteed from each of ${COURSE_PARTS.length} parts, plus ${MOCK_RANDOM_EXTRA} random. Unseen questions first, with previously seen questions filling any gaps.`
                     : "Previously missed questions, ranked by miss count, then most recent miss."}
               </p>
             </div>
@@ -1158,6 +1299,20 @@ function App() {
                 <>
                   <h2>
                     01 <span>Choose your parts</span>
+                    <button
+                      className="text-button"
+                      onClick={() =>
+                        setParts(
+                          parts.length === COURSE_PARTS.length
+                            ? []
+                            : [...COURSE_PARTS],
+                        )
+                      }
+                    >
+                      {parts.length === COURSE_PARTS.length
+                        ? "Unselect all"
+                        : "Select all"}
+                    </button>
                   </h2>
                   <div className="part-grid">
                     {titles.map((title, i) => (
@@ -1305,6 +1460,35 @@ function App() {
                       ))}
                     </div>
                   </details>
+                  <h2>
+                    04 <span>Export your deck</span>
+                  </h2>
+                  <div className="segmented">
+                    {(
+                      [
+                        ["markdown", "Markdown"],
+                        ["csv", "CSV"],
+                        ["pdf", "PDF"],
+                      ] as const
+                    ).map(([v, l]) => (
+                      <button
+                        key={v}
+                        aria-pressed={exportFormat === v}
+                        className={exportFormat === v ? "chosen" : ""}
+                        onClick={() => setExportFormat(v)}
+                      >
+                        {l}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="export-note">
+                    Downloads exactly what your current filters match —{" "}
+                    {exportCandidates().length} questions — with answers and
+                    explanations included.
+                  </p>
+                  <button className="secondary" onClick={downloadDeck}>
+                    Download deck
+                  </button>
                 </>
               ) : view === "mock" ? (
                 <>
@@ -1312,7 +1496,7 @@ function App() {
                     <Stat
                       label="Questions"
                       value={String(mockTotal)}
-                      detail="Up to 15 per part"
+                      detail={`${MOCK_PER_PART} guaranteed per part, ${MOCK_RANDOM_EXTRA} random`}
                     />
                     <Stat
                       label="Time limit"
@@ -1563,20 +1747,22 @@ function MockResults({
           <small>{Math.round((correct / total) * 100)}% accuracy</small>
         </div>
         <div className="part-scores">
-          {titles.map((title, i) => (
-            <div key={title}>
-              <span>Part {i}</span>
-              <strong>
-                {
-                  attempts.filter(
-                    (a) => byId.get(a.questionId)!.part === i && a.correct,
-                  ).length
-                }
-                /{mockQuota(i)}
-              </strong>
-              <small>{title}</small>
-            </div>
-          ))}
+          {titles.map((title, i) => {
+            const partAttempts = attempts.filter(
+              (a) => byId.get(a.questionId)!.part === i,
+            );
+            if (partAttempts.length === 0) return null;
+            return (
+              <div key={title}>
+                <span>Part {i}</span>
+                <strong>
+                  {partAttempts.filter((a) => a.correct).length}/
+                  {partAttempts.length}
+                </strong>
+                <small>{title}</small>
+              </div>
+            );
+          })}
         </div>
         <button className="primary" onClick={onClose}>
           Back to progress →

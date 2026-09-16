@@ -219,9 +219,16 @@ export function createSession(
   };
 }
 export const COURSE_PARTS = Array.from({ length: 14 }, (_, i) => i); // Part 0 .. Part 13
-export const MOCK_PER_PART = 15;
+export const MOCK_PER_PART = 4;
+export const MOCK_RANDOM_EXTRA = 4;
 export function mockQuota(part: number): number {
   return Math.min(MOCK_PER_PART, bank.filter((q) => q.part === part).length);
+}
+export function mockGuaranteedTotal(): number {
+  return COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
+}
+export function mockTotalTarget(): number {
+  return Math.min(mockGuaranteedTotal() + MOCK_RANDOM_EXTRA, bank.length);
 }
 export function mockIds(seen: string[]): string[] {
   const used = new Set(seen);
@@ -235,6 +242,17 @@ export function mockIds(seen: string[]): string[] {
         .map((q) => q.id),
     );
   }
+  const selected = new Set(ids);
+  const extraNeeded = mockTotalTarget() - ids.length;
+  const extraPool = bank.filter((q) => !selected.has(q.id) && !used.has(q.id));
+  const extraRepeats = bank.filter(
+    (q) => !selected.has(q.id) && used.has(q.id),
+  );
+  ids.push(
+    ...[...shuffle(extraPool), ...shuffle(extraRepeats)]
+      .slice(0, extraNeeded)
+      .map((q) => q.id),
+  );
   return shuffle(ids);
 }
 export function reviewIds(attempts: Attempt[]): string[] {
@@ -410,12 +428,11 @@ function validateSession(value: unknown): Session {
     (typeof s.deadline !== "number" ||
       !Number.isFinite(s.deadline) ||
       s.deadline !== s.startedAt + 3600000 ||
-      s.ids.length !==
-        COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0) ||
+      s.ids.length !== mockTotalTarget() ||
       COURSE_PARTS.some(
         (part) =>
           (s.ids as string[]).filter((id) => byId.get(id)!.part === part)
-            .length !== mockQuota(part),
+            .length < mockQuota(part),
       ))
   )
     throw new Error("Invalid mock paper.");
