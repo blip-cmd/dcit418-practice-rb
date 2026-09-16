@@ -1,0 +1,113 @@
+RYAN NII AKWEI BROWN APPLICATION SOURCE-AVAILABLE LICENCE
+Version 1.0 — 16 September 2026
+
+Copyright (c) 2026 Ryan Nii Akwei Brown.
+
+1. SCOPE
+
+"Owner" means Ryan Nii Akwei Brown. "Software" means the original
+exam-practice engine, user interface and user-experience implementation,
+including source and compiled code, styles, build scripts and original
+software documentation, only to the extent the Owner holds the rights to
+license them. "Derivative" means a modification, adaptation or other work
+derived from that Software under applicable copyright law, including a
+modified course adaptation.
+
+The Software excludes study material, questions, answers, explanations,
+course notes, exam papers, answer keys, third-party diagrams and quotations,
+and third-party libraries or other separately licensed components. These
+exclusions apply even when such material is bundled into compiled code or
+generated files. See NOTICE.md. This licence grants no rights in excluded
+material; its respective owners and applicable terms govern its use.
+
+2. PERMITTED USE
+
+Subject to this licence, the Owner grants you a worldwide, royalty-free,
+non-exclusive licence to view, study, download, make local copies of, build
+and run the unmodified Software. Ordinary compilation, installation and
+runtime configuration are permitted and do not alone constitute a
+Derivative for purposes of this licence.
+
+Keep this licence, NOTICE.md and applicable copyright and attribution
+notices with your copies, including compiled copies. No ownership is
+transferred. Rights not expressly granted are reserved.
+
+3. NO INDEPENDENT FORKS; WRITTEN PERMISSION FOR DERIVATIVES
+
+This licence does not permit you to create, maintain, publish or distribute
+an independent fork or Derivative without the Owner's prior written
+permission. It also does not grant permission to redistribute the Software,
+in source or compiled form, or to provide it to others as a hosted service;
+request written permission for those activities.
+
+A local copy used solely for the activities in section 2 is permitted.
+Changing a repository name, copying files instead of using a platform's
+Fork button, or compiling the Software does not bypass these conditions.
+
+4. CONDITIONS FOR AUTHORIZED DERIVATIVES
+
+Unless the Owner expressly agrees otherwise in writing, permission for a
+Derivative is subject to all of the following:
+
+a. Notify the Owner in writing of the project's purpose, modifications,
+   maintainers and intended source/distribution URLs before beginning work.
+   Obtain written permission; notification alone is not permission.
+b. Make the complete corresponding source of the Derivative publicly
+   accessible without charge when it is first distributed, deployed for
+   others or otherwise made available for use, and keep it accessible for
+   as long as that version is distributed or offered for use. Publish the
+   source before privately using a modified version as well. This includes
+   the preferred form for modification and build/install instructions,
+   but excludes secrets and third-party content you lack rights to publish.
+c. Apply this same source-available licence to the covered Software and
+   your changes, retaining this licence, NOTICE.md and the Owner's
+   attribution. You must hold the rights necessary to license your changes.
+   This does not relicense excluded third-party material.
+d. Inform the Owner of the public source URL and initial release, and of
+   subsequent releases or a change of source location. Keep source available
+   for each version still distributed or offered for use.
+e. Clearly identify your modifications and their author, and do not imply
+   that the Owner endorses or maintains your Derivative.
+
+Public source is required for authorized Derivatives; it does not remove
+the permission requirement for further forks or Derivatives. This is a
+custom source-available licence, not an OSI-approved open-source licence.
+
+5. CONTRIBUTIONS AND CONTACT
+
+Before contributing, contact the Owner for the canonical main application
+repository and contribution instructions. Submit engine and user-experience
+changes to that owner-designated repository, not a course-adapted repository.
+Contact does not itself authorize a fork or Derivative; obtain any written
+permission required by section 3 before developing changes.
+
+The public contact method and main repository URL will be announced later.
+Their absence does not imply permission, and unanswered requests are not
+consent. See CONTRIBUTING.md for the published contribution policy.
+
+6. INDEPENDENT RIGHTS AND HOSTING-PLATFORM TERMS
+
+Nothing here restricts rights you hold independently under applicable law,
+third-party licences or a separate grant from the Owner. In particular,
+where the Owner publishes a public GitHub repository, GitHub's terms grant
+users certain rights to view and copy it through GitHub's fork functionality.
+This licence does not purport to revoke that separate platform grant.
+Such a platform copy is not, by itself, permission under this licence to
+modify the Software, operate an independent derivative project or distribute
+it outside the rights separately granted.
+
+7. TERMINATION
+
+The permissions granted by this licence terminate if you breach its terms.
+On termination, stop activities relying on those permissions. Any rights
+held independently under section 6 are unaffected. Reinstatement requires
+the Owner's written agreement.
+
+8. NO WARRANTY; LIMITATION OF LIABILITY
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED "AS IS",
+WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+THE OWNER IS NOT LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM
+THE SOFTWARE OR ITS USE, WHETHER IN CONTRACT, TORT OR OTHERWISE. NOTHING
+HERE EXCLUDES LIABILITY THAT APPLICABLE LAW DOES NOT ALLOW TO BE EXCLUDED.

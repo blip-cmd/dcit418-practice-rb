@@ -355,6 +355,14 @@ A fresh production build, full browser suite, physical-phone test, external host
 | Academic correctness / exam coverage | Source-grounded ingestion, not a guarantee of textbook correctness or future exam coverage. |
 | Exam secrecy | Client-side study tool: answers ship in the bundle and exporters can reveal answers. It is not a secure assessment platform. |
 
-## 10. Updating this document
+## 10. Ownership, licence and contributions
+
+The original engine and interface/user-experience implementation, in source and compiled form, are attributed to **Ryan Nii Akwei Brown**. The app uses the custom [source-available licence](../LICENSE). It permits studying, locally copying, building and running the unmodified software. Independent forks, derivatives, redistribution and hosting for others require prior written permission. Authorized derivatives must publish corresponding source, retain attribution and notify the owner as specified in the licence.
+
+This is not an OSI open-source licence. GitHub's separate platform-copy rights for public repositories remain applicable. The licence does not claim or grant rights to the study material and questions, and third-party components retain their own terms; see [NOTICE.md](../NOTICE.md).
+
+Contributors must contact the owner for the main app repository instead of contributing engine changes to a course-adapted repository. The main URL and contact method will be shared later; see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## 11. Updating this document
 
 When adding a feature, update its behavior section, the feature-development table and any limits it resolves. Recount `questions.json` when changing banks. Check mock constants, source filters, imports and historical result rendering together when changing course structure. Keep reusable capabilities distinct from the current bank's content and labels. Record the exact verification run rather than carrying forward old pass claims.

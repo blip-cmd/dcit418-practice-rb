@@ -4,6 +4,14 @@ Browser exam practice for **Systems and Network Security**, built with React, Ty
 
 See [the comprehensive feature list](docs/feature_list.md) for study modes, navigation, grading, progress, exports, offline behavior, feature evolution and current limitations.
 
+## Licence and contributions
+
+Copyright (c) 2026 **Ryan Nii Akwei Brown**, for his original app engine and user-interface/user-experience implementation, in source and compiled form. Study material and questions are excluded; their respective owners retain their rights. Third-party dependencies retain their own licences. See [NOTICE.md](NOTICE.md).
+
+The app uses a custom [source-available licence](LICENSE), not an OSI open-source licence. Independent forks and derivatives require prior written permission. Authorized derivatives must publish their source, retain attribution and notify the owner under the licence terms. GitHub's separate right to copy public repositories through its platform still applies.
+
+To contribute, contact the owner for the **main app repository**, rather than submitting changes to this course-adapted repo. The canonical repository URL and public contact method will be shared later. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Run locally
 
 Install dependencies with `npm ci`, then run `npm run dev`.
