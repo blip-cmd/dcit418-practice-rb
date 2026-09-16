@@ -3,6 +3,7 @@ import {
   bank,
   COURSE_PARTS,
   mockQuota,
+  mockTotalTarget,
   practiceBank,
   byId,
   createSession,
@@ -13,7 +14,7 @@ import {
 } from "../../src/model";
 
 const fillQuestion = bank.find((q) => q.type === "fill")!;
-const MOCK_TOTAL = COURSE_PARTS.reduce((sum, part) => sum + mockQuota(part), 0);
+const MOCK_TOTAL = mockTotalTarget();
 
 async function seed(page: Page, progress: Progress) {
   await page.goto("/");
@@ -374,10 +375,11 @@ test("fully seen bank still starts a balanced mock", async ({ page }) => {
     STORAGE,
   );
   expect(new Set(saved.session.ids).size).toBe(MOCK_TOTAL);
+  // Each part is guaranteed its quota; the random top-up can add more to any part.
   for (const part of COURSE_PARTS)
     expect(
-      saved.session.ids.filter((id: string) => byId.get(id)!.part === part),
-    ).toHaveLength(mockQuota(part));
+      saved.session.ids.filter((id: string) => byId.get(id)!.part === part).length,
+    ).toBeGreaterThanOrEqual(mockQuota(part));
 });
 
 test("fill-in drill starts only fill questions and accepts a correct answer", async ({
