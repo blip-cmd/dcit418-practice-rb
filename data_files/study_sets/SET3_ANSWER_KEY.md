@@ -1,111 +1,75 @@
-# DCIT 418 — SET 3 ANSWER KEY AND MARKING SCHEME
+# DCIT 418: SET 3 ANSWER KEY AND MARKING SCHEME
 
 **Do not open until you have attempted the paper under timed conditions.**
 
 ---
 
-# SECTION A — MULTIPLE CHOICE (30 marks)
+# SECTION A: MULTIPLE CHOICE (50 marks)
 
-| Q | Ans | Q | Ans | Q | Ans |
-|---|---|---|---|---|---|
-| 1 | b | 11 | b | 21 | b |
-| 2 | c | 12 | b | 22 | b |
-| 3 | b | 13 | b | 23 | c |
-| 4 | b | 14 | b | 24 | c |
-| 5 | c | 15 | b | 25 | c |
-| 6 | c | 16 | b | 26 | b |
-| 7 | b | 17 | b | 27 | b |
-| 8 | b | 18 | b | 28 | b |
-| 9 | b | 19 | d | 29 | c |
-| 10 | c | 20 | b | 30 | b |
+| Q | Ans | Q | Ans | Q | Ans | Q | Ans | Q | Ans |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | b | 11 | b | 21 | b | 31 | b | 41 | b |
+| 2 | c | 12 | c | 22 | c | 32 | b | 42 | b |
+| 3 | b | 13 | b | 23 | b | 33 | b | 43 | b |
+| 4 | b | 14 | b | 24 | c | 34 | b | 44 | b |
+| 5 | b | 15 | a | 25 | b | 35 | c | 45 | b |
+| 6 | b | 16 | d | 26 | b | 36 | b | 46 | b |
+| 7 | b | 17 | b | 27 | b | 37 | b | 47 | b |
+| 8 | c | 18 | b | 28 | b | 38 | b | 48 | b |
+| 9 | b | 19 | b | 29 | c | 39 | b | 49 | b |
+| 10 | b | 20 | b | 30 | b | 40 | b | 50 | b |
 
 **The ones built to catch you:**
-- **Q7** — F need *not* be invertible. That property is the entire reason the Feistel design mattered.
-- **Q15** — ShiftRows diffuses *across* columns; MixColumns diffuses *within* a column. The direction is the discriminator.
-- **Q16** — 11, not 10: one initial AddRoundKey plus ten rounds.
-- **Q19** — CTR. OFB's keystream can also be precomputed in principle, but only serially; CTR is the intended answer because each block is independently derivable. (Accept OFB with a correct justification.)
-- **Q20** — Triple DES addressed the *key* size. It could not fix the 64-bit block, which is why it remained a stopgap.
-- **Q26** — inverse of e mod **φ(n)**, not mod n.
+- **Q2**: a digital signature is a *mechanism*; authentication, access control and non-repudiation are the *services* it can help deliver. The question is testing the service/mechanism distinction from X.800, not whether the listed items sound security-related.
+- **Q11**: avalanche effect is the specific named design criterion; confusion and diffusion are the broader properties it exhibits, so the question wants the named criterion.
+- **Q16**: AddRoundKey. The other three transformations are fixed and public; only AddRoundKey injects the secret key material.
+- **Q22**: CTR, because each counter block is independently derivable without decrypting anything before it. CFB and OFB chain sequentially and cannot offer true random access.
+- **Q35**: either secret prime factor, not the modulus or exponent, since either prime lets an attacker recompute φ(n) and then d directly.
+- **Q39**: much smaller. ECC's best known attacks are fully exponential, unlike the sub-exponential attacks on RSA's factoring problem, so ECC keys stay small for equivalent security.
 
 ---
 
-# SECTION B — FILL IN THE BLANKS (25 marks)
+# SECTION B: FILL IN THE BLANKS (10 marks)
 
-**31.** Masquerade; Replay; Modification of messages; Denial of Service *(4)*
+**51.** availability
 
-**32.** Authentication; Access Control; Data Confidentiality; Data Integrity; Non-repudiation; **Availability** *(6)*
+**52.** service
 
-**33.** Lᵢ = Rᵢ₋₁ ; Rᵢ = Lᵢ₋₁ ⊕ F(Rᵢ₋₁, Kᵢ) *(2)*
+**53.** steganography
 
-**34.** SubBytes; **ShiftRows**; MixColumns; AddRoundKey; MixColumns omitted *(5)*
+**54.** diffusion
 
-**35.** C = P^e mod **n** ; P = C^d mod **n** *(2)*
+**55.** SubBytes
 
-**36.** unpredictable ; unique *(2)*
+**56.** ECB (Electronic Codebook)
 
-**37.** Preimage resistance; second preimage resistance; collision resistance *(3)*
+**57.** PRGA (Pseudo-Random Generation Algorithm)
 
-**38.** shared secret ; public *(2)*
+**58.** discrete logarithm
 
----
+**59.** collision resistance
 
-# SECTION C — ESSAY (45 marks)
-
-Mark each answer out of 22 using the bands below.
-
-### Q39 — Passive vs active attacks
-- Definitions of both categories *(3)*
-- Passive types: release of message contents, traffic analysis *(3)*
-- Active types: masquerade, replay, modification of messages, DoS, each with a one-line explanation *(5)*
-- The strategic contrast, argued not asserted: passive attacks alter nothing so there is no trace to detect, making prevention (encryption) the only viable route; active attacks alter state so they are detectable, but the attack surface is unbounded so absolute prevention is unattainable and detection plus recovery dominate *(6)*
-- Traffic analysis under encryption: the payload is hidden but source, destination, packet size, timing and frequency remain visible, permitting inference about who communicates with whom, how often and how much; hence padding, traffic shaping and cover traffic as countermeasures *(5)*
-
-### Q40 — Feistel structure
-- Split into halves; both equations stated correctly *(4)*
-- Decryption: same algorithm, subkeys in reverse order, working because XOR is self-inverse *(4)*
-- Significance: F need never be inverted and need not be invertible, so it can be arbitrarily complex and chosen purely for cryptographic strength; one implementation serves both directions *(6)*
-- Design parameters, any three of block size, key size, round count, subkey generation, complexity of F *(3)*
-- Contrast with AES: SPN transforming the whole block, hence fewer rounds needed; but every transformation must be invertible, so a separate inverse cipher is required. AES gains speed and per-round diffusion, gives up the single-algorithm convenience *(5)*
-
-### Q41 — AES transformations
-- All four named in correct order *(4)*
-- Correct role for each: SubBytes nonlinearity and confusion, via an S-box built from GF(2⁸) inverses; ShiftRows cyclic row shifts of 0/1/2/3 giving diffusion across columns; MixColumns GF(2⁸) matrix multiply giving diffusion within a column; AddRoundKey XOR with the round subkey *(6)*
-- MixColumns omission: its diffusion is only useful when further rounds follow to compound it, so including it in the last round costs computation with no security gain, and it would also force a pointless InvMixColumns step in the inverse cipher *(5)*
-- The combination argument: SubBytes, ShiftRows and MixColumns are fixed and public, so anyone can compute or invert them — they supply mixing but no secrecy. AddRoundKey supplies secrecy but a bare XOR with key material is trivially broken on its own. Security comes from injecting key material between rounds of complex public mixing, so that an attacker who understands the mixing perfectly still cannot proceed without the key *(7)*
-
-### Q42 — Modes of operation
-- All five named with formulas or accurate descriptions *(5)*
-- Comparison across error propagation, stream behaviour, parallelisability, presented as a table or structured prose *(6)*
-- ECB rigour: C_i = E(K, P_i) with no dependence on position, IV or any other block; E under a fixed key is deterministic, so P_i = P_j forces C_i = C_j; real data repeats heavily, so the plaintext's repetition structure is copied into the ciphertext. Locate the fault in the *mode*, not the cipher *(5)*
-- Mode over key size: AES-128 already gives a 2¹²⁸ work factor beyond reach, so AES-256 raises an already unreachable number; mode and parameter errors (ECB, predictable IVs, repeated counters, keystream reuse) create attacks that never touch the key and succeed identically against AES-256; attackers take the cheapest route *(6)*
-
-*An answer that explains ECB only as "patterns leak" caps at half marks on that portion.*
-
-### Q43 — RSA
-- Five key generation steps in order, with public key (e, n) and private key (d, n) identified *(6)*
-- Both formulas, modulus correctly given as n *(3)*
-- Correctness: ed ≡ 1 (mod φ(n)) so ed = 1 + kφ(n); therefore P^(ed) = P·(P^φ(n))^k ≡ P (mod n) by **Euler's Theorem** *(6)*
-- Why not Fermat's: Fermat's holds only for a prime modulus, and n = pq is composite; Fermat's is the special case of Euler's where n is prime, and it underpins primality testing rather than the correctness proof *(3)*
-- Secrecy of p, q and φ(n): any one yields d immediately via the extended Euclidean algorithm; further, n together with φ(n) recovers p and q as roots of a quadratic, since p + q = n − φ(n) + 1 and pq = n. All three are as sensitive as the private key, and n is safe to publish only because factoring it is infeasible *(4)*
-
-### Q44 — Hash vs MAC vs signature
-- Keys used: none; shared secret; sender's private key for signing and public key for verification *(4)*
-- Services: integrity; integrity plus authentication; integrity plus authentication plus non-repudiation *(4)*
-- Who can verify: anyone; holders of the shared key only; anyone holding the public key *(3)*
-- Non-repudiation argument: a MAC's key is shared, so both parties could have produced any valid tag and a third party has no basis to attribute it; a signature's private key is held by exactly one party, so only they could have produced it and this is independently verifiable. The asymmetry of key possession is the deciding factor *(6)*
-- Collision dependence: the signature is computed over the digest, not the message, so any two messages sharing a digest share a valid signature. An attacker able to construct a collision obtains a signature on an innocuous document and attaches it to a malicious one, which verifies — without the signing algorithm being attacked or the private key exposed. A signature scheme's real strength is the minimum of the signing algorithm's strength and the hash's collision resistance *(5)*
+**60.** non-repudiation
 
 ---
 
-# ESSAY BANDS (per question, out of 22)
+# SECTION C: PRACTICAL SCENARIOS (10 marks)
 
-| Marks | Standard |
-|---|---|
-| 19–22 | Complete and accurate; structure matches the verb; mechanisms explained rather than named |
-| 15–18 | Sound and largely complete; some claims asserted without justification |
-| 11–14 | Core facts present, reasoning thin, structure loose |
-| 6–10 | Fragments of correct material, significant omissions or errors |
-| 0–5 | Largely off-target |
+Mark each answer out of 5 using the bands below.
+
+### Q61: Replay attack against an encrypted funds transfer
+- Category and type: an **active attack**, specifically a **replay** *(2)*
+- Why confidentiality alone did not help: the clerk never needed to read or alter the message, only resubmit a validly encrypted, previously observed message, so encryption by itself gives no protection against this attack *(1)*
+- Service and mechanism: **data origin authentication combined with freshness (anti-replay) protection**, implemented via a mechanism such as a **sequence number, timestamp, or nonce bound into the message (or its MAC/signature) and checked by the receiver**, so a resubmitted message is rejected as stale or already seen *(2)*
+
+*A full-mark answer names replay specifically, not just "active attack" in general, and names a concrete freshness mechanism, not just "authentication" in the abstract.*
+
+### Q62: RSA used directly to encrypt bulk file transfers
+- Problem one: **RSA is far slower than a symmetric cipher** for bulk data, since it relies on modular exponentiation over large numbers rather than simple byte-level operations, so encrypting a large volume of daily files directly with RSA is computationally impractical *(2)*
+- Problem two: **RSA can only encrypt data smaller than its modulus**, so a large file cannot be encrypted in one RSA operation at all; splitting the file into many RSA-sized chunks multiplies the speed problem further *(2)*
+- Correct approach: **hybrid encryption**, RSA (or another public-key algorithm) is used only to securely establish or transport a **symmetric session key** between the branches, and a fast symmetric cipher such as AES is then used to encrypt the actual file traffic under that session key *(1)*
+
+*Accept "RSA encrypts the key, AES encrypts the data" as the minimum correct statement of the approach; full marks require naming at least one of the two concrete limitations above, not just asserting RSA is "slow."*
 
 ---
 
@@ -113,10 +77,10 @@ Mark each answer out of 22 using the bands below.
 
 | Total | Band |
 |---|---|
-| 70+ | A |
-| 60–69 | B |
-| 50–59 | C |
-| 40–49 | D |
-| Below 40 | Fail |
+| 63+ | A |
+| 56–62 | B |
+| 46–55 | C |
+| 35–45 | D |
+| Below 35 | Fail |
 
-Record two numbers: your total, and your **Section C average**. Strong A and B with weak C means your problem is production under time pressure, not knowledge — fix it with the Set 6 skeletons, not by re-reading chapters. Weak A and B means recall is the gap, and Sets 4, 5 and 7 are the remedy.
+This paper is almost entirely objective, so a low score on Sections A and B points at recall gaps, not writing-under-pressure gaps. Re-drill the chapter or topic behind each missed question using Sets 4, 5 and 7. A low Section C score despite strong A and B means you know the facts but have not practised applying them to a scenario, which is exactly what Set 6 is for.

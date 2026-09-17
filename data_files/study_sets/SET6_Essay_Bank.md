@@ -4,7 +4,9 @@
 
 In a 60-minute Sakai paper shared with MCQs and fill-ins, an essay gets perhaps 8 to 12 minutes. You will not have time to compose a structure on the spot. Learn the skeletons; the prose writes itself once the shape is there.
 
-**How to use this file.** First pass: read a prompt, write the skeleton from memory, check it. Second pass: pick three prompts and write them out in full at exam speed. Do not write all 24 out fully — that is a waste of your remaining hours.
+**How to use this file (oral exam mode, for speed).** Do not read the skeletons before answering. Read only the prompt, then answer out loud from memory, as if speaking to an examiner, and record the audio. Go through all 24 prompts this way in one sitting: prompt, spoken answer, next prompt. Check yourself against the skeleton only after you have answered, not before, since seeing it first defeats the recall practice. This is faster than writing, since speaking a full answer takes 60 to 90 seconds instead of 8 to 12 minutes, so a full run of the set fits in under an hour.
+
+**Tip: get the bot to grade your audio in one pass.** Record each spoken answer as a separate audio file named by prompt number (A1.m4a, A2.m4a, and so on), or one continuous recording with the prompt number spoken aloud at the start of each answer. Attach the audio alongside this file (SET6_Essay_Bank.md) in a single message to the bot, and ask it to transcribe each answer, match it to the corresponding prompt, and score it against that prompt's skeleton for coverage and the right verb (explain, compare, discuss, describe, justify). Doing this in one pass means the bot has both the audio and the skeletons together and does not need a second round trip to fetch the answer key.
 
 **Universal structure for every answer:**
 1. One-sentence direct answer to the question asked.

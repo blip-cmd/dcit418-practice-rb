@@ -1,148 +1,204 @@
-# DCIT 418 — SYSTEMS AND NETWORK SECURITY
-## MOCK EXAMINATION — SET 3
-### Time allowed: ONE (1) hour | Total: 100 marks | Chapters 1–13
+# DCIT 418: SYSTEMS AND NETWORK SECURITY
+## MOCK EXAMINATION, SET 3 (OBJECTIVE PAPER)
+### Time allowed: 55 minutes | Total: 70 marks | Chapters 1–13
 
 **INSTRUCTIONS**
-- Answer **ALL** questions in Sections A and B.
-- Answer **ANY TWO (2)** questions from Section C.
-- No calculators or rough working required; this paper contains no calculation questions.
+- Answer **ALL** questions in Sections A, B and C.
+- This paper has no calculations, no modular arithmetic, no worked cryptographic examples. Sections A and B test concepts, mechanisms and terminology only; Section C tests applying that same material to a short real-world scenario, still without any computation.
+- For essay practice on this same material, use Set 6.
 
-**Suggested budget:** Section A 18 minutes · Section B 12 minutes · Section C 27 minutes · 3 minutes review.
+**Suggested budget:** Section A 30 minutes · Section B 10 minutes · Section C 10 minutes · 5 minutes review.
 
 *Note: this is a different paper from Set 9. Sit whichever you have not yet seen, and keep the other for a second attempt.*
 
 ---
 
-# SECTION A — MULTIPLE CHOICE (30 marks)
+# SECTION A: MULTIPLE CHOICE (50 marks)
 *One mark each.*
 
-**1.** Modification of messages is classified as:
-a) A passive attack b) An active attack c) Traffic analysis d) Steganography
+**1.** In the OSI Security Architecture, a security attack is best defined as:
+a) A feature that enhances the security of data processing systems b) Any action that compromises the security of information owned by an organization c) A specific algorithm used to protect data d) A policy enforced by network administrators
 
-**2.** The OSI Security Architecture's three pillars are attack, service and:
-a) Policy b) Protocol c) Mechanism d) Standard
+**2.** Which of the following is a security mechanism rather than a security service?
+a) Authentication b) Access control c) Digital signature d) Non-repudiation
 
-**3.** Which security objective concerns a system performing as intended, unimpaired?
-a) Data integrity b) System integrity c) Availability d) Authenticity
+**3.** A passive attack that involves monitoring transmission patterns even when message content is encrypted is called:
+a) Masquerade b) Traffic analysis c) Replay d) Repudiation
 
-**4.** Frequency analysis defeats a monoalphabetic cipher because the cipher:
-a) Has a small keyspace b) Preserves plaintext letter statistics c) Uses transposition d) Reuses its key
+**4.** The Playfair cipher encrypts:
+a) Single letters b) Digrams (pairs of letters) c) Whole words d) Blocks of 8 bits
 
-**5.** Which cipher varies the substitution alphabet by position?
-a) Caesar b) Playfair c) Vigenère d) Rail Fence
+**5.** In the Vigenère cipher, the same plaintext letter can map to different ciphertext letters because:
+a) The alphabet is scrambled once b) A repeating keyword shifts the substitution alphabet by position c) It uses transposition, not substitution d) It operates on digrams
 
-**6.** Steganography differs from cryptography in that it conceals:
-a) The key b) The algorithm c) The existence of the message d) The recipient
+**6.** The Rail Fence cipher is an example of:
+a) A substitution technique b) A transposition technique c) A one-time pad d) A stream cipher
 
-**7.** In a Feistel cipher the round function F:
-a) Must be invertible b) Need not be invertible c) Must be a permutation d) Must be linear
+**7.** Steganography differs fundamentally from encryption in that it:
+a) Uses a stronger key b) Hides the existence of a message rather than its content c) Cannot be automated d) Only works on images
 
-**8.** DES's 64-bit stored key contains how many parity bits?
-a) 4 b) 8 c) 16 d) 0
+**8.** In a Feistel cipher, increasing the number of rounds primarily increases:
+a) The block size b) The key size c) The difficulty of cryptanalysis d) The speed of encryption
 
-**9.** Obscuring the relationship between the key and the ciphertext is called:
-a) Diffusion b) Confusion c) Avalanche d) Whitening
+**9.** DES is considered vulnerable today mainly because of its:
+a) Weak S-boxes b) Short 56-bit effective key length c) Small block permutation d) Use of a Feistel structure
 
-**10.** The DES round function expands the right half to how many bits?
-a) 32 b) 40 c) 48 d) 64
+**10.** The purpose of the DES initial and final permutations is:
+a) To add cryptographic strength b) To facilitate loading data into hardware, with no cryptographic significance c) To expand the block size d) To generate subkeys
 
-**11.** A structure with two operations in which multiplication need not have inverses is a:
-a) Group b) Ring c) Field d) Monoid
+**11.** Which property describes a small change in plaintext or key producing a significant, unpredictable change in the ciphertext?
+a) Confusion b) Avalanche effect c) Diffusion only d) Key whitening
 
-**12.** In GF(2ⁿ), adding two elements is equivalent to:
-a) Integer addition b) XOR c) AND d) Modular multiplication
+**12.** A mathematical structure with two operations in which every nonzero element has a multiplicative inverse is called:
+a) A group b) A ring c) A field d) A monoid
 
-**13.** An irreducible polynomial plays the role played in GF(p) by:
-a) The generator b) A prime modulus c) The identity d) The order
+**13.** GF(2ⁿ) arithmetic is important in cryptography mainly because it provides:
+a) Faster multiplication than integer arithmetic b) A finite field structure suited to byte-oriented operations like those in AES c) Infinite precision arithmetic d) A replacement for modular exponentiation
 
-**14.** AES arranges its block as:
-a) Two 64-bit halves b) A 4×4 byte matrix c) An 8×8 bit matrix d) A 16-byte queue
+**14.** An irreducible polynomial in GF(2ⁿ) plays the same structural role as which of the following in GF(p)?
+a) A generator b) A prime modulus c) A composite modulus d) An identity element
 
-**15.** Which AES transformation provides diffusion across columns?
+**15.** AES operates on a state arranged as:
+a) A 4×4 matrix of bytes b) A 64-bit linear array c) Two 32-bit halves d) An 8×8 bit array
+
+**16.** Which AES transformation is the only one that depends on the key?
 a) SubBytes b) ShiftRows c) MixColumns d) AddRoundKey
 
-**16.** AES-128 requires how many round keys in total?
-a) 10 b) 11 c) 12 d) 14
+**17.** The AES S-box used in SubBytes is constructed from:
+a) A simple substitution table with no mathematical structure b) Multiplicative inverses in GF(2⁸) combined with an affine transformation c) A rotation of the plaintext bits d) The DES S-boxes reused
 
-**17.** Which mode makes encryption probabilistic by seeding the chain with a random value?
-a) ECB b) CBC c) CTR d) None
+**18.** MixColumns is omitted from the final AES round because:
+a) It would corrupt the ciphertext b) Its diffusion effect only pays off when further rounds follow to spread it further c) It is too slow for hardware d) It is not invertible
 
-**18.** An error in one CBC ciphertext block affects the decryption of:
-a) That block only b) That block and the next c) All later blocks d) No blocks
+**19.** Compared to DES, AES uses a structure known as:
+a) A Feistel network b) A substitution-permutation network c) A stream cipher construction d) A hash-based construction
 
-**19.** Which mode's keystream can be precomputed entirely before the plaintext is known?
-a) ECB b) CBC c) CFB d) CTR
+**20.** Electronic Codebook (ECB) mode is considered insecure for messages longer than one block mainly because:
+a) It is too slow b) Identical plaintext blocks always produce identical ciphertext blocks c) It cannot be parallelised d) It requires an IV
 
-**20.** Triple DES was introduced primarily to address DES's:
-a) Block size b) Key size c) Round count d) Slow speed
+**21.** Cipher Block Chaining (CBC) mode requires:
+a) A shared secret counter b) An initialization vector that need not be secret but should be unpredictable c) A separate key for each block d) No key at all
 
-**21.** A true random number generator derives its output from:
-a) A seed and formula b) Physical entropy c) A block cipher d) A counter
+**22.** Which mode of operation allows blocks to be encrypted or decrypted independently and out of order, making it suitable for random access?
+a) ECB b) CBC c) CTR d) CFB
 
-**22.** RC4's KSA phase is responsible for:
-a) Emitting keystream bytes b) Initialising the state array from the key c) Expanding round keys d) Reducing polynomials
+**23.** In Output Feedback (OFB) mode, an error in one transmitted ciphertext bit:
+a) Propagates to all subsequent blocks b) Affects only the corresponding bit in that one block of plaintext c) Corrupts the entire message d) Cannot be corrected
 
-**23.** Euler's totient φ(n) counts the integers below n that are:
-a) Prime b) Even c) Coprime to n d) Divisors of n
+**24.** A mode of operation that turns a block cipher into a stream cipher by generating a keystream to XOR with the plaintext describes:
+a) ECB b) CBC c) CTR and OFB d) None of these
 
-**24.** Miller-Rabin returning "probably prime" means the number is:
-a) Certainly prime b) Certainly composite c) Prime with high probability d) Indeterminate
+**25.** A cryptographically secure pseudorandom number generator differs from an ordinary PRNG mainly in that it must be:
+a) Faster to compute b) Unpredictable to an adversary even with knowledge of earlier outputs c) Based on a linear congruential formula d) Seeded manually before every use
 
-**25.** The Chinese Remainder Theorem is applied in RSA to:
-a) Choose e b) Generate primes c) Accelerate decryption d) Pad messages
+**26.** RC4's Key Scheduling Algorithm (KSA) is responsible for:
+a) Producing the keystream bytes used for encryption b) Initializing a 256-byte state array into a key-dependent permutation c) Expanding the round keys for a block cipher d) Reducing a polynomial modulo an irreducible polynomial
 
-**26.** In RSA the private exponent d is:
-a) The inverse of e mod n b) The inverse of e mod φ(n) c) Equal to p × q d) A large prime
+**27.** A true random number generator (TRNG) differs from a PRNG in that it:
+a) Uses a mathematical recurrence relation b) Draws its output from a physical entropy source rather than a deterministic algorithm c) Is always faster d) Cannot be used for cryptographic purposes
 
-**27.** ElGamal ciphertext consists of:
-a) A single value b) A pair of values c) A digest d) Three values
+**28.** RC4 has been deprecated primarily because:
+a) It is too slow for modern hardware b) Statistical biases in its keystream allow plaintext or key recovery given enough ciphertext c) It cannot be implemented in software d) It requires a fixed 256-bit key
 
-**28.** The identity element of an elliptic curve group is:
-a) The generator point b) The point at infinity c) The origin d) Zero
+**29.** Euler's totient function φ(n) counts the positive integers less than n that are:
+a) Prime b) Even c) Relatively prime to (coprime with) n d) Perfect squares
 
-**29.** Which hash property does the birthday attack target?
+**30.** The Miller-Rabin test is described as a probabilistic primality test because:
+a) It always returns a definite yes-or-no answer b) A "probably prime" result cannot be taken as absolute certainty of primality c) It only works for even numbers d) It replaces the need for prime numbers in cryptography
+
+**31.** The Chinese Remainder Theorem is used in practical RSA implementations mainly to:
+a) Choose the public exponent b) Speed up the decryption computation c) Generate the prime factors d) Pad the plaintext before encryption
+
+**32.** RSA is classified as an asymmetric cipher because:
+a) It uses two different algorithms for encryption and decryption b) Encryption and decryption use a mathematically related pair of different keys, one public and one private c) It requires two separate communication channels d) It encrypts data twice for extra security
+
+**33.** The security of RSA rests on the computational difficulty of:
+a) Solving the discrete logarithm problem b) Factoring the product of two large primes c) Reversing a hash function d) Brute-forcing a symmetric key
+
+**34.** Why must a plain (unpadded) RSA implementation add randomized padding such as OAEP?
+a) To make the ciphertext shorter b) Because deterministic encryption leaks information when the same plaintext is encrypted twice c) To speed up decryption d) Padding is not actually necessary for RSA
+
+**35.** In RSA, revealing which value would allow an attacker to immediately compute the private key?
+a) The public modulus alone b) The ciphertext alone c) Either of the two secret prime factors d) The public exponent alone
+
+**36.** RSA's public-key approach solves which limitation of purely symmetric cryptosystems?
+a) Slow encryption speed b) The need to securely distribute a shared secret key in advance c) The limited block size of ciphers d) The need for a hash function
+
+**37.** The security of the classic Diffie-Hellman key exchange rests on the difficulty of:
+a) Factoring large composite numbers b) The discrete logarithm problem c) Finding hash collisions d) Breaking a block cipher
+
+**38.** Diffie-Hellman key exchange, on its own, is vulnerable to man-in-the-middle attacks because:
+a) The discrete logarithm problem is actually easy b) The exchanged public values are not bound to verified identities c) It transmits the shared secret in the clear d) It uses a weak symmetric cipher afterward
+
+**39.** Compared to RSA, elliptic curve cryptography can achieve comparable security with:
+a) Much larger keys b) Much smaller keys c) No public key at all d) A symmetric key only
+
+**40.** In an elliptic curve group used for cryptography, the identity element is:
+a) The generator point b) The point at infinity c) The origin of the coordinate plane d) A randomly chosen point
+
+**41.** A cryptographic hash function takes an input of:
+a) Fixed length and produces a fixed-length output b) Variable length and produces a fixed-length digest c) Fixed length and produces a variable-length output d) Variable length and produces a variable-length output
+
+**42.** Which hash property ensures that, given a specific message, it is infeasible to find a different message producing the same digest?
 a) Preimage resistance b) Second preimage resistance c) Collision resistance d) Determinism
 
-**30.** A digital signature is verified using the sender's:
-a) Private key b) Public key c) Shared secret d) Session key
+**43.** The birthday attack exploits:
+a) Weak preimage resistance b) The fact that collisions can be found faster than the digest length alone would suggest, due to probability over many pairs c) A flaw specific to one particular hash function only d) Weaknesses in a hash function's key schedule
+
+**44.** Storing a salted hash of a password, rather than the password itself, defends primarily against:
+a) Man-in-the-middle attacks b) Precomputed dictionary and rainbow-table attacks c) Traffic analysis d) Replay attacks
+
+**45.** A Message Authentication Code (MAC), unlike a plain hash, requires:
+a) No key at all b) A shared secret key known to both sender and receiver c) A public/private key pair d) A digital certificate
+
+**46.** HMAC constructs a MAC by:
+a) Encrypting the message with a block cipher b) Nesting a cryptographic hash function around the message and a secret key c) Applying RSA to the digest d) Using only the message length as input
+
+**47.** A MAC alone cannot provide non-repudiation because:
+a) It is too slow to verify b) Both communicating parties share the same secret key, so either could have generated a given tag c) It does not use a hash function d) It reveals the plaintext
+
+**48.** A digital signature is created by the signer using their:
+a) Public key b) Private key c) A shared secret key d) The recipient's public key
+
+**49.** Anyone can verify a digital signature because verification uses:
+a) The signer's private key b) The signer's public key c) A shared secret d) The recipient's private key
+
+**50.** A digital signature scheme is only as strong as the collision resistance of its underlying hash function because:
+a) The hash function generates the private key b) The signature is computed over the message digest, so a hash collision lets an attacker transplant a valid signature onto a different message c) The hash function encrypts the message d) Signatures do not actually use a hash function
 
 ---
 
-# SECTION B — FILL IN THE BLANKS (25 marks)
-*One mark per blank.*
+# SECTION B: FILL IN THE BLANKS (10 marks)
+*One mark each. No calculations required.*
 
-**31.** The four categories of active attack are ______, ______, ______ and ______. *(4)*
+**51.** The three fundamental security objectives grouped together as the "CIA triad" are confidentiality, integrity and ______.
 
-**32.** The six X.800 security services are ______, ______, ______, ______, ______ and ______. *(6)*
+**52.** In the OSI Security Architecture, the three central concepts are security attack, security mechanism and security ______.
 
-**33.** The two Feistel round equations are Lᵢ = ______ and Rᵢ = ______. *(2)*
+**53.** A technique that hides the existence of a message altogether, rather than its content, is called ______.
 
-**34.** The four AES round transformations in order are ______, ______, ______ and ______, and the one omitted in the final round is ______. *(5)*
+**54.** The design property by which the influence of a single plaintext bit spreads over many ciphertext bits is called ______.
 
-**35.** The RSA encryption formula is C = ______ and the decryption formula is P = ______. *(2)*
+**55.** The AES round transformation that provides confusion through a nonlinear byte substitution is called ______.
 
-**36.** The requirement on a CBC IV is that it be ______, while the requirement on a CTR counter is that it be ______. *(2)*
+**56.** A block cipher mode of operation that never uses an initialization vector, and is unsafe for messages longer than one block, is ______.
 
-**37.** The three security properties required of a cryptographic hash function are ______, ______ and ______. *(3)*
+**57.** RC4 keystream generation is carried out by its second phase, known as the ______.
 
-**38.** A MAC is verified using a ______ key, whereas a digital signature is verified using a ______ key. *(2)*
+**58.** The hard mathematical problem underlying both Diffie-Hellman key exchange and the ElGamal cryptosystem is the ______ problem.
+
+**59.** The three required security properties of a cryptographic hash function are preimage resistance, second preimage resistance and ______.
+
+**60.** Unlike a MAC, a digital signature can provide ______, because only the signer holds the private key used to produce it.
 
 ---
 
-# SECTION C — ESSAY (45 marks)
-*Answer ANY TWO. Each carries 22 marks. One mark is awarded for overall structure and clarity across the section.*
+# SECTION C: PRACTICAL SCENARIOS (10 marks)
+*Five marks each. Answer in a few sentences: name the concept, then explain why it applies to this scenario. No calculations.*
 
-**39.** Discuss the distinction between passive and active attacks. Define both categories, give the specific attack types belonging to each, and explain why the two demand opposite defensive strategies. Conclude by explaining why traffic analysis remains a threat even against fully encrypted communications.
+**61.** A clerk at a bank intercepts an encrypted funds-transfer message authorizing a ₵500 payment from Client A to Client B. The clerk cannot read or alter the message, since it is properly encrypted, but a week later resubmits the exact same intercepted message to the bank's server, causing a second ₵500 payment to go through without Client A's knowledge. Name the category and specific type of attack this is, and name the security service, together with a mechanism that implements it, that would have prevented it even though the message's confidentiality was never broken.
 
-**40.** Explain the Feistel cipher structure, stating its round equations and describing how decryption is performed. Discuss why the design was significant for block cipher development, and contrast it with the structure adopted by AES, identifying what AES gains and what it gives up.
-
-**41.** Describe the four AES round transformations and the role each plays in the cipher. Explain why MixColumns is omitted from the final round, and explain why the three key-independent transformations and AddRoundKey are each insufficient on their own but secure in combination.
-
-**42.** Compare the five block cipher modes of operation with respect to error propagation, stream behaviour and parallelisability. Explain rigorously why ECB is unsafe for long messages, and argue why the choice of mode can matter more in practice than the choice between AES-128 and AES-256.
-
-**43.** Describe the RSA algorithm from key generation through to encryption and decryption. Explain why decryption recovers the original plaintext, naming the theorem involved and stating why Fermat's Little Theorem does not apply. Explain why p, q and φ(n) must each be kept secret.
-
-**44.** Compare a cryptographic hash function, a message authentication code and a digital signature in terms of the keys used, the security services provided and who is able to verify. Explain why only one of the three can provide non-repudiation, and explain why a signature's security depends on the collision resistance of the hash it is built on.
+**62.** A startup wants to let two branch offices securely agree on a shared session key over the open internet, and then use that key to encrypt a large volume of daily file transfers between the branches. A junior developer proposes generating an RSA key pair at each branch and using RSA directly to encrypt every file before transfer. Explain two practical problems with this proposal, and describe the approach that production systems actually use instead, naming where in that approach RSA (or another public-key algorithm) is used and where a symmetric cipher is used.
 
 ---
 
