@@ -115,9 +115,31 @@ describe("exam integrity", () => {
     expect(parseProgress(JSON.stringify(p)).session).toEqual(p.session);
     p.session.orders[p.session.ids[0]] = [999];
     expect(() => parseProgress(JSON.stringify(p))).toThrow("option order");
-    expect(() =>
-      parseProgress('{"version":1,"seen":["bad"],"attempts":[]}'),
-    ).toThrow();
+  });
+  it("drops references to questions the current bank no longer has, instead of rejecting the whole import", () => {
+    // Question IDs are reassigned every time the bank regenerates, so a
+    // saved seen/attempt/session referencing a since-removed ID is stale,
+    // not corrupt, and should not cost the user everything else that's
+    // still valid.
+    const parsed = parseProgress(
+      '{"version":1,"seen":["bad"],"attempts":[]}',
+    );
+    expect(parsed.seen).toEqual([]);
+    const stale = {
+      ...emptyProgress(),
+      session: { ...createSession("mock", mockIds([])), ids: ["bad-id"] },
+    };
+    expect(parseProgress(JSON.stringify(stale)).session).toBeNull();
+
+    // Same idea, but every ID is still real: only the mock paper's overall
+    // size no longer matches today's target, as happens whenever the bank's
+    // content or the per-part mock quota changes after the session was saved.
+    const fullMock = createSession("mock", mockIds([]));
+    const shrunk = {
+      ...emptyProgress(),
+      session: { ...fullMock, ids: fullMock.ids.slice(0, MOCK_TOTAL - 1) },
+    };
+    expect(parseProgress(JSON.stringify(shrunk)).session).toBeNull();
   });
   it("separates course imports while preserving existing local security progress", () => {
     const current = emptyProgress();

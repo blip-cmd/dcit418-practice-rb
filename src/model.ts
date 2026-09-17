@@ -359,8 +359,18 @@ export function parseProgress(text: string, { requireCourse = false } = {}): Pro
     throw new Error("Invalid progress file.");
   if (("course" in p && p.course !== "dcit418") || (requireCourse && !("course" in p)))
     throw new Error("Import a DCIT 418 progress export. For older DCIT 418 backups, export again from the updated app.");
-  if (!p.seen.every((id: unknown) => typeof id === "string" && byId.has(id)))
-    throw new Error("Unknown question in progress.");
+  // Question IDs are reassigned sequentially per part every time the bank is
+  // regenerated, so an ID like "P3-Q15" saved before a content change can
+  // legitimately stop existing, or start pointing at a different question,
+  // without the saved data itself being corrupt. Rejecting the whole file
+  // over a few stale IDs would strand a user's entire history behind one
+  // unresolvable reference; instead, structural corruption (wrong types,
+  // malformed shape) still throws, but a merely-unrecognized question ID is
+  // dropped and the rest of the record is kept.
+  const seenValid = (p.seen as unknown[]).filter(
+    (id): id is string => typeof id === "string" && byId.has(id),
+  );
+  const attempts: Attempt[] = [];
   for (const a of p.attempts as unknown[]) {
     if (!a || typeof a !== "object") throw new Error("Invalid attempt.");
     const r = a as Record<string, unknown>;
@@ -368,7 +378,6 @@ export function parseProgress(text: string, { requireCourse = false } = {}): Pro
       typeof r.id !== "string" ||
       typeof r.sessionId !== "string" ||
       typeof r.questionId !== "string" ||
-      !byId.has(r.questionId) ||
       typeof r.answer !== "string" ||
       typeof r.correct !== "boolean" ||
       typeof r.override !== "boolean" ||
@@ -380,22 +389,46 @@ export function parseProgress(text: string, { requireCourse = false } = {}): Pro
       !["practice", "mock", "review"].includes(String(r.mode))
     )
       throw new Error("Invalid attempt data.");
+    if (byId.has(r.questionId)) attempts.push(r as unknown as Attempt);
   }
-  const session =
-    "session" in p && p.session !== null ? validateSession(p.session) : null;
-  const attempts = p.attempts as Attempt[];
+  let session: Session | null = null;
+  if ("session" in p && p.session !== null) {
+    // A session referencing a question ID the current bank no longer has,
+    // or a mock paper whose size no longer matches today's mock target, is
+    // stale rather than corrupt: drop it and keep the rest of the import.
+    // Anything else invalid about the session (malformed option order, a
+    // draft that doesn't match its question, wrong field types) is real
+    // corruption and should still fail loudly via validateSession below.
+    if (!sessionLooksStale(p.session)) session = validateSession(p.session);
+  }
   return {
     version: 1,
     course: "dcit418",
     attempts,
-    seen: [
-      ...new Set([
-        ...(p.seen as string[]),
-        ...attempts.map((a) => a.questionId),
-      ]),
-    ],
+    seen: [...new Set([...seenValid, ...attempts.map((a) => a.questionId)])],
     session,
   };
+}
+
+function sessionLooksStale(value: unknown): boolean {
+  if (!value || typeof value !== "object") return false;
+  const s = value as Record<string, unknown>;
+  if (!Array.isArray(s.ids)) return false;
+  const ids = s.ids as unknown[];
+  if (!ids.every((id) => typeof id === "string" && byId.has(id))) return true;
+  if (s.mode === "mock") {
+    const known = ids as string[];
+    if (known.length !== mockTotalTarget()) return true;
+    if (
+      COURSE_PARTS.some(
+        (part) =>
+          known.filter((id) => byId.get(id)!.part === part).length <
+          mockQuota(part),
+      )
+    )
+      return true;
+  }
+  return false;
 }
 
 function validateSession(value: unknown): Session {
