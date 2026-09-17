@@ -3,6 +3,12 @@ import { practiceBank, questionKey, STORAGE, emptyProgress } from "../../src/mod
 
 if (process.env.PLAYWRIGHT_BASE_URL) test.use({ baseURL: process.env.PLAYWRIGHT_BASE_URL });
 
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("dcit418-tour-seen", "1");
+  });
+});
+
 test("only unseen excludes already-seen questions from the selected bank", async ({ page }) => {
   const seen = practiceBank.find((q) => q.batch === "quizbank")!;
   expect(seen).toBeTruthy();

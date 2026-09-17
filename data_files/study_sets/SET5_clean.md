@@ -1,4 +1,4 @@
-# DCIT418 — SET 5: Fill-in-the-Blanks (Parser Format)
+# DCIT418: SET 5, Fill-in-the-Blanks (Parser Format)
 
 100 fill-in questions from SET5, formatted for parse_security_bank.py.
 
@@ -6,7 +6,7 @@
 
 **Correct Answer:** **Confidentiality; Integrity; Availability**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Confidentiality keeps information from unauthorized readers, integrity keeps it from unauthorized modification, and availability keeps it accessible to authorized users when they need it. Every other security service Stallings lists is usually explained as supporting one of these three.
 
 ---
 
@@ -14,7 +14,7 @@
 
 **Correct Answer:** **Authenticity; Non-repudiation**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Stallings extends the classic CIA triad with authenticity (verifying that a message or party genuinely is who it claims to be) and non-repudiation (preventing either party from later denying a message was sent or received), since neither is really a special case of confidentiality, integrity or availability.
 
 ---
 
@@ -22,7 +22,7 @@
 
 **Correct Answer:** **attack; mechanism; service**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A security attack is any action that compromises security; a security mechanism is a process designed to detect, prevent or recover from an attack; a security service is what a mechanism (or combination of mechanisms) actually delivers, such as confidentiality or authentication.
 
 ---
 
@@ -30,7 +30,7 @@
 
 **Correct Answer:** **Release of message contents; Traffic analysis**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Release of message contents is an eavesdropper simply reading the data; traffic analysis infers information from patterns (who's talking to whom, how often, how much) even when the content itself is encrypted and unreadable.
 
 ---
 
@@ -38,7 +38,7 @@
 
 **Correct Answer:** **Masquerade; Replay; Modification of messages; Denial of Service**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** All four alter system state or data, which is what makes them "active" rather than "passive." Masquerade means pretending to be someone else, replay resends captured legitimate data, modification alters a message in transit, and denial of service degrades or blocks availability.
 
 ---
 
@@ -46,7 +46,7 @@
 
 **Correct Answer:** **Authentication; Access Control; Data Confidentiality; Data Integrity; Non-repudiation; **Availability****
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** X.800 (ITU-T's security architecture standard) defines Authentication, Access Control, Data Confidentiality, Data Integrity, Non-repudiation and Availability as the six core security services a system can provide, each addressing a distinct part of the CIA-plus-authenticity-and-non-repudiation picture.
 
 ---
 
@@ -54,7 +54,7 @@
 
 **Correct Answer:** **trusted third party**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The trusted third party sits outside the two communicating principals and is relied on for tasks neither party could safely do alone, distributing shared secret keys, or acting as a neutral arbiter if a dispute arises over what was actually sent or received.
 
 ---
 
@@ -62,7 +62,7 @@
 
 **Correct Answer:** **prevention; detection; recovery**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A passive attack (eavesdropping, traffic analysis) leaves no trace to detect, so the only real defense is preventing it in the first place, mainly through encryption. An active attack does alter something, so it can in principle be detected, and the practical goal shifts to detecting it and recovering from the damage, since preventing every possible active attack outright is unrealistic.
 
 ---
 
@@ -70,7 +70,7 @@
 
 **Correct Answer:** **Plaintext; Encryption algorithm; Secret key; Ciphertext; Decryption algorithm**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Plaintext is the original readable message; the encryption algorithm transforms it using a secret key into ciphertext; the decryption algorithm reverses that transformation using the same key to recover the plaintext. All five pieces, plaintext, algorithm, key, ciphertext, and the inverse algorithm, are what Stallings' basic symmetric model diagram lays out.
 
 ---
 
@@ -78,7 +78,7 @@
 
 **Correct Answer:** **monoalphabetic**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A monoalphabetic cipher uses a single, fixed substitution alphabet for the entire message, so the same plaintext letter always produces the same ciphertext letter, which is exactly what preserves the underlying language's letter frequencies and makes frequency analysis effective against it.
 
 ---
 
@@ -86,7 +86,7 @@
 
 **Correct Answer:** **polyalphabetic**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A monoalphabetic cipher uses one fixed substitution for the whole message, so letter frequencies survive intact. A polyalphabetic cipher (the Vigenere cipher is the classic example) cycles through multiple substitution alphabets, so the same plaintext letter can map to different ciphertext letters depending on position, which is exactly what flattens the frequency profile and resists simple frequency analysis.
 
 ---
 
@@ -94,7 +94,7 @@
 
 **Correct Answer:** **digraphs**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Playfair encrypts two letters (a digraph) at a time using a 5x5 key square, rather than one letter at a time like a simple substitution cipher, which is what makes single-letter frequency analysis far less effective against it.
 
 ---
 
@@ -102,7 +102,7 @@
 
 **Correct Answer:** **I; J**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The Playfair square has only 25 cells for 26 letters, so I and J are conventionally merged into a single cell to make the alphabet fit a 5x5 grid.
 
 ---
 
@@ -110,7 +110,7 @@
 
 **Correct Answer:** **one-time pad; Vernam**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The One-Time Pad XORs plaintext with a truly random key at least as long as the message, used only once. Because the key is uniformly random and never reused, the ciphertext gives an attacker zero statistical information about the plaintext, which is the definition of perfect (information-theoretic) secrecy. It's impractical precisely because distributing a key as long as the message is its own hard problem.
 
 ---
 
@@ -118,7 +118,7 @@
 
 **Correct Answer:** **truly random; the same length; only once**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** This is the One-Time Pad's condition for perfect secrecy: the key must be truly random, at least as long as the message, and used only once. Violating any one of these three conditions (a short key, a predictable key, or key reuse) breaks the perfect-secrecy guarantee.
 
 ---
 
@@ -126,7 +126,7 @@
 
 **Correct Answer:** **transposition**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A transposition technique permutes the order of the plaintext characters without substituting any of them for different characters, which is the opposite approach from a substitution cipher and is why transposition alone still leaks the original letter frequencies.
 
 ---
 
@@ -134,7 +134,7 @@
 
 **Correct Answer:** **steganography**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Cryptography scrambles a message so its content is unreadable but its presence is obvious; steganography hides the message inside an innocuous carrier (an image, audio file, or similar) so an observer doesn't even know communication is happening. The two are complementary, not competing, techniques.
 
 ---
 
@@ -142,7 +142,7 @@
 
 **Correct Answer:** **frequency analysis**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Frequency analysis compares how often each ciphertext symbol appears against known letter-frequency statistics for the language (e.g. 'E' is the most common English letter), since a monoalphabetic cipher preserves those frequencies one-to-one under a fixed substitution.
 
 ---
 
@@ -150,7 +150,7 @@
 
 **Correct Answer:** **Lᵢ = Rᵢ₋₁ ; Rᵢ = Lᵢ₋₁ ⊕ F(Rᵢ₋₁, Kᵢ)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Li = Ri-1 (the new left half is just the old right half), and Ri = Li-1 XOR F(Ri-1, Ki) (the new right half is the old left half XORed with the round function applied to the old right half and that round's subkey). This structure is what lets the exact same algorithm run both encryption and decryption.
 
 ---
 
@@ -158,7 +158,7 @@
 
 **Correct Answer:** **reverse**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Because XOR is its own inverse, running the identical Feistel round structure but feeding the subkeys in reverse order (Kn down to K1 instead of K1 up to Kn) exactly undoes each round, so no separate decryption algorithm or circuitry is needed.
 
 ---
 
@@ -166,7 +166,7 @@
 
 **Correct Answer:** **64; 64; 56**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** DES operates on 64-bit blocks. The key is stored as 64 bits, but 8 of those bits are parity bits (one per byte) that carry no security-relevant information, leaving an effective key length of 56 bits, which is also why DES's 2^56 keyspace became brute-forceable and drove the move to Triple DES and then AES.
 
 ---
 
@@ -174,7 +174,7 @@
 
 **Correct Answer:** **parity**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** DES stores a 64-bit key, but only 56 of those bits are actually used in encryption; the remaining 8 bits (one per byte) are parity bits used for basic error checking on the key, not for security.
 
 ---
 
@@ -182,7 +182,7 @@
 
 **Correct Answer:** **16**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** DES runs 16 rounds of its Feistel structure, a number chosen as a balance between enough rounds to resist known cryptanalytic attacks of the time and reasonable encryption/decryption speed.
 
 ---
 
@@ -190,7 +190,7 @@
 
 **Correct Answer:** **32; 48**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The 32-bit right half is expanded to 48 bits by the E-table so it can be XORed with the 48-bit round subkey before being compressed back down to 32 bits by the S-boxes, that expansion is also what lets each output bit of the S-boxes depend on more than one input bit, aiding diffusion.
 
 ---
 
@@ -198,7 +198,7 @@
 
 **Correct Answer:** **8; 6; 4**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The 48-bit expanded half-block from the E-table is split into eight 6-bit chunks, one per S-box, and each S-box compresses its 6 input bits down to a 4-bit output, recombining into a 32-bit result. That 6-to-4 compression, chosen via a fixed lookup table rather than a formula, is what supplies DES's nonlinearity.
 
 ---
 
@@ -206,7 +206,7 @@
 
 **Correct Answer:** **S-box (substitution)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The expansion permutation, the P-box permutation, and the XOR with the round key are all linear operations, so if DES only used those, the whole cipher would collapse into a linear function solvable directly. The S-boxes are the sole non-linear step, and that nonlinearity is exactly what makes differential and linear cryptanalysis hard rather than trivial.
 
 ---
 
@@ -214,7 +214,7 @@
 
 **Correct Answer:** **confusion; diffusion**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Confusion makes the relationship between the key and the ciphertext as complex as possible; diffusion spreads the statistical influence of each plaintext (and key) bit across many ciphertext bits. Together they're the foundational design goals behind both DES's Feistel structure and AES's substitution-permutation network.
 
 ---
 
@@ -222,7 +222,7 @@
 
 **Correct Answer:** **confusion; diffusion**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Confusion hides how the key relates to the ciphertext (achieved through substitution, like an S-box); diffusion spreads plaintext structure across many ciphertext bits (achieved through permutation and mixing), Shannon's two complementary defenses against statistical cryptanalysis.
 
 ---
 
@@ -230,7 +230,7 @@
 
 **Correct Answer:** **avalanche**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The avalanche effect means a tiny change to the plaintext or key (even a single bit) should cascade into a large, unpredictable change in the ciphertext, roughly half the output bits flipping is the benchmark a well-designed cipher is expected to hit, since anything less would leak exploitable structure.
 
 ---
 
@@ -238,7 +238,7 @@
 
 **Correct Answer:** **Euclidean**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The Euclidean algorithm repeatedly replaces the larger of two numbers with the remainder from dividing it by the smaller, until the remainder reaches zero; the last nonzero remainder is the gcd.
 
 ---
 
@@ -246,7 +246,7 @@
 
 **Correct Answer:** **extended Euclidean**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The Extended Euclidean algorithm runs the same recursion as the ordinary Euclidean algorithm but additionally tracks coefficients x and y satisfying ax + by = gcd(a,b); when gcd(a,n) = 1, that x is exactly a's multiplicative inverse mod n, which is how RSA derives d from e.
 
 ---
 
@@ -254,7 +254,7 @@
 
 **Correct Answer:** **gcd(a, n)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** gcd(a, n) = 1 is the exact condition for a to have a multiplicative inverse mod n: if a and n share any common factor greater than 1, no integer multiple of a can ever land on 1 modulo n.
 
 ---
 
@@ -262,7 +262,7 @@
 
 **Correct Answer:** **group**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** This is the definition of a group: closure keeps results inside the set, associativity lets operations be grouped in any order, an identity element leaves other elements unchanged, and every element has an inverse that combines with it to produce the identity.
 
 ---
 
@@ -270,7 +270,7 @@
 
 **Correct Answer:** **abelian**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** An abelian group adds commutativity (a * b = b * a for every pair of elements) on top of the ordinary group axioms; addition of integers is a familiar abelian group, while general matrix multiplication is a familiar example of a non-abelian one.
 
 ---
 
@@ -278,7 +278,7 @@
 
 **Correct Answer:** **ring**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A ring has two operations (typically called addition and multiplication), forms an abelian group under addition, and has associative, distributive multiplication, but unlike a field, multiplication in a ring is not required to have inverses for every nonzero element.
 
 ---
 
@@ -286,7 +286,7 @@
 
 **Correct Answer:** **field**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A ring only guarantees an additive group plus associative, distributive multiplication, nothing about multiplicative inverses. A field adds exactly that guarantee, every nonzero element is invertible, which is what makes division well-defined and is why GF(p) and GF(2^n) (fields, not just rings) are what cryptographic arithmetic is built on.
 
 ---
 
@@ -294,7 +294,7 @@
 
 **Correct Answer:** **prime**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** GF(p) is a field exactly when p is prime, since primality guarantees every nonzero residue is coprime to p and therefore has a multiplicative inverse; for a composite modulus, some nonzero elements share a factor with the modulus and lose their inverse, breaking the field structure.
 
 ---
 
@@ -302,7 +302,7 @@
 
 **Correct Answer:** **XOR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Addition of polynomials with coefficients in GF(2) reduces coefficient-by-coefficient addition modulo 2, which is exactly the bitwise XOR operation, that's why AES's GF(2^8) arithmetic uses plain XOR for addition rather than any carrying arithmetic.
 
 ---
 
@@ -310,7 +310,7 @@
 
 **Correct Answer:** **irreducible**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** An irreducible polynomial cannot be factored into lower-degree polynomials over GF(2), which is the polynomial analogue of a prime number. Just as GF(p) needs p prime for every nonzero residue to have an inverse, GF(2^n) needs the modulus polynomial irreducible, otherwise some nonzero elements would share a factor with the modulus and lose their inverse, breaking the field structure.
 
 ---
 
@@ -318,7 +318,7 @@
 
 **Correct Answer:** **x⁸ + x⁴ + x³ + x + 1**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** AES defines its GF(2^8) byte arithmetic modulo the irreducible polynomial x^8 + x^4 + x^3 + x + 1, chosen by the Rijndael designers so that every nonzero byte value has a well-defined multiplicative inverse in that field.
 
 ---
 
@@ -326,7 +326,7 @@
 
 **Correct Answer:** **128**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** AES always operates on a 128-bit block regardless of which key size (128, 192 or 256 bits) is chosen; only the key length and the corresponding number of rounds change, the block size never does.
 
 ---
 
@@ -334,7 +334,7 @@
 
 **Correct Answer:** **128; 192; 256**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** AES-128, AES-192 and AES-256 are the three standardized variants, differing only in key length and round count, all three still encrypt the same fixed 128-bit block.
 
 ---
 
@@ -342,7 +342,7 @@
 
 **Correct Answer:** **10; 12; 14**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Longer AES keys get more rounds to preserve the security margin as the key space grows: 10 rounds for a 128-bit key, 12 for 192-bit, and 14 for 256-bit.
 
 ---
 
@@ -350,7 +350,7 @@
 
 **Correct Answer:** **substitution-permutation**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A Feistel cipher only transforms half the block each round while the other half passes through unchanged. AES instead transforms the entire 128-bit state every round through substitution (SubBytes) and permutation/mixing (ShiftRows, MixColumns) layers, which is the defining shape of a substitution-permutation network.
 
 ---
 
@@ -358,7 +358,7 @@
 
 **Correct Answer:** **State**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The 16 bytes of a 128-bit AES block are loaded column by column into a 4x4 byte matrix called the State, and every round transformation (SubBytes, ShiftRows, MixColumns, AddRoundKey) operates directly on that State matrix.
 
 ---
 
@@ -366,7 +366,7 @@
 
 **Correct Answer:** **SubBytes; **ShiftRows**; MixColumns; AddRoundKey**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** SubBytes supplies nonlinear confusion via the S-box, ShiftRows shifts each row of the state to diffuse bytes across columns, MixColumns mixes the four bytes within each column via matrix multiplication in GF(2^8) for diffusion within a column, and AddRoundKey XORs in the round's key material, the only step that actually depends on the secret key.
 
 ---
 
@@ -374,7 +374,7 @@
 
 **Correct Answer:** **MixColumns**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** MixColumns is skipped in AES's last round, since its diffusion only helps if further rounds follow to compound it, and including it there would force decryption to add an extra InvMixColumns step for no additional security benefit.
 
 ---
 
@@ -382,7 +382,7 @@
 
 **Correct Answer:** **AddRoundKey**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** AddRoundKey is the sole AES round step that actually incorporates the key, a straightforward XOR of the State with that round's derived round key; SubBytes, ShiftRows and MixColumns are all fixed, key-independent operations.
 
 ---
 
@@ -390,7 +390,7 @@
 
 **Correct Answer:** **GF(2⁸); affine**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The AES S-box takes each byte's multiplicative inverse in GF(2^8) (mapping 0 to itself as a special case) and then applies a fixed affine transformation over GF(2), that combination is what gives SubBytes both strong nonlinearity and resistance to simple algebraic attacks.
 
 ---
 
@@ -398,7 +398,7 @@
 
 **Correct Answer:** **11**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** AES-128 runs 10 rounds, but there's also an initial AddRoundKey applied before round 1 even starts, so the key schedule must produce Nr + 1 = 11 separate 128-bit round keys (44 words of 32 bits each) to cover the initial whitening step plus all 10 rounds.
 
 ---
 
@@ -406,7 +406,7 @@
 
 **Correct Answer:** **ECB; CBC; CFB; OFB; CTR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Electronic Codebook encrypts each block independently (and leaks plaintext structure); Cipher Block Chaining XORs each plaintext block with the previous ciphertext before encrypting; Cipher Feedback and Output Feedback turn the block cipher into a self-synchronizing or synchronous stream cipher respectively; Counter mode encrypts successive counter values to form a keystream, enabling parallel encryption and decryption.
 
 ---
 
@@ -414,7 +414,7 @@
 
 **Correct Answer:** **ECB**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** ECB (Electronic Codebook) encrypts each plaintext block separately with no dependency on any other block, an IV, or a counter, which is exactly why identical plaintext blocks always produce identical ciphertext blocks and leak structural patterns.
 
 ---
 
@@ -422,7 +422,7 @@
 
 **Correct Answer:** **CBC**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** CBC (Cipher Block Chaining) XORs each plaintext block with the previous block's ciphertext before encrypting, chaining every block to the one before it (with an IV standing in for block zero), which is what hides repeated plaintext patterns that ECB would expose.
 
 ---
 
@@ -430,7 +430,7 @@
 
 **Correct Answer:** **Initialization Vector (IV)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The Initialization Vector (IV) is XORed into (or otherwise mixed with) the very first block of these modes so that encrypting the same plaintext twice under the same key still produces different ciphertext, as long as the IV differs each time.
 
 ---
 
@@ -438,7 +438,7 @@
 
 **Correct Answer:** **keystream block**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** OFB feeds the block cipher's own output back in as the next input, generating a keystream that is completely independent of the ciphertext or plaintext. That's what gives OFB its "no error propagation" property, and also why the keystream can be precomputed before the plaintext is even available.
 
 ---
 
@@ -446,7 +446,7 @@
 
 **Correct Answer:** **ciphertext block**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** CFB feeds the previous ciphertext block back through the block cipher to produce the next keystream segment. Because the feedback is the ciphertext rather than the raw output, CFB is self-synchronizing, an error in one ciphertext block corrupts a bounded run of subsequent plaintext but then resynchronizes, unlike OFB's fully independent keystream.
 
 ---
 
@@ -454,7 +454,7 @@
 
 **Correct Answer:** **counter**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** CTR mode encrypts a counter value that increments by one for each block (rather than chaining off the previous ciphertext or plaintext) to produce the keystream, which is XORed with the plaintext; that independence from prior blocks is what makes CTR fully parallelizable.
 
 ---
 
@@ -462,7 +462,7 @@
 
 **Correct Answer:** **OFB; CTR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** In both modes, the keystream is generated independently of the ciphertext (from repeated encryption in OFB, from encrypting a counter in CTR), and recovery is a simple XOR. A flipped ciphertext bit therefore flips exactly the corresponding plaintext bit and nothing else, no full-block corruption and no bleed into neighboring blocks, unlike ECB, CBC or CFB, where decryption runs the corrupted ciphertext through the block cipher itself and scrambles the whole affected block.
 
 ---
 
@@ -470,7 +470,7 @@
 
 **Correct Answer:** **CTR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** CTR mode is the one where every block's keystream depends only on the key and that block's own counter value, not on any neighboring block, so any block can be encrypted or decrypted independently and in any order, including in parallel across multiple cores.
 
 ---
 
@@ -478,7 +478,7 @@
 
 **Correct Answer:** **unpredictable; unique**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** CBC's IV must be unpredictable (essentially random), since a predictable IV lets an attacker test guesses about the first plaintext block. CTR's counter only needs to be unique, never repeated with the same key, it doesn't need to be secret or random at all, which is a strictly weaker and easier requirement to satisfy correctly.
 
 ---
 
@@ -486,7 +486,7 @@
 
 **Correct Answer:** **Triple DES (3DES)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Triple DES (3DES) runs the DES algorithm three times in sequence (typically encrypt-decrypt-encrypt with two or three distinct keys) to extend the effective key strength well beyond single DES's brute-forceable 56 bits, without designing an entirely new cipher.
 
 ---
 
@@ -494,7 +494,7 @@
 
 **Correct Answer:** **block**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** 3DES inherits DES's original 64-bit block size, and a block that small becomes vulnerable to birthday-bound collision attacks once enough data has been encrypted under one key, which is part of why AES (with its 128-bit block) eventually replaced it.
 
 ---
 
@@ -502,7 +502,7 @@
 
 **Correct Answer:** **PRNG (pseudorandom number generator)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A PRNG (pseudorandom number generator) is a deterministic algorithm: given the same seed, it always produces the same output sequence, and it's judged mainly by whether that output passes statistical randomness tests, not by whether it resists a determined attacker.
 
 ---
 
@@ -510,7 +510,7 @@
 
 **Correct Answer:** **CSPRNG (cryptographically secure PRNG)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A CSPRNG (cryptographically secure PRNG) adds the stronger requirement that predicting past or future output is computationally infeasible even given a substantial chunk of the sequence, which an ordinary PRNG (like a linear congruential generator) does not guarantee.
 
 ---
 
@@ -518,7 +518,7 @@
 
 **Correct Answer:** **TRNG (true random number generator)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A TRNG (true random number generator) samples genuine physical entropy, thermal noise, timing jitter, radioactive decay, rather than running a deterministic algorithm, so its output isn't reproducible even in principle given the same starting conditions.
 
 ---
 
@@ -526,7 +526,7 @@
 
 **Correct Answer:** **linear congruential**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** This recurrence defines a linear congruential generator (LCG); it's fast and simple but cryptographically broken, since observing just a handful of consecutive outputs lets an attacker solve for a, c and m and then predict the entire sequence.
 
 ---
 
@@ -534,7 +534,7 @@
 
 **Correct Answer:** **Rivest Cipher 4**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** RC4 stands for Rivest Cipher 4, designed by Ron Rivest in 1987; it was once widely used in protocols like WEP and early SSL/TLS before statistical biases in its keystream led to its deprecation.
 
 ---
 
@@ -542,7 +542,7 @@
 
 **Correct Answer:** **Key Scheduling Algorithm (KSA); Pseudo-Random Generation Algorithm (PRGA)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The KSA initializes a 256-byte state array and shuffles it into a key-dependent permutation using the secret key. The PRGA then continuously swaps entries in that state using two index pointers and emits one keystream byte per step, which is XORed with the plaintext. RC4's known biases live mostly in the KSA's handling of the earliest PRGA output bytes.
 
 ---
 
@@ -550,7 +550,7 @@
 
 **Correct Answer:** **256**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** RC4's internal state is a 256-byte array (indexed 0 to 255) that the Key Scheduling Algorithm shuffles into a key-dependent permutation before the PRGA starts emitting keystream bytes from it.
 
 ---
 
@@ -558,7 +558,7 @@
 
 **Correct Answer:** **XOR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A stream cipher XORs the plaintext with a pseudorandom keystream, one bit or byte at a time, to produce ciphertext; decryption XORs the same keystream against the ciphertext to recover the plaintext, since XOR is its own inverse.
 
 ---
 
@@ -566,7 +566,7 @@
 
 **Correct Answer:** **XOR**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** If two messages are encrypted with the same keystream K, XORing the two resulting ciphertexts together cancels K out entirely, leaving the XOR of the two plaintexts, which, combined with language statistics or crib-dragging, is often enough to recover both messages without ever learning K.
 
 ---
 
@@ -574,7 +574,7 @@
 
 **Correct Answer:** **a^(p−1) ≡ 1 (mod p)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** This holds because the nonzero residues mod a prime p form a group of order p-1 under multiplication, and by Lagrange's theorem every element's order divides the group's order, so raising any such element to the p-1 power always cycles back to the identity, 1.
 
 ---
 
@@ -582,7 +582,7 @@
 
 **Correct Answer:** **coprime (relatively prime)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** phi(n) counts how many integers in the range 1 to n-1 are coprime to n (share no common factor with it other than 1); those are exactly the residues that have a multiplicative inverse modulo n.
 
 ---
 
@@ -590,7 +590,7 @@
 
 **Correct Answer:** **(p−1)(q−1)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Euler's totient is multiplicative over coprime factors, and for two distinct primes it reduces to phi(pq) = (p-1)(q-1), which is precisely the identity RSA key generation uses to compute phi(n) from n = pq.
 
 ---
 
@@ -598,7 +598,7 @@
 
 **Correct Answer:** **p − 1**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Every integer from 1 to p-1 is automatically coprime to a prime p, so phi(p) simply equals p-1, this is the special case that makes Fermat's Little Theorem a special case of Euler's Theorem.
 
 ---
 
@@ -606,7 +606,7 @@
 
 **Correct Answer:** **a^φ(n) ≡ 1 (mod n)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Euler's Theorem generalizes Fermat's Little Theorem from a prime modulus to any modulus n, replacing the group order p-1 with φ(n), the count of integers coprime to n. Fermat's is just the special case where n is prime, since φ(p) = p-1. This is the identity RSA's correctness proof leans on, since n = pq is composite.
 
 ---
 
@@ -614,7 +614,7 @@
 
 **Correct Answer:** **Miller-Rabin**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Miller-Rabin repeatedly tests a candidate against random witnesses; a composite number fails at least one witness's test with probability at least 3/4, so running enough independent rounds drives the chance of a false "probably prime" verdict down to negligible levels, fast enough to be practical for generating the very large primes p and q that RSA needs.
 
 ---
 
@@ -622,7 +622,7 @@
 
 **Correct Answer:** **Chinese Remainder Theorem**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The Chinese Remainder Theorem lets RSA decryption be computed separately modulo p and modulo q (both much smaller than n) and then recombined, which is roughly four times faster than a single full-size modular exponentiation mod n.
 
 ---
 
@@ -630,7 +630,7 @@
 
 **Correct Answer:** **discrete logarithm**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Computing α^x mod q from x is fast (repeated squaring), but the reverse direction, recovering x given only α, q and the result, has no known efficient classical algorithm for well-chosen groups. That asymmetry, easy forward, hard backward, is exactly what Diffie-Hellman and ElGamal build their security on.
 
 ---
 
@@ -638,7 +638,7 @@
 
 **Correct Answer:** **factoring large integers (integer factorisation)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** RSA's security relies on integer factorization: multiplying two large primes p and q to get n is easy, but recovering p and q from n alone is assumed computationally infeasible for a large enough modulus using current classical algorithms.
 
 ---
 
@@ -646,7 +646,7 @@
 
 **Correct Answer:** **(e, n); (d, n)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Both keys share the same modulus n; the public key is (e, n), where e is the public encryption/verification exponent, and the private key is (d, n), where d is e's modular inverse used for decryption/signing.
 
 ---
 
@@ -654,7 +654,7 @@
 
 **Correct Answer:** **C = P^e mod **n** ; P = C^d mod **n****
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Encryption computes C = P^e mod n; decryption computes P = C^d mod n. Because d is e's multiplicative inverse modulo phi(n), these two operations undo each other by Euler's Theorem.
 
 ---
 
@@ -662,7 +662,7 @@
 
 **Correct Answer:** **gcd(e, φ(n)) = 1, with 1 < e < φ(n)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** e must satisfy 1 < e < phi(n) and gcd(e, phi(n)) = 1 (e coprime to phi(n)), that coprimality is exactly what guarantees e has a multiplicative inverse d modulo phi(n) for the private key to exist.
 
 ---
 
@@ -670,7 +670,7 @@
 
 **Correct Answer:** **multiplicative inverse; φ(n)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** d is the multiplicative inverse of e modulo phi(n), computed via the Extended Euclidean algorithm so that e*d ≡ 1 (mod phi(n)); that inverse relationship is exactly what makes RSA decryption undo encryption.
 
 ---
 
@@ -678,7 +678,7 @@
 
 **Correct Answer:** **key generation**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** phi(n) is needed only when generating the RSA key pair, to derive d from e, it never appears in the encryption or decryption formulas themselves, which is also why phi(n) (and therefore p and q) must be kept secret even though n and e are public.
 
 ---
 
@@ -686,7 +686,7 @@
 
 **Correct Answer:** **key exchange (key agreement)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Diffie-Hellman never encrypts or transmits a message directly; it lets two parties who exchange only public values each independently compute the same shared secret, which is then typically used to derive a symmetric key for a separate encryption step. It's a key-agreement protocol, not a cipher in its own right.
 
 ---
 
@@ -694,7 +694,7 @@
 
 **Correct Answer:** **q; primitive root α**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Diffie-Hellman's public parameters are a large prime q and a primitive root (generator) alpha of that prime's multiplicative group, chosen so alpha's powers modulo q cycle through every nonzero residue before repeating.
 
 ---
 
@@ -702,7 +702,7 @@
 
 **Correct Answer:** **discrete logarithm**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Diffie-Hellman's security rests on the discrete logarithm problem: computing alpha^x mod q is fast, but recovering x given only alpha, q and alpha^x mod q is assumed computationally infeasible for well-chosen parameters.
 
 ---
 
@@ -710,7 +710,7 @@
 
 **Correct Answer:** **authentication; man-in-the-middle**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Plain Diffie-Hellman never authenticates who sent which public value, which is what permits a man-in-the-middle attack: an attacker can intercept the exchange, run a separate DH exchange with each party, and relay/re-encrypt all traffic between them without either party noticing.
 
 ---
 
@@ -718,7 +718,7 @@
 
 **Correct Answer:** **y² = x³ + ax + b**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The general (short Weierstrass) form used in cryptography is y^2 = x^3 + ax + b, with the constants a and b (subject to a non-singularity condition) defining the specific curve and its group structure.
 
 ---
 
@@ -726,7 +726,7 @@
 
 **Correct Answer:** **point at infinity**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Elliptic-curve point addition is defined geometrically (draw a line through two points, find the third intersection, reflect it), and to make every point have an inverse and the operation form a proper group, a special "point at infinity" is added as the identity element, the result of adding a point to its own vertical reflection.
 
 ---
 
@@ -734,7 +734,7 @@
 
 **Correct Answer:** **Elliptic Curve Discrete Logarithm Problem (ECDLP)**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Given a base point P and Q = kP (P added to itself k times), recovering k is believed computationally infeasible for well-chosen curves, and unlike integer factorization there's no known sub-exponential attack against it, which is why ECC reaches RSA-equivalent security with much smaller key sizes.
 
 ---
 
@@ -742,7 +742,7 @@
 
 **Correct Answer:** **3072**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A 256-bit elliptic-curve key is considered roughly equivalent in strength to a 3072-bit RSA key, since ECC's underlying discrete logarithm problem has no known sub-exponential attack the way integer factorization does, letting it reach the same security level with a much smaller key.
 
 ---
 
@@ -750,7 +750,7 @@
 
 **Correct Answer:** **variable; fixed**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A cryptographic hash function accepts an input message of any (variable) length and always produces a fixed-length digest, regardless of how long or short the original message was.
 
 ---
 
@@ -758,7 +758,7 @@
 
 **Correct Answer:** **preimage resistance; second preimage resistance; collision resistance**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Preimage resistance (can't work backward from a hash to find any input producing it), second preimage resistance (given one input, can't find a different input with the same hash), and collision resistance (can't find any two inputs at all that collide) are the three properties a secure hash function must satisfy.
 
 ---
 
@@ -766,7 +766,7 @@
 
 **Correct Answer:** **birthday**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** The birthday attack exploits the birthday paradox: finding any two inputs that collide only takes roughly the square root of the number of possible hash outputs, far fewer attempts than brute-forcing a specific preimage, which is why hash digests need to be twice as long as the target security level to resist it.
 
 ---
 
@@ -774,7 +774,7 @@
 
 **Correct Answer:** **sponge; Merkle-Damgård**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** SHA-3 uses the sponge construction, absorbing input into a large internal state and then squeezing out output, with security tunable via the rate/capacity split. SHA-1 and SHA-2 instead chain a compression function block by block (the Merkle-Damgard construction), which is also what makes naive use of them susceptible to length-extension attacks.
 
 ---
 
@@ -782,7 +782,7 @@
 
 **Correct Answer:** **MAC (message authentication code); HMAC**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** A MAC (message authentication code) combines a secret key with a hash to prove both integrity and authenticity; HMAC is the standard, well-analyzed way to build one, nesting the key into both an inner and outer hash pass specifically to resist length-extension attacks that a naive secret-prefix construction would be vulnerable to.
 
 ---
 
@@ -790,7 +790,7 @@
 
 **Correct Answer:** **ipad; opad**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** HMAC XORs the key with two fixed byte constants before its inner and outer hash passes: ipad (0x36 repeated) for the inner pass and opad (0x5c repeated) for the outer pass, ensuring the two hash computations use meaningfully different, derived keys rather than the same raw key twice.
 
 ---
 
@@ -798,6 +798,6 @@
 
 **Correct Answer:** **non-repudiation**
 
-**Reason:** Fill-in precision is critical on Sakai exams.
+**Reason:** Non-repudiation: since only the signer holds the private signing key, a valid signature proves the signer specifically produced it, and they can't credibly deny having signed it. A MAC's key is shared between both parties, so either one could have produced a given tag, meaning a MAC can prove authenticity to the other party but can never prove it to a third party the way a signature can.
 
 ---

@@ -16,6 +16,15 @@ import {
 const fillQuestion = bank.find((q) => q.type === "fill")!;
 const MOCK_TOTAL = mockTotalTarget();
 
+test.beforeEach(async ({ page }) => {
+  // The welcome tour only shows on a visitor's first load; without this it
+  // covers the page on every test's initial goto() and every assertion
+  // after it times out waiting for content the overlay is hiding.
+  await page.addInitScript(() => {
+    localStorage.setItem("dcit418-tour-seen", "1");
+  });
+});
+
 async function seed(page: Page, progress: Progress) {
   await page.goto("/");
   await page.evaluate(
@@ -62,6 +71,39 @@ test("home, practice setup, keyboard answer and persistence", async ({
   );
   expect(p.attempts).toHaveLength(1);
   expect(p.seen).toHaveLength(2);
+});
+test("welcome tour shows once for a first-time visitor, and the shortcuts panel is always reachable", async ({
+  browser,
+}) => {
+  // A fresh context with no init script of its own, so it never inherits
+  // the suite-wide beforeEach's tour-suppressing script (which reapplies on
+  // every navigation, including reload, and would otherwise wipe out the
+  // "seen" flag the app itself sets when the tour is dismissed).
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto("/");
+  await expect(
+    page.getByRole("dialog", { name: "Welcome to Security Lab" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Let's go" }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Welcome to Security Lab" }),
+  ).toHaveCount(0);
+  await page.reload();
+  await expect(
+    page.getByRole("dialog", { name: "Welcome to Security Lab" }),
+  ).toHaveCount(0);
+
+  await page.getByRole("button", { name: /shortcuts/i }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Keyboard shortcuts" }),
+  ).toBeVisible();
+  await expect(page.getByText("Go to the previous or next question")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(
+    page.getByRole("dialog", { name: "Keyboard shortcuts" }),
+  ).toHaveCount(0);
+  await context.close();
 });
 test("fill override records correctness and removes the miss from review", async ({
   page,
@@ -188,6 +230,9 @@ test("export and import resumes the active question on another device", async ({
   const path = await (await downloaded).path();
   const other = await browser.newContext();
   const second = await other.newPage();
+  await second.addInitScript(() => {
+    localStorage.setItem("dcit418-tour-seen", "1");
+  });
   await second.goto("/");
   await second.locator("input[type=file]").setInputFiles(path!);
   await expect(second.getByRole("textbox")).toHaveValue(fillQuestion.correctText);

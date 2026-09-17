@@ -271,6 +271,16 @@ function App() {
   }
   const zoomBySize = { sm: 0.9, md: 1, lg: 1.15, xl: 1.3 }[fontSize];
   const [message, setMessage] = useState("");
+  const [messageKind, setMessageKind] = useState<
+    "info" | "success" | "warning" | "error"
+  >("info");
+  const notify = useCallback(
+    (text: string, kind: "info" | "success" | "warning" | "error" = "info") => {
+      setMessage(text);
+      setMessageKind(text ? kind : "info");
+    },
+    [],
+  );
   const [progress, setProgress] = useState<Progress>(() => {
     try {
       return load();
@@ -309,6 +319,30 @@ function App() {
   );
   const [readingIds, setReadingIds] = useState(bank.map((q) => q.id));
   const [set9View, setSet9View] = useState<null | "paper" | "key">(null);
+  const [showShortcuts, setShowShortcuts] = useState(false);
+  const [showTour, setShowTour] = useState(() => {
+    try {
+      return !localStorage.getItem("dcit418-tour-seen");
+    } catch {
+      return false;
+    }
+  });
+  const dismissTour = useCallback(() => {
+    setShowTour(false);
+    try {
+      localStorage.setItem("dcit418-tour-seen", "1");
+    } catch {
+      /* Tour still dismisses for this visit without persisted storage. */
+    }
+  }, []);
+  useEffect(() => {
+    if (!showShortcuts) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowShortcuts(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showShortcuts]);
   const [set9OpenedAt, setSet9OpenedAt] = useState(() => {
     try {
       return localStorage.getItem("dcit418-set9-opened");
@@ -361,7 +395,7 @@ function App() {
   }
   function startReading(filtered = false, fillDrill = false) {
     if (progress.session?.mode === "mock" && !progress.session.submitted) {
-      setMessage("Submit your active mock before opening answers.");
+      notify("Submit your active mock before opening answers.", "warning");
       return;
     }
     const candidates = (fillDrill ? drillPool() : bank)
@@ -379,7 +413,7 @@ function App() {
       );
     const ids = (filtered ? filterUnseen(candidates) : candidates).map((q) => q.id);
     if (!ids.length) {
-      setMessage("No questions match. Adjust your filters.");
+      notify("No questions match. Adjust your filters.", "warning");
       return;
     }
     setReadingIds(ids);
@@ -401,7 +435,7 @@ function App() {
   function downloadDeck() {
     const questions = exportCandidates();
     if (!questions.length) {
-      setMessage("No questions match your filters. Adjust and try again.");
+      notify("No questions match your filters. Adjust and try again.", "warning");
       return;
     }
     const title = "DCIT 418 Exported Question Deck";
@@ -418,10 +452,10 @@ function App() {
         "text/csv;charset=utf-8",
       );
     } else if (!printDeckPdf(questions, title)) {
-      setMessage("Allow pop-ups to export as PDF, then try again.");
+      notify("Allow pop-ups to export as PDF, then try again.", "warning");
       return;
     }
-    setMessage(`Deck exported: ${questions.length} questions.`);
+    notify(`Deck exported: ${questions.length} questions.`, "success");
   }
   const [now, setNow] = useState(Date.now());
   const [offline, setOffline] = useState(!navigator.onLine);
@@ -488,7 +522,7 @@ function App() {
         p.session ? submitMock({ ...p, session: stamp(p.session) }, now) : p,
       );
       setView("mock");
-      setMessage("Time is up. Your paper has been submitted.");
+      notify("Time is up. Your paper has been submitted.", "warning");
     }
   }, [now]);
   function start(mode: Mode, fillDrill = false) {
@@ -514,8 +548,9 @@ function App() {
         ids = order === "sequential" ? available : shuffle(available);
       }
       if (!ids.length) {
-        setMessage(
+        notify(
           "No questions match. Adjust your filters or practise first.",
+          "warning",
         );
         return;
       }
@@ -532,7 +567,10 @@ function App() {
       setView(mode);
       setMessage("");
     } catch (e) {
-      setMessage(e instanceof Error ? e.message : "Could not start session.");
+      notify(
+        e instanceof Error ? e.message : "Could not start session.",
+        "error",
+      );
     }
   }
   function change(value: Partial<Draft>) {
@@ -566,7 +604,7 @@ function App() {
     if (index >= active.ids.length) {
       setProgress((p) => ({ ...p, session: null }));
       setView("home");
-      setMessage("Session complete. Your results are saved.");
+      notify("Session complete. Your results are saved.", "success");
       return;
     }
     setProgress((p) => {
@@ -598,14 +636,15 @@ function App() {
     )
       return;
     if (!draft.answer.trim()) {
-      setMessage("Choose an option or enter an answer first.");
+      notify("Choose an option or enter an answer first.", "warning");
       return;
     }
     if (active.mode === "mock") {
       if (active.index < active.ids.length - 1) move(active.index + 1);
       else
-        setMessage(
+        notify(
           "You have reached the last question. Submit the paper when ready.",
+          "info",
         );
       return;
     }
@@ -727,11 +766,12 @@ function App() {
       }));
       setStorageError("");
       if (imported.session) setView(imported.session.mode);
-      setMessage(
+      notify(
         "Progress imported, including any active session. Duplicate attempts were merged.",
+        "success",
       );
     } catch (e) {
-      setMessage(e instanceof Error ? e.message : "Import failed.");
+      notify(e instanceof Error ? e.message : "Import failed.", "error");
     }
   }
   async function exportErrors() {
@@ -739,9 +779,12 @@ function App() {
     download("dcit418-errors.csv", csv, "text/csv;charset=utf-8");
     try {
       await navigator.clipboard.writeText(csv);
-      setMessage("Error log downloaded and copied to clipboard.");
+      notify("Error log downloaded and copied to clipboard.", "success");
     } catch {
-      setMessage("CSV downloaded. Clipboard is unavailable in this browser.");
+      notify(
+        "CSV downloaded. Clipboard is unavailable in this browser.",
+        "warning",
+      );
     }
   }
   const accuracy = progress.attempts.length
@@ -861,16 +904,26 @@ function App() {
             UNIVERSITY OF GHANA <span className="muted">/</span> COMPUTER
             SCIENCE
           </span>
-          <span className="status">
-            <span className="dot" />{" "}
-            {storageError
-              ? "Storage needs attention"
-              : offline
-                ? "Offline"
-                : cacheReady
-                  ? "Saved locally ? offline ready"
-                  : "Saved locally ? offline cache unavailable"}
-          </span>
+          <div className="header-right">
+            <span className="status">
+              <span className="dot" />{" "}
+              {storageError
+                ? "Storage needs attention"
+                : offline
+                  ? "Offline"
+                  : cacheReady
+                    ? "Saved locally ? offline ready"
+                    : "Saved locally ? offline cache unavailable"}
+            </span>
+            <button
+              className="shortcuts-button"
+              onClick={() => setShowShortcuts(true)}
+              aria-haspopup="dialog"
+              title="Keyboard shortcuts"
+            >
+              <kbd>⌨</kbd> Shortcuts
+            </button>
+          </div>
         </header>
         {storageError && (
           <div role="alert" className="notice error">
@@ -887,7 +940,17 @@ function App() {
           </div>
         )}
         {message && (
-          <div role="status" className="notice">
+          <div
+            role={messageKind === "error" ? "alert" : "status"}
+            className={`notice notice-${messageKind}`}
+          >
+            <span className="notice-icon" aria-hidden="true">
+              {
+                { info: "ℹ", success: "✓", warning: "⚠", error: "✕" }[
+                  messageKind
+                ]
+              }
+            </span>
             {message}
             <button aria-label="Dismiss message" onClick={() => setMessage("")}>
               ×
@@ -1107,6 +1170,9 @@ function App() {
                           · <kbd>Space</kbd> reveal
                         </>
                       )}
+                      {" "}
+                      · <kbd>←</kbd>
+                      <kbd>→</kbd> navigate
                     </span>
                     <button
                       className="secondary-action prev-question"
@@ -1643,10 +1709,10 @@ function App() {
               <div className="setup-footer">
                 <span>
                   {view === "practice"
-                    ? "Untimed · instant explanations"
+                    ? "Untimed · instant explanations · saves automatically, leave anytime"
                     : view === "mock"
                       ? "Timed · answers at the end"
-                      : "Untimed · focused repetition"}
+                      : "Untimed · focused repetition · saves automatically, leave anytime"}
                 </span>
                 {view === "practice" && (
                   <button
@@ -1737,6 +1803,98 @@ function App() {
           <span>DCIT 418</span>
         </footer>
       </main>
+      {showShortcuts && (
+        <div
+          className="overlay-backdrop"
+          onClick={() => setShowShortcuts(false)}
+        >
+          <div
+            className="overlay-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Keyboard shortcuts"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="overlay-header">
+              <h2>Keyboard shortcuts</h2>
+              <button
+                aria-label="Close"
+                onClick={() => setShowShortcuts(false)}
+              >
+                ×
+              </button>
+            </div>
+            <dl className="shortcuts-list">
+              <dt>
+                <kbd>1</kbd>–<kbd>5</kbd>
+              </dt>
+              <dd>Select an option (multiple-choice or multi-select)</dd>
+              <dt>
+                <kbd>Enter</kbd>
+              </dt>
+              <dd>Submit your answer, or move to the next question</dd>
+              <dt>
+                <kbd>Space</kbd>
+              </dt>
+              <dd>Reveal the answer (Practice and Review only)</dd>
+              <dt>
+                <kbd>←</kbd> <kbd>→</kbd>
+              </dt>
+              <dd>Go to the previous or next question</dd>
+              <dt>
+                <kbd>Esc</kbd>
+              </dt>
+              <dd>Close this panel</dd>
+            </dl>
+            <p className="overlay-note">
+              Shortcuts are disabled while typing in a text field, and never
+              act inside a code block.
+            </p>
+          </div>
+        </div>
+      )}
+      {showTour && (
+        <div className="overlay-backdrop" onClick={dismissTour}>
+          <div
+            className="overlay-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Welcome to Security Lab"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="overlay-header">
+              <h2>Welcome to Security Lab</h2>
+              <button aria-label="Skip tour" onClick={dismissTour}>
+                ×
+              </button>
+            </div>
+            <ul className="tour-steps">
+              <li>
+                <strong>Practice</strong> untimed, with an explanation after
+                every answer. Pick parts, sources and types, or just start.
+              </li>
+              <li>
+                <strong>Mock exam</strong> a timed 60-minute paper sampled
+                across every part. Answers appear only after you submit.
+              </li>
+              <li>
+                <strong>Nothing is lost if you leave.</strong> Practice,
+                Review and Mock sessions all save automatically, resume from
+                where you left off, no need to finish in one sitting.
+              </li>
+              <li>
+                Use <kbd>1</kbd>-<kbd>5</kbd>, <kbd>Enter</kbd>,{" "}
+                <kbd>Space</kbd> and <kbd>←</kbd>/<kbd>→</kbd> to move fast
+                without touching the mouse. Full list under{" "}
+                <strong>Shortcuts</strong> in the header, any time.
+              </li>
+            </ul>
+            <button className="primary" onClick={dismissTour}>
+              Let's go
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

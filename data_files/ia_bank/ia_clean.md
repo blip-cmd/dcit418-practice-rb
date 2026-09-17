@@ -2409,3 +2409,349 @@
 
 ---
 
+---
+
+## SK's Exam Review
+
+### 198. Output Feedback (OFB) mode differs from CFB mode chiefly in that OFB:
+- A. Feeds back the preceding encryption output itself, rather than the ciphertext, into the next encryption step
+- B. Does not require an initialization vector at all
+- C. Cannot be used to convert a block cipher into a stream-like cipher
+- D. Always operates on smaller sub-block units than CFB does
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. Feeds back the preceding encryption output itself, rather than the ciphertext, into the next encryption step**
+
+*Intuition:* OFB feeds the block cipher's own previous output back in as the next input, so the keystream is generated completely independently of the ciphertext or plaintext. CFB instead feeds back the previous ciphertext block, which is what makes CFB self-synchronizing while OFB requires the same IV never be reused with the same key.
+</details>
+
+---
+
+### 199. Using p = 17, q = 11, e = 7, and d = 23 (so n = 187 and phi(n) = 160), encrypting M = 88 gives a ciphertext C computed as:
+- A. C = 88^7 mod 187 = 11
+- B. C = 11^7 mod 187 = 88
+- C. C = 88^23 mod 187 = 11
+- D. C = 88^7 mod 160 = 11
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. C = 88^7 mod 187 = 11**
+
+*Intuition:* RSA encryption computes C = M^e mod n. Here 88^7 mod 187 works out to 11, which checks out against decryption: 11^23 mod 187 recovers 88, confirming e=7 and d=23 are a valid RSA key pair for n=187.
+</details>
+
+---
+
+### 200. Decryption of a MixColumns-transformed column uses:
+- A. InvMixColumns, multiplying by the inverse of the fixed matrix used during encryption
+- B. No matrix at all, since MixColumns is skipped automatically during decryption
+- C. A completely different, randomly generated matrix chosen for each session
+- D. The identical MixColumns matrix used during encryption, applied a second time
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. InvMixColumns, multiplying by the inverse of the fixed matrix used during encryption**
+
+*Intuition:* MixColumns multiplies each column of the AES state by a fixed matrix over GF(2^8) during encryption; decryption undoes this with InvMixColumns, multiplication by that matrix's inverse, which is a different, precomputed fixed matrix, not the same matrix applied twice and not skipped.
+</details>
+
+---
+
+### 201. Counter (CTR) mode generates its keystream by:
+- A. Chaining each block's ciphertext into the encryption of the following block
+- B. Encrypting a counter value that increments for each block, then XORing the result with the plaintext
+- C. Reusing the same encrypted value as the keystream for every block in a message
+- D. Encrypting the plaintext directly with no counter or feedback of any kind
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. Encrypting a counter value that increments for each block, then XORing the result with the plaintext**
+
+*Intuition:* CTR mode encrypts a counter value that increments once per block (rather than chaining off the previous ciphertext or plaintext) and XORs the result with the plaintext, which is what makes CTR fully parallelizable and lets any block be decrypted independently of the others.
+</details>
+
+---
+
+### 202. The Miller-Rabin primality test is best described as:
+- A. A method for factoring a composite number into its two prime factors
+- B. A fast probabilistic test that either proves a candidate is composite or leaves it as only probably prime
+- C. A technique for generating the private key directly from a public RSA modulus
+- D. A deterministic test, like trial division, that always proves primality with total certainty
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. A fast probabilistic test that either proves a candidate is composite or leaves it as only probably prime**
+
+*Intuition:* Miller-Rabin is a probabilistic test: it either proves a candidate composite outright (by finding a witness that fails the test) or leaves it as only "probably prime" after surviving enough rounds against random witnesses. It never proves primality with certainty the way a deterministic test like AKS does, but running enough rounds drives the error probability low enough for practical cryptographic use.
+</details>
+
+---
+
+### 203. In the prime field GF(p), where p is prime, every nonzero element has a multiplicative inverse precisely because:
+- A. p is always chosen to be an even number greater than 2
+- B. Multiplication in GF(p) is defined without ever using modular reduction
+- C. GF(p) is required to contain exactly two elements by definition
+- D. p is prime, so no nonzero element shares a common factor with p
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **D. p is prime, so no nonzero element shares a common factor with p**
+
+*Intuition:* Because p is prime, every integer from 1 to p-1 is automatically coprime to p (shares no common factor with it other than 1), and a multiplicative inverse mod p exists exactly when gcd(a,p)=1. That guarantee is what makes GF(p) a field rather than merely a ring; it would fail for a composite modulus, where some nonzero residues do share a factor with the modulus.
+</details>
+
+---
+
+### 204. The 4×4 byte matrix that AES loads the plaintext block into, and which every round transformation operates on, is called the ____.
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **state**
+
+*Intuition:* In AES, the 128-bit plaintext block is loaded byte by byte into a 4x4 matrix called the State, and every round transformation (SubBytes, ShiftRows, MixColumns, AddRoundKey) operates directly on this State matrix throughout encryption.
+</details>
+
+---
+
+### 205. The security of Diffie-Hellman, ElGamal encryption, and the Digital Signature Algorithm all ultimately rest on the assumed hardness of:
+- A. Finding a collision in a cryptographic hash function
+- B. Factoring a large composite number into its two prime factors
+- C. The discrete logarithm problem
+- D. Solving simultaneous linear equations over the integers
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **C. The discrete logarithm problem**
+
+*Intuition:* Diffie-Hellman key exchange, ElGamal encryption, and the classic (non-elliptic-curve) Digital Signature Algorithm are all built around the discrete logarithm problem: given a generator, a modulus and the result of modular exponentiation, recovering the exponent is assumed computationally infeasible for well-chosen parameters.
+</details>
+
+---
+
+### 206. The Euclidean Algorithm computes gcd(a, b) by:
+- A. Multiplying a and b together and then dividing by their least common multiple
+- B. Repeatedly dividing and keeping the remainder until a remainder of zero is reached
+- C. Testing every integer from 1 up to the smaller of a and b for common divisibility
+- D. Factoring both a and b completely and comparing their prime factorizations
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. Repeatedly dividing and keeping the remainder until a remainder of zero is reached**
+
+*Intuition:* The Euclidean algorithm repeatedly replaces the larger of the two numbers with the remainder of dividing it by the smaller, and repeats until the remainder reaches zero; the last nonzero remainder is the gcd. This converges quickly because each step at least halves the larger value in the worst case.
+</details>
+
+---
+
+### 207. Digital signatures are only ever applied to a hash of the message, never its content.
+- A. Digital signatures are only ever applied to a hash of the message, never its content
+- B. Anyone who has the sender's public key can decrypt and read the message
+- C. The message is never actually transformed, only tagged with a plaintext label
+- D. The private key used is always shorter than the key used for encryption alone
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. Digital signatures are only ever applied to a hash of the message, never its content**
+
+*Intuition:* In practice, a digital signature is computed over a cryptographic hash (digest) of the message rather than the full message itself, since signing (a public-key operation) is far slower than hashing, and a fixed-size digest lets the same signature scheme handle messages of any length. The message content is still transmitted alongside the signature; only the signing operation itself is applied to the hash.
+</details>
+
+---
+
+### 208. For the prime 15's totient, phi(15) = phi(3) × phi(5) = 2 × 4 = 8. This calculation relies on the fact that:
+- A. phi is multiplicative over the product of two distinct primes, since phi(pq) = (p-1)(q-1)
+- B. phi(n) is always equal to n divided by 2, rounded down to the nearest integer
+- C. 15 itself is prime, so phi(15) is always equal to 14 by definition
+- D. Every factor of 15 must individually be tested for primality first
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. phi is multiplicative over the product of two distinct primes, since phi(pq) = (p-1)(q-1)**
+
+*Intuition:* Euler's totient function is multiplicative over coprime factors, and for two distinct primes p and q it reduces to phi(pq) = (p-1)(q-1). Since 15 = 3 x 5 with both factors prime, phi(15) = phi(3) x phi(5) = 2 x 4 = 8, exactly the same identity RSA key generation relies on when computing phi(n) from n = p x q.
+</details>
+
+---
+
+### 209. Historically, the clearest and most practical weakness of DES has been:
+- A. Its 56-bit key length, which modern hardware can exhaustively search
+- B. A lack of an inverse initial permutation, making decryption impossible
+- C. A publicly proven mathematical flaw in the design of its S-boxes
+- D. Its inability to be combined with any block cipher mode of operation
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **A. Its 56-bit key length, which modern hardware can exhaustively search**
+
+*Intuition:* DES's practical weakness has always been its short 56-bit effective key: a keyspace of 2^56 became exhaustively searchable by dedicated hardware and distributed brute-force efforts by the late 1990s, which is exactly what drove the move first to Triple DES and then to AES, rather than any flaw in DES's internal round structure or S-box design.
+</details>
+
+---
+
+### 210. An RSA-based pseudorandom number generator that encrypts its internal state at each stage, feeding back some bits and outputting the rest, is called the ____ PRNG.
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **RSA**
+
+*Intuition:* This describes the RSA PRNG (sometimes called Micali-Schnorr in its optimized form): each stage encrypts the current internal state with RSA, feeds part of the result back in as the new state, and releases the remaining bits as pseudorandom output. Its security rests on the same hardness assumption as RSA itself, but it is far slower than symmetric-primitive-based PRNGs, which is why it sees little practical use despite the strong theoretical backing.
+</details>
+
+---
+
+### 211. The Fundamental Theorem of Arithmetic guarantees that every integer greater than 1:
+- A. Shares at least one prime factor with every other integer greater than 1
+- B. Can be written as a product of primes in exactly one way, ignoring the order of the factors
+- C. Is itself either prime or a perfect square, with no other possibilities
+- D. Has a unique representation as the sum, rather than the product, of primes
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. Can be written as a product of primes in exactly one way, ignoring the order of the factors**
+
+*Intuition:* The Fundamental Theorem of Arithmetic states that every integer greater than 1 can be written as a product of primes in exactly one way, up to the order the factors are listed in. This uniqueness of prime factorization underlies why factoring is treated as a well-defined hard problem in the first place: there is exactly one right answer to find.
+</details>
+
+---
+
+### 212. The security of Diffie-Hellman key exchange rests on the assumed difficulty of:
+- A. Reversing the AES S-box without knowing the round key
+- B. Computing discrete logarithms modulo a large prime
+- C. Factoring the product of two large primes
+- D. Finding a collision in a cryptographic hash function
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. Computing discrete logarithms modulo a large prime**
+
+*Intuition:* Diffie-Hellman's security rests on the discrete logarithm problem: computing g^x mod p is fast, but recovering x from g, p and g^x mod p is assumed computationally infeasible for a large enough prime p and well-chosen generator g, with no known efficient classical algorithm for the general case.
+</details>
+
+---
+
+### 213. The purpose of the eight S-boxes in the DES round function is chiefly to:
+- A. Perform the initial and final permutations of the 64-bit block
+- B. Introduce nonlinearity into the encryption process
+- C. Increase the effective key length beyond 56 bits
+- D. Generate the sixteen round subkeys from the original key
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. Introduce nonlinearity into the encryption process**
+
+*Intuition:* The Expansion permutation, the P-box permutation, and the round-key XOR in DES are all linear operations; the eight S-boxes are the sole nonlinear component of the round function, and that nonlinearity is exactly what resists linear and differential cryptanalysis, which is why the S-box design was the most heavily scrutinized part of DES.
+</details>
+
+---
+
+### 214. The attack in which an adversary establishes separate shared keys with each party in an unauthenticated Diffie-Hellman exchange, secretly relaying and altering messages between them, is called a ____ attack.
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **man-in-the-middle**
+
+*Intuition:* This is the man-in-the-middle attack against unauthenticated Diffie-Hellman: the attacker intercepts the exchange, runs a separate DH exchange with each party while substituting their own public value in each direction, and then decrypts, reads and re-encrypts all traffic passing between them. It works because plain Diffie-Hellman never authenticates who sent a given public value, not because the discrete logarithm problem itself is ever actually solved.
+</details>
+
+---
+
+### 215. According to NIST SP 800-57 key-size comparisons, achieving a 128-bit symmetric-equivalent security level requires approximately:
+- A. A 1024-bit RSA modulus versus a 1024-bit ECC key, since both scale identically
+- B. A 512-bit RSA modulus versus a 3072-bit ECC key, the reverse of the usual comparison
+- C. The same 128-bit key length for both RSA and ECC, with no difference between them
+- D. A 3072-bit RSA modulus versus roughly a 256 to 383-bit ECC key
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **D. A 3072-bit RSA modulus versus roughly a 256 to 383-bit ECC key**
+
+*Intuition:* NIST's key-size equivalence tables put a 128-bit symmetric security level at roughly a 3072-bit RSA modulus versus only a 256 to 383-bit elliptic curve key, which is the standard illustration of why ECC reaches equivalent security with dramatically smaller keys than RSA, since ECC's underlying discrete logarithm problem has no known sub-exponential attack the way integer factorization does.
+</details>
+
+---
+
+### 216. Given 84 = 2^2 × 3 × 7 and 126 = 2 × 3^2 × 7, gcd(84, 126) equals:
+- A. 21
+- B. 42
+- C. 84
+- D. 126
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **B. 42**
+
+*Intuition:* Taking the lowest power of each shared prime factor across the two factorizations (2^2 x 3 x 7 and 2 x 3^2 x 7) gives 2^min(2,1) x 3^min(1,2) x 7^min(1,1) = 2 x 3 x 7 = 42, which is the gcd.
+</details>
+
+---
+
+### 217. The formal statement a^(p-1) ≡ 1 (mod p), true whenever p is prime and a is not divisible by p, is known as ____ Little Theorem.
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **Fermat's**
+
+*Intuition:* This is Fermat's Little Theorem. It holds because the nonzero residues modulo a prime p form a multiplicative group of order p-1, and by Lagrange's theorem every element's order must divide the group's order, so raising any such element to the (p-1) power always returns to the identity, 1.
+</details>
+
+---
+
+### 218. Repeating the Miller-Rabin test with 10 independent random witnesses is done in order to:
+- A. Double the effective bit length of the number being tested
+- B. Guarantee total mathematical certainty equivalent to a deterministic primality proof
+- C. Ensure the candidate number is also proven to be a primitive root
+- D. Drive the probability of a false "probably prime" result down to an extremely small chance, suitable for cryptographic use
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **D. Drive the probability of a false "probably prime" result down to an extremely small chance, suitable for cryptographic use**
+
+*Intuition:* Each round of Miller-Rabin has at most a 1-in-4 chance of a composite number slipping through as a false "probably prime" result on a single witness. Repeating the test with multiple independent random witnesses multiplies those failure probabilities together, driving the overall error rate down to an astronomically small chance, more than safe enough for generating the large primes RSA key generation needs.
+</details>
+
+---
+
+### 219. The frequency (monobit) statistical test for randomness evaluates a sequence by:
+- A. Comparing the sequence against a database of previously observed random sequences
+- B. Checking whether the sequence contains any repeated substrings of length four or more
+- C. Counting the number of 0s and 1s and checking whether they occur in roughly equal proportion
+- D. Measuring how quickly the sequence can be compressed by a general-purpose algorithm
+
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **C. Counting the number of 0s and 1s and checking whether they occur in roughly equal proportion**
+
+*Intuition:* The frequency (monobit) test simply counts how many 0s and how many 1s appear in a sequence and checks whether the two counts are roughly equal, close to a 50/50 split, which is the most basic sanity check a genuinely random bitstream should pass, though passing it alone is nowhere near sufficient proof of cryptographic randomness.
+</details>
+
+---
+
+### 220. The AES-based mode approved by NIST in 2010 specifically for encrypting block-oriented storage devices such as disks is called ____.
+<details>
+<summary>Reveal Answer</summary>
+
+**Correct Answer:** **XTS-AES**
+
+*Intuition:* This is XTS-AES, standardized by NIST in Special Publication 800-38E in 2010 specifically for encrypting block-oriented storage devices such as hard drives and SSDs. It ties encryption to each sector's logical position via a tweak value, so identical plaintext at different disk locations still encrypts to different ciphertext.
+</details>
+
+---

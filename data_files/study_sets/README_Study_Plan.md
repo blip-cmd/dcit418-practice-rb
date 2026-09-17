@@ -4,7 +4,7 @@
 ## TODO: Update study sets for the new exam format
 
 - [ ] Update the study sets, especially the SET3 and SET9 exam papers, their answer keys, and this study plan, to match the new format: **50 multiple-choice questions (MCQs), 10 fill-in questions, and 2 practical questions**. Include applied security scenarios such as how ATMs store and verify passwords/PINs. Reconcile the existing section instructions and question counts with this format.
-- [ ] `data_files/study_sets/SET5_clean.md`: all 100 fill-in questions share the same generic placeholder reason, "Fill-in precision is critical on Sakai exams.", instead of a real, question-specific explanation. Write actual reasons for each, matching the quality bar used for the other clean.md sources (chris_clean.md, desmond_clean.md, chris_quiz_clean.md).
+- [x] `data_files/study_sets/SET5_clean.md`: all 100 fill-in questions shared the same generic placeholder reason, "Fill-in precision is critical on Sakai exams.". Fixed, every question now has a real, question-specific explanation.
 
 The existing papers below still use the previous format until this task is completed.
 

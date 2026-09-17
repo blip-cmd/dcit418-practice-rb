@@ -21,7 +21,7 @@ On Windows PowerShell, use `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ## Question bank and study modes
 
-The checked-in bank currently contains 735 questions: 379 from the consolidated quizzes (including Christian's 38 unique Quiz 1-4 questions), 161 from the IA bank (including Christian's 3 unique exam-review questions), 100 from SET5 (fill-ins), and 95 from SET4 (MCQ drill, 5 fewer after deduplication). It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
+The checked-in bank currently contains 758 questions: 379 from the consolidated quizzes (including Christian's 38 unique Quiz 1-4 questions), 184 from the IA bank (including Christian's 3 and SK's 23 unique exam-review questions), 100 from SET5 (fill-ins), and 95 from SET4 (MCQ drill, 5 fewer after deduplication). It covers parts 0–13, from data protection and security concepts through encryption, number theory, hashes, MACs and digital signatures. See [PARSER_REPORT.md](PARSER_REPORT.md) for counts by part and question type.
 
 Desmond's 77 unique exam-review questions are held out for now pending confirmation that their source (`data_files/received qus/desmond_dcit418_ia.md`) is genuinely IA-source material. See the TODO comment in `data_files/ia_bank/ia_clean.md` above its "Additional Questions" section.
 
@@ -55,7 +55,20 @@ This runs `scripts/parse_security_bank.py` against:
 
 It rewrites `questions.json` and `PARSER_REPORT.md`. Review those changes, then rebuild. Parsing checks structure; it does not independently verify the academic correctness of every source answer.
 
-Every `*_clean.md` file is a metadata-stripped copy of its original(s), produced so the parser reads plain question/answer/explanation content without attribution or checklists. `quiz_clean.md` and `ia_clean.md` also carry unique questions from contributor sources appended directly at the end, rather than being parsed as separate per-contributor batches: `quiz_clean.md` includes Christian's unique Quiz 1-4 questions, and `ia_clean.md` includes Christian's and Desmond's unique exam-review questions. The full per-contributor originals are kept for reference (and for re-deriving the merge, via `scripts/convert_chris_ia.py`, `scripts/convert_desmond_ia.py` and `scripts/convert_chris_quiz.py`) at `data_files/ia_bank/dcit418_ia_offsite.md` (the original 158-question IA bank), `data_files/quiz_bank/quiz.md` (the original 366-question quiz bank), `data_files/study_sets/SET4_MCQ_Drill_QUESTIONS.md` + `SET4_MCQ_Drill_ANSWER_KEY.md`, `data_files/study_sets/SET5_FillIns_QUESTIONS.md` + `SET5_FillIns_ANSWER_KEY.md`, `data_files/received qus/Chris/IA.md` and `Quiz 1.md`/`Quiz 2.md`/`Quiz 3.md`/`quiz_4.md`, and `data_files/received qus/desmond_dcit418_ia.md`. Human-readable review copies live at `data_files/ia_bank/CHRIS_IA_FORMATTED.md` and `data_files/ia_bank/DESMOND_IA_FORMATTED.md`.
+Every `*_clean.md` file is a metadata-stripped copy of its original(s), produced so the parser reads plain question/answer/explanation content without attribution or checklists. `quiz_clean.md` and `ia_clean.md` also carry unique questions from contributor sources appended directly at the end, rather than being parsed as separate per-contributor batches: `quiz_clean.md` includes Christian's unique Quiz 1-4 questions, and `ia_clean.md` includes Christian's and SK's unique exam-review questions. The full per-contributor originals are kept for reference (and for re-deriving the merge, via `scripts/convert_chris_ia.py`, `scripts/convert_desmond_ia.py` and `scripts/convert_chris_quiz.py`) at `data_files/ia_bank/dcit418_ia_offsite.md` (the original 158-question IA bank), `data_files/quiz_bank/quiz.md` (the original 366-question quiz bank), `data_files/study_sets/SET4_MCQ_Drill_QUESTIONS.md` + `SET4_MCQ_Drill_ANSWER_KEY.md`, `data_files/study_sets/SET5_FillIns_QUESTIONS.md` + `SET5_FillIns_ANSWER_KEY.md`, `data_files/received qus/Chris/IA.md` and `Quiz 1.md`/`Quiz 2.md`/`Quiz 3.md`/`quiz_4.md`, `data_files/received qus/desmond_dcit418_ia.md`, and `data_files/received qus/SK_ia.pdf`. Human-readable review copies live at `data_files/ia_bank/CHRIS_IA_FORMATTED.md` and `data_files/ia_bank/DESMOND_IA_FORMATTED.md`.
+
+### Ingesting a new source
+
+`scripts/ingest_source.py` is a reusable pipeline for any source shaped like "N. question / A-D options / Answer: X" (the shape produced by most PDF-to-text extraction of an exam-review bank), replacing the need to write another one-off `convert_*.py` script:
+
+```sh
+python scripts/ingest_source.py \
+  --source "data_files/received qus/SK_ia.pdf" \
+  --target ia_bank --batch sk_ia --section "SK's Exam Review" \
+  --explanations-json data_files/ia_bank/sk_ia_explanations.json
+```
+
+It extracts, deduplicates against the current bank (using the same normalized-body-prefix key the main parser uses), and appends the unique survivors directly into `ia_clean.md` or `quiz_clean.md`. It reads a PDF directly if PyMuPDF (`pip install pymupdf`, import name `fitz`) is available, or accepts a pre-extracted `.txt`/`.md` file. Any unique question the source left unexplained is flagged loudly (both to stderr and as a `NEEDS_EXPLANATION` placeholder in the output) rather than silently skipped or filled with a generic line, write real explanations into a `{normalized-80-char-body-prefix: explanation}` JSON file and pass it via `--explanations-json` (see `data_files/ia_bank/sk_ia_explanations.json` for an example) to fill them in without re-touching anything else. Run with `--dry-run` first to see extraction and dedup counts before anything is written.
 
 `data_files/received qus/Chris/quiz_5.md` is excluded entirely: it is a garbled multilingual voice-transcript artifact where the real question text was never captured, only fragments of an AI's spoken-back explanation.
 

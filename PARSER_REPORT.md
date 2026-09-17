@@ -1,31 +1,31 @@
 # Parser verification: PASS
 
-Total questions: 735; Parts: 14.
+Total questions: 758; Parts: 14.
 
 | Part | Title | mcq4 | mcq5 | multi | fill | tf | Total |
 |---|---|---:|---:|---:|---:|---:|---:|
 | 0 | Data Protection & IT Security Policy | 63 | 0 | 9 | 0 | 21 | 93 |
-| 1 | Overview & Computer Security Concepts | 155 | 0 | 8 | 53 | 21 | 237 |
-| 2 | Classical Encryption Techniques | 19 | 0 | 0 | 5 | 1 | 25 |
-| 3 | Block Ciphers & the Data Encryption Standard | 27 | 0 | 0 | 12 | 1 | 40 |
-| 4 | Number Theory & Finite Fields | 14 | 0 | 0 | 6 | 0 | 20 |
-| 5 | Advanced Encryption Standard (AES) | 35 | 0 | 0 | 18 | 1 | 54 |
-| 6 | Block Cipher Operation | 17 | 0 | 0 | 8 | 2 | 27 |
-| 7 | Pseudorandom Number Generation & Stream Ciphers | 36 | 0 | 0 | 17 | 1 | 54 |
-| 8 | More Number Theory (Primes & Primality) | 20 | 0 | 0 | 6 | 1 | 27 |
-| 9 | Public-Key Cryptography & RSA | 28 | 0 | 0 | 16 | 1 | 45 |
-| 10 | Other Public-Key Cryptosystems | 26 | 0 | 0 | 9 | 0 | 35 |
-| 11 | Cryptographic Hash Functions | 18 | 0 | 0 | 4 | 1 | 23 |
-| 12 | Message Authentication Codes | 17 | 0 | 0 | 1 | 2 | 20 |
-| 13 | Digital Signatures | 30 | 0 | 0 | 2 | 3 | 35 |
-| - | **Total** | 505 | 0 | 17 | 157 | 56 | **735** |
+| 1 | Overview & Computer Security Concepts | 156 | 0 | 8 | 16 | 21 | 201 |
+| 2 | Classical Encryption Techniques | 19 | 0 | 0 | 11 | 1 | 31 |
+| 3 | Block Ciphers & the Data Encryption Standard | 28 | 0 | 0 | 12 | 1 | 41 |
+| 4 | Number Theory & Finite Fields | 17 | 0 | 0 | 5 | 0 | 22 |
+| 5 | Advanced Encryption Standard (AES) | 36 | 0 | 0 | 24 | 1 | 61 |
+| 6 | Block Cipher Operation | 18 | 0 | 0 | 12 | 2 | 32 |
+| 7 | Pseudorandom Number Generation & Stream Ciphers | 38 | 0 | 0 | 22 | 1 | 61 |
+| 8 | More Number Theory (Primes & Primality) | 22 | 0 | 0 | 10 | 1 | 33 |
+| 9 | Public-Key Cryptography & RSA | 31 | 0 | 0 | 22 | 1 | 54 |
+| 10 | Other Public-Key Cryptosystems | 28 | 0 | 0 | 16 | 0 | 44 |
+| 11 | Cryptographic Hash Functions | 18 | 0 | 0 | 6 | 1 | 25 |
+| 12 | Message Authentication Codes | 17 | 0 | 0 | 3 | 2 | 22 |
+| 13 | Digital Signatures | 32 | 0 | 0 | 3 | 3 | 38 |
+| - | **Total** | 523 | 0 | 17 | 162 | 56 | **758** |
 
 ## Source Distribution
 
 | Source | Count |
 |---|---:|
 | quizbank | 379 |
-| iabank | 161 |
+| iabank | 184 |
 | set5 | 100 |
 | set4 | 95 |
 
@@ -34,16 +34,16 @@ Total questions: 735; Parts: 14.
 | Part | Title | iabank | quizbank | set4 | set5 | Total |
 |---|---|---:|---:|---:|---:|---:|
 | 0 | Data Protection & IT Security Policy | 0 | 93 | 0 | 0 | 93 |
-| 1 | Overview & Computer Security Concepts | 6 | 166 | 18 | 47 | 237 |
-| 2 | Classical Encryption Techniques | 0 | 12 | 9 | 4 | 25 |
-| 3 | Block Ciphers & the Data Encryption Standard | 12 | 7 | 12 | 9 | 40 |
-| 4 | Number Theory & Finite Fields | 8 | 1 | 7 | 4 | 20 |
-| 5 | Advanced Encryption Standard (AES) | 26 | 9 | 11 | 8 | 54 |
-| 6 | Block Cipher Operation | 12 | 11 | 2 | 2 | 27 |
-| 7 | Pseudorandom Number Generation & Stream Ciphers | 22 | 9 | 13 | 10 | 54 |
-| 8 | More Number Theory (Primes & Primality) | 14 | 5 | 5 | 3 | 27 |
-| 9 | Public-Key Cryptography & RSA | 25 | 10 | 5 | 5 | 45 |
-| 10 | Other Public-Key Cryptosystems | 17 | 8 | 5 | 5 | 35 |
-| 11 | Cryptographic Hash Functions | 6 | 10 | 5 | 2 | 23 |
-| 12 | Message Authentication Codes | 1 | 17 | 2 | 0 | 20 |
-| 13 | Digital Signatures | 12 | 21 | 1 | 1 | 35 |
+| 1 | Overview & Computer Security Concepts | 7 | 166 | 18 | 10 | 201 |
+| 2 | Classical Encryption Techniques | 0 | 12 | 9 | 10 | 31 |
+| 3 | Block Ciphers & the Data Encryption Standard | 13 | 7 | 12 | 9 | 41 |
+| 4 | Number Theory & Finite Fields | 11 | 1 | 7 | 3 | 22 |
+| 5 | Advanced Encryption Standard (AES) | 28 | 9 | 11 | 13 | 61 |
+| 6 | Block Cipher Operation | 14 | 11 | 2 | 5 | 32 |
+| 7 | Pseudorandom Number Generation & Stream Ciphers | 24 | 9 | 13 | 15 | 61 |
+| 8 | More Number Theory (Primes & Primality) | 17 | 5 | 5 | 6 | 33 |
+| 9 | Public-Key Cryptography & RSA | 28 | 10 | 5 | 11 | 54 |
+| 10 | Other Public-Key Cryptosystems | 20 | 8 | 5 | 11 | 44 |
+| 11 | Cryptographic Hash Functions | 6 | 10 | 5 | 4 | 25 |
+| 12 | Message Authentication Codes | 1 | 17 | 2 | 2 | 22 |
+| 13 | Digital Signatures | 15 | 21 | 1 | 1 | 38 |
