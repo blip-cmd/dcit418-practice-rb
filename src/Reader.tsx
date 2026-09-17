@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { byId, displayOption } from "./model";
 
 const markdown = (text: string) => (
-  <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+  <Markdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
+    {text}
+  </Markdown>
 );
 
 export function Reader({

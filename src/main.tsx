@@ -2,6 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 import {
   practiceBank as bank,
   supplemental,
@@ -83,7 +86,9 @@ const uniqueQuestionCount = (items: Question[]) =>
   new Set(items.map(questionKey)).size;
 const mockTotal = mockTotalTarget();
 const md = (text: string) => (
-  <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+  <Markdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
+    {text}
+  </Markdown>
 );
 const clock = (seconds: number) =>
   `${Math.floor(seconds / 60)
@@ -190,9 +195,25 @@ function printDeckPdf(questions: Question[], title: string) {
   setTimeout(() => w.print(), 300);
   return true;
 }
-function load(): Progress {
+const RECOVERY_STORAGE = `${STORAGE}-recovered-backup`;
+// Saved progress can become unreadable (a bad browser extension write, a
+// half-finished tab close, manual tampering). Rather than blocking the app
+// behind a banner demanding a manual export, keep the unreadable text under
+// a separate key and start the in-memory session fresh so practice can
+// continue and future saves succeed again.
+function loadWithRecovery(): { progress: Progress; recovered: boolean } {
   const text = localStorage.getItem(STORAGE);
-  return text ? parseProgress(text) : emptyProgress();
+  if (!text) return { progress: emptyProgress(), recovered: false };
+  try {
+    return { progress: parseProgress(text), recovered: false };
+  } catch {
+    try {
+      localStorage.setItem(RECOVERY_STORAGE, text);
+    } catch {
+      /* Best-effort backup; still proceed with a fresh session either way. */
+    }
+    return { progress: emptyProgress(), recovered: true };
+  }
 }
 
 function App() {
@@ -281,21 +302,27 @@ function App() {
     },
     [],
   );
-  const [progress, setProgress] = useState<Progress>(() => {
-    try {
-      return load();
-    } catch {
-      return emptyProgress();
+  const initialLoad = useRef<{ progress: Progress; recovered: boolean } | null>(
+    null,
+  );
+  if (!initialLoad.current) initialLoad.current = loadWithRecovery();
+  const [progress, setProgress] = useState<Progress>(
+    () => initialLoad.current!.progress,
+  );
+  const [storageError, setStorageError] = useState("");
+  const [hasRecoveryBackup, setHasRecoveryBackup] = useState(
+    () => !!localStorage.getItem(RECOVERY_STORAGE),
+  );
+  useEffect(() => {
+    if (initialLoad.current?.recovered) {
+      notify(
+        "Your saved progress couldn't be read, so a fresh session was started automatically. The old, unreadable data is kept as a backup you can download from the sidebar.",
+        "warning",
+      );
     }
-  });
-  const [storageError, setStorageError] = useState(() => {
-    try {
-      load();
-      return "";
-    } catch {
-      return "Saved progress could not be read. Export a backup before making changes; your old browser data has been retained.";
-    }
-  });
+    // Only ever fires from the one load that happened before mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [view, setView] = useState<
     "home" | "practice" | "mock" | "review" | "dashboard" | "read" | "settings"
   >(progress.session ? progress.session.mode : "home");
@@ -872,6 +899,19 @@ function App() {
           <button className="text-button" onClick={() => file.current?.click()}>
             Import progress ↙
           </button>
+          {hasRecoveryBackup && (
+            <button
+              className="text-button"
+              onClick={() => {
+                const old = localStorage.getItem(RECOVERY_STORAGE);
+                if (old) download("dcit418-recovery.json", old, "application/json");
+                localStorage.removeItem(RECOVERY_STORAGE);
+                setHasRecoveryBackup(false);
+              }}
+            >
+              Download unreadable backup ↗
+            </button>
+          )}
           <input
             hidden
             ref={file}
