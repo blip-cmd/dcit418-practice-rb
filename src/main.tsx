@@ -20,6 +20,7 @@ import {
   MOCK_PER_PART,
   MOCK_RANDOM_EXTRA,
   mockQuota,
+  mockResultCsv,
   mockTotalTarget,
   parseProgress,
   reviewIds,
@@ -814,6 +815,11 @@ function App() {
       );
     }
   }
+  function exportMockResults(sessionId: string) {
+    const csv = mockResultCsv(progress.attempts, sessionId);
+    download("dcit418-mock-results.csv", csv, "text/csv;charset=utf-8");
+    notify("Mock results downloaded, right and wrong answers included.", "success");
+  }
   const accuracy = progress.attempts.length
     ? Math.round(
         (progress.attempts.filter((a) => a.correct).length /
@@ -1424,6 +1430,7 @@ function App() {
           <Dashboard
             attempts={progress.attempts}
             onExport={() => void exportErrors()}
+            onExportMock={exportMockResults}
           />
         ) : view === "settings" ? (
           <Appearance
@@ -2088,9 +2095,11 @@ function MockResults({
 function Dashboard({
   attempts,
   onExport,
+  onExportMock,
 }: {
   attempts: Attempt[];
   onExport: () => void;
+  onExportMock: (sessionId: string) => void;
 }) {
   const score = attempts.filter((a) => a.correct).length;
   return (
@@ -2210,7 +2219,7 @@ function Dashboard({
           </section>
         );
       })}
-      <MockHistory attempts={attempts} />
+      <MockHistory attempts={attempts} onExport={onExportMock} />
       <section className="export-card">
         <div>
           <h2>Take your lessons with you.</h2>

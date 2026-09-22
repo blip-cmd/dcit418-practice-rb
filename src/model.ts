@@ -304,8 +304,23 @@ export function submitMock(p: Progress, now = Date.now()): Progress {
     session: { ...s, submitted: true },
   };
 }
+function csvDocument(rows: string[][]): string {
+  return (
+    "\uFEFF" +
+    rows
+      .map((row) =>
+        row
+          .map((value) => {
+            const safe = /^[=+@\-\t\r]/.test(value) ? `'${value}` : value;
+            return `"${safe.replaceAll('"', '""')}"`;
+          })
+          .join(","),
+      )
+      .join("\r\n")
+  );
+}
 export function errorCsv(attempts: Attempt[]): string {
-  const rows = [
+  return csvDocument([
     [
       "Question ID",
       "Part",
@@ -329,20 +344,36 @@ export function errorCsv(attempts: Attempt[]): string {
           q.reason,
         ];
       }),
-  ];
-  return (
-    "\uFEFF" +
-    rows
-      .map((row) =>
-        row
-          .map((value) => {
-            const safe = /^[=+@\-\t\r]/.test(value) ? `'${value}` : value;
-            return `"${safe.replaceAll('"', '""')}"`;
-          })
-          .join(","),
-      )
-      .join("\r\n")
-  );
+  ]);
+}
+export function mockResultCsv(attempts: Attempt[], sessionId: string): string {
+  return csvDocument([
+    [
+      "Question ID",
+      "Part",
+      "Week",
+      "Topic source",
+      "What I answered",
+      "Correct answer",
+      "Result",
+      "The rule that fixes it",
+    ],
+    ...attempts
+      .filter((a) => a.sessionId === sessionId)
+      .map((a) => {
+        const q = byId.get(a.questionId)!;
+        return [
+          q.id,
+          String(q.part),
+          q.week,
+          q.source,
+          a.answer,
+          q.correctText,
+          a.correct ? "Correct" : "Wrong",
+          q.reason,
+        ];
+      }),
+  ]);
 }
 export function parseProgress(text: string, { requireCourse = false } = {}): Progress {
   const p: unknown = JSON.parse(text);

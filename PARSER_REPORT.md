@@ -11,14 +11,14 @@ Total questions: 758; Parts: 14.
 | 4 | Number Theory & Finite Fields | 17 | 0 | 0 | 5 | 0 | 22 |
 | 5 | Advanced Encryption Standard (AES) | 36 | 0 | 0 | 24 | 1 | 61 |
 | 6 | Block Cipher Operation | 18 | 0 | 0 | 12 | 2 | 32 |
-| 7 | Pseudorandom Number Generation & Stream Ciphers | 38 | 0 | 0 | 22 | 1 | 61 |
+| 7 | Pseudorandom Number Generation & Stream Ciphers | 38 | 0 | 0 | 21 | 2 | 61 |
 | 8 | More Number Theory (Primes & Primality) | 22 | 0 | 0 | 10 | 1 | 33 |
 | 9 | Public-Key Cryptography & RSA | 31 | 0 | 0 | 22 | 1 | 54 |
 | 10 | Other Public-Key Cryptosystems | 28 | 0 | 0 | 16 | 0 | 44 |
 | 11 | Cryptographic Hash Functions | 18 | 0 | 0 | 6 | 1 | 25 |
 | 12 | Message Authentication Codes | 17 | 0 | 0 | 3 | 2 | 22 |
 | 13 | Digital Signatures | 32 | 0 | 0 | 3 | 3 | 38 |
-| - | **Total** | 523 | 0 | 17 | 162 | 56 | **758** |
+| - | **Total** | 523 | 0 | 17 | 161 | 57 | **758** |
 
 ## Source Distribution
 

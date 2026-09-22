@@ -2031,13 +2031,16 @@
 
 ---
 
-### 138. For a stream cipher to be considered secure, all of the following are generally required EXCEPT:
+### 138. For a stream cipher to be considered secure, is it acceptable for the keystream to be shorter than the plaintext and reused across several messages?
+- A. True
+- B. False
+
 <details>
 <summary>Reveal Answer</summary>
 
-**Correct Answer:** **C. The keystream must be shorter than plaintext so it can be reused efficiently across several messages**
+**Correct Answer:** **B. False**
 
-*Intuition:* The correct answer is **C. The keystream must be shorter than plaintext so it can be reused efficiently across several messages**. This reflects the standard technical terminology established in the course syllabus and cryptographic standards.
+*Intuition:* A secure stream cipher needs a keystream at least as long as the plaintext, used only once. If the keystream is shorter and gets reused, the repeating segment cancels out when two ciphertexts are XORed together, exposing the XOR of the two plaintexts. Since natural-language plaintext is highly redundant, an attacker can separate that combined value back into both original messages, the same "two-time pad" weakness that makes key reuse fatal for the one-time pad.
 </details>
 
 ---

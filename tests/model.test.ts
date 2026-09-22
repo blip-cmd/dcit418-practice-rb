@@ -12,6 +12,7 @@ import {
   median,
   mockIds,
   mockQuota,
+  mockResultCsv,
   mockTotalTarget,
   parseProgress,
   reviewIds,
@@ -160,5 +161,22 @@ describe("exam integrity", () => {
     const csv = errorCsv([makeAttempt(s, "P1-Q1")]);
     expect(csv).toContain('"\'=cmd,""x""\nnext"');
     expect(csv).toContain("The rule that fixes it");
+  });
+  it("exports one mock paper's right and wrong answers, excluding other sessions", () => {
+    const paper = createSession("mock", ["P1-Q1", "P1-Q2"]);
+    paper.drafts["P1-Q1"] = { answer: "", selected: 1, seconds: 5 };
+    paper.drafts["P1-Q2"] = { answer: "", selected: 0, seconds: 5 };
+    const other = createSession("mock", ["P1-Q1"]);
+    other.drafts["P1-Q1"] = { answer: "", selected: 1, seconds: 5 };
+    const attempts = [
+      makeAttempt(paper, "P1-Q1"),
+      makeAttempt(paper, "P1-Q2"),
+      makeAttempt(other, "P1-Q1"),
+    ];
+    const csv = mockResultCsv(attempts, paper.id);
+    expect(csv).toContain("Result");
+    expect(csv).toContain('"Correct"');
+    expect(csv).toContain('"Wrong"');
+    expect(csv.split("\r\n")).toHaveLength(3);
   });
 });

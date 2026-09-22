@@ -1,5 +1,11 @@
 import { byId, type Attempt } from "./model";
-export function MockHistory({ attempts }: { attempts: Attempt[] }) {
+export function MockHistory({
+  attempts,
+  onExport,
+}: {
+  attempts: Attempt[];
+  onExport: (sessionId: string) => void;
+}) {
   const papers = [
     ...new Set(
       attempts.filter((a) => a.mode === "mock").map((a) => a.sessionId),
@@ -22,6 +28,15 @@ export function MockHistory({ attempts }: { attempts: Attempt[] }) {
                 {rows.length - misses.length} / {rows.length}
               </span>
             </summary>
+            <button
+              className="secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                onExport(id);
+              }}
+            >
+              Export this paper's results ↗
+            </button>
             <div className="part-scores">
               {[1, 2, 3, 4, 5, 6].map((part) => (
                 <div key={part}>
